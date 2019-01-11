@@ -739,30 +739,37 @@
 				<div class="contents-right-color">
 					<div class="contents-right-div col-sm-2 sidenav">
 						<div class="login-form-right-div">
-						
+
 							<c:if test="${empty login} }">
 								<form action="user/login-post" method="post">
-									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> 
-									<input type="text" name="password" placeholder="비밀번호" class="login-input-pw" />
-									<input type="checkbox" id="autoLogin" value="1" name="use_cookie" />
-									<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/>
-									<label for="autoLogin">자동 로그인</label> 
-									<input type="submit" value="로그인" class="btn-side-login" />
+									<input type="text" name="id" placeholder="아이디"
+										class="login-input-id" /> <input type="text" name="password"
+										placeholder="비밀번호" class="login-input-pw" /> <input
+										type="checkbox" id="autoLogin" value="1" name="use_cookie" />
+									<input type="hidden" name="queryString"
+										value="https://localhost:8443/teamproject/" /> <label
+										for="autoLogin">자동 로그인</label> <input type="submit"
+										value="로그인" class="btn-side-login" />
 								</form>
-								<input type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" />
-								<input type="button" value="구글 로그인" class="btn-side-google-login" />
+								<input type="button" value="아이디/비밀번호 찾기"
+									class="btn-side-findIdAndPw" />
+								<input type="button" value="구글 로그인"
+									class="btn-side-google-login" />
 							</c:if>
 							<c:if test="${not empty login} }">
-								${login.id }님, 안녕하세요! <br/>
+								${login.id }님, 안녕하세요! <br />
 								<button id="btn-logout">로그아웃</button>
 							</c:if>
-							
+
 						</div>
 
-						<input type="button" value="질문하기" class="btn-side-question" /> <input
-							type="button" value="글 올리기" class="btn-side-writePost" /> <input
-							type="button" value="링크 올리기" class="btn-side-link" /> <input
-							type="button" value="라이브 방송하기" class="btn-side-live" />
+						<form action="board/write-question" method="get">
+							<input type="submit" value="질문하기" class="btn-side-question" /> 
+							<input type="hidden" name="type" value="question" /> 
+							<input type="hidden" name="queryString" value="http://localhost:8181/teamproject/" />
+						</form>
+						<input type="button" value="글 올리기" class="btn-side-writePost" />
+						<input type="button" value="링크 올리기" class="btn-side-link" />
 					</div>
 				</div>
 				<!-- End contents - right -->
