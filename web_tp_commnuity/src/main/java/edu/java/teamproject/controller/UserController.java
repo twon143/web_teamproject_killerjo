@@ -52,7 +52,7 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "user-login", method = RequestMethod.GET)
 	public void login(String url, Model model) {
 		logger.info("login() 호출");
 		

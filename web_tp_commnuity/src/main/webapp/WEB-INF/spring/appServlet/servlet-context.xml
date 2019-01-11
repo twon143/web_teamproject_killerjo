@@ -32,6 +32,15 @@
 	      <beans:bean id="loginInterceptor"
 	        class="edu.java.teamproject.interceptor.LoginInterceptor"></beans:bean>
 	    </mvc:interceptor>
+	    
+	    <!-- AuthInterceptor URL="/board/write-form" 설정 -->
+	    <mvc:interceptor>
+	    	<mvc:mapping path="/board/write-form"/>  
+	      	<beans:bean id="authInterceptor"
+	      		class="edu.java.teamproject.interceptor.AuthInterceptor">
+			</beans:bean>
+	    </mvc:interceptor>
+	    
   	</mvc:interceptors>
 	
 </beans:beans>

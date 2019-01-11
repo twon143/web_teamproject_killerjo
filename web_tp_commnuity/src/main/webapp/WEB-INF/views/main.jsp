@@ -763,10 +763,10 @@
 
 						</div>
 
-						<form action="board/write-question" method="get">
+						<form action="board/write-form" method="get">
 							<input type="submit" value="질문하기" class="btn-side-question" /> 
 							<input type="hidden" name="type" value="question" /> 
-							<input type="hidden" name="queryString" value="http://localhost:8181/teamproject/" />
+							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 						</form>
 						<input type="button" value="글 올리기" class="btn-side-writePost" />
 						<input type="button" value="링크 올리기" class="btn-side-link" />
