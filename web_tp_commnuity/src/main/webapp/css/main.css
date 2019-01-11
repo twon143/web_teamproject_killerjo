@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+@import url("reset.css");
+@import url("layout.css");
+
+
+#warpper{
+	font-size: medium;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+}
+
+
+
+
+
+
