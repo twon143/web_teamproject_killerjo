@@ -100,7 +100,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			response.sendRedirect(target);
 		} else { // 로그인 실패
 			logger.info("로그인 실패");
-			response.sendRedirect("/teamproject/user/login?url=" + target);
+			response.sendRedirect("/teamproject/user/user-login?url=" + target);
 		}
 		
 	}

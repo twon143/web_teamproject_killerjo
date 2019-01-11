@@ -35,6 +35,7 @@
 	    
 	    <!-- AuthInterceptor URL="/board/write-form" 설정 -->
 	    <mvc:interceptor>
+	    	<!-- <mvc:mapping path="/"/> -->
 	    	<mvc:mapping path="/board/write-form"/>  
 	      	<beans:bean id="authInterceptor"
 	      		class="edu.java.teamproject.interceptor.AuthInterceptor">
