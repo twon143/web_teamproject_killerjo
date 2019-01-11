@@ -41,5 +41,12 @@
 	<select id="checkUserWithSessionKey" resultType="User">
 		SELECT * FROM ${tbl_user} WHERE ${user.session_key} = #{sessionId} AND ${user.session_limit} > (SELECT NOW())
 	</select>
+	
+	<!-- 자동 로그인 버튼을 체크했을 때 유저의 use_cookie 상태를 바꿔주는 부분 -->
+	<update id="changeUseCookieStatus">
+		UPDATE ${tbl_user} SET ${user.use_cookie} = #{flag}
+		WHERE ${user.id} = #{id}
+	</update>
+	
 
 </mapper>

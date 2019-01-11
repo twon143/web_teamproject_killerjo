@@ -1,5 +1,6 @@
 package edu.java.teamproject.interceptor;
 
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -49,7 +50,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		String use_cookie = request.getParameter("use_cookie");
 		
-		
+		logger.info("use_cookie : {}", use_cookie);
 	
 		// request에는 targetUrl(로그인 후 이동할 페이지) 요청 파라미터가 있음
 		String target = request.getParameter("queryString");
@@ -59,6 +60,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		Map<String, Object> model = modelAndView.getModel();
 		
 		User result = (User) model.get("loginResult");
+		
+		if(use_cookie != null) {
+			userDao.changeUseCookieStatus(result.getId(), Integer.parseInt(use_cookie));
+		}
 		
 		if(result != null) { // 로그인 성공
 			logger.info("로그인 성공");
@@ -74,9 +79,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				Cookie cookie = new Cookie("loginCookie", session.getId());
 				// 쿠키를 찾을 경로를 컨텍스트 경로로 변경해 주고...
 				cookie.setPath("/");
-				cookie.setMaxAge(60*60*24*7); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
+				int amount = 60*60*24*7;
+				cookie.setMaxAge(amount); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
 				// 쿠키를 적용해 준다.
                 response.addCookie(cookie);
+                
+                // currentTimeMills()가 1/1000초 단위임으로 1000곱해서 더해야함
+                Date sessionLimit = new Date(System.currentTimeMillis() + (1000*amount));
+
+                if(userDao.keepLogin(result.getId(), session.getId(), sessionLimit) == 1) {
+                	logger.info("현재 세션ID({})와 유효시간({}) 사용자 테이블 저장 success");
+                } else {
+                	logger.info("현재 세션ID({})와 유효시간({}) 사용자 테이블 저장 fail");
+                }
+
 
 			}
 			

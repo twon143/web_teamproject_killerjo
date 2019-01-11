@@ -31,27 +31,27 @@
                   <div class="modal-body">
                      <form>
                         <div class="form-group">
-                           <label for="user_id">아이디</label><br> <input type="text"
-                              id="user_id" name="user_id" placeholder="5~15자의 영문, 숫자로만">
+                           <label for="signup_user_id">아이디</label><br> 
+                           <input type="text" id="signup_user_id" name="id" placeholder="5~15자의 영문, 숫자로만">
                         </div>
                         <div class="form-group">
-                           <label for="user_password">비밀번호</label><br> <input
-                              type="password" id="user_password" name="user_password"
+                           <label for="signup_user_password">비밀번호</label><br> <input
+                              type="password" id="signup_user_password" name="password"
                               placeholder="비밀번호 입력">
                         </div>
                         <div class="form-group">
-                           <label for="user_password_confirm">비밀번호 확인</label><br> <input
-                              type="password" id="user_password_confirm"
-                              name="user_password_confirm" placeholder="비밀번호를 다시 입력">
+                           <label for="signup_user_password_confirm">비밀번호 확인</label><br> <input
+                              type="password" id="signup_user_password_confirm"
+                              name="password_confirm" placeholder="비밀번호를 다시 입력">
                         </div>
                         <div class="form-group">
-                           <label for="user_nickname">닉네임</label><br> <input
-                              type="text" id="user_nickname" name="user_nickname"
+                           <label for="signup_user_nickname">닉네임</label><br> <input
+                              type="text" id="signup_user_nickname" name="nickname"
                               placeholder="2자 이상">
                         </div>
                         <div class="form-group">
-                           <label for="user_email">이메일</label><br> <input
-                              type="email" id="user_email" name="user_email"
+                           <label for="signup_user_email">이메일</label><br> <input
+                              type="email" id="signup_user_email" name="email"
                               placeholder="이메일">
                         </div>
                         <p class="help-block">
@@ -80,11 +80,11 @@
                      <form>
                         <div class="form-group">
                            <label for="user_id">아이디</label><br> <input type="text"
-                              id="user_id" name="user_id" placeholder="아이디">
+                              id="user_id" name="id" placeholder="아이디">
                         </div>
                         <div class="form-group">
                            <label for="user_password">비밀번호</label><br> <input
-                              type="password" id="user_password" name="user_password"
+                              type="password" id="password" name="user_password"
                               placeholder="비밀번호">
                         </div>
                         <button type="button" id="login-btn"
@@ -740,7 +740,7 @@
 					<div class="contents-right-div col-sm-2 sidenav">
 						<div class="login-form-right-div">
 
-							<c:if test="${empty login} }">
+							<c:if test="${empty login}">
 								<form action="user/login-post" method="post">
 									<input type="text" name="id" placeholder="아이디"
 										class="login-input-id" /> <input type="text" name="password"
@@ -756,7 +756,7 @@
 								<input type="button" value="구글 로그인"
 									class="btn-side-google-login" />
 							</c:if>
-							<c:if test="${not empty login} }">
+							<c:if test="${not empty login}">
 								${login.id }님, 안녕하세요! <br />
 								<button id="btn-logout">로그아웃</button>
 							</c:if>

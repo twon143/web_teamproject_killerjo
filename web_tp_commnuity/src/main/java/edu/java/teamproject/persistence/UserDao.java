@@ -17,6 +17,6 @@ public interface UserDao {
 
 	// 이전에 로그인한 적이 있는지, 즉 유효시간이 넘지 않은 세션을 가지고 있는지 체크한다.
 	User checkUserWithSessionKey(String sessionId);
-
+	int changeUseCookieStatus(String uid, int flag);
 	
 }

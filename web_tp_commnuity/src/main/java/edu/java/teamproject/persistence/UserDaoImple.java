@@ -56,7 +56,7 @@ public class UserDaoImple implements UserDao {
 	@Override
 	public boolean isUseCookie(String id) {
 		logger.info("isUseCookie({}) 호출", id);
-		return (Integer)session.selectOne(USER_MAPPER + ".useCookie", id) == 1 ? true : false;
+		return (Integer)session.selectOne(USER_MAPPER + ".isUseCookie", id) == 1 ? true : false;
 	}
 
 	@Override
@@ -82,6 +82,18 @@ public class UserDaoImple implements UserDao {
 		logger.info("checkUserWithSessionKey(sessionId : {})", sessionId);
 		
 		return session.selectOne(USER_MAPPER + ".checkUserWithSessionKey", sessionId);
+	}
+
+	@Override
+	public int changeUseCookieStatus(String uid, int flag) {
+		logger.info("changeUseCookieStatus(uid : {}, flag : {})", uid, flag);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("flag", flag);
+		map.put("id", uid);
+		
+		return session.update(USER_MAPPER + ".changeUseCookieStatus", map);
 	}
 
 }
