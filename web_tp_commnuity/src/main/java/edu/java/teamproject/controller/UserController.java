@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -56,14 +57,13 @@ public class UserController {
 		logger.info("login() 호출");
 		
 		// url : 로그인 페이지 이동 전의 페이지 url >> 로그인 후 해당 페이지로 이동하기 위함
-		
 		if(url != null) {
 			model.addAttribute("targetUrl", url);
 		}
 	}
 	
 	@RequestMapping(value = "login-post", method = RequestMethod.POST)
-	public void login(User user, Model model) {
+	public void loginPost(User user, Model model) {
 		logger.info("loginPost({})", user);
 		
 		User result = userService.signIn(user);
@@ -73,7 +73,7 @@ public class UserController {
 	@RequestMapping(value = "logout")
 	public String logout(HttpSession session) {
 		logger.info("logout() 호출");
-		logger.info("loginId: {}", session.getAttribute("loginId"));
+		logger.info("login: {}", session.getAttribute("login"));
 		
 		session.invalidate(); // Session 객체를 삭제
 		

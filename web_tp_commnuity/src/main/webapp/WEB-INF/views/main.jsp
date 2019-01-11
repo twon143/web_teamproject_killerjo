@@ -739,11 +739,24 @@
 				<div class="contents-right-color">
 					<div class="contents-right-div col-sm-2 sidenav">
 						<div class="login-form-right-div">
-							<input type="text" placeholder="아이디" class="login-input-id" /> <input
-								type="text" placeholder="비밀번호" class="login-input-pw" /> <input
-								type="button" value="로그인" class="btn-side-login" /> <input
-								type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" />
-							<input type="button" value="구글 로그인" class="btn-side-google-login" />
+						
+							<c:if test="${empty login} }">
+								<form action="user/login-post" method="post">
+									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> 
+									<input type="text" name="password" placeholder="비밀번호" class="login-input-pw" />
+									<input type="checkbox" id="autoLogin" value="1" name="use_cookie" />
+									<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/>
+									<label for="autoLogin">자동 로그인</label> 
+									<input type="submit" value="로그인" class="btn-side-login" />
+								</form>
+								<input type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" />
+								<input type="button" value="구글 로그인" class="btn-side-google-login" />
+							</c:if>
+							<c:if test="${not empty login} }">
+								${login.id }님, 안녕하세요! <br/>
+								<button id="btn-logout">로그아웃</button>
+							</c:if>
+							
 						</div>
 
 						<input type="button" value="질문하기" class="btn-side-question" /> <input
@@ -788,10 +801,15 @@
 
    </div>
    <!-- E:wrapper -->
-   
-   
-
 
    <script src="js/main.js"></script>
+   
+   <script type="text/javascript">
+   	$(function() {
+   		$('#btn-logout').click(function() {
+			location = 'user/logout';
+		});
+	})
+   </script>
 </body>
 </html>

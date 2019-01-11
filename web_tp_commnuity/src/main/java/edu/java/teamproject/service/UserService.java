@@ -1,6 +1,7 @@
 package edu.java.teamproject.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 import javax.mail.MessagingException;
 
@@ -11,5 +12,7 @@ public interface UserService {
 	void signUp(User user) throws MessagingException, UnsupportedEncodingException;
 	User signIn(User user);
 	int enableUserLogin(String email);
+	int keepLogin(String uid, String sessionId, Date next);
+	User checkUserWithSessionKey(String sessionId);
 	
 }

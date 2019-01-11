@@ -1,6 +1,7 @@
 package edu.java.teamproject.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 import javax.mail.MessagingException;
 
@@ -79,6 +80,18 @@ public class UserServiceImple implements UserService {
 	@Override
 	public int enableUserLogin(String email) {
 		return userDao.enableUserLogin(email);
+	}
+
+
+	@Override
+	public int keepLogin(String uid, String sessionId, Date next) {
+		return userDao.keepLogin(uid, sessionId, next);
+	}
+
+
+	@Override
+	public User checkUserWithSessionKey(String sessionId) {
+		return userDao.checkUserWithSessionKey(sessionId);
 	}
 
 }

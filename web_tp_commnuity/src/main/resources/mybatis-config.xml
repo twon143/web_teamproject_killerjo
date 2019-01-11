@@ -39,6 +39,9 @@
   		<property name="user.background_image" value="background_image"/>
   		<property name="user.verify" value="verify"/>
   		<property name="user.auth_code" value="auth_code"/>
+  		<property name="user.session_key" value="session_key"/>
+  		<property name="user.session_limit" value="session_limit"/>
+  		<property name="user.use_cookie" value="use_cookie"/>
   		
   	</properties>
   
