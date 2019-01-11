@@ -14,7 +14,12 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link href="/teamproject/css/main.css" rel="stylesheet" type="text/css">
+<!--  <link href="/teamproject/css/main.css" rel="stylesheet" type="text/css"> -->
+
+<link href="<c:url value='/resources/css/layout.css' />" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/resources/css/main.css' />" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/resources/css/reset.css' />" rel="stylesheet" type="text/css" />
+
 
 </head>
 <body>
@@ -108,7 +113,7 @@
       <div class="top-header-div top-header center-block">
          <nav class="top-header-nav navbar navbar-expand-lg navbar-light bg-light">
             <div class="mainLogo-div">
-               <img class="mainLogoImg" alt="" src="images/MainLogoImg.png">
+               <img class="mainLogoImg" alt="" src="/teamproject/resources/images/MainLogoImg.png">
             </div>
 
             <div class="mainLogo-font-div">
@@ -303,26 +308,26 @@
 								<li class="sub-category-li"><a href="#">Java 전체</a></li>
 
 								<li class="sub-category-li"><img alt=""
-									src="images/icon_message.png"> <a href="#">질문</a></li>
+									src="/teamproject/resources/images/icon_message.png"> <a href="#">질문</a></li>
 
 								<li class="sub-category-li"><img alt=""
-									src="images/icon_post.png"> <a href="#">글</a></li>
+									src="/teamproject/resources/images/icon_post.png"> <a href="#">글</a></li>
 
 								<li class="sub-category-li"><img alt=""
-									src="images/icon_link.png"> <a href="#">링크</a></li>
+									src="/teamproject/resources/images/icon_link.png"> <a href="#">링크</a></li>
 
 								<li class="sub-category-li"><img alt=""
-									src="images/icon_mike.png"> <a href="#">라이브</a></li>
+									src="/teamproject/resources/images/icon_mike.png"> <a href="#">라이브</a></li>
 								<!-- 
                         <li class="sub-category-li-popular"><a href="#">인기순</a></li>
                         <li class="sub-category-li-lastest"><a href="#">최신순</a></li> -->
 
 								<li class="sub-category-li-widthView"><img id="viewToWidth"
-									onclick="" alt="" src="images/row-list-ic.jpg"></li>
+									onclick="" alt="" src="/teamproject/resources/images/row-list-ic.jpg"></li>
 
 								<li class="sub-category-li-heightView"><img
 									id="viewToHeight" onclick="" alt=""
-									src="images/all-list-set.jpg"></li>
+									src="/teamproject/resources/images/all-list-set.jpg"></li>
 							</ul>
 						</nav>
 
@@ -331,7 +336,7 @@
 							<div class="sub-post-list2">
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -345,7 +350,7 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -360,7 +365,7 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -375,7 +380,7 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -393,7 +398,7 @@
 							<div class="sub-post-list2">
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -407,22 +412,7 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
-									</div>
-
-									<div class="post-contents2">
-										<button class="btnHPostTag3">답변 대기</button>
-										<button class="btnHPostTag">Java</button>
-										<button class="btnHPostTag2">언어</button>
-										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
-										<br /> <a href="#" class="post-userId2">ku8230</a>
-									</div>
-								</div>
-								<!--  -->
-								<!-- dummy -->
-								<div class="sub-sub-post-list2">
-									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -437,7 +427,22 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
+									</div>
+
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -455,7 +460,7 @@
 							<div class="sub-post-list2">
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -469,22 +474,7 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
-									</div>
-
-									<div class="post-contents2">
-										<button class="btnHPostTag3">답변 대기</button>
-										<button class="btnHPostTag">Java</button>
-										<button class="btnHPostTag2">언어</button>
-										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
-										<br /> <a href="#" class="post-userId2">ku8230</a>
-									</div>
-								</div>
-								<!--  -->
-								<!-- dummy -->
-								<div class="sub-sub-post-list2">
-									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -499,7 +489,22 @@
 								<!-- dummy -->
 								<div class="sub-sub-post-list2">
 									<div class="post-image-div2">
-										<img alt="" src="images/blank_image2.png">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
+									</div>
+
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="/teamproject/resources/images/blank_image2.png">
 									</div>
 
 									<div class="post-contents2">
@@ -522,7 +527,7 @@
 						<div class="content-center">
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -548,7 +553,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -574,7 +579,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -600,7 +605,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -626,7 +631,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -652,7 +657,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -678,7 +683,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -704,7 +709,7 @@
 							<!-- end of div$sub-post-list -->
 							<div class="sub-post-list">
 								<div class="post-image-div">
-									<img class="post-image" alt="" src="images/blank_image.png">
+									<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
 								</div>
 
 
@@ -809,7 +814,8 @@
    </div>
    <!-- E:wrapper -->
 
-   <script src="js/main.js"></script>
+   <script src="<c:url value='/resources/js/main.js'/>"></script>
+   
    
    <script type="text/javascript">
    	$(function() {
