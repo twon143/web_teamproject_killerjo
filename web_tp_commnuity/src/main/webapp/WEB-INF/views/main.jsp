@@ -213,453 +213,553 @@
       <!-- E:top-nav -->
 
       <!-- S:container -->
-      <div id="container" class="container-fluid text-center">
-         <div class="row content">
+		<div id="container" class="container-fluid text-center">
+			<div class="row content">
 
-            <!-- contents-left -->
+				<!-- contents-left -->
 
-            <div class="col-sm-2 sidenav con-left-wid">
-               <ul class="list-group">
-                  <li class="list-group-item list-bg"><a class="t-color">카테고리</a></li>
-                  <li class="list-group-item"><a>내 관심</a></li>
-                  <li class="list-group-item"><a>질문하기</a></li>
-                  <li class="list-group-item"><a>문의</a></li>
-                  <li class="list-group-item"><a>고객센터</a></li>
-               </ul>
-            </div>
-
-
-            <!-- contents - center -->
-            <div class="col-sm-8 text-left mid-contents-wrap">
-               <!-- Post-Detail Modal -->
-
-               <div class="modal fade" id="myModal" role="dialog">
-                  <!-- 사용자 지정 부분① : id명 -->
-
-                  <div class="modal-dialog modal-lg">
+				<div class="col-sm-2 sidenav con-left-wid">
+					<ul class="list-group">
+						<li class="list-group-item list-bg"><a class="t-color">카테고리</a></li>
+						<li class="list-group-item"><a>내 관심</a></li>
+						<li class="list-group-item"><a>질문하기</a></li>
+						<li class="list-group-item"><a>문의</a></li>
+						<li class="list-group-item"><a>고객센터</a></li>
+					</ul>
+				</div>
 
 
+				<!-- contents - center -->
+				<div class="col-sm-8 text-left mid-contents-wrap">
+					<!-- Post-Detail Modal -->
 
-                     <!-- Modal content-->
+					<div class="modal fade" id="myModal" role="dialog">
+						<!-- 사용자 지정 부분① : id명 -->
 
-                     <div class="modal-content">
+						<div class="modal-dialog modal-lg">
 
-                        <div class="modal-header">
 
-                           <button type="button" class="close" data-dismiss="modal">×</button>
 
-                           <h4 class="modal-title">아이언 티어 지망생 오훈식이</h4>
-                           <!-- 사용자 지정 부분② : 타이틀 -->
-                           <button class="post-detail-replyCnt">답변 대기</button>
-                           <a class="post-detail-userId" href="ku8230">ku8230</a> 님께서 3시간전에 올린 질문
+							<!-- Modal content-->
 
-                        </div>
-                        <!-- div$$ modal-header -->
+							<div class="modal-content">
 
-                        <div class="modal-body">
-                           <div class="post-detail-title">
-                              <p>아이언티어 지망생 오훈식이</p>
-                              <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
-                           </div>
+								<div class="modal-header">
 
-                           <div class="post-detail-content">게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다</div>
+									<button type="button" class="close" data-dismiss="modal">×</button>
 
-                        </div>
+									<h4 class="modal-title">아이언 티어 지망생 오훈식이</h4>
+									<!-- 사용자 지정 부분② : 타이틀 -->
+									<button class="post-detail-replyCnt">답변 대기</button>
+									<a class="post-detail-userId" href="ku8230">ku8230</a> 님께서
+									3시간전에 올린 질문
 
-                        <div class="modal-footer">
+								</div>
+								<!-- div$$ modal-header -->
 
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<div class="modal-body">
+									<div class="post-detail-title">
+										<p>아이언티어 지망생 오훈식이</p>
+										<!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+									</div>
 
-                        </div>
+									<div class="post-detail-content">게시판 본문 div입니다 게시판 본문
+										div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다
+										게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문
+										div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다
+										게시판 본문 div입니다</div>
 
-                     </div>
+								</div>
 
-                  </div>
+								<div class="modal-footer">
 
-               </div>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
 
-               <!-- End post-detail Modal -->
-               <!-- 게시판 전체 div -->
-               <div class="contents-center-mid">
-                  <!-- header부분 div -->
-                  <div class="content-header">
-                     <!-- header 부분 제목에대한 <p><a> -->
-                     <p>
-                        <a class="contnt-header-title-link" href="/p/java">Java</a> <a href="post-write">글쓰기테스트용</a> <a href="UserSignUpTest">회원가입테스트용</a> </>
-                     <div class="nav"></div>
+								</div>
 
-                  </div>
+							</div>
 
-                  <nav class="sub-category-nav">
-                     <ul class="sub-category-ul">
-                        <li class="sub-category-li"><a href="#">Java 전체</a></li>
+						</div>
 
-                        <li class="sub-category-li"><img alt="" src="images/icon_message.png"> <a href="#">질문</a></li>
+					</div>
 
-                        <li class="sub-category-li"><img alt="" src="images/icon_post.png"> <a href="#">글</a></li>
+					<!-- End post-detail Modal -->
+					<!-- 게시판 전체 div -->
+					<div class="contents-center-mid">
+						<!-- header부분 div -->
+						<div class="content-header">
+							<!-- header 부분 제목에대한 <p><a> -->
+							<p>
+								<a class="contnt-header-title-link" href="/p/java">Java</a> <a
+									href="post-write">글쓰기테스트용</a> <a href="UserSignUpTest">회원가입테스트용</a>
+								</>
+							<div class="nav"></div>
 
-                        <li class="sub-category-li"><img alt="" src="images/icon_link.png"> <a href="#">링크</a></li>
+						</div>
 
-                        <li class="sub-category-li"><img alt="" src="images/icon_mike.png"> <a href="#">라이브</a></li>
-                        <!-- 
+						<nav class="sub-category-nav">
+							<ul class="sub-category-ul">
+								<li class="sub-category-li"><a href="#">Java 전체</a></li>
+
+								<li class="sub-category-li"><img alt=""
+									src="images/icon_message.png"> <a href="#">질문</a></li>
+
+								<li class="sub-category-li"><img alt=""
+									src="images/icon_post.png"> <a href="#">글</a></li>
+
+								<li class="sub-category-li"><img alt=""
+									src="images/icon_link.png"> <a href="#">링크</a></li>
+
+								<li class="sub-category-li"><img alt=""
+									src="images/icon_mike.png"> <a href="#">라이브</a></li>
+								<!-- 
                         <li class="sub-category-li-popular"><a href="#">인기순</a></li>
                         <li class="sub-category-li-lastest"><a href="#">최신순</a></li> -->
 
-                        <li class="sub-category-li-widthView"><img id="viewToWidth" onclick="" alt="" src="images/row-list-ic.jpg"></li>
+								<li class="sub-category-li-widthView"><img id="viewToWidth"
+									onclick="" alt="" src="images/row-list-ic.jpg"></li>
 
-                        <li class="sub-category-li-heightView"><img id="viewToHeight" onclick="" alt="" src="images/all-list-set.jpg"></li>
-                     </ul>
-                  </nav>
+								<li class="sub-category-li-heightView"><img
+									id="viewToHeight" onclick="" alt=""
+									src="images/all-list-set.jpg"></li>
+							</ul>
+						</nav>
 
-                  <!-- 가로로 POST 보기 -->
-                  <div class="content-center2">
-                     <div class="sub-post-list2">
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+						<!-- 가로로 POST 보기 -->
+						<div class="content-center2">
+							<div class="sub-post-list2">
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br />
+										<a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                     </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+							</div>
 
-                     <!-- dummy data -->
-                     <div class="sub-post-list2">
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+							<!-- dummy data -->
+							<div class="sub-post-list2">
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!-- End of Dummy 3/3 width -->
-                     </div>
-                     <!-- End of Dummy 2/3 Height -->
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!-- End of Dummy 3/3 width -->
+							</div>
+							<!-- End of Dummy 2/3 Height -->
 
-                     <div class="sub-post-list2">
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+							<div class="sub-post-list2">
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!--  -->
-                        <!-- dummy -->
-                        <div class="sub-sub-post-list2">
-                           <div class="post-image-div2">
-                              <img alt="" src="images/blank_image2.png">
-                           </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!--  -->
+								<!-- dummy -->
+								<div class="sub-sub-post-list2">
+									<div class="post-image-div2">
+										<img alt="" src="images/blank_image2.png">
+									</div>
 
-                           <div class="post-contents2">
-                              <button class="btnHPostTag3">답변 대기</button>
-                              <button class="btnHPostTag">Java</button>
-                              <button class="btnHPostTag2">언어</button>
-                              <br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
-                           </div>
-                        </div>
-                        <!-- End of dummy data 3/3 of width -->
-                     </div>
-                     <!-- End of dummy data 3/3 of height -->
-
-
-                  </div>
-                  <!-- 가로로 POST 보기 -->
-
-                  <!-- 세로로 POST 보기 -->
-                  <div class="content-center">
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
-
-
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
-
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
+									<div class="post-contents2">
+										<button class="btnHPostTag3">답변 대기</button>
+										<button class="btnHPostTag">Java</button>
+										<button class="btnHPostTag2">언어</button>
+										<br /> <a href="#" class="post-title2">아이언티어 지망생 오훈식이</a> <br />
+										<br /> <a href="#" class="post-userId2">ku8230</a>
+									</div>
+								</div>
+								<!-- End of dummy data 3/3 of width -->
+							</div>
+							<!-- End of dummy data 3/3 of height -->
 
 
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+						</div>
+						<!-- 가로로 POST 보기 -->
 
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
+						<!-- 세로로 POST 보기 -->
+						<div class="content-center">
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
 
 
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
 
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
-
-
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
-
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
 
 
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
 
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
-
-
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
-
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
 
 
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
 
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                     <div class="sub-post-list">
-                        <div class="post-image-div">
-                           <img class="post-image" alt="" src="images/blank_image.png">
-                        </div>
-
-
-                        <div class="post-contents">
-                           <!-- Dummy Data 1 -->
-                           <a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
-                           <button class="btnReplyCount">답변 대기</button>
-                           <button class="btnPostTag">Java</button>
-                           <button class="btnPostTag2">언어</button>
-                           <br /> <br /> <a class="post-content" href="#">게시판 테스트용 입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마 다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
-
-                        </div>
-                        <!--  end of div$post-contents -->
-                     </div>
-                     <!-- end of div$sub-post-list -->
-                  </div>
-                  <!-- end of div$content-center -->
-
-               </div>
-               <!-- 세로로 POST 보기 -->
-            </div>
-
-            <!-- contents - left -->
-            <div class="col-sm-2 sidenav">
-               <div class="well">
-                  <p>ADS</p>
-               </div>
-               <div class="well">
-                  <p>ADS</p>
-               </div>
-            </div>
-         </div>
-      </div>
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
 
 
-      <!-- E:container-->
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
 
-      <!-- S:Footer -->
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
+
+
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
+
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
+
+
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
+
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
+
+
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
+
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+							<div class="sub-post-list">
+								<div class="post-image-div">
+									<img class="post-image" alt="" src="images/blank_image.png">
+								</div>
+
+
+								<div class="post-contents">
+									<!-- Dummy Data 1 -->
+									<a class="post-title" href="#"><strong>아이언티어 지망생
+											오훈식이</strong></a>
+									<button class="btnReplyCount">답변 대기</button>
+									<button class="btnPostTag">Java</button>
+									<button class="btnPostTag2">언어</button>
+									<br /> <br /> <a class="post-content" href="#">게시판 테스트용
+										입니다1. 게시판 테스트용 입니다2. 여기는 게시판 본문입니다. 여기는 자바게시판입니다. 가나다라마마마마
+										다다다다가각가가가가자바자바자바바바스프르르링...</a> <br /> <span
+										class="post-info-span"><a class="post-info-span-userId"
+										href="#">ku8230</a>님 께서 3시간전에 <a
+										class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br />
+									<a class="post-share" href="#">공유하기</a> <a class="post-save"
+										href="#">보관하기</a>
+
+								</div>
+								<!--  end of div$post-contents -->
+							</div>
+							<!-- end of div$sub-post-list -->
+						</div>
+						<!-- end of div$content-center -->
+
+					</div>
+					<!-- 세로로 POST 보기 -->
+				</div>
+
+				<!-- contents - right -->
+				<div class="contents-right-color">
+					<div class="contents-right-div col-sm-2 sidenav">
+						<div class="login-form-right-div">
+							<input type="text" placeholder="아이디" class="login-input-id" /> <input
+								type="text" placeholder="비밀번호" class="login-input-pw" /> <input
+								type="button" value="로그인" class="btn-side-login" /> <input
+								type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" />
+							<input type="button" value="구글 로그인" class="btn-side-google-login" />
+						</div>
+
+						<input type="button" value="질문하기" class="btn-side-question" /> <input
+							type="button" value="글 올리기" class="btn-side-writePost" /> <input
+							type="button" value="링크 올리기" class="btn-side-link" /> <input
+							type="button" value="라이브 방송하기" class="btn-side-live" />
+					</div>
+				</div>
+				<!-- End contents - right -->
+			</div>
+		</div>
+
+
+		<!-- E:container-->
+
+		<!-- S:Footer -->
       <footer id="footer" class="page-footer font-small unique-color-dark pt-4">
 
          <!-- Footer Elements -->
