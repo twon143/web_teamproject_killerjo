@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 페이지</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,7 +30,8 @@
    type="text/css" />
 <link href="<c:url value='/resources/css/login-form.css' />"
    rel="stylesheet" type="text/css" />
-
+<link href="<c:url value='/resources/css/write-form.css' />"
+   rel="stylesheet" type="text/css" />   
 </head>
 <body>
    <!-- 전체 div -->
@@ -136,121 +136,45 @@
          </nav>
 
       </div>
-      <!-- E:top-nav -->
-
-      <!-- 본문 부분 부트스트랩 section(1:10:1)으로 나눔-->
-      <div class="container-fluid container-body">
-         <div class="row">
-            <div class="col-sm-1"></div>
-            <!-- section(1:10:1)중 10부분 시작 -->
-            <div class="col-sm-10">
-               <!-- info-div -->
-               <div class="info">
-                  <button type="button" class="btn-close">x</button>
-                  <p class="p-info p1">로그인을 해야만 이용할 수 있는 기능입니다.</p>
-                  <br />
-                  <p class="p-info p2">간단하게 회원가입하거나 로그인해서 이용하실 수 있습니다.
-                  <p>
-               </div>
-               <!-- 1/2로 왼쪽 오른쪽 나눠서 회원가입이랑 로그인을 분리 -->
-               <!-- section-left div -->
-               <div class="section-left">
-                  <div class="left-title-div">
-                     <p class="left-p-title">회원가입</p>
-                     <p class="left-p-sub-title">간단하게 회원가입 하세요</p>
-                  </div>
-                  <div class="left-body-div">
-                     <div class="form-group">
-                        <label class="id-label">아이디</label> <br /> <input
-                           class="register-id-form" type="text"
-                           placeholder="8~15자리 영문 숫자로만" />
-                     </div>
-
-                     <div class="form-group">
-                        <label class="pw-label">비밀번호</label> <br /> <input
-                           class="register-pw-form" type="text" placeholder="비밀번호 입력" />
-                     </div>
-
-                     <div class="form-group">
-                        <label class="check-pw-label">비밀번호 확인</label> <br /> <input
-                           class="register-check-pw-form" type="text"
-                           placeholder="비밀번호를 다시 입력" />
-                     </div>
-
-                     <div class="form-group">
-                        <label class="nickname-label">닉네임</label> <br /> <input
-                           class="register-nickname-form" type="text" placeholder="2자 이상" />
-                     </div>
-
-                     <div class="form-group">
-                        <label class="email-label">이메일</label> <br /> <input
-                           class="register-email-form" type="text" placeholder="이메일 입력" />
-                        <p class="email-info-p">입력하신 이메일로 인증 메일이 발송됩니다</p>
-                     </div>
-
-                     <div class="checkBox-div">
-                        <label class="lbl-term"> <input type="checkbox"
-                           name="whether-checked" class="checkbox" /> <a href="/terms"
-                           class="a-term">이용약관</a><span class="span">에 동의합니다</span>
-                        </label>
-                        <!--  
-                        <input type="checkbox" name="whether-checked" class="checkbox"/>
-                        <a class="a-term">이용약관</a><span class="span">에 동의합니다</span>
-                        -->
-                     </div>
-
-                     <input type="submit" class="btn-sign-up" value="가입하기" />
-                  </div>
-               </div>
-
-
-               <div class="section-right">
-                  <div class="right-title-div">
-                     <p class="right-p-title">로그인</p>
-                     <p class="right-p-sub-title">이미 가입하셨으면 로그인하세요</p>
-                  </div>
-
-                  <div class="right-body-div">
-                     <div class="form-group">
-                        <label class="id-label">아이디</label> <br /> <input
-                           class="login-id-form" type="text" />
-                     </div>
-
-                     <div class="form-group">
-                        <label class="pw-label">비밀번호</label> <br /> <input
-                           class="login-pw-form" type="text" />
-                     </div>
-
-                     <input type="submit" value="로그인" class="btn-login" /> <a
-                        href="#" class="a-findPw">비밀번호를 분실하셨나요?</a>
-                     <hr>
-                     <input type="submit" value="구글 계정으로 로그인" class="btn-google-login" />
-
-                     <!-- !!!테스트용!!! -->
-                     <form
-                        action="https://localhost:8443/teamproject/board/post-write-test"
-                        method="get">
-                        <input type="submit" value="글쓰기창 이동용" class="btn-test" />
-                     </form>
-
-                  </div>
-               </div>
-
+      <!-- body 부분 전체 div -->
+      <div class="write-form-body">
+         <!-- 글쓰기 타입 nav -->
+         <nav class="write-form-type-nav">
+            <ul class="write-form-type-ul">
+               <li class="clicked-li">
+               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeQuestion.png">
+               <a class="menu-link">질문 올리기</a>
+               </li>
+               
+               <li>
+               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeLink.png">
+               <a class="menu-link">링크 올리기</a>
+               </li>
+               
+               <li>
+               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writePost.png">
+               <a class="menu-link">글 올리기
+               </a>
+               </li>
+            </ul>
+         </nav>
+         <!-- Title 부분 div -->
+         <div class="post-title">
+            <span>질문 올리기</span>
+         </div>
+         
+         <div class="question-info1-div">
+            <div class="question-info1-div2">
+               <span>바보 같은 질문은 없습니다. 부담없이 질문해주세요~</span>
             </div>
-            <div class="col-sm-1"></div>
+         </div>
+         
+         <div class="question-info2-div">
+            <div class="question-info2-div2">
+               <span>이메일을 인증하시면 답변을 이메일로도 받을실 수 있습니다.</span>
+            </div>
          </div>
       </div>
-
-      <div class="container-footer"></div>
-
    </div>
-   <script>
-      $(document).ready(function() {
-         $('.btn-close').click(function() {
-            $('.info').remove();
-         })
-      })
-   </script>
-
 </body>
 </html>
