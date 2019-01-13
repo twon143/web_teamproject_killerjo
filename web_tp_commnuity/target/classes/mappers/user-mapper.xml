@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.java.mappers.UserMapper">
+	<!-- SQL 문장들을 정의 -->
+	<select id="loginCheck" resultType="User">
+		SELECT * FROM ${tbl_user}
+		WHERE ${user.id} = #{id}
+	</select>
+	
+	<insert id="insertUser">
+		INSERT INTO ${tbl_user} (${user.id}, ${user.password}, ${user.email}, ${user.nickname}) VALUES (#{id}, #{password}, #{email}, #{nickname})
+	</insert>
+	
+	<update id="createAuthKey">
+		UPDATE ${tbl_user} SET ${user.auth_code} = #{auth_code}
+		WHERE  ${user.id} = #{id}
+	</update>
+	
+	<update id="enableUserLogin">
+		UPDATE ${tbl_user} SET ${user.verify} = 1 WHERE ${user.id} = #{id}
+	</update>
+	
+	<select id="isUseCookie" resultType="Integer">
+		SELECT ${user.use_cookie} FROM ${tbl_user} WHERE ${user.id} = #{id}
+	</select>
+	
+	<!--
+        로그인된 경우 해당 세션id와 유효시간을 사용자 테이블에 세팅한다.
+     -->
+	<update id="keepLogin">
+		UPDATE ${tbl_user} SET ${user.session_key} = #{sessionId}, ${user.session_limit} = #{next}
+		WHERE ${user.id} = #{id}
+	</update>
+	
+	<!--
+        유효기간이 남아 있으면서 해당 sessionId를 가지는 사용자 정보를 꺼내오는 부분
+     -->
+	<select id="checkUserWithSessionKey" resultType="User">
+		SELECT * FROM ${tbl_user} WHERE ${user.session_key} = #{sessionId}
+	</select>
+	
+	<!-- 자동 로그인 버튼을 체크했을 때 유저의 use_cookie 상태를 바꿔주는 부분 -->
+	<update id="changeUseCookieStatus">
+		UPDATE ${tbl_user} SET ${user.use_cookie} = #{flag}
+		WHERE ${user.id} = #{id}
+	</update>
+	
+
+</mapper>
