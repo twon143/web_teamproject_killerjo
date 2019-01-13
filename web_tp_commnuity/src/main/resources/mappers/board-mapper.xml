@@ -19,9 +19,24 @@
 	</select>
 	
 	<!-- 게시글 등록 -->
-	<!-- <insert id="insertBoard">
+	<insert id="insertBoard">
 		insert into ${tbl_board} (${board.title}, ${board.content}, ${board.writer}, ${board.category}, ${board.type}, ${board.tag}, ${board.link}, ${board.image})
 		values (#{title}, #{content}, #{writer}, #{category}, #{type}, #{tag}, #{link}, #{image})
-	</insert> -->
+	</insert>
+	
+	<!-- 게시글을 페이지당 10개씩 출력하기 위한 쿼리문 -->
+	<select id="listPaging" resultType="Board">
+		SELECT * from ${tbl_board}
+		WHERE ${board.bno} > 0
+		ORDER BY ${board.bno} DESC, ${board.write_date} DESC
+		LIMIT #{page}, 10
+	</select>
+
+	<select id="listCriteria" resultType="Board">
+		SELECT * FROM ${tbl_board}
+		WHERE ${board.bno} > 0
+		ORDER BY ${board.bno} DESC, ${board.write_date} DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	</select>
 
 </mapper>

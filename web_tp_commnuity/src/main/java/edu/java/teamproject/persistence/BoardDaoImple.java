@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.java.teamproject.model.Board;
+import edu.java.teamproject.util.Criteria;
 
 @Repository // 영속 계층(Persistence layer) 콤포넌트임을 설정
 public class BoardDaoImple implements BoardDao {
@@ -25,7 +26,7 @@ public class BoardDaoImple implements BoardDao {
 	
 	
 	@Override
-	public List<Board> read() {
+	public List<Board> listAll() {
 		logger.info("read() 메소드 호출");
 			
 		return session.selectList(BOARD_MAPPER + ".selectAll");
@@ -39,8 +40,7 @@ public class BoardDaoImple implements BoardDao {
 
 	@Override
 	public int create(Board board) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(BOARD_MAPPER + ".insertBoard", board);
 	}
 
 	@Override
@@ -65,6 +65,23 @@ public class BoardDaoImple implements BoardDao {
 	public List<Board> searchByKeyword(int type, String keyword) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Board> listPaging(int page) {
+
+		if(page <= 0) {
+			page = 1;
+		}
+		
+		page = (page - 1) * 10;
+		
+		return session.selectList(BOARD_MAPPER + ".listPaging", page);
+	}
+
+	@Override
+	public List<Board> listCriteria(Criteria criteria) {
+		return session.selectList(BOARD_MAPPER + ".listCriteria", criteria);
 	}
 
 }
