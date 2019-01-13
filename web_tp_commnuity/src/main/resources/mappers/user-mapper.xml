@@ -16,11 +16,11 @@
 	
 	<update id="createAuthKey">
 		UPDATE ${tbl_user} SET ${user.auth_code} = #{auth_code}
-		WHERE  ${user.email} = #{email}
+		WHERE  ${user.id} = #{id}
 	</update>
 	
 	<update id="enableUserLogin">
-		UPDATE ${tbl_user} SET ${user.verify} = 1 WHERE ${user.email} = #{email}
+		UPDATE ${tbl_user} SET ${user.verify} = 1 WHERE ${user.id} = #{id}
 	</update>
 	
 	<select id="isUseCookie" resultType="Integer">
@@ -39,7 +39,7 @@
         유효기간이 남아 있으면서 해당 sessionId를 가지는 사용자 정보를 꺼내오는 부분
      -->
 	<select id="checkUserWithSessionKey" resultType="User">
-		SELECT * FROM ${tbl_user} WHERE ${user.session_key} = #{sessionId} AND ${user.session_limit} > (SELECT NOW())
+		SELECT * FROM ${tbl_user} WHERE ${user.session_key} = #{sessionId}
 	</select>
 	
 	<!-- 자동 로그인 버튼을 체크했을 때 유저의 use_cookie 상태를 바꿔주는 부분 -->

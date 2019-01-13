@@ -8,8 +8,8 @@ public interface UserDao {
 	
 	int insertUser(User user);
 	User loginCheck(User user);
-	int createAuthKey(String email, String key);
-	int enableUserLogin(String email);
+	int createAuthKey(String id, String key);
+	int enableUserLogin(String id);
 	boolean isUseCookie(String id);
 	
 	// 자동로그인 체크한 경우에 사용자 테이블에 세션과 유효시간을 저장하기 위한 메서드

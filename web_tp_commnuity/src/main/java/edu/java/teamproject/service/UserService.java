@@ -11,7 +11,7 @@ public interface UserService {
 
 	void signUp(User user) throws MessagingException, UnsupportedEncodingException;
 	User signIn(User user);
-	int enableUserLogin(String email);
+	int enableUserLogin(String id);
 	int keepLogin(String uid, String sessionId, Date next);
 	User checkUserWithSessionKey(String sessionId);
 	

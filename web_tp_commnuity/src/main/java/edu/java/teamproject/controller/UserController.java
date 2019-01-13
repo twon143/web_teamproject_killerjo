@@ -11,10 +11,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
 import edu.java.teamproject.model.User;
@@ -25,6 +27,8 @@ import edu.java.teamproject.service.UserService;
 public class UserController {
 
 	private final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
+	@Autowired BCryptPasswordEncoder passwordEncoder;
 	
 	@Autowired
 	private UserService userService;
@@ -45,14 +49,21 @@ public class UserController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:/teamproject/";
+//		redirectAttributes.addFlashAttribute("signUpMsg", "REGISTERED");
+		
+		return "redirect:/user/notifyEmailConfirm";
+	}
+	
+	@RequestMapping(value = "notifyEmailConfirm", method = RequestMethod.GET)
+	public void notifyEmailConfirm() {
 	}
 
 	
 	@RequestMapping(value = "emailConfirm", method = RequestMethod.GET)
-	public void emailConfirm(String user_email, Model model) {
-		userService.enableUserLogin(user_email);
-		model.addAttribute("user_email", user_email);
+	public void emailConfirm(String user_id, Model model) {
+		logger.info("emailConfirm(user_id : {})", user_id);
+		userService.enableUserLogin(user_id);
+		model.addAttribute("user_Id", user_id);
 		
 	}
 	

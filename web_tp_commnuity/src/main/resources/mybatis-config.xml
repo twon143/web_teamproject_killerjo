@@ -41,6 +41,7 @@
   		<property name="user.auth_code" value="auth_code"/>
   		<property name="user.session_key" value="session_key"/>
   		<property name="user.session_limit" value="session_limit"/>
+  		<property name="user.login_date" value="login_date"/>
   		<property name="user.use_cookie" value="use_cookie"/>
   		
   	</properties>

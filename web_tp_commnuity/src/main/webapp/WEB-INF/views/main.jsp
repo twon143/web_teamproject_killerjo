@@ -34,9 +34,9 @@
                <div class="col-sm-6">
                   <div class="modal-header"><h4>회원가입</h4></div>
                   <div class="modal-body">
-                     <form>
+                     <form action="user/register" method="post" accept-charset="UTF-8">
                         <div class="form-group">
-                           <label for="signup_user_id">아이디</label><br> 
+                           <label for="signup_user_id">아이디</label><br>
                            <input type="text" id="signup_user_id" name="id" placeholder="5~15자의 영문, 숫자로만">
                         </div>
                         <div class="form-group">
@@ -60,7 +60,7 @@
                               placeholder="이메일">
                         </div>
                         <p class="help-block">
-                           입력하신 이메일로 인증 메일이 발송됩니다.
+                          	 입력하신 이메일로 인증 메일이 발송됩니다.
                            <!-- 인증 메일을 확인하시면 비밀번호 찾기 등에 사용됩니다. -->
                         </p>
                         <div class="checkbox">
@@ -68,10 +68,13 @@
                               <a href="/terms" target="_blank">이용약관</a> 에 동의합니다.
                            </label>
                         </div>
-                        <button type="button" id="signup-btn"
+                        <!-- <button type="button" id="signup-btn"
                            class="btn btn-primary btn-lg"
                            data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
-                           </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button>
+                           </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
+                           
+                         <input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg">
+                         <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"> 
                      </form>
                   </div>
                </div>
@@ -82,20 +85,23 @@
                   </button>
                   <div class="modal-header"><h4>로그인</h4></div>
                   <div class="modal-body">
-                     <form>
+                     <form action="login-post" method="post">
                         <div class="form-group">
                            <label for="user_id">아이디</label><br> <input type="text"
                               id="user_id" name="id" placeholder="아이디">
                         </div>
                         <div class="form-group">
                            <label for="user_password">비밀번호</label><br> <input
-                              type="password" id="password" name="user_password"
+                              type="password" id="password" name="password"
                               placeholder="비밀번호">
                         </div>
-                        <button type="button" id="login-btn"
+                        <!--  <button type="button" id="login-btn"
                            class="btn btn-primary btn-lg"
                            data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
-                           </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button>
+                           </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
+                           
+                           <input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg">
+                           <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
                      </form>
                   </div>
                </div>
@@ -750,11 +756,11 @@
 									<input type="text" name="id" placeholder="아이디"
 										class="login-input-id" /> <input type="text" name="password"
 										placeholder="비밀번호" class="login-input-pw" /> <input
-										type="checkbox" id="autoLogin" value="1" name="use_cookie" />
+										type="checkbox" id="autoLogin" name="use_cookie" />
 									<input type="hidden" name="queryString"
 										value="https://localhost:8443/teamproject/" /> <label
-										for="autoLogin">자동 로그인</label> <input type="submit"
-										value="로그인" class="btn-side-login" />
+										for="autoLogin">로그인 유지</label> <input type="submit"
+										value="로그인" class="btn-side-login"/>
 								</form>
 								<input type="button" value="아이디/비밀번호 찾기"
 									class="btn-side-findIdAndPw" />

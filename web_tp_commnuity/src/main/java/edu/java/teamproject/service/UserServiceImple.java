@@ -35,22 +35,30 @@ public class UserServiceImple implements UserService {
 		
 		logger.info("signUp({})", user);
 		
+		String hashedPw = passwordEncoder.encode(user.getPassword());
+		
+		logger.info("original pw : {}, encoded pw : {}", user.getPassword(), hashedPw);
+		
+		user.setPassword(hashedPw);
+		
 		if(userDao.insertUser(user) == 1) {
 			String key = new Tempkey().getKey(50, false);
-			if(userDao.createAuthKey(user.getEmail(), key) == 1) {
+			if(userDao.createAuthKey(user.getId(), key) == 1) {
 				MailHandler sendMail = new MailHandler(mailSender);
 				sendMail.setSubject("[이메일 인증]");
 				sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
 		                .append("<a href='https://localhost:8443/teamproject/user/emailConfirm?key=")
-		                .append(key + "&user_email=")
-		                .append(user.getEmail())
+		                .append(key + "&user_id=")
+		                .append(user.getId())
 		                .append("' target='_blenk'>이메일 인증 확인</a>")
 		                .toString());
 				sendMail.setFrom("twon143@gmail.com", "엄태원");
 				sendMail.setTo(user.getEmail());
 				sendMail.send();
+				
 			}
 		}
+		
 
 	}
 
@@ -62,9 +70,8 @@ public class UserServiceImple implements UserService {
 		
 		User registerdUser = userDao.loginCheck(user);
 		
-		logger.info("rawPw : {}, encodedPw : {}", user.getPassword(), registerdUser.getPassword());
-		
 		if(registerdUser != null) {
+			logger.info("rawPw : {}, encodedPw : {}", user.getPassword(), registerdUser.getPassword());
 			if(passwordEncoder.matches(user.getPassword(), registerdUser.getPassword())) {
 				logger.info("로그인 성공");
 				return registerdUser;
@@ -78,8 +85,8 @@ public class UserServiceImple implements UserService {
 	}
 
 	@Override
-	public int enableUserLogin(String email) {
-		return userDao.enableUserLogin(email);
+	public int enableUserLogin(String id) {
+		return userDao.enableUserLogin(id);
 	}
 
 

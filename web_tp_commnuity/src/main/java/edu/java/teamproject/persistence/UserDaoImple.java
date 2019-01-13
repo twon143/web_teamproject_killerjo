@@ -38,19 +38,19 @@ public class UserDaoImple implements UserDao {
 	}
 
 	@Override
-	public int createAuthKey(String email, String key) {
-		logger.info("createAuthKey(email = {}, key = {})", email, key);
+	public int createAuthKey(String id, String key) {
+		logger.info("createAuthKey(id = {}, key = {})", id, key);
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("auth_code", key);
-		params.put("email", email);
+		params.put("id", id);
 		
 		return session.update(USER_MAPPER + ".createAuthKey", params);
 	}
 
 	@Override
-	public int enableUserLogin(String email) {
-		return session.update(USER_MAPPER + ".enableUserLogin", email);
+	public int enableUserLogin(String id) {
+		return session.update(USER_MAPPER + ".enableUserLogin", id);
 	}
 
 	@Override
@@ -59,6 +59,7 @@ public class UserDaoImple implements UserDao {
 		return (Integer)session.selectOne(USER_MAPPER + ".isUseCookie", id) == 1 ? true : false;
 	}
 
+	// 로그인 유지 처리
 	@Override
 	public int keepLogin(String uid, String sessionId, Date next) {
 		
@@ -76,6 +77,7 @@ public class UserDaoImple implements UserDao {
 		
 	}
 
+	// 세션키 검증
 	@Override
 	public User checkUserWithSessionKey(String sessionId) {
 		
