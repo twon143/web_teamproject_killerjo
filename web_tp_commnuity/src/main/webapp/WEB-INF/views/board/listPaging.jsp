@@ -372,6 +372,7 @@
 						<!-- end of div$content-center -->
 						<!-- 세로로 POST 보기 -->
 
+						<!-- 페이지 넘버 -->
 						<div class="box-footer">
 							<div class="text-center">
 								<ul class="pagination">
