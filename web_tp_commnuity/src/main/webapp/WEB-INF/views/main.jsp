@@ -140,18 +140,35 @@
 
 				<div class="mainLogo-font-div">
 					<div class="mainLogo-font-div-div">
-						<a href="/" class="logo-font">킬러조</a>
+						<a href="https://localhost:8443/teamproject/" class="logo-font">킬러조</a>
 					</div>
 
 				</div>
-				
-				<div class="login-form-div login-form collapse navbar-collapse"
-					id="navbarTogglerDemo03">
-					<div class="btnLogin-div">
-						<input type="button" class="btnLogin" data-toggle="modal"
-							data-target="#myModal" value="로그인 또는 회원가입" />
+				<c:if test="${empty login}">
+					<div class="login-form-div login-form collapse navbar-collapse"
+						id="navbarTogglerDemo03">
+
+						<div class="btnLogin-div">
+							<input type="button" class="btnLogin" data-toggle="modal"
+								data-target="#myModal" value="로그인 또는 회원가입" />
+						</div>
 					</div>
-				</div>
+				</c:if>
+				
+				<c:if test="${not empty login}">
+					<div class="logined-form">
+						<input type="button" class="btn-logout" value="로그아웃">
+						<input type="button" class="btn-settig" value="설정" />
+						<div class="img-profile-div">
+							<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+						</div>
+						<div class="img-notify-div">
+							<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
+						</div>
+						
+						
+					</div>
+				</c:if>
 			</nav>
 		</div>
 
@@ -427,9 +444,10 @@
 				<!-- contents - right -->
 				<div class="contents-right-color">
 					<div class="contents-right-div col-sm-2 sidenav">
-						<div class="login-form-right-div">
+						<!--  로그인 정보가 없을때 -->
+						<c:if test="${empty login}">
+							<div class="login-form-right-div">
 
-							<c:if test="${empty login}">
 								<form action="user/login-post" method="post">
 									<input type="text" name="id" placeholder="아이디"
 										class="login-input-id" /> <input type="text" name="password"
@@ -441,16 +459,38 @@
 										value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="아이디/비밀번호 찾기"
-									class="btn-side-findIdAndPw" />
-								<input type="button" value="구글 로그인"
-									class="btn-side-google-login" />
-							</c:if>
-							<c:if test="${not empty login}">
-								${login.id }님, 안녕하세요! <br />
-								<button id="btn-logout">로그아웃</button>
-							</c:if>
+									class="btn-side-findIdAndPw" /> <input type="button"
+									value="구글 로그인" class="btn-side-google-login" />
 
-						</div>
+							</div>
+						<!-- 로그인 정보가 있을때 -->	
+						</c:if>
+
+						<c:if test="${not empty login}">
+							<div class="logined-form-right-div">
+								<div class="login-profile-div">
+									<img class="img-profile-side" alt=""
+										src="/teamproject/resources/images/icon_profile1.png">
+								</div>
+								<div class="login-id-div">
+									<a class="login-id-a">${login.id}</a> <br />
+								</div>
+
+								<div class="login-setting-div">
+									<img class="img-setting" alt=""
+										src="/teamproject/resources/images/icon_setting.png">
+								</div>
+								<br/>
+								<div>
+									<button id="btn-logout">로그아웃</button>
+								</div>
+							</div>
+							<!--  
+								
+								-->
+
+
+						</c:if>
 
 						<form action="board/write-form" method="get">
 							<input type="submit" value="질문하기" class="btn-side-question" /> <input
@@ -469,34 +509,49 @@
 		<!-- E:container-->
 
 		<!-- S:Footer -->
-		<footer id="footer"
-			class="page-footer font-small unique-color-dark pt-4">
+		<footer>
+         <div class="footer-box">
+            <div class="row">
+               <div class="col-md-4">
+                  <ul class="list-unstyled">
+                     <li style="color: gray;">뎁스노트에 대하여
+                     <li><a class="twitter-follow-button">Follow @devsnote</a>
+                  </ul>
+               </div>
+               <div class="col-md-4">
+                  <ul class="list-unstyled">
+                     <li style="color: gray;">도움말
+                     <li style="color: #ac6f6f;"><a href="#">요청/건의</a></li>
+                  </ul>
+               </div>
+            </div>
 
-			<!-- Footer Elements -->
-			<div class="container">
+            <hr style="border-color: #777" />
+            <div class="row" style="padding-bottom: 60px">
+               <div class="col-md-7">
+                  <a href="/terms" class="hide-at-mobile a2" data-instant>이용약관</a> <span
+                     class="hide-at-mobile" style="color: #aaa"> &nbsp;|&nbsp; </span> <a href="/privacy"
+                     class="hide-at-mobile" data-instant>개인정보취급방침</a> 
+                     
+               </div>
+               <div class="col-md-5">
+                  <span class="muted pull-right">© 2017 드림고어. All rights
+                     reserved</span>
+               </div>
 
-				<!-- Call to action -->
-				<ul class="list-unstyled list-inline text-center py-2">
-					<li class="list-inline-item">
-						<h5 class="mb-1">Register for free</h5>
-					</li>
-					<li class="list-inline-item"><a href="#!"
-						class="btn btn-outline-white btn-rounded">Sign up!</a></li>
-				</ul>
-				<!-- Call to action -->
+               <div class="col-md-12 text-right" style="color: gray;">
+                  <div style="color: white;">
+                     (주)드림고어 <span class="dot-divider"> · </span> 소재지 : 아이티윌
+                  </div>
+                  <div>
+                     사업자 등록 번호 : 713-03-00728 <span class="dot-divider"> · </span>
+                     통신판매업 신고 : 제 2017-성남분당-1087 호
+                  </div>
+               </div>
 
-			</div>
-			<!-- Footer Elements -->
-
-			<!-- Copyright -->
-			<div class="footer-copyright text-center py-3">
-				© 2018 Copyright: <a
-					href="https://mdbootstrap.com/education/bootstrap/">
-					MDBootstrap.com</a>
-			</div>
-			<!-- Copyright -->
-
-		</footer>
+            </div>
+         </div>
+      </footer>
 		<!-- E:Footer -->
 
 	</div>
@@ -508,6 +563,10 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#btn-logout').click(function() {
+				location = 'user/logout';
+			});
+			
+			$('.btn-logout').click(function() {
 				location = 'user/logout';
 			});
 		})
