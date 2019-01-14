@@ -19,4 +19,7 @@ public interface UserDao {
 	User checkUserWithSessionKey(String sessionId);
 	int changeUseCookieStatus(String uid, int flag);
 	
+	// 아이디, 닉네임 중복 체크
+	int ckeckId(String id);
+	int checkNickname(String nickname);
 }

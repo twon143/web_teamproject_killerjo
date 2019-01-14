@@ -97,5 +97,28 @@ public class UserDaoImple implements UserDao {
 		
 		return session.update(USER_MAPPER + ".changeUseCookieStatus", map);
 	}
+	
+	//아이디 ,닉네임 중복 체크
+	@Override
+	public int ckeckId(String id) {
+		logger.info("checkId DaoImple");
+		String result = session.selectOne(USER_MAPPER + ".checkId", id);
+		logger.info("DaoImple result 1 :" + result);
+		if(result == null) {
+			return 0;
+		}else {
+			return 1;
+		}
+	}// end checkId;
+	@Override
+	public int checkNickname(String nickname) {
+		String result	= session.selectOne(USER_MAPPER + ".checkNickname", nickname);
+		if(result == null) {
+			return 0;
+		}else {
+			return 1;
+		}
+		
+	}// end checkNickname
 
 }

@@ -14,5 +14,7 @@ public interface UserService {
 	int enableUserLogin(String id);
 	int keepLogin(String uid, String sessionId, Date next);
 	User checkUserWithSessionKey(String sessionId);
+	int checkId(String id);
+	int checkNickname(String nickname);
 	
 }

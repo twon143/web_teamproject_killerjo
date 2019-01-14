@@ -154,6 +154,7 @@
                </div>
                <!-- 1/2로 왼쪽 오른쪽 나눠서 회원가입이랑 로그인을 분리 -->
                <!-- section-left div -->
+               <form action="register" method="post">
                <div class="section-left">
                   <div class="left-title-div">
                      <p class="left-p-title">회원가입</p>
@@ -162,24 +163,28 @@
                   <div class="left-body-div">
                      <div class="form-group">
                         <label class="id-label">아이디</label> <br /> <input
-                           class="register-id-form" type="text"
+                           class="register-id-form" type="text" id="id"
                            placeholder="8~15자리 영문 숫자로만" />
+                           <div id="idDiv"></div>
                      </div>
 
                      <div class="form-group">
                         <label class="pw-label">비밀번호</label> <br /> <input
-                           class="register-pw-form" type="text" placeholder="비밀번호 입력" />
+                           class="register-pw-form" type="text" id="password" placeholder="비밀번호 입력" />
+                           <div id="passwordDiv"></div>
                      </div>
 
                      <div class="form-group">
                         <label class="check-pw-label">비밀번호 확인</label> <br /> <input
-                           class="register-check-pw-form" type="text"
+                           class="register-check-pw-form" type="text" id="password1"
                            placeholder="비밀번호를 다시 입력" />
+                           <div id="passwordDiv1"></div>
                      </div>
 
                      <div class="form-group">
                         <label class="nickname-label">닉네임</label> <br /> <input
-                           class="register-nickname-form" type="text" placeholder="2자 이상" />
+                           class="register-nickname-form" type="text" placeholder="2자 이상" id="nickname" />
+                           <div id="nicknameDiv"></div>
                      </div>
 
                      <div class="form-group">
@@ -202,6 +207,7 @@
                      <input type="submit" class="btn-sign-up" value="가입하기" />
                   </div>
                </div>
+               </form>
 
 
                <div class="section-right">
@@ -251,6 +257,149 @@
          })
       })
    </script>
+	
+	<!--아이디, 비밀번호 중복 확인  -->
+	<script>
+	var checkedId = 0;
+	var checkedPw = 0;
+	var id = $('#id');
+	var password = $('#password');
+	var password1 = $('#password1');
+	var re = /^[a-z0-9]{6,12}$/ // 아이디와 패스워드 적합 검사 정규식
+	
+	/*아이디 중복 검사 */
+	$('#id').change(function(){ 
+		console.log("아이디 중복검사 id : " + $('#id').val());
+		$.ajax({
+			type : 'post',
+			url : 'checkId',
+			data : {
+				id : $('#id').val()
+			},
+			contentType : 'application/x-www-form-urlencoded',
+			success : function(res){
+				console.log("res :" + res);
+				
+				var id = $('#id').val();
+				console.log("id : " + id);
+				
+				var result = re.test(id);
+				console.log("result : " + result);
+				
+				if($('#id').val() == 0){//  아이디가 비었을 때
+					$('#idDiv').html("아이디를 입력하세요");
+					$('#idDiv').css('color', 'red');
+					checkedId = 0;
+				}else if(result == false){ // 아이디 형식 부합X 할 때
+					$('#idDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+					$('#idDiv').css('color', 'red');
+					checkedId = 0;
+				}else if(res == 1){ // 아이디 중복
+					$('#idDiv').html("중복된 아이디 입니다");
+					$('#idDiv').css('color', 'red');
+					checkedId = 0;
+				}else { // 사용 가능 아이디
+					$('#idDiv').html("멋진 아이디입니다");
+					$('#idDiv').css('color', 'green');
+					checkedId = 1;
+				}// end else
+			}// end success
+		})// end ajax
+	})// end 아이디 중복 검사
+	
+	
+	/* 비밀번호 확인 */
+	$('#password').change(function pwCheckFunction(){
+		var result = re.test(password.val()); 
+		console.log('result : ' + result);
+		console.log('pw :' + password.val());
+		// 입력값이 정규식에 부합한지 체크  부합 : true, 아니면 false 리턴 
+		if(result == false){ // 정규식에 맞지 않을 때
+			$('#passwordDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+			$('#passwordDiv').css('color', 'red');
+			checkedPw = 0;
+		}if(result == true && password.val() !== password1.val()){
+			// 비밀번호가 일치하지 않을 때
+			$('#passwordDiv').html("비밀번호가 일치하지 않습니다");
+			$('#passwordDiv').css('color', 'red');
+			checkedPw = 0;
+		}if(result == true && password.val() == password1.val()){
+			//정규식에 부합하고 패스워드 일치
+			$('#passwordDiv').html("");
+			checkedPw = 1;		
+		}
+	})// end pwCheckFunction
+	/*비밀번호 확인 */
+	$('#password1').change(function pwCheckFunction1(){
+		var result = re.test(password.val()); 
+		console.log('result : ' + result);
+		console.log('pw1 :' + password1.val());
+		// 입력값이 정규식에 부합한지 체크  부합 : true, 아니면 false 리턴 
+		if(result == false){ // 정규식에 맞지 않을 때
+			$('#passwordDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+			$('#passwordDiv').css('color', 'red');
+			checkedPw = 0;
+		}if(result == true && password.val() !== password1.val()){
+			// 비밀번호가 일치하지 않을 때
+			$('#passwordDiv').html("비밀번호가 일치하지 않습니다");
+			$('#passwordDiv').css('color', 'red');
+			checkedPw = 0;
+		}if(result == true && password.val() == password1.val()){
+			//정규식에 부합하고 패스워드 일치
+			$('#passwordDiv').html("");
+			checkedPw = 1;		
+		}
+	})// end pwCheckFunction1
+	
+	
 
+
+
+	var nicknameRe = /^[가-힣a-zA-Z]{2,15}$/ // 닉네임 정규식
+	var ckeckedNickname = 0;
+	
+	/* 닉네임 중복 검사 */
+	$('#nickname').change(function(){
+		$.ajax({
+			type : 'post',
+			url : 'checkNickname',
+			data : {
+				nickname : $('#nickname').val()
+			},
+			contentType : 'application/x-www-form-urlencoded',
+			success : function(res){
+				console.log(res);
+				var nickname = $('#nickname').val();
+				console.log("nickname : " + nickname);
+				
+				var result = nicknameRe.test($('#nickname').val());
+				console.log(result);
+				
+				if($('#nickname').val() == 0){// 닉네임 비었을 때
+					$('#nicknameDiv').html("아이디를 입력하세요");
+					$('#nicknameDiv').css('color', 'red');
+					ckeckedNickname = 0;
+				}else if(result == false){ // 닉네임 형식 부합X 할 때
+					$('#nicknameDiv').html("2~15자 한글,영문 대 소문자,숫자를 사용하세요");
+					$('#nicknameDiv').css('color', 'red');
+					ckeckedNickname = 0;
+				}else if(res == 1){ // 닉네임 중복
+					$('#nicknameDiv').html("중복된 닉네임 입니다");
+					$('#nicknameDiv').css('color', 'red');
+					ckeckedNickname = 0;
+				}else { // 사용 가능 닉네임
+					$('#nicknameDiv').html("멋진 아이디입니다");
+					$('#nicknameDiv').css('color', 'green');
+					ckeckedNickname = 1;
+				}// end else
+			}// end success
+		})// end ajax
+	})// end nickname
+	
+		
+	</script>
+	
+	
+	
 </body>
 </html>

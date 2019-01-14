@@ -100,5 +100,20 @@ public class UserServiceImple implements UserService {
 	public User checkUserWithSessionKey(String sessionId) {
 		return userDao.checkUserWithSessionKey(sessionId);
 	}
+	
+	// 아이디 중복 체크
+	@Override
+	public int checkId(String id) {
+		logger.info("checkId Service :" + id);
+		
+		return userDao.ckeckId(id);
+	}
+	
+	//닉네임 중복 체크
+	@Override
+	public int checkNickname(String nickname) {
+		// TODO Auto-generated method stub
+		return userDao.checkNickname(nickname);
+	}
 
 }
