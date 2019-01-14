@@ -38,5 +38,11 @@
 		ORDER BY ${board.bno} DESC, ${board.write_date} DESC
 		LIMIT #{pageStart}, #{perPageNum}
 	</select>
+	
+	<select id="countBoards" resultType="int">
+		SELECT COUNT(${board.bno})
+		FROM ${tbl_board}
+		WHERE ${board.bno} > 0
+	</select>
 
 </mapper>

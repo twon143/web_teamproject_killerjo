@@ -325,7 +325,8 @@
 												<button class="btnHPostTag3">답변 대기</button>
 												<button class="btnHPostTag">Java</button>
 												<button class="btnHPostTag2">언어</button>
-												<br /> <a class="post-title2">${board.title}</a> <br /> <br />
+												<br/> 
+												<a class="post-title2" href="">${board.title}</a> <br /> <br />
 												<a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
@@ -373,9 +374,9 @@
 						<!-- 세로로 POST 보기 -->
 
 						<!-- 페이지 넘버 -->
-						<div class="box-footer">
-							<div class="text-center">
-								<ul class="pagination">
+						<div>
+							<div>
+								<ul>
 									<c:if test="${pageMaker.prev}">
 										<li><a href="/teamproject/board/listPaging?page=${pageMaker.startPage - 1}">이전</a></li>
 									</c:if>
@@ -399,13 +400,13 @@
 						<div class="login-form-right-div">
 
 							<c:if test="${empty login}">
-								<form action="user/login-post" method="post">
+								<form action="../user/login-post" method="post">
 									<input type="text" name="id" placeholder="아이디"
 										class="login-input-id" /> <input type="text" name="password"
 										placeholder="비밀번호" class="login-input-pw" /> <input
 										type="checkbox" id="autoLogin" name="use_cookie" /> <input
 										type="hidden" name="queryString"
-										value="https://localhost:8443/teamproject/" /> <label
+										value="https://localhost:8443/teamproject/board/listPaging" /> <label
 										for="autoLogin">로그인 유지</label> <input type="submit"
 										value="로그인" class="btn-side-login" />
 								</form>
@@ -477,7 +478,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#btn-logout').click(function() {
-				location = 'user/logout';
+				location = '../user/logout?url=' + location.href;
 			});
 		})
 	</script>

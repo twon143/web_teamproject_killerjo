@@ -38,7 +38,7 @@ public class BoardController {
 	   
 	   PageMaker pageMaker = new PageMaker();
 	   pageMaker.setCriteria(criteria);
-	   pageMaker.setTotalCount(1000);
+	   pageMaker.setTotalCount(boardService.countBoards(criteria));
 	   
 	   logger.info("pageMaker : {}", pageMaker);
 	   

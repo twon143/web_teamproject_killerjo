@@ -92,7 +92,7 @@ public class UserController {
 		
 		logger.info("login: {}", obj);
 		
-		if(obj != null) {
+		/*if(obj != null) {
 			User user = (User) obj;
 			
 			session.invalidate(); // Session 객체를 삭제
@@ -112,7 +112,7 @@ public class UserController {
 				
 			}
 			
-		}
+		}*/
 		
 		return "redirect:/"; // 메인 페이지로 이동
 	}

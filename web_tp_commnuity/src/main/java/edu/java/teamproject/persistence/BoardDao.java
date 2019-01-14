@@ -18,5 +18,7 @@ public interface BoardDao {
 	List<Board> listPaging(int page);
 	List<Board> listCriteria(Criteria criteria);
 	
+	int countBoards(Criteria criteria);
+	
 	
 }

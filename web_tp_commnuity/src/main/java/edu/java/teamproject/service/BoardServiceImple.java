@@ -24,4 +24,9 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.listCriteria(criteria);
 	}
 
+	@Override
+	public int countBoards(Criteria criteria) {
+		return boardDao.countBoards(criteria);
+	}
+
 }

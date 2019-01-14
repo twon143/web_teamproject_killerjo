@@ -7,4 +7,6 @@ import edu.java.teamproject.util.Criteria;
 
 public interface BoardService {
 	List<Board> listCriteria(Criteria criteria);
+	
+	int countBoards(Criteria criteria);
 }

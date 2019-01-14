@@ -47,6 +47,11 @@
 	    	<beans:bean id="rememberMeInterceptor" class="edu.java.teamproject.interceptor.RememberMeInterceptor"></beans:bean>
 	    </mvc:interceptor>
 	    
+	    <mvc:interceptor>
+	    	<mvc:mapping path="/user/logout"/>
+	    	<beans:bean id="logoutInterceptor" class="edu.java.teamproject.interceptor.LogoutInterceptor"></beans:bean>
+	    </mvc:interceptor>
+	    
   	</mvc:interceptors>
 	
 </beans:beans>

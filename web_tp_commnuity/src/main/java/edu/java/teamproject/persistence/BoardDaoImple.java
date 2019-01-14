@@ -84,4 +84,9 @@ public class BoardDaoImple implements BoardDao {
 		return session.selectList(BOARD_MAPPER + ".listCriteria", criteria);
 	}
 
+	@Override
+	public int countBoards(Criteria criteria) {
+		return session.selectOne(BOARD_MAPPER + ".countBoards", criteria);
+	}
+
 }
