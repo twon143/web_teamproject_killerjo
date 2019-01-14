@@ -16,9 +16,9 @@ public interface BoardDao {
 	
 	// 페이징 처리와 관련된 메서드
 	List<Board> listPaging(int page);
-	List<Board> listCriteria(Criteria criteria);
+	List<Board> listCriteria(Criteria criteria, String category, String type);
 	
-	int countBoards(Criteria criteria);
+	int countBoards(Criteria criteria, String category, String type);
 	
 	
 }

@@ -16,8 +16,8 @@
 	<h1>게시글 상세보기 페이지</h1>
 
 	<ul>
-		<li><a href="/teamproject/board/listPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}">게시판 메인 페이지</a></li>
-		<li><a href="/teamproject/board/modifyPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}?bno=${board.bno}">수정하기</a></li>
+		<li><a href="/teamproject/board/listPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&category=${category}&type=${type}">게시판 메인 페이지</a></li>
+		<li><a href="/teamproject/board/modifyPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}?bno=${board.bno}&category=${category}&type=${type}">수정하기</a></li>
 	</ul>
 
 	<hr />

@@ -140,7 +140,7 @@
 
 				<div class="mainLogo-font-div">
 					<div class="mainLogo-font-div-div">
-						<a href="https://localhost:8443/teamproject/" class="logo-font">킬러조</a>
+						<a href="/teamproject/" class="logo-font">킬러조</a>
 					</div>
 
 				</div>
@@ -179,20 +179,20 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/teamproject/board/listPaging">전체</a>
+						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all">전체</a>
 					</div>
 					<!-- 상세 카테고리들 -->
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">PHP</a></li>
-								<li><a href="#">Javascript</a></li>
-								<li><a href="#">Java</a></li>
-								<li><a href="#">Spring</a></li>
-								<li><a href="#">Node.js</a></li>
-								<li><a href="#">Swift</a></li>
-								<li><a href="#">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
 								<li><a href="#">CSS</a></li>
 								<li><a href="#">Python</a></li>
 								<li><a href="#">JSP</a></li>

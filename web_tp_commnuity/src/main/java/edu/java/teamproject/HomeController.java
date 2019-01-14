@@ -1,7 +1,5 @@
 package edu.java.teamproject;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -34,16 +32,9 @@ public class HomeController {
 	public String home(Locale locale, Model model, HttpSession session, Criteria criteria) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
 		logger.info("session 값 확인 : {}", session.getAttribute("login"));
 		
-		model.addAttribute("boardList", boardService.listCriteria(criteria));
+		model.addAttribute("boardList", boardService.listCriteria(criteria, "all", "all"));
 		
 		return "main";
 	}

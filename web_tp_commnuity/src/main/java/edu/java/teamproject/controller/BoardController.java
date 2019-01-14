@@ -37,22 +37,30 @@ public class BoardController {
    }
    
    @RequestMapping(value = "listPaging", method = RequestMethod.GET)
-   public void listCriteria(Model model, Criteria criteria) throws Exception{
-	   logger.info("listPaging({})", criteria);
+   public void listCriteria(Model model, Criteria criteria, 
+		   @RequestParam("category") String category,
+		   @RequestParam("type") String type) throws Exception{
+	   logger.info("listPaging(criteria : {}, category : {}, type : {})", criteria, category, type);
 	   
 	   PageMaker pageMaker = new PageMaker();
 	   pageMaker.setCriteria(criteria);
-	   pageMaker.setTotalCount(boardService.countBoards(criteria));
+	   pageMaker.setTotalCount(boardService.countBoards(criteria, category, type));
 	   
 	   logger.info("pageMaker : {}", pageMaker);
 	   
-	   model.addAttribute("boardList", boardService.listCriteria(criteria));
+	   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type));
 	   model.addAttribute("pageMaker", pageMaker);
+	   model.addAttribute("category", category);
+	   model.addAttribute("type", type);
 	   
    }
    
    @RequestMapping(value = "readPaging", method = RequestMethod.GET)
-   public void readPaging(@RequestParam("bno") int bno, @ModelAttribute("criteria") Criteria criteria, Model model) {
+   public void readPaging(@RequestParam("bno") int bno, 
+		   @ModelAttribute("criteria") Criteria criteria, Model model,
+		   @ModelAttribute("category") String category,
+		   @ModelAttribute("type") String type) {
+	   
 	   model.addAttribute("board", boardService.readByBno(bno));
    }
    

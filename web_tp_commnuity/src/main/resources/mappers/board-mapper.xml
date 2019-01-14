@@ -57,14 +57,26 @@
 	<select id="listCriteria" resultType="Board">
 		SELECT * FROM ${tbl_board}
 		WHERE ${board.bno} > 0
+		<if test="!'all'.equals(category)">
+			AND ${board.category} = #{category}
+		</if>
+		<if test="!'all'.equals(type)">
+			AND ${board.type} = #{type}
+		</if>
 		ORDER BY ${board.bno} DESC, ${board.write_date} DESC
-		LIMIT #{pageStart}, #{perPageNum}
+		LIMIT #{criteria.pageStart}, #{criteria.perPageNum}
 	</select>
 	
 	<select id="countBoards" resultType="int">
 		SELECT COUNT(${board.bno})
 		FROM ${tbl_board}
-		WHERE ${board.bno} > 0
+		WHERE ${board.bno} > 0 
+		<if test="!'all'.equals(category)">
+			AND ${board.category} = #{category}
+		</if>
+		<if test="!'all'.equals(type)">
+			AND ${board.type} = #{type}
+		</if>
 	</select>
 
 </mapper>

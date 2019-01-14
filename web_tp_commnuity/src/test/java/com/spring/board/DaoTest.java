@@ -29,7 +29,8 @@ public class DaoTest {
 	public void doTest() {
 //		selectAllTest();
 //		testListPaging();
-		testListCriteria();
+//		testListCriteria();
+		testCreate();
 	}
 
 	private void selectAllTest() {
@@ -54,10 +55,29 @@ public class DaoTest {
 		criteria.setPage(3);
 		criteria.setPerPageNum(20);
 		
-		List<Board> boards = boardDao.listCriteria(criteria);
+		List<Board> boards = boardDao.listCriteria(criteria, "jsp", "all");
 		
 		for (Board board : boards) {
 			logger.info(board.getBno() + " : " + board.getTitle());
+		}
+	}
+	
+	public void testCreate() {
+		
+		String[] categories = new String[] {"php", "javascript", "java", "spring", "nodejs", "swift", "kotlin"};
+		String[] ids = new String[] {"twon143", "ku8230", "kjw9401", "wodadada", "cjh2293"};
+		String[] types = new String[] {"question", "writing", "link"};
+		
+		for(int i = 1; i < 1001; i++) {
+			Board board = new Board();
+			board.setTitle(i + "번째 " + categories[i%categories.length] + "관한 글 제목");
+			board.setContent(i + "번째 " + categories[i%categories.length] + "관한 글 내용");
+			board.setWriter(ids[i%ids.length]);
+			board.setCategory(categories[i%categories.length]);
+			board.setType(types[i%types.length]);
+			
+			boardDao.create(board);
+			
 		}
 	}
 }

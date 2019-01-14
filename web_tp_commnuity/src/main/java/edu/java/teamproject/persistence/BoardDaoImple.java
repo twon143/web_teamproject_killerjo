@@ -1,6 +1,8 @@
 package edu.java.teamproject.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -77,13 +79,25 @@ public class BoardDaoImple implements BoardDao {
 	}
 
 	@Override
-	public List<Board> listCriteria(Criteria criteria) {
-		return session.selectList(BOARD_MAPPER + ".listCriteria", criteria);
+	public List<Board> listCriteria(Criteria criteria, String category, String type) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("criteria", criteria);
+		map.put("category", category);
+		map.put("type", type);
+		
+		return session.selectList(BOARD_MAPPER + ".listCriteria", map);
 	}
 
 	@Override
-	public int countBoards(Criteria criteria) {
-		return session.selectOne(BOARD_MAPPER + ".countBoards", criteria);
+	public int countBoards(Criteria criteria, String category, String type) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("criteria", criteria);
+		map.put("category", category);
+		map.put("type", type);
+		
+		return session.selectOne(BOARD_MAPPER + ".countBoards", map);
 	}
 
 }

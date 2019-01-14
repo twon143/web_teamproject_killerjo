@@ -30,14 +30,14 @@ public class BoardServiceImple implements BoardService {
 	
 	
 	@Override
-	public List<Board> listCriteria(Criteria criteria) {
+	public List<Board> listCriteria(Criteria criteria, String category, String type) {
 		logger.info("listCriteria() 호출");
-		return boardDao.listCriteria(criteria);
+		return boardDao.listCriteria(criteria, category, type);
 	}
 
 	@Override
-	public int countBoards(Criteria criteria) {
-		return boardDao.countBoards(criteria);
+	public int countBoards(Criteria criteria, String category, String type) {
+		return boardDao.countBoards(criteria, category, type);
 	}
 
 	@Override

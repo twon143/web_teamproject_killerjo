@@ -140,7 +140,7 @@
 
 				<div class="mainLogo-font-div">
 					<div class="mainLogo-font-div-div">
-						<a href="/" class="logo-font">킬러조</a>
+						<a href="/teamproject/" class="logo-font">킬러조</a>
 					</div>
 
 				</div>
@@ -162,20 +162,20 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/teamproject/board/listPaging">전체</a>
+						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all">전체</a>
 					</div>
 					<!-- 상세 카테고리들 -->
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">PHP</a></li>
-								<li><a href="#">Javascript</a></li>
-								<li><a href="#">Java</a></li>
-								<li><a href="#">Spring</a></li>
-								<li><a href="#">Node.js</a></li>
-								<li><a href="#">Swift</a></li>
-								<li><a href="#">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
 								<li><a href="#">CSS</a></li>
 								<li><a href="#">Python</a></li>
 								<li><a href="#">JSP</a></li>
@@ -270,7 +270,7 @@
 							<!-- header 부분 제목에대한 <p><a> -->
 							<p>
 								<a class="contnt-header-title-link"
-									href="/teamproject/board/listCriteria">전체</a>
+									href="/teamproject/board/listPaging?category=${category}?type=all">${category}</a>
 							<div class="nav"></div>
 
 						</div>
@@ -278,19 +278,19 @@
 						<nav class="sub-category-nav">
 							<ul class="sub-category-ul">
 								<li class="sub-category-li"><a
-									href="/teamproject/board/listCriteria?type=tp4">전체</a></li>
+									href="/teamproject/board/listPaging?type=all&category=${category}">전체</a></li>
 
 								<li class="sub-category-li"><img alt=""
 									src="/teamproject/resources/images/icon_message.png"> <a
-									href="/teamproject/board/listCriteria?type=tp1">질문</a></li>
+									href="/teamproject/board/listPaging?type=question&category=${category}">질문</a></li>
 
 								<li class="sub-category-li"><img alt=""
 									src="/teamproject/resources/images/icon_post.png"> <a
-									href="/teamproject/board/listCriteria?type=tp2">글</a></li>
+									href="/teamproject/board/listPaging?type=writing&category=${category}">글</a></li>
 
 								<li class="sub-category-li"><img alt=""
 									src="/teamproject/resources/images/icon_link.png"> <a
-									href="/teamproject/board/listCriteria?type=tp3">링크</a></li>
+									href="/teamproject/board/listPaging?type=link&category=${category}">링크</a></li>
 
 								<!-- <li class="sub-category-li"><img alt=""
 									src="/teamproject/resources/images/icon_mike.png"> <a href="#">라이브</a></li> -->
@@ -317,7 +317,7 @@
 									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
-												<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}">
+												<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
 													<img alt="" src="/teamproject/resources/images/blank_image2.png">
 												</a>
 											</div>
@@ -327,7 +327,7 @@
 												<button class="btnHPostTag">Java</button>
 												<button class="btnHPostTag2">언어</button>
 												<br/> 
-												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}">${board.title}</a> <br /> <br />
+												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br />
 												<a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
@@ -346,7 +346,7 @@
 							<c:forEach items="${boardList}" var="board">
 								<div class="sub-post-list">
 									<div class="post-image-div">
-										<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}">
+										<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
 											<img class="post-image" alt=""
 												src="/teamproject/resources/images/blank_image.png">
 										</a>
@@ -355,7 +355,7 @@
 
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}"><strong>${board.title}</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
 										<button class="btnPostTag">Java</button>
 										<button class="btnPostTag2">언어</button>
@@ -382,17 +382,17 @@
 								<ul class="pagination">
 									<c:if test="${pageMaker.prev}">
 										<%-- <li><a href="/teamproject/board/listPaging?page=${pageMaker.startPage - 1}">이전</a></li> --%>
-										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
+										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.startPage - 1)}&category=${category}&type=${type}">이전</a></li>
 									</c:if>
 									<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 										<li<%-- <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/> --%>>
 											<%-- <a href="/teamproject/board/listPaging?page=${idx}">${idx}</a> --%>
-											<a href="/teamproject/board/listPaging${pageMaker.makeQuery(idx)}">${idx}</a>
+											<a href="/teamproject/board/listPaging${pageMaker.makeQuery(idx)}&category=${category}&type=${type}">${idx}</a>
 										</li>
 									</c:forEach>
 									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 										<%-- <li><a href="/teamproject/board/listPaging?page=${pageMaker.endPage + 1}">다음</a></li> --%>
-										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
+										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.endPage + 1)}&category=${category}&type=${type}">다음</a></li>
 									</c:if>
 								</ul>
 							</div>
