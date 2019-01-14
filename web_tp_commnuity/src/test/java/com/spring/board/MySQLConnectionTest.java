@@ -51,20 +51,20 @@ public class MySQLConnectionTest {
  
 //            String sql = "SELECT * FROM test.User";
  
-            User user = new User("twon123", "xodnjs2973", "twon123@gmail.com", null, "엄태원찐", null, 0, null, null, 0);
+//            User user = new User("twon123", "xodnjs2973", "twon123@gmail.com", null, "엄태원찐", null, 0, null, null, 0);
             
 //            BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
 //            System.out.println(user.toString());
             
-            String pw = passwordEncoder.encode(user.getPassword());
-            
-            user.setPassword(pw);
-            System.out.println(user.toString());
+//            String pw = passwordEncoder.encode(user.getPassword());
+//            
+//            user.setPassword(pw);
+//            System.out.println(user.toString());
             
             /*String sql = "INSERT INTO User (id, password, email, nickname) VALUES " + 
             		"(" + user.getId() + "," + user.getPassword() + "," + user.getEmail() + "," + user.getNickname() + ")";*/
             
-            String sql_1 = String.format("INSERT INTO test.User (id, password, email, nickname) VALUES ('%s', '%s', '%s', '%s')", user.getId(), user.getPassword(), user.getEmail(), user.getNickname());
+            String sql_1 = null;
             
             System.out.println(sql_1);
             if(stmt.executeUpdate(sql_1) == 1) {

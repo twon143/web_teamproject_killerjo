@@ -20,7 +20,7 @@ public class EmailConfirmTest {
 	
 	@Test
 	public void doTest() {
-		signUp(new User("guest2", "123", "twon143@naver.com", null, "게스트2", null, 0, null, null, 0));
+//		signUp(new User("guest2", "123", "twon143@naver.com", null, "게스트2", null, 0, null, null, 0));
 	}
 	
 	private void signUp(User user) {

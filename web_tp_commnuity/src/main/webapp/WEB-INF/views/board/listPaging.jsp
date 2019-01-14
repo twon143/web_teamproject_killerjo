@@ -260,56 +260,7 @@
 				<div class="col-sm-8 text-left mid-contents-wrap">
 					<!-- Post-Detail Modal -->
 
-					<div class="modal fade" id="myModal" role="dialog">
-						<!-- 사용자 지정 부분① : id명 -->
-
-						<div class="modal-dialog modal-lg">
-
-
-
-							<!-- Modal content-->
-
-							<div class="modal-content">
-
-								<div class="modal-header">
-
-									<button type="button" class="close" data-dismiss="modal">×</button>
-
-									<h4 class="modal-title">아이언 티어 지망생 오훈식이</h4>
-									<!-- 사용자 지정 부분② : 타이틀 -->
-									<button class="post-detail-replyCnt">답변 대기</button>
-									<a class="post-detail-userId" href="ku8230">ku8230</a> 님께서
-									3시간전에 올린 질문
-
-								</div>
-								<!-- div$$ modal-header -->
-
-								<div class="modal-body">
-									<div class="post-detail-title">
-										<p>아이언티어 지망생 오훈식이</p>
-										<!-- 사용자 지정 부분③ : 텍스트 메시지 -->
-									</div>
-
-									<div class="post-detail-content">게시판 본문 div입니다 게시판 본문
-										div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다
-										게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문
-										div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다 게시판 본문 div입니다
-										게시판 본문 div입니다</div>
-
-								</div>
-
-								<div class="modal-footer">
-
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
+				
 
 					<!-- End post-detail Modal -->
 					<!-- 게시판 전체 div -->
@@ -419,9 +370,26 @@
 							</c:forEach>
 						</div>
 						<!-- end of div$content-center -->
+						<!-- 세로로 POST 보기 -->
 
+						<div class="box-footer">
+							<div class="text-center">
+								<ul class="pagination">
+									<c:if test="${pageMaker.prev}">
+										<li><a href="/teamproject/board/listPaging?page=${pageMaker.startPage - 1}">이전</a></li>
+									</c:if>
+									<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+										<li<c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
+											<a href="/teamproject/board/listPaging?page=${idx}">${idx}</a>
+										</li>
+									</c:forEach>
+									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+										<li><a href="/teamproject/board/listPaging?page=${pageMaker.endPage + 1}">다음</a></li>
+									</c:if>
+								</ul>
+							</div>
+						</div>
 					</div>
-					<!-- 세로로 POST 보기 -->
 				</div>
 
 				<!-- contents - right -->
@@ -452,7 +420,7 @@
 
 						</div>
 
-						<form action="board/write-form" method="get">
+						<form action="write-form" method="get">
 							<input type="submit" value="질문하기" class="btn-side-question" /> <input
 								type="hidden" name="type" value="question" />
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
