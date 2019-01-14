@@ -6,7 +6,14 @@ import edu.java.teamproject.model.Board;
 import edu.java.teamproject.util.Criteria;
 
 public interface BoardService {
+	
+	Board readByBno(int bno);
+	int update(Board board);
+	int delete(int bno);
+	
 	List<Board> listCriteria(Criteria criteria);
 	
 	int countBoards(Criteria criteria);
+	
+	
 }

@@ -33,9 +33,8 @@ public class BoardDaoImple implements BoardDao {
 	}
 
 	@Override
-	public Board read(int bno) {
-		// TODO Auto-generated method stub
-		return null;
+	public Board readByBno(int bno) {
+		return session.selectOne(BOARD_MAPPER + ".selectByBno", bno);
 	}
 
 	@Override
@@ -45,8 +44,7 @@ public class BoardDaoImple implements BoardDao {
 
 	@Override
 	public int update(Board board) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update(BOARD_MAPPER + ".updateBoard", board);
 	}
 
 	@Override
@@ -56,9 +54,8 @@ public class BoardDaoImple implements BoardDao {
 	}
 
 	@Override
-	public int delete(Board board) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(int bno) {
+		return session.delete(BOARD_MAPPER + ".deleteBoard", bno);
 	}
 
 	@Override

@@ -317,8 +317,9 @@
 									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
-												<img alt=""
-													src="/teamproject/resources/images/blank_image2.png">
+												<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}">
+													<img alt="" src="/teamproject/resources/images/blank_image2.png">
+												</a>
 											</div>
 	
 											<div class="post-contents2">
@@ -326,7 +327,7 @@
 												<button class="btnHPostTag">Java</button>
 												<button class="btnHPostTag2">언어</button>
 												<br/> 
-												<a class="post-title2" href="">${board.title}</a> <br /> <br />
+												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}">${board.title}</a> <br /> <br />
 												<a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
@@ -345,19 +346,21 @@
 							<c:forEach items="${boardList}" var="board">
 								<div class="sub-post-list">
 									<div class="post-image-div">
-										<img class="post-image" alt=""
-											src="/teamproject/resources/images/blank_image.png">
+										<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}">
+											<img class="post-image" alt=""
+												src="/teamproject/resources/images/blank_image.png">
+										</a>
 									</div>
 
 
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="#"><strong>${board.title}</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
 										<button class="btnPostTag">Java</button>
 										<button class="btnPostTag2">언어</button>
 										<br />
-										<br /> <a class="post-content" href="#">${board.content}</a><br />
+										<br /> <a class="post-content">${board.content}</a><br />
 										<span class="post-info-span"><a
 											class="post-info-span-userId" href="#">${board.writer}</a>님
 											께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에
@@ -375,18 +378,21 @@
 
 						<!-- 페이지 넘버 -->
 						<div>
-							<div>
-								<ul>
+							<div class="text-center">
+								<ul class="pagination">
 									<c:if test="${pageMaker.prev}">
-										<li><a href="/teamproject/board/listPaging?page=${pageMaker.startPage - 1}">이전</a></li>
+										<%-- <li><a href="/teamproject/board/listPaging?page=${pageMaker.startPage - 1}">이전</a></li> --%>
+										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
 									</c:if>
 									<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-										<li<c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
-											<a href="/teamproject/board/listPaging?page=${idx}">${idx}</a>
+										<li<%-- <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/> --%>>
+											<%-- <a href="/teamproject/board/listPaging?page=${idx}">${idx}</a> --%>
+											<a href="/teamproject/board/listPaging${pageMaker.makeQuery(idx)}">${idx}</a>
 										</li>
 									</c:forEach>
 									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-										<li><a href="/teamproject/board/listPaging?page=${pageMaker.endPage + 1}">다음</a></li>
+										<%-- <li><a href="/teamproject/board/listPaging?page=${pageMaker.endPage + 1}">다음</a></li> --%>
+										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
 									</c:if>
 								</ul>
 							</div>

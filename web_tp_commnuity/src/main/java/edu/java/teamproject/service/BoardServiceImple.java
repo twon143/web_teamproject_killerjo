@@ -19,6 +19,17 @@ public class BoardServiceImple implements BoardService {
 	@Autowired private BoardDao boardDao;
 	
 	@Override
+	public Board readByBno(int bno) {
+		return boardDao.readByBno(bno);
+	}
+	
+	@Override
+	public int update(Board board) {
+		return boardDao.update(board);
+	}
+	
+	
+	@Override
 	public List<Board> listCriteria(Criteria criteria) {
 		logger.info("listCriteria() 호출");
 		return boardDao.listCriteria(criteria);
@@ -28,5 +39,14 @@ public class BoardServiceImple implements BoardService {
 	public int countBoards(Criteria criteria) {
 		return boardDao.countBoards(criteria);
 	}
+
+	@Override
+	public int delete(int bno) {
+		return boardDao.delete(bno);
+	}
+
+
+
+
 
 }

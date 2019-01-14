@@ -6,7 +6,12 @@
   
 <mapper namespace="edu.java.mappers.BoardMapper">
 	<!-- SQL 문장들을 정의 -->
-	<!-- 특정 글번호의 게시글 검색 ( 사용하지 않을 듯 ) -->
+	<!-- 특정 글번호의 게시글 검색 -->
+	<select id="selectByBno" resultType="Board">
+		SELECT * FROM ${tbl_board}
+		WHERE ${board.bno} = #{bno}
+	</select>
+	
 	<select id="selectAll" resultType="Board">
 		SELECT * FROM ${tbl_board}
 		ORDER BY ${board.bno} DESC
@@ -23,6 +28,23 @@
 		insert into ${tbl_board} (${board.title}, ${board.content}, ${board.writer}, ${board.category}, ${board.type}, ${board.tag}, ${board.link}, ${board.image})
 		values (#{title}, #{content}, #{writer}, #{category}, #{type}, #{tag}, #{link}, #{image})
 	</insert>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard">
+		UPDATE ${tbl_board}
+		SET ${board.title} = #{title},
+			${board.content} = #{content},
+			${board.write_date} = (SELECT NOW()),
+			${board.category} = #{category},
+			${board.tag} = #{tag},
+			${board.link} = #{link},
+			${board.image} = #{image},
+		WHERE ${board.bno} = #{bno}
+	</update>	
+	
+	<delete id="deleteBoard">
+		DELETE FROM ${tbl_board} WHERE ${board.bno} = #{bno};
+	</delete>
 	
 	<!-- 게시글을 페이지당 10개씩 출력하기 위한 쿼리문 -->
 	<select id="listPaging" resultType="Board">
