@@ -1,8 +1,9 @@
 package edu.java.teamproject.controller;
 
-import java.util.Date;
 
-import javax.servlet.http.Cookie;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,11 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.util.WebUtils;
 
 import edu.java.teamproject.model.User;
 import edu.java.teamproject.service.UserService;
@@ -52,17 +52,12 @@ public class UserController {
 		return result;
 	}
 
-	@RequestMapping(value = "register", method = RequestMethod.GET)
-	public void register() {
-		logger.info("register() 호출");
-	}
-
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public String register(User user) {
+	public String register(User user, HttpServletRequest request) throws UnsupportedEncodingException {
 		logger.info("register({}) 호출", user);
 
 		try {
-			userService.signUp(user);
+			userService.signUp(user, request.getParameter("queryString"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,18 +65,19 @@ public class UserController {
 
 //		redirectAttributes.addFlashAttribute("signUpMsg", "REGISTERED");
 
-		return "redirect:/user/notifyEmailConfirm";
+		return "redirect:/user/notifyEmailConfirm?url=" + URLEncoder.encode(request.getParameter("queryString"), "utf-8");
 	}
 
 	@RequestMapping(value = "notifyEmailConfirm", method = RequestMethod.GET)
-	public void notifyEmailConfirm() {
+	public void notifyEmailConfirm(@ModelAttribute("url") String url) {
+		logger.info("notifyEmailConfirm(url : {})", url);
 	}
 
 	@RequestMapping(value = "emailConfirm", method = RequestMethod.GET)
-	public void emailConfirm(String user_id, Model model) {
-		logger.info("emailConfirm(user_id : {})", user_id);
+	public void emailConfirm(@ModelAttribute("user_id") String user_id, @ModelAttribute("url") String url) {
+		logger.info("emailConfirm(user_id : {}, url : {})", user_id, url);
 		userService.enableUserLogin(user_id);
-		model.addAttribute("user_Id", user_id);
+//		model.addAttribute("user_Id", user_id);
 
 	}
 
@@ -99,34 +95,14 @@ public class UserController {
 	public void loginPost(User user, Model model) {
 		logger.info("loginPost({})", user);
 
+		// 로그인 결과를 리턴함
 		User result = userService.signIn(user);
 		model.addAttribute("loginResult", result);
 	}
 
-	@RequestMapping(value = "logout")
+	@RequestMapping(value = "logout", method = RequestMethod.POST)
 	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		logger.info("logout() 호출");
-		Object obj = session.getAttribute("login");
-
-		logger.info("login: {}", obj);
-
-		/*
-		 * if(obj != null) { User user = (User) obj;
-		 * 
-		 * session.invalidate(); // Session 객체를 삭제 //쿠키를 가져와보고 Cookie loginCookie =
-		 * WebUtils.getCookie(request, "loginCookie"); if(loginCookie != null) { //
-		 * null이 아니면 (쿠키가 존재하면) loginCookie.setPath("/"); // 쿠키는 없앨 때 유효시간을 0으로 설정하는 것
-		 * !!! invalidate같은거 없음. loginCookie.setMaxAge(0); // 쿠키 설정을 적용한다.
-		 * response.addCookie(loginCookie);
-		 * 
-		 * // 사용자 테이블에서도 유효기간을 현재시간으로 다시 세팅해줘야함. Date date = new
-		 * Date(System.currentTimeMillis()); userService.keepLogin(user.getId(),
-		 * session.getId(), date);
-		 * 
-		 * }
-		 * 
-		 * }
-		 */
 
 		return "redirect:/"; // 메인 페이지로 이동
 	}

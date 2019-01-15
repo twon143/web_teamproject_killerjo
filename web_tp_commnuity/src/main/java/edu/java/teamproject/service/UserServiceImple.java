@@ -1,6 +1,7 @@
 package edu.java.teamproject.service;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 
 import javax.mail.MessagingException;
@@ -31,7 +32,7 @@ public class UserServiceImple implements UserService {
 	private UserDao userDao;
 	
 	@Override
-	public void signUp(User user) throws MessagingException, UnsupportedEncodingException {
+	public void signUp(User user, String targetUrl) throws MessagingException, UnsupportedEncodingException {
 		
 		logger.info("signUp({})", user);
 		
@@ -49,7 +50,8 @@ public class UserServiceImple implements UserService {
 				sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
 		                .append("<a href='https://localhost:8443/teamproject/user/emailConfirm?key=")
 		                .append(key + "&user_id=")
-		                .append(user.getId())
+		                .append(user.getId() + "&url=")
+		                .append(URLEncoder.encode(targetUrl, "utf-8"))
 		                .append("' target='_blenk'>이메일 인증 확인</a>")
 		                .toString());
 				sendMail.setFrom("twon143@gmail.com", "엄태원");

@@ -9,7 +9,7 @@ import edu.java.teamproject.model.User;
 
 public interface UserService {
 
-	void signUp(User user) throws MessagingException, UnsupportedEncodingException;
+	void signUp(User user, String targetUrl) throws MessagingException, UnsupportedEncodingException;
 	User signIn(User user);
 	int enableUserLogin(String id);
 	int keepLogin(String uid, String sessionId, Date next);

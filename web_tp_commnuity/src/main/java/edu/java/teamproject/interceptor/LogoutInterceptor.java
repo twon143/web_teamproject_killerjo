@@ -54,8 +54,9 @@ public class LogoutInterceptor extends HandlerInterceptorAdapter{
 				
 			}
 			
-			if(request.getParameter("url") != null) {
+			if(request.getParameter("queryString") != null) {
 				String target = getRedirectTarget(request);
+				logger.info(target);
 				response.sendRedirect(target);
 				return false;
 			} else {
@@ -69,7 +70,7 @@ public class LogoutInterceptor extends HandlerInterceptorAdapter{
 	
 	private String getRedirectTarget(HttpServletRequest request) throws UnsupportedEncodingException {
 		
-		String reqUrl = request.getParameter("url");
+		String reqUrl = request.getParameter("queryString");
 		logger.info("이동할 페이지: {}", reqUrl);
 		
 		return reqUrl;

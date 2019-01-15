@@ -25,7 +25,7 @@ public class EmailConfirmTest {
 	
 	private void signUp(User user) {
 		try {
-			userService.signUp(user);
+			userService.signUp(user, "/");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

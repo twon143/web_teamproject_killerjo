@@ -43,7 +43,7 @@
 							<h4>회원가입</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/register" method="post" accept-charset="UTF-8">
+							<form action="../user/register" method="post" accept-charset="UTF-8">
 								<div class="form-group">
 									<label for="signup_user_id">아이디</label><br> <input
 										type="text" id="signup_user_id" name="id"
@@ -85,7 +85,7 @@
 
 								<input type="submit" id="signup-btn" value="회원가입"
 									class="btn btn-primary btn-lg"> <input type="hidden"
-									name="queryString" value="https://localhost:8443/teamproject/">
+									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
 							</form>
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 							<h4>로그인</h4>
 						</div>
 						<div class="modal-body">
-							<form action="login-post" method="post">
+							<form action="../user/login-post" method="post">
 								<div class="form-group">
 									<label for="user_id">아이디</label><br> <input type="text"
 										id="user_id" name="id" placeholder="아이디">
@@ -115,7 +115,7 @@
 
 								<input type="submit" id="login-btn" value="로그인"
 									class="btn btn-primary btn-lg"> <input type="hidden"
-									name="queryString" value="https://localhost:8443/teamproject/">
+									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
 							</form>
 						</div>
 					</div>
@@ -157,7 +157,10 @@
 				
 				<c:if test="${not empty login}">
 					<div class="logined-form">
-						<input type="button" class="btn-logout" value="로그아웃">
+						<form action="../user/logout" method="post">
+							<input type="submit" class="btn-logout" value="로그아웃">
+							<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}"/>						
+						</form>
 						<input type="button" class="btn-settig" value="설정" />
 						<div class="img-profile-div">
 							<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
@@ -424,13 +427,13 @@
 						<c:if test="${empty login}">
 							<div class="login-form-right-div">
 
-								<form action="user/login-post" method="post">
+								<form action="../user/login-post" method="post">
 									<input type="text" name="id" placeholder="아이디"
 										class="login-input-id" /> <input type="text" name="password"
 										placeholder="비밀번호" class="login-input-pw" /> <input
 										type="checkbox" id="autoLogin" name="use_cookie" /> <input
 										type="hidden" name="queryString"
-										value="https://localhost:8443/teamproject/" /> <label
+										value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}"/> <label
 										for="autoLogin">로그인 유지</label> <input type="submit"
 										value="로그인" class="btn-side-login" />
 								</form>
@@ -458,7 +461,12 @@
 								</div>
 								<br/>
 								<div>
-									<button id="btn-logout">로그아웃</button>
+									
+									<form action="../user/logout" method="post">
+										<input type="hidden" name="queryString"
+										value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+										<input type="submit" value="로그아웃"/>
+									</form>
 								</div>
 							</div>
 							<!--  
@@ -468,7 +476,7 @@
 
 						</c:if>
 
-						<form action="board/write-form" method="get">
+						<form action="write-form" method="get">
 							<input type="submit" value="질문하기" class="btn-side-question" /> <input
 								type="hidden" name="type" value="question" />
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
@@ -521,12 +529,13 @@
 	<script src="<c:url value='/resources/js/main.js'/>"></script>
 
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$(function() {
 			$('#btn-logout').click(function() {
+				alert(location.href);
 				location = '../user/logout?url=' + location.href;
 			});
 		})
-	</script>
+	</script> -->
 </body>
 </html>

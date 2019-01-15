@@ -43,7 +43,7 @@
 							<h4>회원가입</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/register" method="post" accept-charset="UTF-8">
+							<form action="user/register" method="post">
 								<div class="form-group">
 									<label for="signup_user_id">아이디</label><br> <input
 										type="text" id="signup_user_id" name="id"
@@ -84,8 +84,8 @@
                            </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
 
 								<input type="submit" id="signup-btn" value="회원가입"
-									class="btn btn-primary btn-lg"> <input type="hidden"
-									name="queryString" value="https://localhost:8443/teamproject/">
+									class="btn btn-primary btn-lg"> 
+									<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
 							</form>
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 							<h4>로그인</h4>
 						</div>
 						<div class="modal-body">
-							<form action="login-post" method="post">
+							<form action="user/login-post" method="post">
 								<div class="form-group">
 									<label for="user_id">아이디</label><br> <input type="text"
 										id="user_id" name="id" placeholder="아이디">
@@ -157,7 +157,11 @@
 				
 				<c:if test="${not empty login}">
 					<div class="logined-form">
-						<input type="button" class="btn-logout" value="로그아웃">
+					
+						<form action="user/logout" method="post">
+							<input type="submit" class="btn-logout" value="로그아웃"/>
+							<!-- <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/> -->
+						</form>
 						<input type="button" class="btn-settig" value="설정" />
 						<div class="img-profile-div">
 							<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
@@ -165,8 +169,6 @@
 						<div class="img-notify-div">
 							<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
 						</div>
-						
-						
 					</div>
 				</c:if>
 			</nav>
@@ -482,7 +484,10 @@
 								</div>
 								<br/>
 								<div>
-									<button id="btn-logout">로그아웃</button>
+									<!-- <button id="btn-logout">로그아웃</button> -->
+									<form action="user/logout" method="post">
+										<input type="submit" value="로그아웃">
+									</form>
 								</div>
 							</div>
 							<!--  
@@ -560,7 +565,7 @@
 	<script src="<c:url value='/resources/js/main.js'/>"></script>
 
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$(function() {
 			$('#btn-logout').click(function() {
 				location = 'user/logout';
@@ -570,6 +575,6 @@
 				location = 'user/logout';
 			});
 		})
-	</script>
+	</script> -->
 </body>
 </html>
