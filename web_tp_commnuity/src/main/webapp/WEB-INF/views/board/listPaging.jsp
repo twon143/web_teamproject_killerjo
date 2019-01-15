@@ -144,14 +144,31 @@
 					</div>
 
 				</div>
-				
-				<div class="login-form-div login-form collapse navbar-collapse"
-					id="navbarTogglerDemo03">
-					<div class="btnLogin-div">
-						<input type="button" class="btnLogin" data-toggle="modal"
-							data-target="#myModal" value="로그인 또는 회원가입" />
+				<c:if test="${empty login}">
+					<div class="login-form-div login-form collapse navbar-collapse"
+						id="navbarTogglerDemo03">
+
+						<div class="btnLogin-div">
+							<input type="button" class="btnLogin" data-toggle="modal"
+								data-target="#myModal" value="로그인 또는 회원가입" />
+						</div>
 					</div>
-				</div>
+				</c:if>
+				
+				<c:if test="${not empty login}">
+					<div class="logined-form">
+						<input type="button" class="btn-logout" value="로그아웃">
+						<input type="button" class="btn-settig" value="설정" />
+						<div class="img-profile-div">
+							<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+						</div>
+						<div class="img-notify-div">
+							<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
+						</div>
+						
+						
+					</div>
+				</c:if>
 			</nav>
 		</div>
 
@@ -403,32 +420,55 @@
 				<!-- contents - right -->
 				<div class="contents-right-color">
 					<div class="contents-right-div col-sm-2 sidenav">
-						<div class="login-form-right-div">
+						<!--  로그인 정보가 없을때 -->
+						<c:if test="${empty login}">
+							<div class="login-form-right-div">
 
-							<c:if test="${empty login}">
-								<form action="../user/login-post" method="post">
+								<form action="user/login-post" method="post">
 									<input type="text" name="id" placeholder="아이디"
 										class="login-input-id" /> <input type="text" name="password"
 										placeholder="비밀번호" class="login-input-pw" /> <input
 										type="checkbox" id="autoLogin" name="use_cookie" /> <input
 										type="hidden" name="queryString"
-										value="https://localhost:8443/teamproject/board/listPaging" /> <label
+										value="https://localhost:8443/teamproject/" /> <label
 										for="autoLogin">로그인 유지</label> <input type="submit"
 										value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="아이디/비밀번호 찾기"
-									class="btn-side-findIdAndPw" />
-								<input type="button" value="구글 로그인"
-									class="btn-side-google-login" />
-							</c:if>
-							<c:if test="${not empty login}">
-								${login.id }님, 안녕하세요! <br />
-								<button id="btn-logout">로그아웃</button>
-							</c:if>
+									class="btn-side-findIdAndPw" /> <input type="button"
+									value="구글 로그인" class="btn-side-google-login" />
 
-						</div>
+							</div>
+						<!-- 로그인 정보가 있을때 -->	
+						</c:if>
 
-						<form action="write-form" method="get">
+						<c:if test="${not empty login}">
+							<div class="logined-form-right-div">
+								<div class="login-profile-div">
+									<img class="img-profile-side" alt=""
+										src="/teamproject/resources/images/icon_profile1.png">
+								</div>
+								<div class="login-id-div">
+									<a class="login-id-a">${login.id}</a> <br />
+								</div>
+
+								<div class="login-setting-div">
+									<img class="img-setting" alt=""
+										src="/teamproject/resources/images/icon_setting.png">
+								</div>
+								<br/>
+								<div>
+									<button id="btn-logout">로그아웃</button>
+								</div>
+							</div>
+							<!--  
+								
+								-->
+
+
+						</c:if>
+
+						<form action="board/write-form" method="get">
 							<input type="submit" value="질문하기" class="btn-side-question" /> <input
 								type="hidden" name="type" value="question" />
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
