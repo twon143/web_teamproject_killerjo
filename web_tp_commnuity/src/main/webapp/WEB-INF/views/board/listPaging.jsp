@@ -334,10 +334,24 @@
 							<c:forEach items="${boardList}" var="board">
 								<div class="sub-post-list">
 									<div class="post-image-div">
-										<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
-											<img class="post-image" alt=""
-												src="/teamproject/resources/images/blank_image.png">
-										</a>
+										<c:if test="${board.type == 'question'}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+												<img class="post-image" alt=""
+													src="/teamproject/resources/images/blank_image.png">
+											</a>
+										</c:if>
+										<c:if test="${board.type == 'writing'}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+												<img class="post-image" alt=""
+													src="/teamproject/resources/images/writing_image.png">
+											</a>
+										</c:if>
+										<c:if test="${board.type == 'link'}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+												<img class="post-image" alt=""
+													src="/teamproject/resources/images/link_image.png">
+											</a>
+										</c:if>
 									</div>
 
 
@@ -378,9 +392,21 @@
 									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
-												<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
-													<img alt="" src="/teamproject/resources/images/blank_image2.png">
-												</a>
+												<c:if test="${board.type == 'question'}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+														<img alt="" src="/teamproject/resources/images/blank_image2.png">
+													</a>
+												</c:if>
+												<c:if test="${board.type == 'writing'}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+														<img alt="" src="/teamproject/resources/images/writing_image2.png">
+													</a>
+												</c:if>
+												<c:if test="${board.type == 'link'}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+														<img alt="" src="/teamproject/resources/images/link_image2.png">
+													</a>
+												</c:if>
 											</div>
 	
 											<div class="post-contents2">
