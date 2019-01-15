@@ -21,6 +21,7 @@ $(document).ready(function () {
    })
    
    $('#viewToWidth').click(function() {
+	  $('.content-center').show();
       $('.content-center2').hide();
    })
    
