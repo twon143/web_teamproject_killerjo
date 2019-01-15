@@ -1,9 +1,19 @@
 $(document).ready(function () {
    var status = true;
    
-   if(status) {
-      $('.content-center2').hide();
+   if(status){
+	   $('.content-center2').hide();
    }
+   
+   /*function status_change(status) {
+	   if(!status) {
+		   $('.content-center').show();
+		   $('.content-center2').hide();
+	   }else {
+		   $('.content-center').hide();
+		   $('.content-center2').show();
+	   }
+   }*/
    
    $('#viewToHeight').click(function() {
       $('.content-center').hide();
@@ -12,19 +22,12 @@ $(document).ready(function () {
    
    $('#viewToWidth').click(function() {
       $('.content-center2').hide();
-      $('.content-center').show();
-      
    })
    
-   
 
-   $('.post-title').click(function() {
+   /*$('.post-title').click(function() {
       $('#myModal').modal();
-   })   
-
-   
-   
-   
+   })   */
    
 })
 

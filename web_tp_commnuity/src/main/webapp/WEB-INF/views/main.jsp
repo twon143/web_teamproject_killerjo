@@ -195,38 +195,37 @@
 								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
 								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
 								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">Python</a></li>
-								<li><a href="#">JSP</a></li>
-								<li><a href="#">jQuery</a></li>
-								<li><a href="#">C#</a></li>
-								<li><a href="#">React Native</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+								<!-- <li><a href="/teamproject/board/listPaging?category=c#&type=all">C#</a></li> -->
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">리눅스</a></li>
-								<li><a href="#">서버관리</a></li>
-								<li><a href="#">CDN</a></li>
-								<li><a href="#">AWS</a></li>
-								<li><a href="#">API</a></li>
+								<li><a href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">SQL</a></li>
-								<li><a href="#">MySQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">GIT</a></li>
+								<li><a href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">머신러닝</a></li>
-								<li><a href="#">블록체인</a></li>
+								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -196,38 +197,37 @@
 								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
 								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
 								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">Python</a></li>
-								<li><a href="#">JSP</a></li>
-								<li><a href="#">jQuery</a></li>
-								<li><a href="#">C#</a></li>
-								<li><a href="#">React Native</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+								<!-- <li><a href="/teamproject/board/listPaging?category=c#&type=all">C#</a></li> -->
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">리눅스</a></li>
-								<li><a href="#">서버관리</a></li>
-								<li><a href="#">CDN</a></li>
-								<li><a href="#">AWS</a></li>
-								<li><a href="#">API</a></li>
+								<li><a href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">SQL</a></li>
-								<li><a href="#">MySQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">GIT</a></li>
+								<li><a href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">머신러닝</a></li>
-								<li><a href="#">블록체인</a></li>
+								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
@@ -344,8 +344,9 @@
 	
 											<div class="post-contents2">
 												<button class="btnHPostTag3">답변 대기</button>
-												<button class="btnHPostTag">Java</button>
-												<button class="btnHPostTag2">언어</button>
+												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+													<button class="btnPostTag">${board.category}</button>
+												</a>
 												<br/> 
 												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br />
 												<a href="#" class="post-userId2">${board.writer}</a>
@@ -377,14 +378,19 @@
 										<!-- Dummy Data 1 -->
 										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
-										<button class="btnPostTag">Java</button>
-										<button class="btnPostTag2">언어</button>
+										<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+											<button class="btnPostTag">${board.category}</button>
+										</a>
 										<br />
 										<br /> <a class="post-content">${board.content}</a><br />
 										<span class="post-info-span"><a
 											class="post-info-span-userId" href="#">${board.writer}</a>님
-											께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에
-											올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a
+											께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?type=all&category=${board.category}">${board.category}</a>에
+											올린 
+											<c:if test="${board.type == 'question'}">질문</c:if>
+											<c:if test="${board.type == 'writing'}">글</c:if>
+											<c:if test="${board.type == 'link'}">링크</c:if>
+										</span> <br /> <a class="post-share" href="#">공유하기</a> <a
 											class="post-save" href="#">보관하기</a>
 
 									</div>
