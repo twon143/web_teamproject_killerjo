@@ -328,40 +328,7 @@
 							</ul>
 						</nav>
 
-						<!-- 가로로 POST 보기 -->
-						<div class="content-center2">
-
-							<c:forEach var="i" begin="0" end="16" step="4">
-								<div class="sub-post-list2">
-									
-									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
-										<div class="sub-sub-post-list2">
-											<div class="post-image-div2">
-												<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
-													<img alt="" src="/teamproject/resources/images/blank_image2.png">
-												</a>
-											</div>
-	
-											<div class="post-contents2">
-												<button class="btnHPostTag3">답변 대기</button>
-												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
-													<button class="btnPostTag">${board.category}</button>
-												</a>
-												<br/> 
-												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br />
-												<a href="#" class="post-userId2">${board.writer}</a>
-											</div>
-										</div>
-									
-									</c:forEach>
-
-								</div>
-							</c:forEach>
-
-						</div>
-						<!-- 가로로 POST 보기 -->
-
-						<!-- 세로로 POST 보기 -->
+						<!-- 리스트 보기 -->
 						<div class="content-center">
 
 							<c:forEach items="${boardList}" var="board">
@@ -400,7 +367,40 @@
 							</c:forEach>
 						</div>
 						<!-- end of div$content-center -->
-						<!-- 세로로 POST 보기 -->
+						<!-- 리스트 보기 -->
+						
+						<!-- 격자 보기 -->
+						<div class="content-center2">
+
+							<c:forEach var="i" begin="0" end="16" step="4">
+								<div class="sub-post-list2">
+									
+									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
+										<div class="sub-sub-post-list2">
+											<div class="post-image-div2">
+												<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+													<img alt="" src="/teamproject/resources/images/blank_image2.png">
+												</a>
+											</div>
+	
+											<div class="post-contents2">
+												<button class="btnHPostTag3">답변 대기</button>
+												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+													<button class="btnPostTag">${board.category}</button>
+												</a>
+												<br/> 
+												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br />
+												<a href="#" class="post-userId2">${board.writer}</a>
+											</div>
+										</div>
+									
+									</c:forEach>
+
+								</div>
+							</c:forEach>
+
+						</div>
+						<!-- 격자 보기 -->
 
 						<!-- 페이지 넘버 -->
 						<div>
