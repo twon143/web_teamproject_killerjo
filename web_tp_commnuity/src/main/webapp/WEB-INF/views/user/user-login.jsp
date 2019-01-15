@@ -154,7 +154,9 @@
                </div>
                <!-- 1/2로 왼쪽 오른쪽 나눠서 회원가입이랑 로그인을 분리 -->
                <!-- section-left div -->
-               <form action="register" method="post">
+               
+               <!-- 회원가입 폼 -->
+               <form action="register" method="post" onsubmit="return submitCheck();">
                <div class="section-left">
                   <div class="left-title-div">
                      <p class="left-p-title">회원가입</p>
@@ -395,6 +397,18 @@
 			}// end success
 		})// end ajax
 	})// end nickname
+	
+	function submitCheck(){
+		console.log("checkedId : " + checkedId);
+		console.log("checkedPw : " + checkedPw);
+		console.log("ckeckedNickname : " + ckeckedNickname);
+		if(checkedId == 1 && checkedPw == 1 && ckeckedNickname == 1){
+			alert("환영합니다.");
+			return true;
+		}
+		alert("다시 가입하세요");
+		return false;
+	}//end submitCheck()
 	
 		
 	</script>
