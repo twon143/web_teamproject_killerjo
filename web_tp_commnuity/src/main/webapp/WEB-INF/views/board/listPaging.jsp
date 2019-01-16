@@ -86,7 +86,7 @@
 
 								<input type="submit" id="signup-btn" value="회원가입"
 									class="btn btn-primary btn-lg"> <input type="hidden"
-									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 							</form>
 						</div>
 					</div>
@@ -116,7 +116,7 @@
 
 								<input type="submit" id="login-btn" value="로그인"
 									class="btn btn-primary btn-lg"> <input type="hidden"
-									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 							</form>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 					<div class="logined-form">
 						<form action="../user/logout" method="post">
 							<input type="submit" class="btn-logout" value="로그아웃">
-							<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}"/>						
+							<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}"/>						
 						</form>
 						<input type="button" class="btn-settig" value="설정" />
 						<div class="img-profile-div">
@@ -335,19 +335,19 @@
 								<div class="sub-post-list">
 									<div class="post-image-div">
 										<c:if test="${board.type == 'question'}">
-											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
 												<img class="post-image" alt=""
 													src="/teamproject/resources/images/blank_image.png">
 											</a>
 										</c:if>
 										<c:if test="${board.type == 'writing'}">
-											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
 												<img class="post-image" alt=""
 													src="/teamproject/resources/images/writing_image.png">
 											</a>
 										</c:if>
 										<c:if test="${board.type == 'link'}">
-											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
 												<img class="post-image" alt=""
 													src="/teamproject/resources/images/link_image.png">
 											</a>
@@ -357,7 +357,7 @@
 
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}"><strong>${board.title}</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
 										<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
 											<button class="btnPostTag">${board.category}</button>
@@ -393,17 +393,17 @@
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
 												<c:if test="${board.type == 'question'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
 														<img alt="" src="/teamproject/resources/images/blank_image2.png">
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'writing'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
 														<img alt="" src="/teamproject/resources/images/writing_image2.png">
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'link'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
 														<img alt="" src="/teamproject/resources/images/link_image2.png">
 													</a>
 												</c:if>
@@ -415,7 +415,7 @@
 													<button class="btnPostTag">${board.category}</button>
 												</a>
 												<br/> 
-												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br />
+												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">${board.title}</a> <br /> <br />
 												<a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
@@ -434,17 +434,17 @@
 								<ul class="pagination">
 									<c:if test="${pageMaker.prev}">
 										<%-- <li><a href="/teamproject/board/listPaging?page=${pageMaker.startPage - 1}">이전</a></li> --%>
-										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.startPage - 1)}&category=${category}&type=${type}">이전</a></li>
+										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.startPage - 1)}&category=${category}&type=${type}&sort=${sort}">이전</a></li>
 									</c:if>
 									<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 										<li<%-- <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/> --%>>
 											<%-- <a href="/teamproject/board/listPaging?page=${idx}">${idx}</a> --%>
-											<a href="/teamproject/board/listPaging${pageMaker.makeQuery(idx)}&category=${category}&type=${type}">${idx}</a>
+											<a href="/teamproject/board/listPaging${pageMaker.makeQuery(idx)}&category=${category}&type=${type}&sort=${sort}">${idx}</a>
 										</li>
 									</c:forEach>
 									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 										<%-- <li><a href="/teamproject/board/listPaging?page=${pageMaker.endPage + 1}">다음</a></li> --%>
-										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.endPage + 1)}&category=${category}&type=${type}">다음</a></li>
+										<li><a href="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.endPage + 1)}&category=${category}&type=${type}&sort=${sort}">다음</a></li>
 									</c:if>
 								</ul>
 							</div>
@@ -465,7 +465,7 @@
 										placeholder="비밀번호" class="login-input-pw" /> <input
 										type="checkbox" id="autoLogin" name="use_cookie" /> <input
 										type="hidden" name="queryString"
-										value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}"/> <label
+										value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}"/> <label
 										for="autoLogin">로그인 유지</label> <input type="submit"
 										value="로그인" class="btn-side-login" />
 								</form>
@@ -496,7 +496,7 @@
 									
 									<form action="../user/logout" method="post">
 										<input type="hidden" name="queryString"
-										value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+										value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}"/>
 										<input type="submit" value="로그아웃"/>
 									</form>
 								</div>
@@ -515,7 +515,7 @@
 								<input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
 								<input type="hidden" name="category" value="${category}"> --%>
 								<%-- <input type="hidden" name="type" value="${type}"> --%>
-								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 						</form>
 						<form action="write-form" method="get">
@@ -525,7 +525,7 @@
 								<input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
 								<input type="hidden" name="category" value="${category}"> --%>
 								<%-- <input type="hidden" name="type" value="${type}"> --%>
-								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 						</form>
 						<form action="write-form" method="get">
@@ -535,7 +535,7 @@
 								<input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
 								<input type="hidden" name="category" value="${category}"> --%>
 								<%-- <input type="hidden" name="type" value="${type}"> --%>
-								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 						</form>
 						

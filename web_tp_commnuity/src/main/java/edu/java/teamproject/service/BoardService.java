@@ -11,7 +11,7 @@ public interface BoardService {
 	int update(Board board);
 	int delete(int bno);
 	
-	List<Board> listCriteria(Criteria criteria, String category, String type);
+	List<Board> listCriteria(Criteria criteria, String category, String type, String sort);
 	
 	int countBoards(Criteria criteria, String category, String type);
 	

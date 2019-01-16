@@ -63,7 +63,13 @@
 		<if test="!'all'.equals(type)">
 			AND ${board.type} = #{type}
 		</if>
-		ORDER BY ${board.bno} DESC, ${board.write_date} DESC
+		ORDER BY ${board.bno} DESC, 
+		<if test="'popular'.equals(sort)">
+			${board.view_count} DESC
+		</if>
+		<if test="'newest'.equals(sort)">
+			${board.write_date} DESC
+		</if>
 		LIMIT #{criteria.pageStart}, #{criteria.perPageNum}
 	</select>
 	

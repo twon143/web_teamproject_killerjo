@@ -38,27 +38,27 @@
 						<!--회원가입 폼 -->
 							<form action="user/register" method="post" onsubmit="return submitCheck();">
 								<div class="form-group">
-									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="6~12자의 영문, 숫자로만">
+									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="6~12자의 영문, 숫자로만" required="required">
 								</div>
 								<div id="idDiv" class="form-group"></div>
 								
 								<div class="form-group">
-									<label for="signup_user_password">비밀번호</label><br> <input type="password" id="signup_user_password" name="password" placeholder="비밀번호 입력">
+									<label for="signup_user_password">비밀번호</label><br> <input type="password" id="signup_user_password" name="password" placeholder="비밀번호 입력" required="required">
 								</div>
 								<div id="passwordDiv" class="form-group"></div>
 								
 								<div class="form-group">
-									<label for="signup_user_password_confirm">비밀번호 확인</label><br> <input type="password" id="signup_user_password_confirm" name="password_confirm" placeholder="비밀번호를 다시 입력">
+									<label for="signup_user_password_confirm">비밀번호 확인</label><br> <input type="password" id="signup_user_password_confirm" name="password_confirm" placeholder="비밀번호를 다시 입력" required="required">
 								</div>
 								<div id="passwordDiv1" class="form-group"></div>
 								
 								<div class="form-group">
-									<label for="signup_user_nickname">닉네임</label><br> <input type="text" id="signup_user_nickname" name="nickname" placeholder="2자 이상">
+									<label for="signup_user_nickname">닉네임</label><br> <input type="text" id="signup_user_nickname" name="nickname" placeholder="2자 이상" required="required">
 								</div>
 								<div id="nicknameDiv" class="form-group"></div>
 								
 								<div class="form-group">
-									<label for="signup_user_email">이메일</label><br> <input type="email" id="signup_user_email" name="email" placeholder="이메일">
+									<label for="signup_user_email">이메일</label><br> <input type="email" id="signup_user_email" name="email" placeholder="이메일" required="required">
 								</div>
 								
 								<p class="help-block">
@@ -89,10 +89,10 @@
 						<div class="modal-body">
 							<form action="user/login-post" method="post">
 								<div class="form-group">
-									<label for="user_id">아이디</label><br> <input type="text" id="user_id" name="id" placeholder="아이디">
+									<label for="user_id">아이디</label><br> <input type="text" id="user_id" name="id" placeholder="아이디" required="required">
 								</div>
 								<div class="form-group">
-									<label for="user_password">비밀번호</label><br> <input type="password" id="password" name="password" placeholder="비밀번호">
+									<label for="user_password">비밀번호</label><br> <input type="password" id="password" name="password" placeholder="비밀번호" required="required">
 								</div>
 								<!-- <button type="button" id="login-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
@@ -305,20 +305,46 @@
 						<div class="content-center">
 							<div class="content-header head-text">인기 질문</div>
 
-							<c:forEach items="${boardList}" var="board">
+							<c:forEach items="${popularQuestionList}" var="board">
 								<div class="sub-post-list">
 									<div class="post-image-div">
-										<img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png">
+										
+										<!-- <img class="post-image" alt="" src="/teamproject/resources/images/blank_image.png"> -->
+										
+										<c:if test="${board.type == 'question'}">
+											<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
+												<img class="post-image" alt=""
+													src="/teamproject/resources/images/blank_image.png">
+											</a>
+										</c:if>
+										<c:if test="${board.type == 'writing'}">
+											<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
+												<img class="post-image" alt=""
+													src="/teamproject/resources/images/writing_image.png">
+											</a>
+										</c:if>
+										<c:if test="${board.type == 'link'}">
+											<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
+												<img class="post-image" alt=""
+													src="/teamproject/resources/images/link_image.png">
+											</a>
+										</c:if>
+										
 									</div>
 
 
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="#"><strong>아이언티어 지망생 오훈식이</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
-										<button class="btnPostTag">Java</button>
-										<button class="btnPostTag2">언어</button>
-										<br /> <br /> <a class="post-content" href="#">${board.content}</a> <br /> <span class="post-info-span"> <a class="post-info-span-userId" href="#">ku8230</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문
+										<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+											<button class="btnPostTag">${board.category}</button>
+										</a>
+										<!-- <button class="btnPostTag2">언어</button> -->
+										<br /> <br /> <a class="post-content" href="#">${board.content}</a> <br /> <span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?type=all&category=${board.category}">${board.category}</a>에 올린 
+										<c:if test="${board.type == 'question'}">질문</c:if>
+										<c:if test="${board.type == 'writing'}">글</c:if>
+										<c:if test="${board.type == 'link'}">링크</c:if>
 										</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
 									</div>
 									<!--  end of div$post-contents -->
@@ -337,19 +363,39 @@
 						<div class="content-header2 head-text">인기 글</div>
 						<!-- 가로로 POST 보기 -->
 						<div class="content-center2">
-							<c:forEach var="i" begin="0" end="16" step="4">
+							<c:forEach var="i" begin="0" end="12" step="4">
 								<div class="sub-post-list2">
-									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
+									<c:forEach var="board" items="${popularWritinList}" begin="${i}" end="${i+3}">
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
-												<img alt="" src="/teamproject/resources/images/blank_image2.png">
+												<c:if test="${board.type == 'question'}">
+													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
+													<img class="post-image" alt=""
+														src="/teamproject/resources/images/blank_image.png">
+													</a>
+													</c:if>
+													<c:if test="${board.type == 'writing'}">
+													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
+													<img class="post-image" alt=""
+														src="/teamproject/resources/images/writing_image.png">
+													</a>
+													</c:if>
+													<c:if test="${board.type == 'link'}">
+													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
+													<img class="post-image" alt=""
+														src="/teamproject/resources/images/link_image.png">
+													</a>
+												</c:if>
 											</div>
 
 											<div class="post-contents2">
 												<button class="btnHPostTag3">답변 대기</button>
-												<button class="btnHPostTag">Java</button>
-												<button class="btnHPostTag2">언어</button>
-												<br /> <a class="post-title2">아이언티어 지망생 오훈식이</a> <br /> <br /> <a href="#" class="post-userId2">ku8230</a>
+												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+													<button class="btnHPostTag">${board.category}</button>
+												</a>
+												<!-- <button class="btnHPostTag2">언어</button> -->
+												<br /> <a class="post-title2" href="/teamproject/board/readPagingpage=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">아이언티어 지망생 오훈식</a> <br /> <br /> 
+												<a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
 
@@ -376,7 +422,7 @@
 							<div class="login-form-right-div">
 
 								<form action="user/login-post" method="post">
-									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="text" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
+									<input type="text" name="id" placeholder="아이디" class="login-input-id" required="required"/> <input type="password" name="password" placeholder="비밀번호" class="login-input-pw" required="required"/> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" /> <input type="button" value="구글 로그인" class="btn-side-google-login" />
 
@@ -404,6 +450,7 @@
 									</form>
 								</div>
 							</div>
+
 							<!--  
                                 
                                 -->
@@ -412,10 +459,23 @@
 						</c:if>
 						<div class="position-btn-ques">
 							<form action="board/write-form" method="get">
-								<input type="submit" value="질문하기" class="btn-side-question" /> <input type="hidden" name="type" value="question" />
+								<input type="submit" value="질문하기" class="btn-side-question" /> 
+								<input type="hidden" name="type" value="question"/>
+								<input type="hidden" name="queryString" value="/teamproject/">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
-							<input type="button" value="글 올리기" class="btn-side-writePost" /> <input type="button" value="링크 올리기" class="btn-side-link" />
+							<form action="board/write-form" method="get">
+								<input type="submit" value="글 올리기" class="btn-side-question" /> 
+								<input type="hidden" name="type" value="writing"/>
+								<input type="hidden" name="queryString" value="/teamproject/">
+								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
+							</form>
+							<form action="board/write-form" method="get">
+								<input type="submit" value="링크 올리기" class="btn-side-question" /> 
+								<input type="hidden" name="type" value="link"/>
+								<input type="hidden" name="queryString" value="/teamproject/">
+								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
+							</form>
 						</div>
 					</div>
 				</div>

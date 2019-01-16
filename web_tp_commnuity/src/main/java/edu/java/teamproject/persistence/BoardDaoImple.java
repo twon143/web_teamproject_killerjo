@@ -79,12 +79,13 @@ public class BoardDaoImple implements BoardDao {
 	}
 
 	@Override
-	public List<Board> listCriteria(Criteria criteria, String category, String type) {
+	public List<Board> listCriteria(Criteria criteria, String category, String type, String sort) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("criteria", criteria);
 		map.put("category", category);
 		map.put("type", type);
+		map.put("sort", sort);
 		
 		return session.selectList(BOARD_MAPPER + ".listCriteria", map);
 	}

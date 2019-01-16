@@ -44,6 +44,16 @@
   		<property name="user.login_date" value="login_date"/>
   		<property name="user.use_cookie" value="use_cookie"/>
   		
+  		<!-- Reply 테이블 칼럼 -->
+  		<property name="tbl_reply" value="test.Reply"/>
+  		<property name="reply.rno" value="rno"/>
+  		<property name="reply.parent_num" value="parent_num"/>
+  		<property name="reply.write_date" value="write_date"/>
+  		<property name="reply.rec_count" value="rec_count"/>
+  		<property name="reply.writer" value="writer"/>
+  		<property name="reply.prno" value="prno"/>
+  		<property name="reply.content" value="content"/>
+  		<property name="reply.type" value="type"/>
   	</properties>
   
   	<typeAliases>

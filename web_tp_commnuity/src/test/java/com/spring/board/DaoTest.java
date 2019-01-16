@@ -69,7 +69,7 @@ public class DaoTest {
 		criteria.setPage(3);
 		criteria.setPerPageNum(20);
 		
-		List<Board> boards = boardDao.listCriteria(criteria, "jsp", "all");
+		List<Board> boards = boardDao.listCriteria(criteria, "jsp", "all", "newest");
 		
 		for (Board board : boards) {
 			logger.info(board.getBno() + " : " + board.getTitle());

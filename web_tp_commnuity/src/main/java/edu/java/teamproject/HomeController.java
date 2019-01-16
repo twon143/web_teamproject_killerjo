@@ -34,7 +34,14 @@ public class HomeController {
 		
 		logger.info("session 값 확인 : {}", session.getAttribute("login"));
 		
-		model.addAttribute("boardList", boardService.listCriteria(criteria, "all", "all"));
+		criteria.setPerPageNum(12);
+		
+		model.addAttribute("popularQuestionList", boardService.listCriteria(criteria, "all", "question", "popular"));
+		model.addAttribute("popularWritingList", boardService.listCriteria(criteria, "all", "writing", "popular"));
+		
+		/*model.addAttribute("category", "all");
+		model.addAttribute("type", "all");*/
+		
 		
 		return "main";
 	}

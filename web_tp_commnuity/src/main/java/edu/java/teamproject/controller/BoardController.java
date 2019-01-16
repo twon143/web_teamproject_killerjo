@@ -40,8 +40,9 @@ public class BoardController {
    @RequestMapping(value = "listPaging", method = RequestMethod.GET)
    public void listCriteria(Model model, Criteria criteria, 
 		   @RequestParam("category") String category,
-		   @RequestParam("type") String type) throws Exception{
-	   logger.info("listPaging(criteria : {}, category : {}, type : {})", criteria, category, type);
+		   @RequestParam("type") String type,
+		   String sort) throws Exception{
+	   logger.info("listPaging(criteria : {}, category : {}, type : {}, sort : {})", criteria, category, type, sort);
 	   
 	   PageMaker pageMaker = new PageMaker();
 	   pageMaker.setCriteria(criteria);
@@ -49,19 +50,29 @@ public class BoardController {
 	   
 	   logger.info("pageMaker : {}", pageMaker);
 	   
-	   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type));
+	   if(sort != null) {
+		   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type, sort));
+	   } else {
+		   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type, "newest"));
+	   }
 	   model.addAttribute("pageMaker", pageMaker);
 	   model.addAttribute("category", category);
 	   model.addAttribute("type", type);
+	   if(sort != null) {
+		   model.addAttribute("sort", sort);
+	   } else {
+		   model.addAttribute("sort", "newest");
+	   }
 	   
    }
    
    // 글 상세보기 페이지 이동
    @RequestMapping(value = "readPaging", method = RequestMethod.GET)
    public void readPaging(@RequestParam("bno") int bno, 
-		   @ModelAttribute("criteria") Criteria criteria, Model model,
+		   Criteria criteria, Model model,
 		   @ModelAttribute("category") String category,
-		   @ModelAttribute("type") String type) {
+		   @ModelAttribute("type") String type,
+		   String sort) {
 	   
 	   
 	   // 쿠키 유무 (rememberReadPageCookie) 확인
@@ -76,6 +87,12 @@ public class BoardController {
 	   
 	   }*/
 	   model.addAttribute("board", boardService.readByBno(bno));
+	   
+	   if(sort != null) {
+		   model.addAttribute("sort", sort);
+	   } else {
+		   model.addAttribute("sort", "newest");
+	   }
    }
    
    @RequestMapping(value = "modifyPaging", method = RequestMethod.GET)
