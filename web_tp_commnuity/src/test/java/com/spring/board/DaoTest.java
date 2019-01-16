@@ -35,9 +35,15 @@ public class DaoTest {
 //		testListPaging();
 //		testListCriteria();
 //		testCreate();
-		testReplyList();
+//		testReplyList();
+		testInsert();
 	}
-
+	
+	private void testInsert() {
+		Reply reply = new Reply(0, 994, null, 0, "ku8230", 0 , "테스트", "board");
+		int result = replyService.insert(reply);
+		logger.info("insert() 결과: " + result);
+	}
 	private void testReplyList() {
 		// TODO Auto-generated method stub
 		List<Reply> replyList = replyService.select(200);

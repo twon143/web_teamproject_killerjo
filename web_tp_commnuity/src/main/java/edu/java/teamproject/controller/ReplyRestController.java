@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ public class ReplyRestController {
 	@Autowired private ReplyService replyService;
 	@Autowired private ReplyDao replyDao;
 	
+	// 댓글 리스트 부르기
 	@RequestMapping(value = "all/{bno}", method=RequestMethod.GET)
 	public ResponseEntity<List<Reply>> readAllReplyByBno(@PathVariable(name="bno") int bno) {
 			logger.info("readReplies(bno={}) 호출", bno);
@@ -34,5 +36,25 @@ public class ReplyRestController {
 			
 			return entity;
 		
+	}
+	// 댓글 등록
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Integer> writeReply(@RequestBody Reply reply) {
+		
+		logger.info("writeReply({}) 호출", reply);
+		
+		int writeResult = replyService.insert(reply);
+		logger.info("result 결괴: " + writeResult);
+		
+		ResponseEntity<Integer> entity = null;
+		
+		if(writeResult == 1) {
+			entity = new ResponseEntity<Integer>(writeResult, HttpStatus.OK);
+		}
+		else {
+			entity = new ResponseEntity<Integer>(writeResult, HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
 	}
 }

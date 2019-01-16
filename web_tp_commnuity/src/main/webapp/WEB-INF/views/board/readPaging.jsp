@@ -243,6 +243,7 @@
 								</div>
 
 								<div class="register-reply-div">
+									<input type="hidden" class="reply-type" value="board">
 									<button type="button" class="btnRegisterReply">댓글 쓰기</button>
 								</div>
 
@@ -279,7 +280,9 @@
 						</div>
 						<!-- 돌아가기 그런 인터페이스 div -->		
 						<div class="interface-div">
-							<button>게시글로 돌아가기</button>
+							<button class="backTo-listPaging">게시글로 돌아가기</button>
+							<button class="saving-post">게시글 보관하기</button>
+							<button class="share-post-FaceBook">페이스북에 공유하기</button>
 						</div>
 					</div>
 				</div>
@@ -293,7 +296,7 @@
 	
 
 	
-	
+	<input type="hidden" id="login" value="${login.id}" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 	<script id="reply-template" type="text/x-handlebars-template">
 		<div class="reply-item">	
@@ -316,6 +319,7 @@
 		$(function() {
 			// 현재 보고 있는 게시글의 글번호
 			var bno = $('#bno').val();
+			console.log("bno: " + bno)
 			// 댓글 전체 리스트를 출력할 영역
 			var division = $('.detailPost-replyList-div');
 			
@@ -382,98 +386,37 @@
 			// 함수 호출
 			getAllReplies();
 			
-			$('#createReply').click(function() {
-				var rtext = $('#rtext').val();
-				var userId = $('#userId').val();
+			$('.btnRegisterReply').click(function() {
+				var content = $('.reply-content-textarea').val();
+				var writer = $('#login').val();
+				console.log("writer: " + writer);
+				var bno = $('#bno').val();
+				var type = $('.reply-type').val();
 				// TODO: 댓글 내용/작성자 아이디가 비어있는지 않은지를 검사
 				
 				// 댓글을 서버로 전송
 				$.ajax({
 					type: "POST",
-					url: '/ex02/replies',
+					url: '/teamproject/reply',
 					headers: {
 						'Content-type': 'application/json',
 						'X-HTTP-Method-Override': 'post'
 					},
 					data: JSON.stringify({
-						'bno': bno,
-						'rtext': rtext,
-						'userId': userId
+						'content': content,
+						'writer': writer,
+						'parent_num': bno,
+						'type': type
 					}),
 					success: function(result) {
-						alert('댓글 추가 결과: ' + result);
-						getAllReplies();
-					}
-				});
-			});
-			
-			/* 자바 스크립트 실행 시점에 btnUpdate 버튼이 생성되어 있지 않기 때문에
-			직접 이벤트 리스너를 등록할 수 없음
-			$('.btnUpdate').click(function() {
-				alert('test');
-			}); */
-			
-			division.on('click', '.reply-item .btnUpdate', function() {
-				
-				// 수정할 댓글 번호
-				var rno = $(this).prevAll('#rno').val();
-				// $(this): 이벤트 리스너 콜백 함수를 실행시킨(이벤트가 발생된) 요소 - 버튼
-				// prevAll(요소): 같은 부모 요소를 갖는 형제 요소들 중에서 자신보다 먼저 나오는 요소를 찾음
-				
-				// 수정할 댓글 번호
-				var rtext = $(this).prevAll('#rtext').val();
-				
-				$.ajax({
-					type: 'put',
-					url: '/ex02/replies/' + rno,
-					headers: {
-						'Content-type': 'application/json',
-						'X-HTTP-Method-Override': 'put'
-					},
-					data: JSON.stringify({
-						'rtext': rtext
-					}),
-					success: function(data) {
-						if(data == 1){
-							alert('댓글 ' + rno + '번 수정 성공');
-						} else {
-							alert('댓글 수정 실패');
-						}
 						
+						// 함수 호출
+						$('.reply-content-textarea').val('');
 						getAllReplies();
 					}
 				});
 			});
-			
-			division.on('click', '.reply-item .btnDelete', function() {
-				
-				// 삭제할 댓글 번호
-				var rno = $(this).prevAll('#rno').val();
-				
-				var result = confirm(rno + " 번 댓글을 삭제하시겠습니까?");
-				
-				if(result == true) {
-					
-					$.ajax({
-						type: 'delete',
-						url: '/ex02/replies/' + rno,
-						headers: {
-							'Content-type': 'application/json',
-							'X-HTTP-Method-Override': 'delete'
-						},
-						success: function(data) {
-							if(data == 'success'){
-								alert('댓글 ' + rno + '번 삭제 성공');
-							} else {
-								alert('댓글 삭제실패');
-							}
-							
-							getAllReplies();
-						}
-					});
-				}
-				
-			});
+	
 		});
 	</script>
 	
