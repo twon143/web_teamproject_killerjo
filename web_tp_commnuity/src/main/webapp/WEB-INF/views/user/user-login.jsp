@@ -301,7 +301,7 @@
 		var id = $('#id');
 		var password = $('#password');
 		var password1 = $('#password1');
-		var re = /^[a-z0-9]{6,12}$/ // 아이디와 패스워드 적합 검사 정규식
+		var re = /^[a-z0-9]{6,12}$/ // 아이디와 적합 검사 정규식
 
 		/*아이디 중복 검사 */
 		$('#id').change(function() {
@@ -327,7 +327,7 @@
 						$('#idDiv').css('color', 'red');
 						checkedId = 0;
 					} else if (result == false) { // 아이디 형식 부합X 할 때
-						$('#idDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+						$('#idDiv').html("6~12자 영문 대 소문자,숫자를 사용하세요");
 						$('#idDiv').css('color', 'red');
 						checkedId = 0;
 					} else if (res == 1) { // 아이디 중복
@@ -350,19 +350,20 @@
 			console.log('pw :' + password.val());
 			// 입력값이 정규식에 부합한지 체크  부합 : true, 아니면 false 리턴 
 			if (result == false) { // 정규식에 맞지 않을 때
-				$('#passwordDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+				$('#passwordDiv').html("6~12자 영문 대 소문자,숫자를 사용하세요");
 				$('#passwordDiv').css('color', 'red');
 				checkedPw = 0;
 			}
 			if (result == true && password.val() !== password1.val()) {
 				// 비밀번호가 일치하지 않을 때
-				$('#passwordDiv').html("비밀번호가 일치하지 않습니다");
-				$('#passwordDiv').css('color', 'red');
+				$('#passwordDiv1').html("비밀번호가 일치하지 않습니다");
+				$('#passwordDiv1').css('color', 'red');
 				checkedPw = 0;
 			}
 			if (result == true && password.val() == password1.val()) {
 				//정규식에 부합하고 패스워드 일치
 				$('#passwordDiv').html("");
+				$('#passwordDiv1').html("");
 				checkedPw = 1;
 			}
 		})// end pwCheckFunction
@@ -373,19 +374,20 @@
 			console.log('pw1 :' + password1.val());
 			// 입력값이 정규식에 부합한지 체크  부합 : true, 아니면 false 리턴 
 			if (result == false) { // 정규식에 맞지 않을 때
-				$('#passwordDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+				$('#passwordDiv').html("6~12자 영문 대 소문자,숫자를 사용하세요");
 				$('#passwordDiv').css('color', 'red');
 				checkedPw = 0;
 			}
 			if (result == true && password.val() !== password1.val()) {
 				// 비밀번호가 일치하지 않을 때
-				$('#passwordDiv').html("비밀번호가 일치하지 않습니다");
-				$('#passwordDiv').css('color', 'red');
+				$('#passwordDiv1').html("비밀번호가 일치하지 않습니다");
+				$('#passwordDiv1').css('color', 'red');
 				checkedPw = 0;
 			}
 			if (result == true && password.val() == password1.val()) {
 				//정규식에 부합하고 패스워드 일치
 				$('#passwordDiv').html("");
+				$('#passwordDiv1').html("");
 				checkedPw = 1;
 			}
 		})// end pwCheckFunction1
