@@ -693,7 +693,8 @@ div.content-header p {
 }
 
 .modal-body {
-    height: 1000px;
+    height: 500px;
+    width: 300px;
 }
 
 /* container-right */
