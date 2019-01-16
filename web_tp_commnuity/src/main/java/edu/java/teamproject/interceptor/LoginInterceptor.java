@@ -16,6 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.java.teamproject.model.User;
 import edu.java.teamproject.persistence.UserDao;
@@ -48,7 +49,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		
+
 		// loginPost() 컨트롤러가 리턴한 이후
 		logger.info("postHandle() 호출");
 		
@@ -85,6 +86,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				cookie.setPath("/");
 				int amount = 60*60*24*7;
 				cookie.setMaxAge(amount); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
+				
 				// 쿠키를 적용해 준다.
                 response.addCookie(cookie);
                 
@@ -108,7 +110,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			
 		} else { // 로그인 실패
 			logger.info("로그인 실패");
-			response.sendRedirect("/teamproject/user/user-login?url=" + URLEncoder.encode(target, "utf-8"));
+			response.sendRedirect("/teamproject/user/user-login?queryString=" + URLEncoder.encode(target, "utf-8"));
 		}
 		
 	}

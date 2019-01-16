@@ -61,7 +61,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 			targetUrl = reqUrl + "?" + queryString;
 		}
 		
-		String target = "/teamproject/user/user-login?url=" + URLEncoder.encode(targetUrl, "utf-8");
+		String target = "/teamproject/user/user-login?queryString=" + URLEncoder.encode(targetUrl, "utf-8");
 		logger.info("target: {}", target);
 		
 		return target;

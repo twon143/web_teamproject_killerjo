@@ -510,11 +510,38 @@
 
 						<form action="write-form" method="get">
 							<input type="submit" value="질문하기" class="btn-side-question" /> <input
-								type="hidden" name="type" value="question" />
+								type="hidden" name="type" value="question"/>
+								<%-- <input type="hidden" name="page" value="${pageMaker.criteria.page}">
+								<input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
+								<input type="hidden" name="category" value="${category}"> --%>
+								<%-- <input type="hidden" name="type" value="${type}"> --%>
+								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
 							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 						</form>
-						<input type="button" value="글 올리기" class="btn-side-writePost" />
-						<input type="button" value="링크 올리기" class="btn-side-link" />
+						<form action="write-form" method="get">
+							<input type="submit" value="글 올리기" class="btn-side-writePost" /> <input
+								type="hidden" name="type" value="writing"/>
+								<%-- <input type="hidden" name="page" value="${pageMaker.criteria.page}">
+								<input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
+								<input type="hidden" name="category" value="${category}"> --%>
+								<%-- <input type="hidden" name="type" value="${type}"> --%>
+								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
+						</form>
+						<form action="write-form" method="get">
+							<input type="submit" value="링크 올리기" class="btn-side-link" /> <input
+								type="hidden" name="type" value="link"/>
+								<%-- <input type="hidden" name="page" value="${pageMaker.criteria.page}">
+								<input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
+								<input type="hidden" name="category" value="${category}"> --%>
+								<%-- <input type="hidden" name="type" value="${type}"> --%>
+								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}">
+							<!--   <input type="hidden" name="queryString" value="type=question" /> -->
+						</form>
+						
+						
+						<!-- <input type="button" value="글 올리기" class="btn-side-writePost" /> -->
+						<!-- <input type="button" value="링크 올리기" class="btn-side-link" /> -->
 					</div>
 				</div>
 				<!-- End contents - right -->

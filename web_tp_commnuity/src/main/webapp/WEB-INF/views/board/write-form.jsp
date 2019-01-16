@@ -47,7 +47,7 @@
 
          <div class="mainLogo-font-div">
             <div class="mainLogo-font-div-div">
-               <a href="/" class="logo-font">킬러조</a>
+               <a href="/teamproject/" class="logo-font">킬러조</a>
             </div>
          </div>
 
@@ -75,45 +75,45 @@
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">PHP</a></li>
-                        <li><a href="#">Javascript</a></li>
-                        <li><a href="#">Java</a></li>
-                        <li><a href="#">Spring</a></li>
-                        <li><a href="#">Node.js</a></li>
-                        <li><a href="#">Swift</a></li>
-                        <li><a href="#">Kotlin</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">Python</a></li>
-                        <li><a href="#">JSP</a></li>
-                        <li><a href="#">jQuery</a></li>
-                        <li><a href="#">C#</a></li>
-                        <li><a href="#">React Native</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+                        <!-- <li><a href="#">C#</a></li>
+                        <li><a href="#">React Native</a></li> -->
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">리눅스</a></li>
-                        <li><a href="#">서버관리</a></li>
-                        <li><a href="#">CDN</a></li>
-                        <li><a href="#">AWS</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">데이터베이스<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">SQL</a></li>
-                        <li><a href="#">MySQL</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">GIT</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="#">머신러닝</a></li>
-                        <li><a href="#">블록체인</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
@@ -145,7 +145,7 @@
             <ul class="write-form-type-ul">
                <li class="clicked-li">
                <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeQuestion.png">
-               <a class="menu-link">질문 올리기</a>
+               <a class="menu-link" href="">질문 올리기</a>
                </li>
                
                <li>
@@ -204,7 +204,7 @@
          				<select id="select-list" class="select-list">
          					<option>카테고리 선택</option>
          					<optgroup label="언어 및 도구">
-         						<option value="php">PHP</option>
+         						<option value="php" >PHP</option>
          						<option value="javascript">Javascript</option>
          						<option value="java">Java</option>
          						<option value="spring">Spring</option>
@@ -259,6 +259,10 @@
          			</div>
          			
          			<input type="submit" class="btnRegister" name="register" value="올리기">
+         			
+         			<a href="${param.queryString}">
+	         			<button class="btnRegister">이전으로</button>
+         			</a>
          		</div>
          	</div>
          

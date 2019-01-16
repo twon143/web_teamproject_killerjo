@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.java.teamproject.model.User;
 import edu.java.teamproject.service.UserService;
@@ -54,7 +55,7 @@ public class UserController {
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public String register(User user, HttpServletRequest request) throws UnsupportedEncodingException {
-		logger.info("register({}) 호출", user);
+		logger.info("register(user : {}, queryString : {}) 호출", user, request.getParameter("queryString"));
 
 		try {
 			userService.signUp(user, request.getParameter("queryString"));
@@ -65,38 +66,40 @@ public class UserController {
 
 //		redirectAttributes.addFlashAttribute("signUpMsg", "REGISTERED");
 
-		return "redirect:/user/notifyEmailConfirm?url=" + URLEncoder.encode(request.getParameter("queryString"), "utf-8");
+		return "redirect:/user/notifyEmailConfirm?queryString=" + URLEncoder.encode(request.getParameter("queryString"), "utf-8");
 	}
 
 	@RequestMapping(value = "notifyEmailConfirm", method = RequestMethod.GET)
-	public void notifyEmailConfirm(@ModelAttribute("url") String url) {
-		logger.info("notifyEmailConfirm(url : {})", url);
+	public void notifyEmailConfirm(@ModelAttribute("queryString") String queryString) {
+		logger.info("notifyEmailConfirm(queryString : {})", queryString);
 	}
 
 	@RequestMapping(value = "emailConfirm", method = RequestMethod.GET)
-	public void emailConfirm(@ModelAttribute("user_id") String user_id, @ModelAttribute("url") String url) {
-		logger.info("emailConfirm(user_id : {}, url : {})", user_id, url);
+	public void emailConfirm(@ModelAttribute("user_id") String user_id, @ModelAttribute("queryString") String queryString) {
+		logger.info("emailConfirm(user_id : {}, queryString : {})", user_id, queryString);
 		userService.enableUserLogin(user_id);
 //		model.addAttribute("user_Id", user_id);
 
 	}
 
 	@RequestMapping(value = "user-login", method = RequestMethod.GET)
-	public void login(String url, Model model) {
+	public void login(@ModelAttribute("queryString") String queryString, RedirectAttributes redirectAttributes) {
 		logger.info("login() 호출");
-
-		// url : 로그인 페이지 이동 전의 페이지 url >> 로그인 후 해당 페이지로 이동하기 위함
-		if (url != null) {
-			model.addAttribute("targetUrl", url);
-		}
+		
+		// queryString : 로그인 페이지 이동 전의 페이지 url >> 로그인 후 해당 페이지로 이동하기 위함
 	}
 
 	@RequestMapping(value = "login-post", method = RequestMethod.POST)
-	public void loginPost(User user, Model model) {
+	public void loginPost(User user, Model model, RedirectAttributes redirectAttributes) {
 		logger.info("loginPost({})", user);
 
 		// 로그인 결과를 리턴함
+		
 		User result = userService.signIn(user);
+		if(result == null) {
+			redirectAttributes.addFlashAttribute("loginResult", "fail");
+		}
+		
 		model.addAttribute("loginResult", result);
 	}
 

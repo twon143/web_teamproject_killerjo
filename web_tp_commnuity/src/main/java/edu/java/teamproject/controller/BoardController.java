@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.WebUtils;
 
 import edu.java.teamproject.model.Board;
 import edu.java.teamproject.service.BoardService;
@@ -25,9 +26,9 @@ public class BoardController {
    @Autowired private BoardService boardService;
    
    @RequestMapping(value="write-form", method = RequestMethod.GET)
-   public void postRegister() {
-      logger.info("BoardController--postRegister() 호출");
-      
+   public void postRegister(@ModelAttribute("type") String type, @ModelAttribute("queryString") String queryString) {
+      logger.info("postRegister(type : {}, queryString : {}) 호출", type, queryString);
+     
    }
    
    /* !!!테스트용!!! */
@@ -55,12 +56,25 @@ public class BoardController {
 	   
    }
    
+   // 글 상세보기 페이지 이동
    @RequestMapping(value = "readPaging", method = RequestMethod.GET)
    public void readPaging(@RequestParam("bno") int bno, 
 		   @ModelAttribute("criteria") Criteria criteria, Model model,
 		   @ModelAttribute("category") String category,
 		   @ModelAttribute("type") String type) {
 	   
+	   
+	   // 쿠키 유무 (rememberReadPageCookie) 확인
+	   /*if(WebUtils.getCookie(request, "rememberReadPageCookie") != null) {
+		   if( 쿠키 값 중에 bno를 이미 가지고 있다면 )
+		   {
+		   		
+			   model.addAttribute("board", boardService.readByBno(bno));
+		   }
+	   } else {
+		   
+	   
+	   }*/
 	   model.addAttribute("board", boardService.readByBno(bno));
    }
    
