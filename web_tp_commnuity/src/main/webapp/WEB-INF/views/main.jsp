@@ -35,35 +35,48 @@
 							<h4>회원가입</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/register" method="post">
+						<!--회원가입 폼 -->
+							<form action="user/register" method="post" onsubmit="return submitCheck();">
 								<div class="form-group">
-									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="5~15자의 영문, 숫자로만">
+									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="6~12자의 영문, 숫자로만">
 								</div>
+								<div id="idDiv" class="form-group"></div>
+								
 								<div class="form-group">
 									<label for="signup_user_password">비밀번호</label><br> <input type="password" id="signup_user_password" name="password" placeholder="비밀번호 입력">
 								</div>
+								<div id="passwordDiv" class="form-group"></div>
+								
 								<div class="form-group">
 									<label for="signup_user_password_confirm">비밀번호 확인</label><br> <input type="password" id="signup_user_password_confirm" name="password_confirm" placeholder="비밀번호를 다시 입력">
 								</div>
+								<div id="passwordDiv1" class="form-group"></div>
+								
 								<div class="form-group">
 									<label for="signup_user_nickname">닉네임</label><br> <input type="text" id="signup_user_nickname" name="nickname" placeholder="2자 이상">
 								</div>
+								<div id="nicknameDiv" class="form-group"></div>
+								
 								<div class="form-group">
 									<label for="signup_user_email">이메일</label><br> <input type="email" id="signup_user_email" name="email" placeholder="이메일">
 								</div>
+								
 								<p class="help-block">
 									입력하신 이메일로 인증 메일이 발송됩니다.
 									<!-- 인증 메일을 확인하시면 비밀번호 찾기 등에 사용됩니다. -->
 								</p>
+								
 								<div class="checkbox">
 									<label> <input type="checkbox" name="agree" value="Y"> <a href="/terms" target="_blank">이용약관</a> 에 동의합니다.
 									</label>
 								</div>
+								
 								<!-- <button type="button" id="signup-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
 								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
 
 							</form>
+							<!-- 회원가입 폼 -->
 						</div>
 					</div>
 					<div class="col-sm-6">
@@ -132,12 +145,17 @@
 							<div class="img-profile-div">
 								<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
 							</div>
+
 							<form>
-								<input type="button" onclick="" class="btn-settig" value="설정" />
+								<input type="button" class="btn-settig btn btn-info" value="설정" />
 							</form>
 
+
+
 							<form action="user/logout" method="post">
-								<input type="submit" onclick="" class="btn-logout" value="로그아웃" />
+
+								<input type="submit" class="btn-logout btn btn-info" value="로그아웃" />
+
 								<!-- <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/> -->
 							</form>
 
@@ -456,5 +474,173 @@
 
 
 	<script src="/teamproject/resources/js/main.js"></script>
+	
+	<!--아이디, 비밀번호 중복 확인  -->
+	<script>
+		var checkedId = 0;
+		var checkedPw = 0;
+		var id = $('#signup_user_id');
+		var password = $('#signup_user_password');
+		var password1 = $('#signup_user_password_confirm');
+		var re = /^[a-z0-9]{6,12}$/ // 아이디와  적합 검사 정규식
+
+		/*아이디 중복 검사 */
+		$('#signup_user_id').change(function() {
+			console.log("아이디 중복검사 id : " + $('#signup_user_id').val());
+			$.ajax({
+				type : 'post',
+				url : 'user/checkId',
+				data : {
+					id : $('#signup_user_id').val()
+				},
+				contentType : 'application/x-www-form-urlencoded',
+				success : function(res) {
+					console.log("res :" + res);
+
+					var id = $('#signup_user_id').val();
+					console.log("id : " + id);
+
+					var result = re.test(id);
+					console.log("result : " + result);
+
+					if ($('#signup_user_id').val() == 0) {//  아이디가 비었을 때
+						$('#idDiv').html("아이디를 입력하세요");
+						$('#idDiv').css('color', 'red');
+						checkedId = 0;
+					} else if (result == false) { // 아이디 형식 부합X 할 때
+						$('#idDiv').html("6~12자 영문 대 소문자,숫자를 사용하세요");
+						$('#idDiv').css('color', 'red');
+						checkedId = 0;
+					} else if (res == 1) { // 아이디 중복
+						$('#idDiv').html("중복된 아이디 입니다");
+						$('#idDiv').css('color', 'red');
+						checkedId = 0;
+					} else { // 사용 가능 아이디
+						$('#idDiv').html("멋진 아이디입니다");
+						$('#idDiv').css('color', 'green');
+						checkedId = 1;
+					}// end else
+				}// end success
+			})// end ajax
+		})// end 아이디 중복 검사
+
+		/* 비밀번호 확인 */
+		$('#signup_user_password').change(function pwCheckFunction() {
+			var result = re.test(password.val());
+			console.log('result : ' + result);
+			console.log('pw :' + password.val());
+			// 입력값이 정규식에 부합한지 체크  부합 : true, 아니면 false 리턴 
+			if (result == false) { // 정규식에 맞지 않을 때
+				$('#passwordDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+				$('#passwordDiv').css('color', 'red');
+				checkedPw = 0;
+			}
+			if (result == true && password.val() !== password1.val()) {
+				// 비밀번호가 일치하지 않을 때
+				$('#passwordDiv1').html("비밀번호가 일치하지 않습니다");
+				$('#passwordDiv1').css('color', 'red');
+				checkedPw = 0;
+			}
+			if (result == true && password.val() == password1.val()) {
+				//정규식에 부합하고 패스워드 일치
+				$('#passwordDiv').html("");
+				$('#passwordDiv1').html("");
+				checkedPw = 1;
+			}
+		})// end pwCheckFunction
+		/*비밀번호 확인 */
+		$('#signup_user_password_confirm').change(function pwCheckFunction1() {
+			var result = re.test(password.val());
+			console.log('result : ' + result);
+			console.log('pw1 :' + password1.val());
+			// 입력값이 정규식에 부합한지 체크  부합 : true, 아니면 false 리턴 
+			if (result == false) { // 정규식에 맞지 않을 때
+				$('#passwordDiv').html("8~15자 영문 대 소문자,숫자를 사용하세요");
+				$('#passwordDiv').css('color', 'red');
+				checkedPw = 0;
+			}
+			if (result == true && password.val() !== password1.val()) {
+				// 비밀번호가 일치하지 않을 때
+				$('#passwordDiv1').html("비밀번호가 일치하지 않습니다");
+				$('#passwordDiv1').css('color', 'red');
+				checkedPw = 0;
+			}
+			if (result == true && password.val() == password1.val()) {
+				//정규식에 부합하고 패스워드 일치
+				$('#passwordDiv').html("");
+				$('#passwordDiv1').html("");
+				checkedPw = 1;
+			}
+		})// end pwCheckFunction1
+
+		var nicknameRe = /^[가-힣a-zA-Z]{2,15}$/ // 닉네임 정규식
+		var ckeckedNickname = 0;
+
+		/* 닉네임 중복 검사 */
+		$('#signup_user_nickname').change(function() {
+			$.ajax({
+				type : 'post',
+				url : 'user/checkNickname',
+				data : {
+					nickname : $('#signup_user_nickname').val()
+				},
+				contentType : 'application/x-www-form-urlencoded',
+				success : function(res) {
+					console.log(res);
+					var nickname = $('#signup_user_nickname').val();
+					console.log("nickname : " + nickname);
+
+					var result = nicknameRe.test($('#signup_user_nickname').val());
+					console.log(result);
+
+					if ($('#nickname').val() == 0) {// 닉네임 비었을 때
+						$('#nicknameDiv').html("아이디를 입력하세요");
+						$('#nicknameDiv').css('color', 'red');
+						ckeckedNickname = 0;
+					} else if (result == false) { // 닉네임 형식 부합X 할 때
+						$('#nicknameDiv').html("2~15자 한글,영문 대 소문자,숫자를 사용하세요");
+						$('#nicknameDiv').css('color', 'red');
+						ckeckedNickname = 0;
+					} else if (res == 1) { // 닉네임 중복
+						$('#nicknameDiv').html("중복된 닉네임 입니다");
+						$('#nicknameDiv').css('color', 'red');
+						ckeckedNickname = 0;
+					} else { // 사용 가능 닉네임
+						$('#nicknameDiv').html("멋진 아이디입니다");
+						$('#nicknameDiv').css('color', 'green');
+						ckeckedNickname = 1;
+					}// end else
+				}// end success
+			})// end ajax
+		})// end nickname
+
+		function submitCheck() {
+			var test = $('[name=agree]').is(':checked');
+			var checkedBox = 0;
+			if (test == true) {
+				checkedBox = 1;
+			} else {
+				checkedBox = 0;
+			}
+			console.log("checkedBox : " + checkedBox);
+			console.log("checkedId : " + checkedId);
+			console.log("checkedPw : " + checkedPw);
+			console.log("ckeckedNickname : " + ckeckedNickname);
+			if (checkedId == 1 && checkedPw == 1 && ckeckedNickname == 1
+					&& checkedBox == 1) {
+				alert("환영합니다.");
+				return true;
+			} else if (checkedBox == 0) {
+				alert("이용약관에 동의해주세요");
+				return false;
+			} else {
+				alert("다시 입력해주세요");
+				return false;
+			}// end else
+		}//end submitCheck
+		
+	</script>
+	
+	
 </body>
 </html>
