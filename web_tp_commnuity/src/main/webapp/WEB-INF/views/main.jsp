@@ -132,11 +132,12 @@
 							<div class="img-profile-div">
 								<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
 							</div>
-
-							<input type="button" class="btn-settig" value="설정" />
+							<form>
+								<input type="button" onclick="" class="btn-settig" value="설정" />
+							</form>
 
 							<form action="user/logout" method="post">
-								<input type="submit" class="btn-logout" value="로그아웃" />
+								<input type="submit" onclick="" class="btn-logout" value="로그아웃" />
 								<!-- <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/> -->
 							</form>
 
@@ -240,7 +241,7 @@
 						<li class="list-group-item"><a>고객센터</a></li>
 					</ul>
 					<div class="grip contents-main-hei" style="background-position: 900px center;"></div>
-					
+
 				</div>
 
 
@@ -340,7 +341,7 @@
 
 								</div>
 							</c:forEach>
-							<h5 class="section-more" style=" margin-left: 20px;">
+							<h5 class="section-more" style="margin-left: 20px;">
 								<a href="#">글 더보기</a>
 							</h5>
 
