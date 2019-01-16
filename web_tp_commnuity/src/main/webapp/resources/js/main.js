@@ -68,12 +68,12 @@ $(document).ready(
 							display : 'block'
 						});
 						$('.left').css({
-							width : 181 + 'px',
+							width : 169 + 'px',
 							backgroundColor : '#fff',
 							background : '#fafafa'
 						});
 						$('.grip').css({
-							left : 181 + 'px'
+							left : 159 + 'px'
 						});
 					}
 				})
