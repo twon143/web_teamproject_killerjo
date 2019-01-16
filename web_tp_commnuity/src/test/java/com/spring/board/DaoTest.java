@@ -12,7 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import edu.java.teamproject.model.Board;
+import edu.java.teamproject.model.Reply;
 import edu.java.teamproject.persistence.BoardDao;
+import edu.java.teamproject.persistence.ReplyDao;
+import edu.java.teamproject.service.ReplyService;
 import edu.java.teamproject.util.Criteria;
 
 
@@ -24,13 +27,24 @@ public class DaoTest {
 			LoggerFactory.getLogger(DaoTest.class);
 	
 	@Autowired private BoardDao boardDao;
-	
+	@Autowired private ReplyDao replyDao;
+	@Autowired private ReplyService replyService;
 	@Test
 	public void doTest() {
 //		selectAllTest();
 //		testListPaging();
 //		testListCriteria();
-		testCreate();
+//		testCreate();
+		testReplyList();
+	}
+
+	private void testReplyList() {
+		// TODO Auto-generated method stub
+		List<Reply> replyList = replyService.select(200);
+		
+		for(Reply r : replyList) {
+			logger.info("read() 결과 {}", r);
+		}
 	}
 
 	private void selectAllTest() {
