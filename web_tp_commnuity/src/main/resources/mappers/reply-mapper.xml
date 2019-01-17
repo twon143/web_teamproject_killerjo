@@ -10,6 +10,13 @@
 		WHERE ${reply.parent_num} = #{bno} 
 		ORDER BY ${reply.rno} DESC
 	</select>
+	
+	<insert id="insertReply">
+		insert into ${tbl_reply} (${reply.parent_num}, ${reply.writer}, ${reply.type}, ${reply.content})
+		values (#{parent_num}, #{writer}, #{type}, #{content})
+	</insert>
+	
+	
 
 
 

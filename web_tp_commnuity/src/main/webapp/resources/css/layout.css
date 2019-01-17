@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* header */
 
 
@@ -338,7 +340,7 @@ form.search-btn-nav {
 	/*    z-index: 999; */
 	border-top: 0;
 	left: 0;
-	width: 181px;
+	width: 169px;
 }
 
 #container>div>div.pull-left {
@@ -385,7 +387,7 @@ form.search-btn-nav {
 	background-color: #a0a0a0;
 	position: absolute;
 	top: 0;
-	left: 170px;
+	left: 159px;
 	width: 10px;
 	height: 100%;
 	background-position: 124px center;

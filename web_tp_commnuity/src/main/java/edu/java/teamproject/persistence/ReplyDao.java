@@ -13,5 +13,6 @@ public interface ReplyDao {
 	int delete(int rno);
 	int selectBno(int rno);
 	
+	
 
 }

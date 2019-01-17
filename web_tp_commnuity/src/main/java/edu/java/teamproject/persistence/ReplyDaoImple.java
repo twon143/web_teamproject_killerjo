@@ -1,6 +1,8 @@
 package edu.java.teamproject.persistence;
 
+
 import java.util.List;
+
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -20,8 +22,8 @@ public class ReplyDaoImple implements ReplyDao {
 
 	@Override
 	public int create(Reply reply) {
-		// TODO Auto-generated method stub
-		return 0;
+		logger.info("create(writer:{}, content: {}) 호출", reply.getWriter(), reply.getContent());
+		return session.insert(REPLY_MAPPER + ".insertReply", reply);
 	}
 
 	@Override
@@ -48,5 +50,7 @@ public class ReplyDaoImple implements ReplyDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+
 
 }

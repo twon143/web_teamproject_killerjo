@@ -25,11 +25,6 @@ public class ReplyServiceImple implements ReplyService {
 		
 		int result = replyDao.create(reply);
 		
-		if (result == 1) { // 새 댓글 insert가 성공한 경우 tbl_board 테이블의 replyCnt 컬럼의 값을 증가
-			boardDao.update(reply.getRno(), 1);
-			
-			// TODO: 3) 댓글을 작성한 사용자의 point를 증가
-		}
 		return result;
 	}
 
