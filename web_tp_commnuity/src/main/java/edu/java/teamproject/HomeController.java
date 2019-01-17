@@ -39,6 +39,9 @@ public class HomeController {
 		model.addAttribute("popularQuestionList", boardService.listCriteria(criteria, "all", "question", "popular"));
 		model.addAttribute("popularWritingList", boardService.listCriteria(criteria, "all", "writing", "popular"));
 		
+		logger.info("criteria : {}", criteria);
+		
+		model.addAttribute("criteria", criteria);
 		model.addAttribute("category", "all");
 		model.addAttribute("sort", "popular");
 		/*model.addAttribute("category", "all");

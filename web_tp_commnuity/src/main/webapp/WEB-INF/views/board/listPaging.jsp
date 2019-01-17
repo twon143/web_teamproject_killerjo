@@ -275,7 +275,7 @@
 						<div class="content-header">
 							<!-- header 부분 제목에대한 <p><a> -->
 							<p class="contnt-header-title-link">
-								<a href="/teamproject/board/listPaging?category=${category}?type=all"> <strong>${category}</strong>
+								<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=${sort}"> <strong>${category}</strong>
 								</a>
 							<div class="nav"></div>
 
@@ -310,19 +310,19 @@
 								<div class="sub-post-list">
 									<div class="post-image-div">
 										<c:if test="${board.type == 'question'}">
-											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
 												<img class="post-image" alt=""
 													src="/teamproject/resources/images/blank_image.png">
 											</a>
 										</c:if>
 										<c:if test="${board.type == 'writing'}">
-											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
 												<img class="post-image" alt=""
 													src="/teamproject/resources/images/writing_image.png">
 											</a>
 										</c:if>
 										<c:if test="${board.type == 'link'}">
-											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
+											<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
 												<img class="post-image" alt=""
 													src="/teamproject/resources/images/link_image.png">
 											</a>
@@ -332,11 +332,11 @@
 
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}"><strong>${board.title}</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
-										<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 											<button class="btnPostTag">${board.category}</button>
-										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?type=all&category=${board.category}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
 
 									</div>
 									<!--  end of div$post-contents -->
@@ -357,18 +357,18 @@
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
 												<c:if test="${board.type == 'question'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
 														<img alt="" src="/teamproject/resources/images/blank_image2.png" >
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'writing'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
 														<img alt="" src="/teamproject/resources/images/writing_image2.png">
 
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'link'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
+													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
 														<img alt="" src="/teamproject/resources/images/link_image2.png">
 													</a>
 												</c:if>
@@ -376,11 +376,11 @@
 
 											<div class="post-contents2">
 												<button class="btnHPostTag3">답변 대기</button>
-												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 													<button class="btnPostTag">${board.category}</button>
 												</a>
 												<br/> 
-												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">${board.title}</a> <br /> <br />
+												<a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br />
 												<a href="#" class="post-userId2">${board.writer}</a>
 
 											</div>
