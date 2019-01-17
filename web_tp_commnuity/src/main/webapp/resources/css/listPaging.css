@@ -16,6 +16,7 @@ p.contnt-header-title-link {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 p.contnt-header-title-link>a {
 	font-size: 36px;
 	color: #fff;
@@ -33,7 +34,6 @@ p.contnt-header-title-link>a {
 	list-style-type: none;
 	margin: 0;
 	padding-left: 30px;
-	
 }
 /* 게시판내 카테고리 ul, li 관련 설정 */
 .sub-category-nav ul li {
@@ -57,43 +57,92 @@ p.contnt-header-title-link>a {
 	color: black;
 }
 
-
 /* 게시판내 카테고리 li 마우스 관련 설정 */
-
 li.focus-text:hover, li.focus-text:active {
-	color:#fff;
+	color: #fff;
 	background-color: #ffb938;
-    border-bottom: 2px solid orange;
+	border-bottom: 2px solid orange;
 }
-
-
 
 .sub-category-li a {
 	text-decoration: none;
 }
 
-li.best-list{
-	position:relative;
+li.best-list {
+	position: relative;
 	left: 248px;
 }
-li.best-list>a:focus, li.up-list>a:focus{
+
+li.best-list>a:focus, li.up-list>a:focus {
 	border-bottom: 2px solid red;
 	color: red;
 }
 
-li.up-list{
-	position:relative;
-    left: 238px;
+li.up-list {
+	position: relative;
+	left: 238px;
 }
 
-li.sub-category-li-widthView{
+li.sub-category-li-widthView {
 	left: 255px;
-	top:2px;
+	top: 2px;
+}
+
+li.sub-category-li-heightView {
+	top: 4px;
+	left: 265px;
+}
+
+/* rigth-tag-input 추가 */
+.right-box {
+    margin-top: 15px;
+   
+}
+.right-box>p{
+	margin-left: -195px;
+	
+}
+.tags-box {
+    border: 1px solid gray;
+    padding: 6px;
+    border-radius: 3px;
+    background-color: #fff;
+    margin: 10px 14px;
+}
+
+.tag-search-box {
+	
+}
+
+.input-group {
+	position: relative;
+	display: table;
+	border-collapse: separate;
+	padding: 6px 12px;
+	
+
+	
+}
+.input-group>input{
+	width:125px;
+	margin-left: -8px;
+	
+	
+}
+.cursor-pointer{
+	cursor: pointer;
+}
 
 }
- li.sub-category-li-heightView{
-    
-	top:4px;
-	left: 265px;
-} 
-
+.input-group-addon {
+	font-weight: 400;
+	line-height: 1;
+	color: #555;
+	text-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	cursor: pointer;
+	white-space: nowrap;
+	vertical-align: middle;
+}
