@@ -18,9 +18,10 @@ public class AnswerDaoImple implements AnswerDao {
    @Autowired private SqlSession session;
    
    @Override
-   public List<Answer> readAllAnswer() {
-      // TODO Auto-generated method stub
-      return null;
+   public List<Answer> readAllAnswer(int board_num) {
+      logger.info("[Persistence]readAllAnswer({}) 호출", board_num);
+      
+      return session.selectList(ANSWER_MAPPER + ".selectAllAnswerByBoard_num", board_num);
    }
 
    @Override

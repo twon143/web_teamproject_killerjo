@@ -426,7 +426,7 @@
    margin-top: 20px;
    width: 100%;
    float: left;
-   border-bottom: 1px solid #ccc;
+   border-bottom: dotted 1px #ccc;
    border-top: 1px solid #ccc;
    margin-left: 20px;
    padding-top: 25px;
@@ -509,3 +509,118 @@
    position:relative;
    top:1px;
 }
+
+.answer-div {
+	width: 100%;
+	float: left;
+	margin-left: 20px;
+	border-bottom: 1px solid #ccc;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	
+}
+
+.answer-interface-div {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-align: right;
+	width: 100%;
+	
+}
+
+.btn-copy-answer:hover {
+	color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.btn-copy-answer {
+	-moz-box-shadow:inset 0px -50px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px -50px 0px 0px #ffffff;
+	box-shadow:inset 0px -50px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e6e6e6), color-stop(1, #e6e6e6) );
+	background:-moz-linear-gradient( center top, #e6e6e6 5%, #e6e6e6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#e6e6e6');
+	background-color:#e6e6e6;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#000333;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	font-style:normal;
+	height:26px;
+	line-height:26px;
+	width: 100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	color: #666666;
+	    
+}
+.btn-copy-answer:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e6e6e6), color-stop(1, #e6e6e6) );
+	background:-moz-linear-gradient( center top, #e6e6e6 5%, #e6e6e6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#e6e6e6');
+	background-color:#e6e6e6;
+}.btn-copy-answer:active {
+	position:relative;
+	top:1px;
+}
+
+.span-like:hover {
+	background-color: #ca4d4d;
+    color: #fff;
+}
+
+.span-like {
+	display:inline-block;
+	width: 100px;
+	color: #666666;
+    border-width: 1px;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 6px;
+    display: inline-block;
+    border: 1px solid #ce1616;
+    margin: 0 auto;
+    color: #ce1616;
+    cursor: pointer;
+    text-align: center;
+   	font-weight:bold;
+    vertical-align: middle;
+  	font-family:Arial;
+}
+
+.answer-info-div {
+	text-align: right;
+}
+
+.answer-info-div strong {
+	color: #4c6b85;
+}
+
+.answer-info-div a {
+	color: #4c6b85;
+}
+
+.div-share-save {
+	text-align: right;
+	font-size: 14px;
+}
+
+

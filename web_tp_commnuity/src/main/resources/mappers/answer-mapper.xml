@@ -5,7 +5,11 @@
   
 <mapper namespace="edu.java.mappers.AnswerMapper">
 
-   <select id="selectAllAnswerByBno" resultType="Answer">
+   <select id="selectAllAnswerByBoard_num" resultType="Answer">
+   	  SELECT * FROM ${tbl_answer} 
+      WHERE ${answer.board_num} = #{board_num} 
+      ORDER BY ${answer.ano} DESC
+   
    </select>
    
    <insert id="insertAnswer">

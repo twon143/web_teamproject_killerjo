@@ -6,7 +6,7 @@ import edu.java.teamproject.model.Answer;
 
 public interface AnswerDao {
 
-   List<Answer> readAllAnswer();
+   List<Answer> readAllAnswer(int board_num);
    
    int insertAnswer(Answer answer); 
 }

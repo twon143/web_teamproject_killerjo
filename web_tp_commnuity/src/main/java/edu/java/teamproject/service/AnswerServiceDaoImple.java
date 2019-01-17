@@ -22,14 +22,21 @@ public class AnswerServiceDaoImple implements AnswerServiceDao {
    
    @Override
    public List<Answer> readAllAnswer(int board_num) {
-      // TODO Auto-generated method stub
-      return null;
+	   logger.info("[service]readAllAnswer({}) 호출", board_num);
+      return answerDao.readAllAnswer(board_num);
    }
 
    @Override
    public int insertAnswer(Answer answer) {
       logger.info("[service]insertAnswer({}) 호출", answer);
-      return answerDao.insertAnswer(answer);
+      int insertAnswerResult = answerDao.insertAnswer(answer);
+      
+      // 답변 등록에 성공하면 board의 answer
+      if(insertAnswerResult == 1) {
+    	  
+      }
+      
+      return insertAnswerResult;
    }
 
    @Override
