@@ -129,6 +129,8 @@ public class BoardController {
 
 		}
 		
+		// 커밋 - 푸쉬 하기 위한 주석처리
+		
 	   
 	   // 쿠키 유무 (rememberReadPageCookie) 확인
 	   /*if(WebUtils.getCookie(request, "rememberReadPageCookie") != null) {
