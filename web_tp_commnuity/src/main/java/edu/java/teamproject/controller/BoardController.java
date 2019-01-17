@@ -78,11 +78,11 @@ public class BoardController {
    
    // 글 상세보기 페이지 이동
    @RequestMapping(value = "readPaging", method = RequestMethod.GET)
-   public void readPaging(@RequestParam("bno") int bno, 
+   public String readPaging(@RequestParam("bno") int bno, 
 		   Criteria criteria, Model model,
 		   @ModelAttribute("category") String category,
 		   @ModelAttribute("type") String type,
-		   String sort,
+		   @ModelAttribute("sort") String sort,
 		   HttpServletRequest request, HttpServletResponse response) {
 	   
 	   logger.info("쿠키 생성 전");
@@ -134,6 +134,8 @@ public class BoardController {
 
 		}
 		
+		// 커밋 - 푸쉬 하기 위한 주석처리
+		
 	   
 	   // 쿠키 유무 (rememberReadPageCookie) 확인
 	   /*if(WebUtils.getCookie(request, "rememberReadPageCookie") != null) {
@@ -148,11 +150,12 @@ public class BoardController {
 	   }*/
 	   model.addAttribute("board", boardService.readByBno(bno));
 	   
-	   if(sort != null) {
+	   /*if(sort != null) {
 		   model.addAttribute("sort", sort);
 	   } else {
 		   model.addAttribute("sort", "newest");
-	   }
+	   }*/
+	   return "board/readPaging";
    }
    
    @RequestMapping(value = "modifyPaging", method = RequestMethod.GET)

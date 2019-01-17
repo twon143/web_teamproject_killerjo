@@ -15,42 +15,42 @@ import edu.java.teamproject.service.ReplyService;
 
 @Repository
 public class ReplyDaoImple implements ReplyDao {
-	private final Logger logger = LoggerFactory.getLogger(ReplyDaoImple.class);
-	private static final String REPLY_MAPPER = "edu.java.mappers.ReplyMapper";
-	
-	@Autowired private SqlSession session;
+   private final Logger logger = LoggerFactory.getLogger(ReplyDaoImple.class);
+   private static final String REPLY_MAPPER = "edu.java.mappers.ReplyMapper";
+   
+   @Autowired private SqlSession session;
 
-	@Override
-	public int create(Reply reply) {
-		logger.info("create(writer:{}, content: {}) 호출", reply.getWriter(), reply.getContent());
-		return session.insert(REPLY_MAPPER + ".insertReply", reply);
-	}
+   @Override
+   public int create(Reply reply) {
+      logger.info("create(writer:{}, content: {}) 호출", reply.getWriter(), reply.getContent());
+      return session.insert(REPLY_MAPPER + ".insertReply", reply);
+   }
 
-	@Override
-	public List<Reply> read(int bno) {
-		logger.info("reply(read) 호출");
-		return session.selectList(REPLY_MAPPER + ".selectReplyByBno", bno);
-	}
+   @Override
+   public List<Reply> read(int bno) {
+      logger.info("reply(read) 호출");
+      return session.selectList(REPLY_MAPPER + ".selectReplyByBno", bno);
+   }
 
-	@Override
-	public int selectBno(int rno) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+   @Override
+   public int selectBno(int rno) {
+      // TODO Auto-generated method stub
+      return 0;
+   }
 
 
-	@Override
-	public int update(Reply reply) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+   @Override
+   public int update(Reply reply) {
+      
+      return 0;
+   }
 
-	@Override
-	public int delete(int rno) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
+   @Override
+   public int delete(int rno) {
+      logger.info("reply(delete) 호출");
+      return session.delete(REPLY_MAPPER + ".deleteReplyByRno", rno) ;
+   }
+   
 
 
 }

@@ -4,20 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="edu.java.mappers.ReplyMapper">
-	<!-- 매개변수로 받은 bno로 댓글 리스트 select -->
-	<select id="selectReplyByBno" resultType="Reply">
-		SELECT * FROM ${tbl_reply} 
-		WHERE ${reply.parent_num} = #{bno} 
-		ORDER BY ${reply.rno} DESC
-	</select>
-	
-	<insert id="insertReply">
-		insert into ${tbl_reply} (${reply.parent_num}, ${reply.writer}, ${reply.type}, ${reply.content})
-		values (#{parent_num}, #{writer}, #{type}, #{content})
-	</insert>
-	
-	
-
+   <!-- 매개변수로 받은 bno로 댓글 리스트 select -->
+   <select id="selectReplyByBno" resultType="Reply">
+      SELECT * FROM ${tbl_reply} 
+      WHERE ${reply.parent_num} = #{bno} 
+      ORDER BY ${reply.rno} DESC
+   </select>
+   
+   <insert id="insertReply">
+      insert into ${tbl_reply} (${reply.parent_num}, ${reply.writer}, ${reply.type}, ${reply.content})
+      values (#{parent_num}, #{writer}, #{type}, #{content})
+   </insert>
+   
+   
+   <delete id="deleteReplyByRno">
+      delete from ${tbl_reply} where ${reply.rno} = #{rno}
+   </delete>
 
 
 
