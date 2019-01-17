@@ -4,66 +4,76 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
   <configuration>
-  	<!-- MyBatis 프레임워크에서 사용할 환경 설정(Database와 관련된 설정) -->
+     <!-- MyBatis 프레임워크에서 사용할 환경 설정(Database와 관련된 설정) -->
   
-  	<properties>
-  		<!-- 상수 정의: 테이블 이름, 컬럼 이름 -->
-  		<!-- Board(게시글) 테이블 컬럼 -->
-  		<property name="tbl_board" value="test.Board"/>
-		<property name="board.bno" value="bno"/>
-		<property name="board.title" value="title"/>
-		<property name="board.content" value="content"/>
-		<property name="board.writer" value="writer"/>
-		<property name="board.write_date" value="write_date"/>
-		<property name="board.category" value="category"/>
-		<property name="board.type" value="type"/>
-		<property name="board.tag" value="tag"/>
-		<property name="board.link" value="link"/>
-		<property name="board.image" value="image"/>
-		<property name="board.answer_count" value="answer_count"/>
-		<property name="board.view_count" value="view_count"/>
-		<property name="board.rec_count" value="rec_count"/>
-		<property name="board.reply_count" value="reply_count"/>
-		<property name="board.answer_choose" value="answer_choose"/>
-  	
-  		<!-- User(사용자) 테이블 컬럼 -->
-  		<property name="tbl_user" value="test.User"/>
-  		<property name="user.id" value="id"/>
-  		<property name="user.password" value="password"/>
-  		<property name="user.email" value="email"/>
-  		<property name="user.join_date" value="join_date"/>
-  		<property name="user.nickname" value="nickname"/>
-  		<property name="user.introduce" value="introduce"/>
-  		<property name="user.active_point" value="active_point"/>
-  		<property name="user.profile_image" value="profile_image"/>
-  		<property name="user.background_image" value="background_image"/>
-  		<property name="user.verify" value="verify"/>
-  		<property name="user.auth_code" value="auth_code"/>
-  		<property name="user.session_key" value="session_key"/>
-  		<property name="user.session_limit" value="session_limit"/>
-  		<property name="user.login_date" value="login_date"/>
-  		<property name="user.use_cookie" value="use_cookie"/>
-  		
-  		<!-- Reply 테이블 칼럼 -->
-  		<property name="tbl_reply" value="test.Reply"/>
-  		<property name="reply.rno" value="rno"/>
-  		<property name="reply.parent_num" value="parent_num"/>
-  		<property name="reply.write_date" value="write_date"/>
-  		<property name="reply.rec_count" value="rec_count"/>
-  		<property name="reply.writer" value="writer"/>
-  		<property name="reply.prno" value="prno"/>
-  		<property name="reply.content" value="content"/>
-  		<property name="reply.type" value="type"/>
-  		
-  		<!-- Scrab 테이블 칼럼 -->
-  		<property name="tbl_scrab" value="test.scrab"/>
-  		<property name="scrab.sno" value="sno"/>
-  		<property name="scrab.board_num" value="board_num"/>
-  		<property name="scrab.user_id" value="user_id"/>
-  	</properties>
+     <properties>
+        <!-- 상수 정의: 테이블 이름, 컬럼 이름 -->
+        <!-- Board(게시글) 테이블 컬럼 -->
+        <property name="tbl_board" value="test.Board"/>
+      <property name="board.bno" value="bno"/>
+      <property name="board.title" value="title"/>
+      <property name="board.content" value="content"/>
+      <property name="board.writer" value="writer"/>
+      <property name="board.write_date" value="write_date"/>
+      <property name="board.category" value="category"/>
+      <property name="board.type" value="type"/>
+      <property name="board.tag" value="tag"/>
+      <property name="board.link" value="link"/>
+      <property name="board.image" value="image"/>
+      <property name="board.answer_count" value="answer_count"/>
+      <property name="board.view_count" value="view_count"/>
+      <property name="board.rec_count" value="rec_count"/>
+      <property name="board.reply_count" value="reply_count"/>
+      <property name="board.answer_choose" value="answer_choose"/>
+     
+        <!-- User(사용자) 테이블 컬럼 -->
+        <property name="tbl_user" value="test.User"/>
+        <property name="user.id" value="id"/>
+        <property name="user.password" value="password"/>
+        <property name="user.email" value="email"/>
+        <property name="user.join_date" value="join_date"/>
+        <property name="user.nickname" value="nickname"/>
+        <property name="user.introduce" value="introduce"/>
+        <property name="user.active_point" value="active_point"/>
+        <property name="user.profile_image" value="profile_image"/>
+        <property name="user.background_image" value="background_image"/>
+        <property name="user.verify" value="verify"/>
+        <property name="user.auth_code" value="auth_code"/>
+        <property name="user.session_key" value="session_key"/>
+        <property name="user.session_limit" value="session_limit"/>
+        <property name="user.login_date" value="login_date"/>
+        <property name="user.use_cookie" value="use_cookie"/>
+        
+        <!-- Reply 테이블 칼럼 -->
+        <property name="tbl_reply" value="test.Reply"/>
+        <property name="reply.rno" value="rno"/>
+        <property name="reply.parent_num" value="parent_num"/>
+        <property name="reply.write_date" value="write_date"/>
+        <property name="reply.rec_count" value="rec_count"/>
+        <property name="reply.writer" value="writer"/>
+        <property name="reply.prno" value="prno"/>
+        <property name="reply.content" value="content"/>
+        <property name="reply.type" value="type"/>
+        
+        <!-- Scrab 테이블 칼럼 -->
+        <property name="tbl_scrab" value="test.scrab"/>
+        <property name="scrab.sno" value="sno"/>
+        <property name="scrab.board_num" value="board_num"/>
+        <property name="scrab.user_id" value="user_id"/>
+        
+        <!-- Anwer 테이블 칼럼 -->
+        <property name="tbl_answer" value="test.Answer"/>
+        <property name="answer.ano" value="ano"/>
+        <property name="answer.board_num" value="board_num"/>
+        <property name="answer.write_date" value="write_date"/>
+        <property name="answer.writer" value="writer"/>
+        <property name="answer.choose" value="choose"/>
+        <property name="answer.rec_count" value="rec_count"/>
+        <property name="answer.content" value="content"/>
+     </properties>
   
-  	<typeAliases>
-  		<package name="edu.java.teamproject.model"/>
-  	</typeAliases>
+     <typeAliases>
+        <package name="edu.java.teamproject.model"/>
+     </typeAliases>
   
   </configuration>

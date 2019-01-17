@@ -13,38 +13,38 @@ import edu.java.teamproject.persistence.ReplyDao;
 
 @Service
 public class ReplyServiceImple implements ReplyService {
-	
-	@Autowired ReplyDao replyDao;
-	@Autowired BoardDao boardDao;
-	
-	private Logger logger = LoggerFactory.getLogger(ReplyServiceImple.class);
+   
+   @Autowired ReplyDao replyDao;
+   @Autowired BoardDao boardDao;
+   
+   private Logger logger = LoggerFactory.getLogger(ReplyServiceImple.class);
 
-	@Override
-	public int insert(Reply reply) {
-		logger.info("insert({}) 호출", reply.toString());
-		
-		int result = replyDao.create(reply);
-		
-		return result;
-	}
+   @Override
+   public int insert(Reply reply) {
+      logger.info("insert({}) 호출", reply.toString());
+      
+      int result = replyDao.create(reply);
+      
+      return result;
+   }
 
-	@Override
-	public List<Reply> select(int bno) {
-		logger.info("select(bno={}) 호출", bno);
-		
-		return replyDao.read(bno);
-	}
+   @Override
+   public List<Reply> select(int bno) {
+      logger.info("select(bno={}) 호출", bno);
+      
+      return replyDao.read(bno);
+   }
 
-	@Override
-	public int update(Reply reply) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+   @Override
+   public int update(Reply reply) {
+      // TODO Auto-generated method stub
+      return replyDao.update(reply);
+   }
 
-	@Override
-	public int delete(int rno) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+   @Override
+   public int delete(int rno) {
+      // TODO Auto-generated method stub
+      return replyDao.delete(rno);
+   }
 
 }
