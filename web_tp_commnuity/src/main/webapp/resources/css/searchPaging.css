@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+div.content-header {
+	height: 245px;
+	background-color: #E5E5E5;
+	margin-top: -15px;
+}
+
+/* 게시판 title */
+.title-bg {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100px;
+	background-color: #0A6ECD;
+	top: 245px;
+}
+
+p.contnt-header-title-link {
+	position: relative;
+	font-weight: 700;
+	color: red;
+	margin: 0;
+	padding-left: 15px;
+	top: 0;
+	vertical-align: text-bottom;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p.contnt-header-title-link>a {
+	font-size: 36px;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* 게시판 상단 search */
+.form-group {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.mg-form-search {
+	position: absolute;
+	top: 5px;
+}
+
+.mg-form-tag {
+	position: absolute;
+	top: 65px;
+}
+
+.form-control {
+	right: 10px;
+	display: block;
+	width: 90%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 700;
+	cursor: default;
+}
+
+label.control-label-search {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	margin-bottom: 5px;
+	width: 75px;
+}
+
+label.control-label-tag {
+	position: absolute;
+	top: 70px;
+	left: 24px;
+	margin-bottom: 5px;
+	width: 75px;
+}
+
+.mg-btn-search {
+	position: absolute;
+	top: 120px;
+	left: 72px;
+}
+
+.sub-category-nav {
+	height: 35px;
+	width: 850px;
+	border-bottom: 0.5px solid gray;
+	background-color: #fff;
+	
+}
+
+.mg-text-default {
+	position: absolute;
+	top: 170px;
+	left: 72px;
+}
+
+/* 게시판내 카테고리 ul 초기화 설정 */
+.sub-category-nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 30px;
+}
+
+/* 게시판내 카테고리 ul, li 관련 설정 */
+.sub-category-nav ul li {
+	color: white;
+	float: left;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+	font-size: 12px;
+	
+	
+}
+
+/* 게시판내 카테고리 li 관련 설정 */
+.sub-category-li {
+	text-decoration: none;
+	display: inline-block;
+	width: 80px;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum;
+	color: black;
+}
+
+/* 게시판내 카테고리 li 마우스 관련 설정 */
+li.focus-text:hover, li.focus-text:active {
+	color: #fff;
+	background-color: #ffb938;
+	border-bottom: 2px solid orange;
+}
+
+.sub-category-li a {
+	text-decoration: none;
+}
+
+li.best-list {
+	position: relative;
+	left: 248px;
+}
+
+li.best-list>a:focus, li.up-list>a:focus {
+	border-bottom: 2px solid red;
+	color: red;
+}
+
+li.up-list {
+	position: relative;
+	left: 238px;
+}
+
+li.sub-category-li-widthView {
+	left: 255px;
+	top: 2px;
+}
+
+li.sub-category-li-heightView {
+	top: 4px;
+	left: 265px;
+}
+
