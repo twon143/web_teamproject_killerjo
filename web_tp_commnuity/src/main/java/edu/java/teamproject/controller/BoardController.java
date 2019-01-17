@@ -29,6 +29,11 @@ public class BoardController {
    
    @Autowired private BoardService boardService;
    
+   @RequestMapping(value = "searchPaging", method = RequestMethod.GET)
+   public void searchPaging() {
+       logger.info("searchPaging()");
+   }
+   
    @RequestMapping(value="write-form", method = RequestMethod.GET)
    public void postRegister(@ModelAttribute("type") String type, @ModelAttribute("queryString") String queryString, @ModelAttribute("category") String category) {
       logger.info("postRegister(type : {}, queryString : {}, category : {}) 호출", type, queryString, category);
