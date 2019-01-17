@@ -468,70 +468,145 @@
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 
+							<!-- right:태그입력 칸 -->
 							<div class="right-box">
 
 								<p>태그</p>
-								<div class="tags-box">
+
+								
 									<div class="tag-search-box">
 										<div class="input-group">
-											<input type="text" class="input-text-right cursor-pointer" placeholder="태그 입력" />
-											 <span class="input-group-addon cursor-pointer">태그 입력</span>
+											<input type="text" class="input-text-right cursor-pointer" placeholder="태그 입력" /> <span class="input-group-addon cursor-pointer">태그 입력</span>
 										</div>
 									</div>
-								</div>
+								
 							</div>
 						</div>
+
+						<!-- right:최근 본 포스트 리스트 -->
+						<div class="right-box viewed-posts">
+							<span class="text-post">최근 본 포스트</span>
+							<div class="viewed-posts-box">
+								<div class="media">
+
+									<div class="media-body">
+										<a href="#">php 개발코딩</a>
+										<div class="media-func">
+											<div class="funcs">
+												<a href="#">댓글 1개</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- dummy -->
+								<div class="media">
+									<div class="media-body">
+										<a href="#">php 개발코딩</a>
+										<div class="media-func">
+											<div class="funcs">
+												<a href="#">댓글 1개</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- dummy -->
+								<div class="media">
+									<div class="media-body">
+										<a href="#">php 개발코딩</a>
+										<div class="media-func">
+											<div class="funcs">
+												<a href="#">댓글 1개</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- dummy -->
+								<div class="media">
+									<div class="media-body">
+										<a href="#">php 개발코딩</a>
+										<div class="media-func">
+											<div class="funcs">
+												<a href="#">댓글 1개</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- dummy -->
+								<div class="media">
+									<div class="media-body">
+										<a href="#">php 개발코딩</a>
+										<div class="media-func">
+											<div class="funcs">
+												<a href="#">댓글 1개</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+
+
+
+
 					</div>
 				</div>
-				<!-- End contents - right -->
+			</div>
+			<!-- End contents - right -->
+		</div>
+	</div>
+
+
+	<!-- E:container-->
+
+	<!-- S:Footer -->
+	<footer>
+		<div class="footer-box">
+			<div class="row">
+				<div class="col-md-4">
+					<ul class="list-unstyled">
+						<li style="color: gray;">뎁스노트에 대하여
+						<li><a class="twitter-follow-button">Follow @devsnote</a>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-unstyled">
+						<li style="color: gray;">도움말
+						<li style="color: #ac6f6f;"><a href="#">요청/건의</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<hr style="border-color: #777" />
+			<div class="row" style="padding-bottom: 60px">
+				<div class="col-md-7">
+					<a href="/terms" class="hide-at-mobile a2" data-instant>이용약관</a> <span class="hide-at-mobile" style="color: #aaa"> &nbsp;|&nbsp; </span> <a href="/privacy" class="hide-at-mobile" data-instant>개인정보취급방침</a>
+
+				</div>
+				<div class="col-md-5">
+					<span class="muted pull-right">© 2017 드림고어. All rights reserved</span>
+				</div>
+
+				<div class="col-md-12 text-right" style="color: gray;">
+					<div style="color: white;">
+						(주)드림고어 <span class="dot-divider"> · </span> 소재지 : 아이티윌
+					</div>
+					<div>
+						사업자 등록 번호 : 713-03-00728 <span class="dot-divider"> · </span> 통신판매업 신고 : 제 2017-성남분당-1087 호
+					</div>
+				</div>
+
 			</div>
 		</div>
+	</footer>
 
-
-		<!-- E:container-->
-
-		<!-- S:Footer -->
-		<footer>
-			<div class="footer-box">
-				<div class="row">
-					<div class="col-md-4">
-						<ul class="list-unstyled">
-							<li style="color: gray;">뎁스노트에 대하여
-							<li><a class="twitter-follow-button">Follow @devsnote</a>
-						</ul>
-					</div>
-					<div class="col-md-4">
-						<ul class="list-unstyled">
-							<li style="color: gray;">도움말
-							<li style="color: #ac6f6f;"><a href="#">요청/건의</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<hr style="border-color: #777" />
-				<div class="row" style="padding-bottom: 60px">
-					<div class="col-md-7">
-						<a href="/terms" class="hide-at-mobile a2" data-instant>이용약관</a> <span class="hide-at-mobile" style="color: #aaa"> &nbsp;|&nbsp; </span> <a href="/privacy" class="hide-at-mobile" data-instant>개인정보취급방침</a>
-
-					</div>
-					<div class="col-md-5">
-						<span class="muted pull-right">© 2017 드림고어. All rights reserved</span>
-					</div>
-
-					<div class="col-md-12 text-right" style="color: gray;">
-						<div style="color: white;">
-							(주)드림고어 <span class="dot-divider"> · </span> 소재지 : 아이티윌
-						</div>
-						<div>
-							사업자 등록 번호 : 713-03-00728 <span class="dot-divider"> · </span> 통신판매업 신고 : 제 2017-성남분당-1087 호
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</footer>
-
-		<!-- E:Footer -->
+	<!-- E:Footer -->
 	</div>
 	<!-- E:wrapper -->
 

@@ -95,23 +95,28 @@ li.sub-category-li-heightView {
 
 /* rigth-tag-input 추가 */
 .right-box {
-    margin-top: 15px;
-   
-}
-.right-box>p{
-	margin-left: -195px;
-	
-}
-.tags-box {
-    border: 1px solid gray;
-    padding: 6px;
-    border-radius: 3px;
-    background-color: #fff;
-    margin: 10px 14px;
+	margin-top: 15px;
+	font-weight: bold;
 }
 
+.right-box>p {
+	margin-left: -195px;
+}
+
+/* .tags-box {
+	border: 1px solid gray;
+	padding: 6px;
+	border-radius: 3px;
+	background-color: #fff;
+	margin: 6px 10px;
+}
+ */
 .tag-search-box {
-	
+	border: 1px solid gray;
+	padding: 6px;
+	border-radius: 3px;
+	background-color: #fff;
+	margin: 6px 10px;
 }
 
 .input-group {
@@ -119,17 +124,14 @@ li.sub-category-li-heightView {
 	display: table;
 	border-collapse: separate;
 	padding: 6px 12px;
-	
+}
 
-	
-}
-.input-group>input{
-	width:125px;
+.input-group>input {
+	width: 125px;
 	margin-left: -8px;
-	
-	
 }
-.cursor-pointer{
+
+.cursor-pointer {
 	cursor: pointer;
 }
 
@@ -145,4 +147,45 @@ li.sub-category-li-heightView {
 	cursor: pointer;
 	white-space: nowrap;
 	vertical-align: middle;
+}
+
+/* right:최근 본 포스트 */
+.viewed-posts .viewed-posts-box .media {
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+.viewed-posts .viewed-posts-box {
+	border: 1px solid #ccc;
+	padding: 6px;
+	border-radius: 5px;
+	background-color: #fff;
+	margin: 6px 10px;
+}
+
+.media:first-child {
+	margin-top: 0;
+}
+
+.right-box>span.text-post {
+	margin-left: -90px;
+}
+
+.media-body>a:first-child {
+	color: #337ab7;
+	text-decoration: none;
+	margin-left: -115px;
+}
+
+.media {
+	border-bottom: 1px solid gray;
+}
+
+.media-func .funcs a {
+	margin-left: -175px;
+	color: #5d7385;
+	text-decoration: none;
+	font-size: 8px;
+	cursor: pointer;
+	font-weight: 700;
 }
