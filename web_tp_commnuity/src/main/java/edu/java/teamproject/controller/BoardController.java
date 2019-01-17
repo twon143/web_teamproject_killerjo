@@ -1,5 +1,9 @@
 package edu.java.teamproject.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,8 +77,58 @@ public class BoardController {
 		   Criteria criteria, Model model,
 		   @ModelAttribute("category") String category,
 		   @ModelAttribute("type") String type,
-		   String sort) {
+		   String sort,
+		   HttpServletRequest request, HttpServletResponse response) {
 	   
+	   logger.info("쿠키 생성 전");
+
+		// 최근 본 글 포스트 쿠키 유무 확인
+//	   WebUtils.getCookie(request, "recentPageCookie").setMaxAge(0);
+//	   response.addCookie(WebUtils.getCookie(request, "recentPageCookie"));
+		String cookies = request.getHeader("cookie");
+		Cookie[] getCookie = request.getCookies();
+		logger.info("쿠키 유무 확인, 갯수 : " + getCookie.length);
+		logger.info("쿠키 header : " + cookies);
+		
+		// recentPageCookie 쿠키가 존재하지 않으면!!
+		if (WebUtils.getCookie(request, "recentPageCookie") == null) {
+			logger.info("-----if 문 쿠키 없으면 실행-----");
+			// 쿠키 생성
+			Cookie cookie = new Cookie("recentPageCookie", request.getParameter("bno"));
+			// 쿠키 유효시간 설정 (1시간)
+			cookie.setMaxAge(60 * 60);
+			// 생성한 쿠키 response에 add
+			response.addCookie(cookie);
+
+			logger.info("cookie : " + cookie);
+			logger.info("cookie : " + cookie.getValue());
+//		   cookie.setMaxAge(0);
+//		   response.addCookie(cookie);
+			logger.info("-----if 문 쿠키 없으면 실행 끝-----");
+			
+		} else { // 쿠키가 존재 할 때
+			logger.info("----- 쿠키 존재 할 때 실행 -----");
+
+			for (int i = 0; i < getCookie.length; i++) {
+				logger.info("존재 쿠키 값: " + getCookie[i].getValue());
+			}
+			// 쿠키 꺼내서 뒤에 bno 붙히기 
+			String test2 = WebUtils.getCookie(request, "recentPageCookie").getValue().toString() + "," + request.getParameter("bno");
+			logger.info("쿠키 꺼내서 뒤에 bno 붙히기 : " + test2);
+			
+			// 다시 쿠키에 넣기
+			WebUtils.getCookie(request, "recentPageCookie").setValue(test2);
+			logger.info("다시 쿠키에 넣기 : " + WebUtils.getCookie(request, "recentPageCookie").getValue().toString());
+			
+			
+			logger.info("setValue 후 : " + getCookie[0].getValue().toString());
+
+			
+			logger.info("WebUtils.getCookie : " + WebUtils.getCookie(request, "recentPageCookie").getValue());
+			logger.info("----- 쿠키 존재 할 때  실행 끝-----");
+
+		}
+		
 	   
 	   // 쿠키 유무 (rememberReadPageCookie) 확인
 	   /*if(WebUtils.getCookie(request, "rememberReadPageCookie") != null) {
