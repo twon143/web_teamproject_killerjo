@@ -26,8 +26,8 @@ public class BoardController {
    @Autowired private BoardService boardService;
    
    @RequestMapping(value="write-form", method = RequestMethod.GET)
-   public void postRegister(@ModelAttribute("type") String type, @ModelAttribute("queryString") String queryString) {
-      logger.info("postRegister(type : {}, queryString : {}) 호출", type, queryString);
+   public void postRegister(@ModelAttribute("type") String type, @ModelAttribute("queryString") String queryString, @ModelAttribute("category") String category) {
+      logger.info("postRegister(type : {}, queryString : {}, category : {}) 호출", type, queryString, category);
      
    }
    
@@ -39,9 +39,9 @@ public class BoardController {
    
    @RequestMapping(value = "listPaging", method = RequestMethod.GET)
    public void listCriteria(Model model, Criteria criteria, 
-		   @RequestParam("category") String category,
-		   @RequestParam("type") String type,
-		   String sort) throws Exception{
+		   @ModelAttribute("category") String category,
+		   @ModelAttribute("type") String type,
+		   @ModelAttribute("sort") String sort) throws Exception{
 	   logger.info("listPaging(criteria : {}, category : {}, type : {}, sort : {})", criteria, category, type, sort);
 	   
 	   PageMaker pageMaker = new PageMaker();
@@ -50,19 +50,20 @@ public class BoardController {
 	   
 	   logger.info("pageMaker : {}", pageMaker);
 	   
-	   if(sort != null) {
-		   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type, sort));
+	   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type, sort));
+	   /*if(sort != null) {
+	  
 	   } else {
 		   model.addAttribute("boardList", boardService.listCriteria(criteria, category, type, "newest"));
-	   }
+	   }*/
 	   model.addAttribute("pageMaker", pageMaker);
-	   model.addAttribute("category", category);
-	   model.addAttribute("type", type);
-	   if(sort != null) {
+//	   model.addAttribute("category", category);
+//	   model.addAttribute("type", type);
+	   /*if(sort != null) {
 		   model.addAttribute("sort", sort);
 	   } else {
 		   model.addAttribute("sort", "newest");
-	   }
+	   }*/
 	   
    }
    

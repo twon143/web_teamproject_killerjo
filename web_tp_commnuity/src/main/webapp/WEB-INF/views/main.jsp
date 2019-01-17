@@ -156,7 +156,6 @@
 
 								<input type="submit" class="btn-logout btn btn-info" value="로그아웃" />
 
-								<!-- <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/> -->
 							</form>
 
 						</div>
@@ -173,45 +172,45 @@
 			<nav class="navbar navbar-inverse nav-main-default ">
 				<div class="container-fluid  nav-main-wid ">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all">전체</a>
+						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all&sort=popular">전체</a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li class="dropdown menu-language"><a class="dropdown-toggle" data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
-								<li><a href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
-								<li><a href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
-								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
-								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
-								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
-								<li><a href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+								<li><a href="/teamproject/board/listPaging?category=php&type=all&sort=${sort}">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all&sort=${sort}">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all&sort=${sort}">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all&sort=${sort}">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all&sort=${sort}">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all&sort=${sort}">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all&sort=${sort}">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all&sort=${sort}">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all&sort=${sort}">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all&sort=${sort}">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all&sort=${sort}">jQuery</a></li>
 								<!-- <li><a href="/teamproject/board/listPaging?category=c#&type=all">C#</a></li> -->
 							</ul></li>
 						<li class="dropdown menu-network"><a class="dropdown-toggle" data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
-								<li><a href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
-								<li><a href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
-								<li><a href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
+								<li><a href="/teamproject/board/listPaging?category=linux&type=all&sort=${sort}">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all&sort=${sort}">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all&sort=${sort}">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all&sort=${sort}">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all&sort=${sort}">API</a></li>
 							</ul></li>
 						<li class="dropdown menu-database"><a class="dropdown-toggle">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
-								<li><a href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=sql&type=all&sort=${sort}">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all&sort=${sort}">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown menu-project"><a class="dropdown-toggle" data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
+								<li><a href="/teamproject/board/listPaging?category=git&type=all&sort=${sort}">GIT</a></li>
 							</ul></li>
 						<li class="dropdown menu-bigdata"><a class="dropdown-toggle" data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
-								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
+								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=${sort}">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all&sort=${sort}">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown menu-toctoc"><a class="dropdown-toggle" data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -282,13 +281,17 @@
 										<span>문제</span> 를 <span>해결</span> 하세요
 									</div>
 									<div class="slogan-buttons">
-										<button type="button" class="btn-default btn-lg slogan-btn">
-											<i class="fa"> 전체보기</i>
-										</button>
-										<button type="button" class="btn-lg slogan-btn btn-warning">
-											<i class="fa "> <img src="/teamproject/resources/images/question-icon.png" /> 질문하기
-											</i>
-										</button>
+										<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=${sort}">
+											<button type="button" class="btn-default btn-lg slogan-btn">
+												<i class="fa"> 전체보기</i>
+											</button>
+										</a>
+										<a href="/teamproject/board/write-form?queryString=/teamproject/&category=${category}&type=question&sort=${sort}">
+											<button type="button" class="btn-lg slogan-btn btn-warning">
+												<i class="fa "> <img src="/teamproject/resources/images/question-icon.png" /> 질문하기
+												</i>
+											</button>
+										</a>
 									</div>
 								</div>
 
@@ -305,7 +308,7 @@
 						<div class="content-center">
 							<div class="content-header head-text">인기 질문</div>
 
-							<c:forEach items="${popularQuestionList}" var="board">
+							<c:forEach items="${popularQuestionList}" var="board" begin="0" end="10" step="1">
 								<div class="sub-post-list">
 									<div class="post-image-div">
 										
@@ -335,17 +338,17 @@
 
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}"><strong>${board.title}</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
-										<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 											<button class="btnPostTag">${board.category}</button>
 										</a>
 										<!-- <button class="btnPostTag2">언어</button> -->
-										<br /> <br /> <a class="post-content" href="#">${board.content}</a> <br /> <span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?type=all&category=${board.category}">${board.category}</a>에 올린 
+										<br /> <br /> <a class="post-content" href="#">${board.content}</a> <br /> <span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 
 										<c:if test="${board.type == 'question'}">질문</c:if>
 										<c:if test="${board.type == 'writing'}">글</c:if>
 										<c:if test="${board.type == 'link'}">링크</c:if>
-										</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 3시간전에 <a class="post-info-span-postName" href="#">Java</a>에 올린 질문</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+										</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a> 
 									</div>
 									<!--  end of div$post-contents -->
 								</div>
@@ -354,7 +357,7 @@
 
 
 							<h5 class="section-more">
-								<a href="#">질문 더보기</a>
+								<a href="/teamproject/board/listPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&category=${category}&type=question&sort=${sort}">질문 더보기</a>
 							</h5>
 						</div>
 						<!-- 세로로 POST 보기 -->
@@ -365,36 +368,36 @@
 						<div class="content-center2">
 							<c:forEach var="i" begin="0" end="12" step="4">
 								<div class="sub-post-list2">
-									<c:forEach var="board" items="${popularWritinList}" begin="${i}" end="${i+3}">
+									<c:forEach var="board" items="${popularWritingList}" begin="${i}" end="${i+3}">
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
 												<c:if test="${board.type == 'question'}">
 													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
-													<img class="post-image" alt=""
-														src="/teamproject/resources/images/blank_image.png">
+													<img class="post-image2" alt=""
+														src="/teamproject/resources/images/blank_image2.png">
 													</a>
 													</c:if>
 													<c:if test="${board.type == 'writing'}">
 													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
-													<img class="post-image" alt=""
-														src="/teamproject/resources/images/writing_image.png">
+													<img class="post-image2" alt=""
+														src="/teamproject/resources/images/writing_image2.png">
 													</a>
 													</c:if>
 													<c:if test="${board.type == 'link'}">
 													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
-													<img class="post-image" alt=""
-														src="/teamproject/resources/images/link_image.png">
+													<img class="post-image2" alt=""
+														src="/teamproject/resources/images/link_image2.png">
 													</a>
 												</c:if>
 											</div>
 
 											<div class="post-contents2">
 												<button class="btnHPostTag3">답변 대기</button>
-												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 													<button class="btnHPostTag">${board.category}</button>
 												</a>
 												<!-- <button class="btnHPostTag2">언어</button> -->
-												<br /> <a class="post-title2" href="/teamproject/board/readPagingpage=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">아이언티어 지망생 오훈식</a> <br /> <br /> 
+												<br /> <a class="post-title2" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> 
 												<a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
@@ -406,7 +409,7 @@
 								</div>
 							</c:forEach>
 							<h5 class="section-more" style="margin-left: 20px;">
-								<a href="#">글 더보기</a>
+								<a href="/teamproject/board/listPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&category=${category}&type=writing&sort=${sort}">글 더보기</a>
 							</h5>
 
 						</div>
@@ -460,20 +463,26 @@
 						<div class="position-btn-ques">
 							<form action="board/write-form" method="get">
 								<input type="submit" value="질문하기" class="btn-side-question" /> 
-								<input type="hidden" name="type" value="question"/>
 								<input type="hidden" name="queryString" value="/teamproject/">
+								<input type="hidden" name="category" value="${category}">
+								<input type="hidden" name="type" value="question"/>
+								<input type="hidden" name="sort" value="${sort}">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="board/write-form" method="get">
 								<input type="submit" value="글 올리기" class="btn-side-question" /> 
-								<input type="hidden" name="type" value="writing"/>
 								<input type="hidden" name="queryString" value="/teamproject/">
+								<input type="hidden" name="category" value="${category}">
+								<input type="hidden" name="type" value="writing"/>
+								<input type="hidden" name="sort" value="${sort}">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="board/write-form" method="get">
 								<input type="submit" value="링크 올리기" class="btn-side-question" /> 
-								<input type="hidden" name="type" value="link"/>
 								<input type="hidden" name="queryString" value="/teamproject/">
+								<input type="hidden" name="category" value="${category}">
+								<input type="hidden" name="type" value="link"/>
+								<input type="hidden" name="sort" value="${sort}">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 						</div>
@@ -533,7 +542,7 @@
 	<!-- E:wrapper -->
 
 
-	<script src="/teamproject/resources/js/main.js"></script>
+	<script src="/resources/js/main.js"></script>
 	
 	<!--아이디, 비밀번호 중복 확인  -->
 	<script>
