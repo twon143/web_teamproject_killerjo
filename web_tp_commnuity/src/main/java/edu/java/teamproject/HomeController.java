@@ -34,11 +34,13 @@ public class HomeController {
 		
 		logger.info("session 값 확인 : {}", session.getAttribute("login"));
 		
-		criteria.setPerPageNum(12);
+//		criteria.setPerPageNum(12);
 		
 		model.addAttribute("popularQuestionList", boardService.listCriteria(criteria, "all", "question", "popular"));
 		model.addAttribute("popularWritingList", boardService.listCriteria(criteria, "all", "writing", "popular"));
 		
+		model.addAttribute("category", "all");
+		model.addAttribute("sort", "popular");
 		/*model.addAttribute("category", "all");
 		model.addAttribute("type", "all");*/
 		

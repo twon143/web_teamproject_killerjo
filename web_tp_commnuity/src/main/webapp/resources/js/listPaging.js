@@ -1,10 +1,11 @@
 $(document).ready(
 		function() {
 			var status = true;
-
+			
 			if (status) {
 				$('.content-center2').hide();
 			}
+			
 
 			$('#viewToHeight').click(function() {
 				$('.content-center').hide();
@@ -16,11 +17,6 @@ $(document).ready(
 				$('.content-center').show();
 
 			})
-
-			/* navbar */
-			/*$('.post-title').click(function() {
-				$('#myModal').modal();
-			});*/
 			
 			$('ul.nav li.dropdown').hover(
 					function() {

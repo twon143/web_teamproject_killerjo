@@ -92,7 +92,7 @@
 								<input type="submit" id="login-btn" value="로그인"
 									class="btn btn-primary btn-lg"> <input type="hidden"
 									name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
-
+							</form>
 						</div>
 					</div>
 				</div>
@@ -175,40 +175,40 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown menu-language"><a class="dropdown-toggle" data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
-								<li><a href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
-								<li><a href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
-								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
-								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
-								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
-								<li><a href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+								<li><a href="/teamproject/board/listPaging?category=php&type=all&sort=${sort}">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all&sort=${sort}">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all&sort=${sort}">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all&sort=${sort}">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all&sort=${sort}">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all&sort=${sort}">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all&sort=${sort}">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all&sort=${sort}">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all&sort=${sort}">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all&sort=${sort}">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all&sort=${sort}">jQuery</a></li>
 								<!-- <li><a href="/teamproject/board/listPaging?category=c#&type=all">C#</a></li> -->
 							</ul></li>
 						<li class="dropdown menu-network"><a class="dropdown-toggle" data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
-								<li><a href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
-								<li><a href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
-								<li><a href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
+								<li><a href="/teamproject/board/listPaging?category=linux&type=all&sort=${sort}">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all&sort=${sort}">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all&sort=${sort}">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all&sort=${sort}">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all&sort=${sort}">API</a></li>
 							</ul></li>
 						<li class="dropdown menu-database"><a class="dropdown-toggle">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
-								<li><a href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=sql&type=all&sort=${sort}">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all&sort=${sort}">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown menu-project"><a class="dropdown-toggle" data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
+								<li><a href="/teamproject/board/listPaging?category=git&type=all&sort=${sort}">GIT</a></li>
 							</ul></li>
 						<li class="dropdown menu-bigdata"><a class="dropdown-toggle" data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
-								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
+								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=${sort}">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all&sort=${sort}">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown menu-toctoc"><a class="dropdown-toggle" data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -283,13 +283,13 @@
 
 						<nav class="sub-category-nav">
 							<ul class="sub-category-ul">
-								<li class="sub-category-li focus-text"><a href="/teamproject/board/listPaging?type=all&category=${category}">전체</a></li>
+								<li class="sub-category-li focus-text"><a href="/teamproject/board/listPaging?category=${category}&type=all&sort=${sort}">전체</a></li>
 
-								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_message.png"> <a href="/teamproject/board/listPaging?type=question&category=${category}">질문</a></li>
+								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_message.png"> <a href="/teamproject/board/listPaging?category=${category}&type=question&sort=${sort}">질문</a></li>
 
-								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_post.png"> <a href="/teamproject/board/listPaging?type=writing&category=${category}">글</a></li>
+								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_post.png"> <a href="/teamproject/board/listPaging?category=${category}&type=writing&sort=${sort}">글</a></li>
 
-								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_link.png"> <a href="/teamproject/board/listPaging?type=link&category=${category}">링크</a></li>
+								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_link.png"> <a href="/teamproject/board/listPaging?category=${category}&type=link&sort=${sort}">링크</a></li>
 
 								<li class="sub-category-li best-list"><a href="#">인기순</a></li>
 								
@@ -358,7 +358,7 @@
 											<div class="post-image-div2">
 												<c:if test="${board.type == 'question'}">
 													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}&sort=${sort}">
-														<img alt="" src="/teamproject/resources/images/blank_image2.png">
+														<img alt="" src="/teamproject/resources/images/blank_image2.png" >
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'writing'}">
@@ -552,7 +552,7 @@
 	</div>
 	<!-- E:wrapper -->
 
-	<script src="<c:url value='/resources/js/main.js'/>"></script>
+	<script src="<c:url value='/resources/js/listPaging.js'/>"></script>
 
 
 	<!-- <script type="text/javascript">
