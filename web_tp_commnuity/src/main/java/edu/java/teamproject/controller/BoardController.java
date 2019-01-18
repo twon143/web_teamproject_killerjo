@@ -1,5 +1,7 @@
 package edu.java.teamproject.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,10 +15,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
 import edu.java.teamproject.model.Board;
+import edu.java.teamproject.model.BoardHistory;
+import edu.java.teamproject.service.BoardHistoryService;
 import edu.java.teamproject.service.BoardService;
 import edu.java.teamproject.util.Criteria;
 import edu.java.teamproject.util.PageMaker;
@@ -28,6 +34,7 @@ public class BoardController {
    private final Logger logger = LoggerFactory.getLogger(BoardController.class);
    
    @Autowired private BoardService boardService;
+   @Autowired private BoardHistoryService boardHistoryService;
    
    @RequestMapping(value = "searchPaging", method = RequestMethod.GET)
    public void searchPaging(Criteria criteria, 
@@ -101,6 +108,46 @@ public class BoardController {
 		   @ModelAttribute("type") String type,
 		   @ModelAttribute("sort") String sort,
 		   HttpServletRequest request, HttpServletResponse response) {
+	   // 아이피 정보를 얻어옴
+	   HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+       String ip = req.getHeader("X-FORWARDED-FOR");
+       
+       if (ip == null) {
+           ip = req.getRemoteAddr();
+           logger.info("IP: " + ip);
+       }
+       Date date = new Date();
+       long currentTime = date.getTime();
+       
+       // 게시글 접속 시간
+       long access_time = boardHistoryService.selectAccessTime(ip, bno);
+       
+       // 현재시간에서 게시글 접속 시간을 뺸값
+       long waitingTime = currentTime-access_time;
+       
+       long day = 1000*60*60*24;
+       // ip, bno로 검색해서 시간 결과가 0(try-catch에서 nullPointerException이 나오면  0이 리턴되게함)이면 현재 정보가 없으므로 insert함
+       if(access_time == 0) {
+    	  BoardHistory boardHistory = new BoardHistory(ip, bno, currentTime);
+    	  boardHistoryService.insertBoardHistory(boardHistory);
+    	  // 조회수를 증가시킴
+    	  boardService.updateReadCnt(bno, 1);
+       }
+       else if(waitingTime >= day) {
+    	   // 하루(1000*60*60*24)가 지났으므로 조회수를 증가시킴
+    	   boardService.updateReadCnt(bno, 1);
+       }
+       
+       else if(waitingTime < day) {
+    	   // 하루(1000*60*60*24) 보다 짧으므로 조회수를 증가시키지 않음
+    	   logger.info("쿨타임: " + (day - waitingTime));
+       }
+       
+       
+     
+	   
+	   
+	   
 	   
 	   logger.info("쿠키 생성 전");
 	   // 해당글의 번호로된 값을 가지고있는 쿠키 유무확인

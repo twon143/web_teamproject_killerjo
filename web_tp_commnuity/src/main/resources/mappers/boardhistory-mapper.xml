@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.java.mappers.BoardHistoryMapper">
+
+	<insert id="insertBoardHistory">
+		insert into ${tbl_boardhistory} values (#{ip}, #{bno}, #{access_time})
+	</insert>
+	
+	
+	<select id="selectAccessTime" resultType="long">
+		select ${boardhistory.access_time} from ${tbl_boardhistory} 
+		where (${boardhistory.ip} = #{ip} and ${boardhistory.bno} = #{bno})
+	</select>
+</mapper>
