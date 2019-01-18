@@ -106,8 +106,8 @@
 			AND ${board.type} = #{type}
 		</if>
 		<if test="!'empty'.equals(searchKeyword)">
-			AND ${board.title} LIKE #{searchKeyword} 
-			AND ${board.content} LIKE #{searchKeyword} 
+			AND ${board.title} LIKE lower(#{searchKeyword}) 
+			AND ${board.content} LIKE lower(#{searchKeyword}) 
 		</if>
 		ORDER BY ${board.bno} DESC, 
 		<if test="'popular'.equals(sort)">
