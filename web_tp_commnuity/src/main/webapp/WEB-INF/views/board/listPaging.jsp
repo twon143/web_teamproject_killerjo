@@ -165,45 +165,45 @@
 			<nav class="navbar navbar-inverse nav-main-default ">
 				<div class="container-fluid  nav-main-wid ">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all&sort=${sort}">전체</a>
+						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all&sort=popular">전체</a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li class="dropdown menu-language"><a class="dropdown-toggle" data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=php&type=all&sort=${sort}">PHP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=javascript&type=all&sort=${sort}">Javascript</a></li>
-								<li><a href="/teamproject/board/listPaging?category=java&type=all&sort=${sort}">Java</a></li>
-								<li><a href="/teamproject/board/listPaging?category=spring&type=all&sort=${sort}">Spring</a></li>
-								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all&sort=${sort}">Node.js</a></li>
-								<li><a href="/teamproject/board/listPaging?category=swift&type=all&sort=${sort}">Swift</a></li>
-								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all&sort=${sort}">Kotlin</a></li>
-								<li><a href="/teamproject/board/listPaging?category=css&type=all&sort=${sort}">CSS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=python&type=all&sort=${sort}">Python</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jsp&type=all&sort=${sort}">JSP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jquery&type=all&sort=${sort}">jQuery</a></li>
+								<li><a href="/teamproject/board/listPaging?category=php&type=all&sort=popular">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all&sort=popular">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all&sort=popular">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all&sort=popular">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all&sort=popular">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all&sort=popular">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all&sort=popular">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all&sort=popular">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all&sort=popular">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all&sort=popular">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all&sort=popular">jQuery</a></li>
 								<!-- <li><a href="/teamproject/board/listPaging?category=c#&type=all">C#</a></li> -->
 							</ul></li>
 						<li class="dropdown menu-network"><a class="dropdown-toggle" data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=linux&type=all&sort=${sort}">리눅스</a></li>
-								<li><a href="/teamproject/board/listPaging?category=server_management&type=all&sort=${sort}">서버관리</a></li>
-								<li><a href="/teamproject/board/listPaging?category=cdn&type=all&sort=${sort}">CDN</a></li>
-								<li><a href="/teamproject/board/listPaging?category=aws&type=all&sort=${sort}">AWS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=api&type=all&sort=${sort}">API</a></li>
+								<li><a href="/teamproject/board/listPaging?category=linux&type=all&sort=popular">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all&sort=popular">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all&sort=popular">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all&sort=popular">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all&sort=popular">API</a></li>
 							</ul></li>
 						<li class="dropdown menu-database"><a class="dropdown-toggle">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=sql&type=all&sort=${sort}">SQL</a></li>
-								<li><a href="/teamproject/board/listPaging?category=mysql&type=all&sort=${sort}">MySQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=sql&type=all&sort=popular">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all&sort=popular">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown menu-project"><a class="dropdown-toggle" data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=git&type=all&sort=${sort}">GIT</a></li>
+								<li><a href="/teamproject/board/listPaging?category=git&type=all&sort=popular">GIT</a></li>
 							</ul></li>
 						<li class="dropdown menu-bigdata"><a class="dropdown-toggle" data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=${sort}">머신러닝</a></li>
-								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all&sort=${sort}">블록체인</a></li>
+								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=popular">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all&sort=popular">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown menu-toctoc"><a class="dropdown-toggle" data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -224,8 +224,10 @@
 					<!-- 상세카테고리들 끝 -->
 					<form class="navbar-form navbar-left search-btn-nav" action="searchPaging" method="get">
 
+						<input type="hidden" name="type" value="all">
+						<input type="hidden" name="sort" value="popular">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search" name="searchKeyword">
+							<input type="text" class="form-control" placeholder="Search" name="keyword">
 						</div>
 						<button type="submit" class="btn btn-default">Submit</button>
 
@@ -270,7 +272,7 @@
 						<div class="content-header">
 							<!-- header 부분 제목에대한 <p><a> -->
 							<p class="contnt-header-title-link">
-								<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=${sort}"> <strong>${category}</strong>
+								<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=popular"> <strong>${category}</strong>
 								</a>
 							<div class="nav"></div>
 
@@ -323,9 +325,9 @@
 										<!-- Dummy Data 1 -->
 										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
-										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
+										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular" target="blank">
 											<button class="btnPostTag">${board.category}</button>
-										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
 
 									</div>
 									<!--  end of div$post-contents -->
@@ -362,7 +364,7 @@
 
 											<div class="post-contents2">
 												<button class="btnHPostTag3">답변 대기</button>
-												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
+												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular" target="blank">
 													<button class="btnPostTag">${board.category}</button>
 												</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
 

@@ -123,6 +123,8 @@ public class BoardDaoImple implements BoardDao {
 	@Override
 	public List<Board> readByKeyword(Criteria criteria, String type, String sort, String keyword) {
 		
+		logger.info("criteria : {}, type : {}, sort : {}, keyword : {}", criteria, type, sort, keyword);
+		
 		Map<String , Object> map = new HashMap<String, Object>();
 		map.put("criteria", criteria);
 		map.put("type", type);
@@ -135,6 +137,22 @@ public class BoardDaoImple implements BoardDao {
 		}
 		
 		return session.selectList(BOARD_MAPPER + ".selectByKeyword", map);
+	}
+
+	@Override
+	public int countBoardsByKeyword(Criteria criteria, String type, String keyword) {
+		
+		Map<String , Object> map = new HashMap<String, Object>();
+		map.put("criteria", criteria);
+		map.put("type", type);
+		
+		if(keyword == null) {
+			map.put("searchKeyword", "empty");
+		} else {
+			map.put("searchKeyword", "%" + keyword + "%");
+		}
+		
+		return session.selectOne(BOARD_MAPPER + ".countBoardsByKeyword", map);
 	}
 
 }

@@ -34,9 +34,21 @@ public class BoardController {
 		   @ModelAttribute("type") String type,
 		   @ModelAttribute("sort") String sort,
 		   String keyword, Model model) {
-       logger.info("searchPaging() 호출");
+       logger.info("searchPaging(criteria : {}, type : {}, sort : {}, keyword : {})", criteria, type, sort, keyword);
+       
+       PageMaker pageMaker = new PageMaker();
+       pageMaker.setCriteria(criteria);
+       pageMaker.setTotalCount(boardService.countBoardsByKeyword(criteria, type, keyword));
+       
+       logger.info("pageMaker : {}", pageMaker);
        
        model.addAttribute("boardListBySearching", boardService.searchByKeyword(criteria, type, sort, keyword));
+       
+       if(keyword != null) {
+    	   model.addAttribute("keyword", keyword);
+       }
+       
+       model.addAttribute("pageMaker", pageMaker);
    }
    
    @RequestMapping(value="write-form", method = RequestMethod.GET)

@@ -56,6 +56,11 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.update(bno, increment);
 	}
 
+	@Override
+	public int countBoardsByKeyword(Criteria criteria, String type, String keyword) {
+		return boardDao.countBoardsByKeyword(criteria, type, keyword);
+	}
+
 
 
 

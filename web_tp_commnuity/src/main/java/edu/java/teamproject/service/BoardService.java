@@ -18,6 +18,6 @@ public interface BoardService {
 	int updateReplyCnt(int bno, int increment);
 	
 	int countBoards(Criteria criteria, String category, String type);
-	
+	int countBoardsByKeyword(Criteria criteria, String type, String keyword);
 	
 }

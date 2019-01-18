@@ -1,6 +1,6 @@
 $(document).ready(
 		function() {
-			var status = true;
+			/*var status = true;
 
 			if (status) {
 				$('.content-center2').hide();
@@ -15,7 +15,7 @@ $(document).ready(
 				$('.content-center2').hide();
 				$('.content-center').show();
 
-			})
+			})*/
 
 			/* navbar */
 			/*$('.post-title').click(function() {
