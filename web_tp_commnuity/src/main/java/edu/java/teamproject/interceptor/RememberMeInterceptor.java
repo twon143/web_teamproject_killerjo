@@ -24,6 +24,8 @@ public class RememberMeInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
+		// 메인 페이지를 열기 전에 쿠키에 저장해놨던 세션 아이디와 DB의 유저 테이블에 저장된 session_key 값과 비교한후 
+		// 비교한 값이 같으면 현재 세션에 해당 유저 정보를 저장함.
 		HttpSession session = request.getSession();
 		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
 		if(loginCookie != null) {

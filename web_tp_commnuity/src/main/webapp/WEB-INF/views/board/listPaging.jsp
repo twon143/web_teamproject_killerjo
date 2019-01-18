@@ -77,7 +77,7 @@
 							<h4>로그인</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/login-post" method="post">
+							<form action="../user/login-post" method="post">
 								<div class="form-group">
 									<label for="user_id">아이디</label><br> <input type="text" id="user_id" name="id" placeholder="아이디">
 								</div>
@@ -165,7 +165,7 @@
 			<nav class="navbar navbar-inverse nav-main-default ">
 				<div class="container-fluid  nav-main-wid ">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all">전체</a>
+						<a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all&sort=${sort}">전체</a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li class="dropdown menu-language"><a class="dropdown-toggle" data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
@@ -222,10 +222,10 @@
 							</ul></li>
 					</ul>
 					<!-- 상세카테고리들 끝 -->
-					<form class="navbar-form navbar-left search-btn-nav" action="/action_page.php">
+					<form class="navbar-form navbar-left search-btn-nav" action="searchPaging" method="get">
 
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" name="searchKeyword">
 						</div>
 						<button type="submit" class="btn btn-default">Submit</button>
 
@@ -286,9 +286,9 @@
 
 								<li class="sub-category-li focus-text"><img alt="" src="/teamproject/resources/images/icon_link.png"> <a href="/teamproject/board/listPaging?category=${category}&type=link&sort=${sort}">링크</a></li>
 
-								<li class="sub-category-li best-list"><a href="#">인기순</a></li>
+								<li class="sub-category-li best-list"><a href="/teamproject/board/listPaging?category=${category}&type=${type}&sort=popular">인기순</a></li>
 
-								<li class="sub-category-li up-list"><a href="#">최신순</a></li>
+								<li class="sub-category-li up-list"><a href="/teamproject/board/listPaging?category=${category}&type=${type}&sort=newest">최신순</a></li>
 
 								<li class="sub-category-li-widthView"><img id="viewToWidth" onclick="" alt="" src="/teamproject/resources/images/check-list-icon.png"></li>
 
@@ -607,7 +607,6 @@
 	</footer>
 
 	<!-- E:Footer -->
-	</div>
 	<!-- E:wrapper -->
 
 	<script src="<c:url value='/resources/js/listPaging.js'/>"></script>

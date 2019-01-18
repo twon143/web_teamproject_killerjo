@@ -229,10 +229,10 @@
 							</ul></li>
 					</ul>
 					<!-- 상세카테고리들 끝 -->
-					<form class="navbar-form navbar-left search-btn-nav" action="board/searchPaging">
+					<form class="navbar-form navbar-left search-btn-nav" action="board/searchPaging?type=all&sort=${sort}" method="get">
 
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" name="keyword"/>
 						</div>
 						
 							<input type="submit" class="btn btn-default" value="Submit"/>

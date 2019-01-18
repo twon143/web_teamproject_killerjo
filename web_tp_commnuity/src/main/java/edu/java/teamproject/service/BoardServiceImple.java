@@ -45,6 +45,11 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.delete(bno);
 	}
 
+	@Override
+	public List<Board> searchByKeyword(Criteria criteria, String type, String sort, String keyword) {
+		return boardDao.readByKeyword(criteria, type, sort, keyword);
+	}
+
 
 
 

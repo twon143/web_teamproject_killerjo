@@ -101,4 +101,21 @@ public class BoardDaoImple implements BoardDao {
 		return session.selectOne(BOARD_MAPPER + ".countBoards", map);
 	}
 
+	@Override
+	public List<Board> readByKeyword(Criteria criteria, String type, String sort, String keyword) {
+		
+		Map<String , Object> map = new HashMap<String, Object>();
+		map.put("criteria", criteria);
+		map.put("type", type);
+		map.put("sort", sort);
+		
+		if(keyword == null) {
+			map.put("searchKeyword", "empty");
+		} else {
+			map.put("searchKeyword", "%" + keyword + "%");
+		}
+		
+		return session.selectList(BOARD_MAPPER + ".selectByKeyword", map);
+	}
+
 }

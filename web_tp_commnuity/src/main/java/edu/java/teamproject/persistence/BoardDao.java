@@ -20,5 +20,7 @@ public interface BoardDao {
 	
 	int countBoards(Criteria criteria, String category, String type);
 	
+	List<Board> readByKeyword(Criteria criteria, String type, String sort, String keyword);
+	
 	
 }

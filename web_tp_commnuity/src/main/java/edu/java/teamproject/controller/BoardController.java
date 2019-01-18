@@ -30,8 +30,13 @@ public class BoardController {
    @Autowired private BoardService boardService;
    
    @RequestMapping(value = "searchPaging", method = RequestMethod.GET)
-   public void searchPaging() {
-       logger.info("searchPaging()");
+   public void searchPaging(Criteria criteria, 
+		   @ModelAttribute("type") String type,
+		   @ModelAttribute("sort") String sort,
+		   String keyword, Model model) {
+       logger.info("searchPaging() 호출");
+       
+       model.addAttribute("boardListBySearching", boardService.searchByKeyword(criteria, type, sort, keyword));
    }
    
    @RequestMapping(value="write-form", method = RequestMethod.GET)
