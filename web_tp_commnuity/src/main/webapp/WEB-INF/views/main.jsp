@@ -466,28 +466,28 @@
 							<form action="board/write-form" method="get">
 
 								<input type="submit" value="질문하기" class="btn-side-question" /> 
-								<input type="hidden" name="queryString" value="/teamproject/">
 								<input type="hidden" name="category" value="${category}">
 								<input type="hidden" name="type" value="question"/>
-								<input type="hidden" name="sort" value="${sort}">
+								<input type="hidden" name="queryString" value="/teamproject/">
+								<!-- <input type="hidden" name="sort" value="${sort}"> -->
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="board/write-form" method="get">
 
 								<input type="submit" value="글 올리기" class="btn-side-question" /> 
-								<input type="hidden" name="queryString" value="/teamproject/">
 								<input type="hidden" name="category" value="${category}">
 								<input type="hidden" name="type" value="writing"/>
-								<input type="hidden" name="sort" value="${sort}">
+								<input type="hidden" name="queryString" value="/teamproject/">
+								<!-- <input type="hidden" name="sort" value="${sort}"> -->
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="board/write-form" method="get">
 
 								<input type="submit" value="링크 올리기" class="btn-side-question" /> 
-								<input type="hidden" name="queryString" value="/teamproject/">
 								<input type="hidden" name="category" value="${category}">
 								<input type="hidden" name="type" value="link"/>
-								<input type="hidden" name="sort" value="${sort}">
+								<input type="hidden" name="queryString" value="/teamproject/">
+								<!-- <input type="hidden" name="sort" value="${sort}"> -->
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 						</div>

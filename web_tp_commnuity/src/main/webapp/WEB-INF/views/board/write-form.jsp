@@ -68,52 +68,52 @@
          <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="#">전체</a>
+                  <a class="navbar-brand" href="/teamproject/board/listPaging?category=all&type=all&sort=popular">전체</a>
                </div>
                <!-- 상세 카테고리들 -->
                <ul class="nav navbar-nav">
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
-								<li><a href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
-								<li><a href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
-								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
-								<li><a href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
-								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
-								<li><a href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
-								<li><a href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=php&type=all&sort=popular">PHP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=javascript&type=all&sort=popular">Javascript</a></li>
+								<li><a href="/teamproject/board/listPaging?category=java&type=all&sort=popular">Java</a></li>
+								<li><a href="/teamproject/board/listPaging?category=spring&type=all&sort=popular">Spring</a></li>
+								<li><a href="/teamproject/board/listPaging?category=nodejs&type=all&sort=popular">Node.js</a></li>
+								<li><a href="/teamproject/board/listPaging?category=swift&type=all&sort=popular">Swift</a></li>
+								<li><a href="/teamproject/board/listPaging?category=kotlin&type=all&sort=popular">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all&sort=popular">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all&sort=popular">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all&sort=popular">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all&sort=popular">jQuery</a></li>
                         <!-- <li><a href="#">C#</a></li>
                         <li><a href="#">React Native</a></li> -->
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
-								<li><a href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
-								<li><a href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
-								<li><a href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
-								<li><a href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=linux&type=all&sort=popular">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all&sort=popular">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all&sort=popular">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all&sort=popular">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all&sort=popular">API</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">데이터베이스<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
-								<li><a href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=sql&type=all&sort=popular">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all&sort=popular">MySQL</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=git&type=all&sort=popular">GIT</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
                      <ul class="dropdown-menu">
-                        <li><a href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
-								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
+                        <li><a href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=popular">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all&sort=popular">블록체인</a></li>
                      </ul></li>
                   <li class="dropdown"><a class="dropdown-toggle"
                      data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
@@ -143,59 +143,145 @@
          <!-- 글쓰기 타입 nav -->
          <nav class="write-form-type-nav">
             <ul class="write-form-type-ul">
-               <li class="clicked-li">
-               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeQuestion.png">
-               <a class="menu-link" href="">질문 올리기</a>
-               </li>
-               
-               <li>
-               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeLink.png">
-               <a class="menu-link">링크 올리기</a>
-               </li>
-               
-               <li>
-               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writePost.png">
-               <a class="menu-link">글 올리기
-               </a>
-               </li>
+            
+	            <c:if test="${type == 'question'}">
+	               <li class="clicked-li">
+	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeQuestion.png">
+	               <a class="menu-link" href="write-form?category=${category}&type=question&queryString=${queryString}">질문 올리기</a>
+	               </li>
+	            </c:if>
+	            <c:if test="${type != 'question'}">
+	               <li>
+	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeQuestion.png">
+	               <a class="menu-link" href="write-form?category=${category}&type=question&queryString=${queryString}">질문 올리기</a>
+	               </li>
+	            </c:if>
+            
+           		<c:if test="${type == 'link'}">
+	               <li class="clicked-li">
+	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeLink.png">
+	               <a class="menu-link" href="write-form?category=${category}&type=link&queryString=${queryString}">링크 올리기</a>
+	               </li>
+           		</c:if>
+           		<c:if test="${type != 'link'}">
+	               <li>
+	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writeLink.png">
+	               <a class="menu-link" href="write-form?category=${category}&type=link&queryString=${queryString}">링크 올리기</a>
+	               </li>
+           		</c:if>
+	               
+	            <c:if test="${type == 'writing'}">
+	               <li class="clicked-li">
+	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writePost.png">
+	               <a class="menu-link" href="write-form?category=${category}&type=writing&queryString=${queryString}">글 올리기
+	               </a>
+	               </li>
+	            </c:if>
+	            <c:if test="${type != 'writing'}">
+	               <li>
+	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writePost.png">
+	               <a class="menu-link" href="write-form?category=${category}&type=writing&queryString=${queryString}">글 올리기
+	               </a>
+	               </li>
+	            </c:if>
+	            
             </ul>
          </nav>
          <!-- Title 부분 div -->
-         <div class="post-title">
-            <span>질문 올리기</span>
-         </div>
          
-         <div class="question-info1-div">
-            <div class="question-info1-div2">
-               <span>바보 같은 질문은 없습니다. 부담없이 질문해주세요~</span>
-            </div>
-         </div>
+         <c:if test="${type == 'question'}">
+	         <div class="post-title">
+	            <span>질문 올리기</span>
+	         </div>
+         </c:if>
+         <c:if test="${type == 'link'}">
+	         <div class="post-title">
+	            <span>링크 올리기</span>
+	         </div>
+         </c:if>
+         <c:if test="${type == 'writing'}">
+	         <div class="post-title">
+	            <span>글 올리기</span>
+	         </div>
+         </c:if>
          
-         <div class="question-info2-div">
-            <div class="question-info2-div2">
-               <span>이메일을 인증하시면 답변을 이메일로도 받을실 수 있습니다.</span>
-            </div>
-         </div>
+         <c:if test="${type == 'question'}">
+	         <div class="question-info1-div">
+	            <div class="question-info1-div2">
+	               <span>바보 같은 질문은 없습니다. 부담없이 질문해주세요~</span>
+	            </div>
+	         </div>
+	         
+	         <div class="question-info2-div">
+	            <div class="question-info2-div2">
+	               <span>이메일을 인증하시면 답변을 이메일로도 받을실 수 있습니다.</span>
+	            </div>
+	         </div>
+         </c:if>
          <!--  글쓰는 양식 영역 섹션 9:3으로 나눔 -->
          <div class="container-fluid">
          	<div class="row">
          		<!-- 9에 해당하는 부분 -->
-         		<div class="col-sm-9">
-         			<!-- 글작성시 타이틀 부분 -->
-         			<div class="input-title-div">
-         				<label class="lbl-input-title">질문 제목</label>
-         				<textarea rows="2" class="textarea-question-title" name="board_title"></textarea>
-         			</div>
-         			
-         			<div class="input-content-div">
-         				<label class="lbl-input-content">내용</label>
-         				<!-- 글쓰기도구 구현 -->
-         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
-         				<script>
-                        CKEDITOR.replace( 'editor1' );
-               		    </script>
-         			</div>
-         		</div>
+         		
+         		<c:if test="${type == 'question'}">
+	         		<div class="col-sm-9">
+	         			<!-- 글작성시 타이틀 부분 -->
+	         			<div class="input-title-div">
+	         				<label class="lbl-input-title">질문 제목</label>
+	         				<textarea rows="2" class="textarea-question-title" name="board_title"></textarea>
+	         			</div>
+	         			
+	         			<div class="input-content-div">
+	         				<label class="lbl-input-content">내용</label>
+	         				<!-- 글쓰기도구 구현 -->
+	         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
+	         				<script>
+	                        CKEDITOR.replace( 'editor1' );
+	               		    </script>
+	         			</div>
+	         		</div>
+         		</c:if>
+         		<c:if test="${type == 'link'}">
+         			<div class="col-sm-9">
+	         			<div class="input-title-div">
+	         				<label class="lbl-input-title">URL</label>
+	         				<textarea rows="2" class="textarea-question-title" name="url" placeholder="http://"></textarea>
+	         			</div>
+	         			<!-- 글작성시 타이틀 부분 -->
+	         			<div class="input-title-div">
+	         				<label class="lbl-input-title">제목</label>
+	         				<textarea rows="2" class="textarea-question-title" name="board_title"></textarea>
+	         			</div>
+	         			
+	         			<div class="input-content-div">
+	         				<label class="lbl-input-content">내용</label>
+	         				<!-- 글쓰기도구 구현 -->
+	         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
+	         				<script>
+	                        CKEDITOR.replace( 'editor1' );
+	               		    </script>
+	         			</div>
+	         		</div>
+         		</c:if>
+         		<c:if test="${type == 'writing'}">
+	         		<div class="col-sm-9">
+	         			<!-- 글작성시 타이틀 부분 -->
+	         			<div class="input-title-div">
+	         				<label class="lbl-input-title">제목</label>
+	         				<textarea rows="2" class="textarea-question-title" name="board_title"></textarea>
+	         			</div>
+	         			
+	         			<div class="input-content-div">
+	         				<label class="lbl-input-content">내용</label>
+	         				<!-- 글쓰기도구 구현 -->
+	         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
+	         				<script>
+	                        CKEDITOR.replace( 'editor1' );
+	               		    </script>
+	         			</div>
+	         		</div>
+         		</c:if>
+         		
          		<!-- 3에 해당하는 부분 -->
          		<div class="col-sm-3">
          			<div class="select-category-div">
@@ -272,6 +358,13 @@
 
 	<script>
 		$(document).ready(function() {
+			
+			<!-- 
+			if($('#select-list').find('option[value=' + ${category} + ']').text() == ${category})  {
+				$('#select_list').val('${category}').prop('selected', true);
+			}
+			-->
+			
 			var whetherVisited = false;
 			if (whetherVisited == false) {
 				$('.tag').hide();
@@ -301,6 +394,7 @@
 				}
 
 			});
+			
 		});
 	</script>
 </body>
