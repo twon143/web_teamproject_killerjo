@@ -62,7 +62,7 @@ public class ReplyRestController {
    public ResponseEntity<Integer> deleteReply(@PathVariable(name="rno") int rno) {
       
       logger.info("deleteReply({}) 호출", rno);
-      
+     
       int deleteResult = replyService.delete(rno);
       
       ResponseEntity<Integer> entity = null;

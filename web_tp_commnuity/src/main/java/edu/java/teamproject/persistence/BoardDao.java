@@ -13,7 +13,8 @@ public interface BoardDao {
 	int update(int bno, int increment);
 	int delete(int bno);
 	List<Board> searchByKeyword(int type, String keyword);
-	
+	int updateReplyCnt(int bno, int increment);
+	int updateAnswerCnt(int bno, int increment);
 	// 페이징 처리와 관련된 메서드
 	List<Board> listPaging(int page);
 	List<Board> listCriteria(Criteria criteria, String category, String type, String sort);

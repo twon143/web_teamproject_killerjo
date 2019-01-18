@@ -52,6 +52,12 @@
 	    	<beans:bean id="logoutInterceptor" class="edu.java.teamproject.interceptor.LogoutInterceptor"></beans:bean>
 	    </mvc:interceptor>
 	    
+	    <mvc:interceptor>
+	    	<mvc:mapping path="/board/readPaging"/>
+	    	<beans:bean id="postInterceptor"
+	    		class="edu.java.teamproject.interceptor.PostInterceptor">
+	    	</beans:bean>
+	    </mvc:interceptor>
   	</mvc:interceptors>
 	
 </beans:beans>

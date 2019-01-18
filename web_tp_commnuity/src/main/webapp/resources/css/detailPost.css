@@ -41,6 +41,20 @@
     font-size: small;
 }
 
+.title-sub-span2 {
+	 background-color: #eee8aa;
+   display: inline;
+    padding: .2em .6em .3em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    font-size: small;
+}
+
 .detailPost-postInfo-div {
    font-size: small;
    font-family: 'Noto Sans KR',sans-serif;

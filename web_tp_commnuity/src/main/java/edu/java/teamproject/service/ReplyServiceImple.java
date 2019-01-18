@@ -25,6 +25,11 @@ public class ReplyServiceImple implements ReplyService {
       
       int result = replyDao.create(reply);
       
+      if(result == 1) {
+    	  logger.info("updateReplyCnt: ({}),  호출", reply.getParent_num());
+    	  boardDao.updateReplyCnt(reply.getParent_num(), 1);
+      }
+      
       return result;
    }
 
@@ -43,8 +48,14 @@ public class ReplyServiceImple implements ReplyService {
 
    @Override
    public int delete(int rno) {
-      // TODO Auto-generated method stub
-      return replyDao.delete(rno);
+	  int bno = replyDao.selectBno(rno); 
+	   
+	  int result = replyDao.delete(rno);
+	  
+	  if(result == 1) {
+		 boardDao.updateReplyCnt(bno, -1);
+	  }
+      return result;
    }
 
 }

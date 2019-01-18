@@ -12,7 +12,10 @@ public interface BoardService {
 	int delete(int bno);
 	
 	List<Board> listCriteria(Criteria criteria, String category, String type, String sort);
+
 	List<Board> searchByKeyword(Criteria criteria, String type, String sort, String keyword);
+
+	int updateReplyCnt(int bno, int increment);
 	
 	int countBoards(Criteria criteria, String category, String type);
 	

@@ -91,7 +91,8 @@ public class BoardController {
 		   HttpServletRequest request, HttpServletResponse response) {
 	   
 	   logger.info("쿠키 생성 전");
-
+	   // 해당글의 번호로된 값을 가지고있는 쿠키 유무확인
+	   
 		// 최근 본 글 포스트 쿠키 유무 확인
 //	   WebUtils.getCookie(request, "recentPageCookie").setMaxAge(0);
 //	   response.addCookie(WebUtils.getCookie(request, "recentPageCookie"));
