@@ -33,7 +33,7 @@ public class AnswerServiceDaoImple implements AnswerServiceDao {
       
       // 답변 등록에 성공하면 board의 answer
       if(insertAnswerResult == 1) {
-    	  
+    	  boardDao.updateAnswerCnt(answer.getBoard_num(), 1);
       }
       
       return insertAnswerResult;

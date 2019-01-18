@@ -1,8 +1,9 @@
 package edu.java.teamproject.persistence;
 
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -34,8 +35,9 @@ public class ReplyDaoImple implements ReplyDao {
 
    @Override
    public int selectBno(int rno) {
-      // TODO Auto-generated method stub
-      return 0;
+      Map<String, Integer> map = new HashMap<String, Integer>();
+      map.put("rno", rno);
+      return session.selectOne(REPLY_MAPPER + ".selectBno", map);
    }
 
 

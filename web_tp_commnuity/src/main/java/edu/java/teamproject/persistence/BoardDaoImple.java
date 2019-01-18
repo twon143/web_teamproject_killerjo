@@ -51,7 +51,7 @@ public class BoardDaoImple implements BoardDao {
 
 	@Override
 	public int update(int bno, int increment) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
@@ -99,6 +99,25 @@ public class BoardDaoImple implements BoardDao {
 		map.put("type", type);
 		
 		return session.selectOne(BOARD_MAPPER + ".countBoards", map);
+	}
+	
+	
+	// 댓글 추가 성공시 답변수 증가
+	@Override
+	public int updateReplyCnt(int bno, int increment) {
+		logger.info("updateReplyCnt: ({}) 호출" + increment, bno);
+		Map<String, Integer> params = new HashMap<String, Integer>();
+		params.put("bno", bno);
+		params.put("increment", increment);
+		return session.update(BOARD_MAPPER + ".updateReplyCnt", params);
+	}
+
+	@Override
+	public int updateAnswerCnt(int bno, int increment) {
+		Map<String, Integer> params = new HashMap<String, Integer>();
+		params.put("bno", bno);
+		params.put("increment", increment);
+		return session.update(BOARD_MAPPER + ".updateAnswerCnt", params);
 	}
 
 }

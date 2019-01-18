@@ -20,7 +20,10 @@
    <delete id="deleteReplyByRno">
       delete from ${tbl_reply} where ${reply.rno} = #{rno}
    </delete>
-
+	
+   <select id="selectBno" resultType="int">
+   	  select ${reply.parent_num} from ${tbl_reply} where ${reply.rno} = #{rno};
+   </select>
 
 
 

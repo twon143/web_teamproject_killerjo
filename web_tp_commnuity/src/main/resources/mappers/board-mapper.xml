@@ -84,5 +84,14 @@
 			AND ${board.type} = #{type}
 		</if>
 	</select>
+	
+	<!-- 댓글수 업뎃 -->
+	<update id="updateReplyCnt">
+		update ${tbl_board} set ${board.reply_count} = ${board.reply_count} + #{increment} where ${board.bno} = #{bno}
+	</update>
+	<!--  답변수 업뎃 -->
+	<update id="updateAnswerCnt">
+		update ${tbl_board} set ${board.answer_count} = ${board.answer_count} + #{increment} where ${board.bno} = #{bno}
+	</update>
 
 </mapper>

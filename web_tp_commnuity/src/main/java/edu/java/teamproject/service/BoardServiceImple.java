@@ -45,6 +45,12 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.delete(bno);
 	}
 
+	@Override
+	public int updateReplyCnt(int bno, int increment) {
+		logger.info("updateReplyCnt 호출({})", bno);
+		return boardDao.update(bno, increment);
+	}
+
 
 
 

@@ -205,9 +205,11 @@
 						<!-- 제목 부분 div -->
 						<div class="detailPost-title-sub-div">
 							<a href="#" class="title-sub-a">${board.title} <span
-								class="title-sub-span">답변 ${board.reply_count}</span>
-
-							</a> <a href="#" class="category-a">(Java/Question)</a>
+								class="title-sub-span">답변 ${board.answer_count}</span>
+							</a>	
+							<a href="#" class="title-sub-a"><span class="title-sub-span2">댓글 ${board.reply_count}</span>
+							</a>
+							<a href="#" class="category-a">(Java/Question)</a>
 						</div>
 
 						<!-- 게시글 정보 div -->
@@ -342,28 +344,24 @@
 
 
 
-	<input type="hidden" id="login" value="${login.id}" />
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
-	<script id="reply-template" type="text/x-handlebars-template">
-      <div class="reply-item">   
-         <input id="rno" value="{{rno}}" type="hidden" readonly/>
-         <div class="reply-info">
-               <a id="writer"><img alt="" src="/teamproject/resources/images/icon_blankProfile.png">
-               {{writer}}</a>
-               <span>{{write_date}}</span>
-         </div>
+<input type="hidden" id="login" value="${login.id}" />
 
-         <div id="content" class="reply-body">{{content}}
-         </div>
-         
-         <a class="delete-a">삭제</a>
-         <a class="update-a">수정</a>
-         
-      </div>
-   </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+<script id="reply-template" type="text/x-handlebars-template">
+<div class="reply-item">   
+     		<input id="rno" value="{{rno}}" type="hidden" readonly/>
+     		<div class="reply-info">
+           		<a id="writer"><img alt="" src="/teamproject/resources/images/icon_blankProfile.png">
+           		{{writer}}</a>
+          		 <span>{{write_date}}</span>
+    		</div>
+    		<div id="content" class="reply-body">{{content}}</div>
+     		<a class="delete-a">삭제</a>
+    		<a class="update-a">수정</a>       
+</div>
+</script>
 
-	<script type="text/javascript">
+<script type="text/javascript">
    
    	
       $(function() {
@@ -420,15 +418,21 @@
                   var replyItem = template(content_item);
                   // 생성된 HTML 코드를 append
                   division.append(replyItem);
-                  if(status == false) {
-                     $('.delete-a').hide();
-                     $('.update-a').hide();
-                  }
-               
+                 
+                  if(writers != loginUser) {
+                	  console.log("일치않ㅇ므")
+                      $('.delete-a').hide();
+                      $('.update-a').hide();
+                   }
                   
+                  if(writers == loginUser) {
+                	  console.log("일치함")
+                	  $('.delete-a').show();
+                      $('.update-a').show();
+                  }
+                  
+
                });
-               
-               /* division.html(list); */
                var highHeight = $('.col-9').height();
                $('.detailPost-info').height(highHeight);
                
@@ -472,8 +476,9 @@
          // 댓글 삭제하는 부분
          division.on('click', '.reply-item .delete-a', function() {
             var rno =  $(this).prevAll('#rno').val();
-            
-            var result = confirm('rno번 댓글을 정말 삭제하시겠습니까?');
+            var bno = $('#bno').val(); 
+            console.log(bno);
+            var result = confirm(rno + '번 댓글을 정말 삭제하시겠습니까?');
             if (result == true) {
                $.ajax({
                   type: 'delete', 
@@ -498,7 +503,7 @@
          
          
       });
-   </script>
+</script>
 
 <!-- 답변 불러오기 -->
 <script
@@ -551,7 +556,7 @@
 				var board_num = $('#bno').val();
 				var divisionAnswer = $('.scope-load-answer');
 				var source = $('#answer-template').html();
-				var template = Handlebars.compile(source);
+				var templateAnswer = Handlebars.compile(source);
 
 				function getAllAnswers() {
 							$.getJSON('/teamproject/answer/all/' + board_num, function(data) {
@@ -575,7 +580,7 @@
 																			writer : this.writer,
 																			write_date : dateString
 																		};
-																		var replyItemAnswer = template(contentAnswer);
+																		var replyItemAnswer = templateAnswer(contentAnswer);
 																		divisionAnswer
 																				.append(replyItemAnswer);
 
