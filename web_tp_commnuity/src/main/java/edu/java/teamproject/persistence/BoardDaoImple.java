@@ -137,4 +137,12 @@ public class BoardDaoImple implements BoardDao {
 		return session.selectList(BOARD_MAPPER + ".selectByKeyword", map);
 	}
 
+	@Override
+	public int updateReadCnt(int bno, int increment) {
+		Map<String, Integer> params = new HashMap<String, Integer>();
+		params.put("bno", bno);
+		params.put("increment", increment);
+		return session.update(BOARD_MAPPER + ".updateReadCnt", params);
+	}
+
 }

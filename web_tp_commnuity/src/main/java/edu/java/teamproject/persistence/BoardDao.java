@@ -12,6 +12,7 @@ public interface BoardDao {
 	int update(Board board);
 	int update(int bno, int increment);
 	int delete(int bno);
+	int updateReadCnt(int bno, int increment);
 	List<Board> searchByKeyword(int type, String keyword);
 	int updateReplyCnt(int bno, int increment);
 	int updateAnswerCnt(int bno, int increment);

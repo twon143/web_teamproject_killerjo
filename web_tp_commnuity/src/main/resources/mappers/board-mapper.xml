@@ -114,5 +114,11 @@
 	<update id="updateAnswerCnt">
 		update ${tbl_board} set ${board.answer_count} = ${board.answer_count} + #{increment} where ${board.bno} = #{bno}
 	</update>
+	<!-- 조회수 업뎃 -->
+	<update id="updateReadCnt">
+		update ${tbl_board} set ${board.view_count} = ${board.view_count} + #{increment}
+		where ${board.bno} = #{bno} 
+	</update>
+	
 
 </mapper>

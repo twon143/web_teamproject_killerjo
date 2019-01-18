@@ -56,6 +56,12 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.update(bno, increment);
 	}
 
+	@Override
+	public int updateReadCnt(int bno, int increment) {
+		
+		return boardDao.updateReadCnt(bno, increment);
+	}
+
 
 
 

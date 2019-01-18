@@ -12,9 +12,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import edu.java.teamproject.model.Board;
+import edu.java.teamproject.model.BoardHistory;
 import edu.java.teamproject.model.Reply;
 import edu.java.teamproject.persistence.BoardDao;
 import edu.java.teamproject.persistence.ReplyDao;
+import edu.java.teamproject.service.BoardHistoryService;
 import edu.java.teamproject.service.ReplyService;
 import edu.java.teamproject.util.Criteria;
 
@@ -29,6 +31,7 @@ public class DaoTest {
 	@Autowired private BoardDao boardDao;
 	@Autowired private ReplyDao replyDao;
 	@Autowired private ReplyService replyService;
+	@Autowired private BoardHistoryService boardHistoryService;
 	@Test
 	public void doTest() {
 //		selectAllTest();
@@ -40,9 +43,12 @@ public class DaoTest {
 	}
 	
 	private void testInsert() {
-		Reply reply = new Reply(0, 994, null, 0, "ku8230", 0 , "테스트", "board");
-		int result = replyService.insert(reply);
-		logger.info("insert() 결과: " + result);
+		
+		int result = boardDao.updateReadCnt(994, 1);
+		
+		
+		
+		logger.info("result: " + result);
 	}
 	private void testReplyList() {
 		// TODO Auto-generated method stub
