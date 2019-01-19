@@ -15,4 +15,9 @@
 		select ${boardhistory.access_time} from ${tbl_boardhistory} 
 		where (${boardhistory.ip} = #{ip} and ${boardhistory.bno} = #{bno})
 	</select>
+	
+	<update id="updateAccessTime">
+		update ${tbl_boardhistory} set ${boardhistory.access_time} = #{currentTime}
+		where (${boardhistory.ip} = #{ip} and ${boardhistory.bno} = #{bno})
+	</update>
 </mapper>

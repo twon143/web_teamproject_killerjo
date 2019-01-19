@@ -136,6 +136,8 @@ public class BoardController {
        else if(waitingTime >= day) {
     	   // 하루(1000*60*60*24)가 지났으므로 조회수를 증가시킴
     	   boardService.updateReadCnt(bno, 1);
+    	   // access_time을 업데이트함
+    	   boardHistoryService.updateAccessTime(currentTime, ip, bno);
        }
        
        else if(waitingTime < day) {
@@ -252,5 +254,17 @@ public class BoardController {
 	   redirectAttributes.addAttribute("perPageNum", criteria.getPerPageNum());
 	   
 	   return "redirect:/board/listPaging";
+   }
+   
+   @RequestMapping(value = "registerPaging", method = RequestMethod.POST)
+   public String registerPost(Board board) {
+	   logger.info("registerPost() 호출");
+	   logger.info("board({})", board.toString());
+	   int result = boardService.registerPost(board);
+	   
+	   if(result == 1) {
+		   logger.info("insert성공({})", result);
+	   }
+	   return "redirect:/";
    }
 }

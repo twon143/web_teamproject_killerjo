@@ -66,6 +66,12 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.updateReadCnt(bno, increment);
 	}
 
+	@Override
+	public int registerPost(Board board) {
+		logger.info("registerPost({}) 호출", board);
+		return boardDao.registerPost(board);
+	}
+
 
 
 

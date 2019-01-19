@@ -10,7 +10,7 @@ public interface BoardService {
 	Board readByBno(int bno);
 	int update(Board board);
 	int delete(int bno);
-	
+	int registerPost(Board board);
 	List<Board> listCriteria(Criteria criteria, String category, String type, String sort);
 
 	List<Board> searchByKeyword(Criteria criteria, String type, String sort, String keyword);

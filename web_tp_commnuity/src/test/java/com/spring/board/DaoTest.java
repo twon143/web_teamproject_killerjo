@@ -44,9 +44,7 @@ public class DaoTest {
 	
 	private void testInsert() {
 		
-		int result = boardDao.updateReadCnt(994, 1);
-		
-		
+		int result = boardHistoryService.updateAccessTime(150, "192.168.35.245", 994);
 		
 		logger.info("result: " + result);
 	}
