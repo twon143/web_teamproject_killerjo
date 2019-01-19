@@ -359,6 +359,8 @@
 	<script>
 		$(document).ready(function() {
 			
+			CKEDITOR.replace('editor1');
+			
 			
 			var whetherVisited = false;
 			if (whetherVisited == false) {
