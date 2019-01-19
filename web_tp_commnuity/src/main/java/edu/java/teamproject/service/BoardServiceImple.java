@@ -72,6 +72,12 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.registerPost(board);
 	}
 
+	@Override
+	public int getBno(String title, String content, String writer, String category, String type) {
+		// TODO Auto-generated method stub
+		return boardDao.getBno(title, content, writer, category, type);
+	}
+
 
 
 
