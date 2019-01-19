@@ -236,8 +236,8 @@
 	         				<!-- 글쓰기도구 구현 -->
 	         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
 	         				<script>
-	                        CKEDITOR.replace( 'editor1' );
-	               		    </script>
+	         				<!-- CKEDITOR.replace( 'editor1' ); -->
+	         				</script>
 	         			</div>
 	         		</div>
          		</c:if>
@@ -258,7 +258,7 @@
 	         				<!-- 글쓰기도구 구현 -->
 	         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
 	         				<script>
-	                        CKEDITOR.replace( 'editor1' );
+	         				<!-- CKEDITOR.replace( 'editor1' ); -->
 	               		    </script>
 	         			</div>
 	         		</div>
@@ -276,7 +276,7 @@
 	         				<!-- 글쓰기도구 구현 -->
 	         				<textarea id="editor1" name="board_content" rows="10" cols="80"></textarea>
 	         				<script>
-	                        CKEDITOR.replace( 'editor1' );
+	         				<!-- CKEDITOR.replace( 'editor1' ); -->
 	               		    </script>
 	         			</div>
 	         		</div>
@@ -359,11 +359,6 @@
 	<script>
 		$(document).ready(function() {
 			
-			<!-- 
-			if($('#select-list').find('option[value=' + ${category} + ']').text() == ${category})  {
-				$('#select_list').val('${category}').prop('selected', true);
-			}
-			-->
 			
 			var whetherVisited = false;
 			if (whetherVisited == false) {
