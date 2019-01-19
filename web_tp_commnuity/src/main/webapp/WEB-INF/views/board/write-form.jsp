@@ -368,7 +368,18 @@
 	<script>
 		$(document).ready(function() {
 			
-			CKEDITOR.replace('editor1');
+			// ckeditor setting
+			var ckeditor_config = {
+					resize_enabled : false, // 에디터 크기를 조절하지 않음 
+					enterMode : CKEDITOR.ENTER_BR , // 엔터키를 <br> 로 적용함. 
+					shiftEnterMode : CKEDITOR.ENTER_P , // 쉬프트 + 엔터를 <p> 로 적용함. 
+					toolbarCanCollapse : true , 
+					removePlugins : "elementspath", // DOM 출력하지 않음 
+					filebrowserUploadUrl: '/bbs/file_upload', // 파일 업로드를 처리 할 경로 설정.
+
+			};
+
+			CKEDITOR.replace('editor1', ckeditor_config);
 		
 			
 			var whetherVisited = false;
