@@ -132,6 +132,10 @@
 		update ${tbl_board} set ${board.view_count} = ${board.view_count} + #{increment}
 		where ${board.bno} = #{bno} 
 	</update>
-	
+	<!-- 게시글 등록 -->
+	<insert id="registerPost">
+		insert into ${tbl_board} (${board.title}, ${board.content}, ${board.writer}, ${board.category}, ${board.type}, ${board.tag}) 
+		values (#{title}, #{content}, #{writer}, #{category}, #{type}, #{tag})
+	</insert>
 
 </mapper>

@@ -49,4 +49,14 @@ public class BoardHistoryDaoImple implements BoardHistoryDao {
 
 	}
 
+	@Override
+	public int updateAccessTime(long currentTime, String ip, int bno) {
+		logger.info("updateAccessTime ({})", currentTime);
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("currentTime", currentTime);
+		params.put("ip", ip);
+		params.put("bno", bno);
+		return session.update(BOARDHISTORY_MAPPER + ".updateAccessTime", params);
+	}
+
 }

@@ -347,7 +347,7 @@
          			<input type="submit" class="btnRegister" name="register" value="올리기">
          			
          			<a href="${param.queryString}">
-	         			<button class="btnRegister">이전으로</button>
+	         			<button class="btnPrev">이전으로</button>
          			</a>
          		</div>
          	</div>
@@ -355,15 +355,20 @@
          </div>
       </div>
    </div>
-
+	<input type="hidden" id="login" value="${login.id}" />
+	<form class="register-form" action="./registerPaging" method="post">
+		<input type="hidden"  name="title" id="submit_title" />
+		<input type="hidden"  name="content" id="submit_content" />
+		<input type="hidden" name="writer" id="submit_writer" />
+		<input type="hidden"  name="category" id="submit_category"/>
+		<input type="hidden" name="type" id=submit_type value="${type}"/>
+		<input type="hidden"  name="tag" id="submit_tag"/>
+		
+	</form>
 	<script>
 		$(document).ready(function() {
 			
-			<!-- 
-			if($('#select-list').find('option[value=' + ${category} + ']').text() == ${category})  {
-				$('#select_list').val('${category}').prop('selected', true);
-			}
-			-->
+		
 			
 			var whetherVisited = false;
 			if (whetherVisited == false) {
@@ -386,13 +391,66 @@
 					$('#select-result').attr("value", selectValue);
 					console.log(selectValue);
 					$('.tag').attr("value", selectValue);
-					if (selectValue == "java" || selectValue =="php" || selectValue =="javascript" ) {
+					if (selectValue == "java" || selectValue =="php" || selectValue =="javascript" 
+						|| selectValue == "spring" || selectValue == "nodeJs" || selectValue == "kotlin"
+						|| selectValue == "css" || selectValue == "python" || selectValue == "jsp"
+						|| selectValue == "jQuery" || selectValue == "C#" || selectValue == "reactnativ") {
 						$('.tag1').attr("value", "언어");
 					}
 					
-
+					else if (selectValue == "linux" || selectValue == "sever" || selectValue == "cdn" || selectValue == "aws"
+							|| selectValue == "api") {
+						$('.tag1').attr("value", "네트워크/서버");
+					}
+					
+					else if (selectValue == "sql" || selectValue == "mysql") {
+						$('.tag1').attr("value", "데이터베이스");
+					}
+					else if (selectValue == "git") {
+						$('.tag1').attr("value", "프로젝트 관리");
+					}
+					else if (selectValue == "machine" || selectValue == "blockchain") {
+						$('.tag1').attr("value", "빅데이터");
+					}
+						
+	
 				}
 
+			});
+			
+			$('.btnRegister').on('click', function() {
+				var status = true;
+				var title = $('.textarea-question-title').val();
+				var content =  CKEDITOR.instances.editor1.getData();
+				var writer = $('#login').val();
+				var type = "${type}";
+				var category = $('.tag').val();
+				var tag = $('.add-tag-input').val();
+				
+				if(title == '') {
+					alert('제목을 입력하세요')
+					status = false;
+				}
+				else if(content == '') {
+					alert('내용을 입력하세요')
+					status = false;
+				}
+				else if(category == '') {
+					alert('카테고리를 입력해주세요')
+					status = false;
+				}
+				
+				if(status == true) {
+					$('#submit_title').val(title);
+					$('#submit_content').val(content);
+					$('#submit_writer').val(writer);
+					$('#submit_category').val(category);
+					$('#submit_type').val();
+					$('#submit_tag').val(tag);
+					$('.register-form').submit();
+				}
+				
+				
 			});
 			
 		});

@@ -163,4 +163,10 @@ public class BoardDaoImple implements BoardDao {
 		return session.update(BOARD_MAPPER + ".updateReadCnt", params);
 	}
 
+	@Override
+	public int registerPost(Board board) {
+		logger.info("registerPost({}) 호출", board);
+		return session.insert(BOARD_MAPPER + ".registerPost", board);
+	}
+
 }
