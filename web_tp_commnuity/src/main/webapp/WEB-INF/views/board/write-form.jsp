@@ -363,11 +363,11 @@
 		<input type="hidden"  name="category" id="submit_category"/>
 		<input type="hidden" name="type" id=submit_type value="${type}"/>
 		<input type="hidden"  name="tag" id="submit_tag"/>
-		
+		<input type="hidden" name="qureyString" id="queryString" value="${queryString}"/>
 	</form>
 	<script>
+		
 		$(document).ready(function() {
-			
 			CKEDITOR.replace('editor1');
 		
 			

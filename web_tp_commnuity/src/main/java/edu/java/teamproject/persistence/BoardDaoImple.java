@@ -169,4 +169,16 @@ public class BoardDaoImple implements BoardDao {
 		return session.insert(BOARD_MAPPER + ".registerPost", board);
 	}
 
+	@Override
+	public int getBno(String title, String content, String writer, String category, String type) {
+		// TODO Auto-generated method stub
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("title", title);
+		params.put("content", content);
+		params.put("writer", writer);
+		params.put("category", category);
+		params.put("type", type);		
+		return session.selectOne(BOARD_MAPPER + ".getBno", params);
+	}
+
 }

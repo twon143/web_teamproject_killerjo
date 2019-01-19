@@ -26,4 +26,6 @@ public interface BoardDao {
 	List<Board> readByKeyword(Criteria criteria, String type, String sort, String keyword);
 	int registerPost(Board board);
 	
+	int getBno(String title, String content, String writer, String category, String type);
+	
 }

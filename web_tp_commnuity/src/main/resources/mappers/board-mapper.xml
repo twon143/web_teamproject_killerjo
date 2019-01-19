@@ -137,5 +137,10 @@
 		insert into ${tbl_board} (${board.title}, ${board.content}, ${board.writer}, ${board.category}, ${board.type}, ${board.tag}) 
 		values (#{title}, #{content}, #{writer}, #{category}, #{type}, #{tag})
 	</insert>
+	
+	<select id="getBno" resultType="int">
+		select ${board.bno} from ${tbl_board} where (${board.title} = #{title} and ${board.content} = #{content} and ${board.writer} = #{writer} and ${board.category} = #{category} and ${board.type} = #{type})
+		
+	</select>
 
 </mapper>

@@ -21,4 +21,7 @@ public interface BoardService {
 	int countBoards(Criteria criteria, String category, String type);
 	int countBoardsByKeyword(Criteria criteria, String type, String keyword);
 	
+	// 글상세보기로 이동하기위해 글쓴 정보가지고 bno를 얻어옴
+	int getBno(String title, String content, String writer, String category, String type);
+	
 }

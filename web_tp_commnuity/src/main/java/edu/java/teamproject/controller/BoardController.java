@@ -261,10 +261,24 @@ public class BoardController {
 	   logger.info("registerPost() 호출");
 	   logger.info("board({})", board.toString());
 	   int result = boardService.registerPost(board);
+	   // 상세보기페이지로 이동
 	   
 	   if(result == 1) {
-		   logger.info("insert성공({})", result);
+	   String title = board.getTitle();
+	   String content = board.getContent();
+	   String writer = board.getWriter();
+	   String category = board.getCategory();
+	   String type = board.getType();
+	   int bno = boardService.getBno(title, content, writer, category, type);
+	   String url = "redirect:/board/readPaging";
+	   String queryString = "?page=1&perPageNum=20&bno="+bno+"&category="+category+"&type="+type+"&sort=popular";
+	   String targetUrl = url +  queryString;
+	   return targetUrl;
 	   }
-	   return "redirect:/";
+	   else {
+		   return null;
+	   }
+	   
+	   
    }
 }
