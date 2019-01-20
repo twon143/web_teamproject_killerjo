@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans:beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -7,57 +8,81 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
+	
+	<beans:bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/resources/**"
+		location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+		<beans:property name="maxUploadSize"   value="10485760" />
+	</beans:bean>
+
+	<!-- 서버의 파일 저장 경로 설정 -->
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg
+			value="C:\Study\lab-spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\web_tp_community\resources\upload" />
+	</beans:bean>
 	
-	<context:component-scan base-package="edu.java.teamproject" />
-	<context:component-scan base-package="edu.java.teamproject.controller" />
 	
+
+	<context:component-scan
+		base-package="edu.java.teamproject" />
+	<context:component-scan
+		base-package="edu.java.teamproject.controller" />
+
 	<!-- Interceptor 설정 -->
-  	<mvc:interceptors>
-	    <!-- 공통 Interceptor -->
-	    <mvc:interceptor>
-	      <mvc:mapping path="/user/login-post" />
-	      <beans:bean id="loginInterceptor"
-	        class="edu.java.teamproject.interceptor.LoginInterceptor"></beans:bean>
-	    </mvc:interceptor>
-	    
-	    <!-- AuthInterceptor URL="/board/write-form" 설정 -->
-	    <mvc:interceptor>
-	    	<!-- <mvc:mapping path="/"/> -->
-	    	<mvc:mapping path="/board/write-form"/>  
-	      	<beans:bean id="authInterceptor"
-	      		class="edu.java.teamproject.interceptor.AuthInterceptor">
+	<mvc:interceptors>
+		<!-- 공통 Interceptor -->
+		<mvc:interceptor>
+			<mvc:mapping path="/user/login-post" />
+			<beans:bean id="loginInterceptor"
+				class="edu.java.teamproject.interceptor.LoginInterceptor"></beans:bean>
+		</mvc:interceptor>
+
+		<!-- AuthInterceptor URL="/board/write-form" 설정 -->
+		<mvc:interceptor>
+			<!-- <mvc:mapping path="/"/> -->
+			<mvc:mapping path="/board/write-form" />
+			<beans:bean id="authInterceptor"
+				class="edu.java.teamproject.interceptor.AuthInterceptor">
 			</beans:bean>
-	    </mvc:interceptor>
-	    
-	    <mvc:interceptor>
-	    	<mvc:mapping path="/**/"/>
-	    	<beans:bean id="rememberMeInterceptor" class="edu.java.teamproject.interceptor.RememberMeInterceptor"></beans:bean>
-	    </mvc:interceptor>
-	    
-	    <mvc:interceptor>
-	    	<mvc:mapping path="/user/logout"/>
-	    	<beans:bean id="logoutInterceptor" class="edu.java.teamproject.interceptor.LogoutInterceptor"></beans:bean>
-	    </mvc:interceptor>
-	    
-	    <mvc:interceptor>
-	    	<mvc:mapping path="/board/readPaging"/>
-	    	<beans:bean id="postInterceptor"
-	    		class="edu.java.teamproject.interceptor.PostInterceptor">
-	    	</beans:bean>
-	    </mvc:interceptor>
-  	</mvc:interceptors>
-	
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/**/" />
+			<beans:bean id="rememberMeInterceptor"
+				class="edu.java.teamproject.interceptor.RememberMeInterceptor"></beans:bean>
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/user/logout" />
+			<beans:bean id="logoutInterceptor"
+				class="edu.java.teamproject.interceptor.LogoutInterceptor"></beans:bean>
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/board/readPaging" />
+			<beans:bean id="postInterceptor"
+				class="edu.java.teamproject.interceptor.PostInterceptor">
+			</beans:bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans:beans>
