@@ -292,6 +292,7 @@ form.search-btn-nav {
 	margin-left: 203px;
 } 
 
+
 /* container */
 #container {
 	width: 70%;
@@ -614,15 +615,24 @@ div.head-text {
 	color: black;
 }
 
-.post-content {
-	color: #828282;
-	font-size: 12px;
+div.short-post-content{
+	display: -webkit-box;
+    overflow: hidden;
+    max-height: 66px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    padding: 0 20px 0 10px;
 }
 
-.post-content:hover {
+/* .post-content {
+	color: #828282;
+	font-size: 12px;
+} */
+
+/* .post-content:hover {
 	text-decoration: none;
 	color: #828282;
-}
+} */
 
 .btnReplyCount {
 	-moz-box-shadow: inset 0px 1px 0px 0px #bbdaf7;
@@ -778,6 +788,10 @@ div.head-text {
 .btnPostTag2:active {
 	position: relative;
 	top: 1px;
+}
+
+div.dynamic_dark_font{
+	color: #DBDBDB;
 }
 
 .post-info-span {

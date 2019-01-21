@@ -231,13 +231,12 @@
 					<!-- 상세카테고리들 끝 -->
 					<form class="navbar-form navbar-left search-btn-nav" action="board/searchPaging" method="get">
 
-						<input type="hidden" name="type" value="all">
-						<input type="hidden" name="sort" value="popular">
+						<input type="hidden" name="type" value="all"> <input type="hidden" name="sort" value="popular">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search" name="keyword"/>
+							<input type="text" class="form-control" placeholder="Search" name="keyword" />
 						</div>
-							<input type="submit" class="btn btn-default" value="검색"/>
-						
+						<input type="submit" class="btn btn-default" value="검색" />
+
 					</form>
 				</div>
 			</nav>
@@ -287,8 +286,7 @@
 											<button type="button" class="btn-default btn-wid btn-lg slogan-btn">
 												<i class="fa"> 전체보기</i>
 											</button>
-										</a>
-										<a href="/teamproject/board/write-form?queryString=/teamproject/&category=${category}&type=question&sort=${sort}">
+										</a> <a href="/teamproject/board/write-form?queryString=/teamproject/&category=${category}&type=question&sort=${sort}">
 											<button type="button" class="btn-lg slogan-btn btn-warning">
 												<i class="fa "> <img src="/teamproject/resources/images/question-icon.png" /> 질문하기
 												</i>
@@ -332,22 +330,21 @@
 									</div>
 
 
-									<div class="post-contents"> 
+									<div class="post-contents">
 										<!-- Dummy Data 1 -->
-										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"><strong>${board.title}</strong></a>
+										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <strong>${board.title}</strong>
+										</a>
 										<button class="btnReplyCount">답변 대기</button>
 										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 											<button class="btnPostTag">${board.category}</button>
 										</a>
 										<!-- <button class="btnPostTag2">언어</button> -->
 
-										<br /> 
-										<br /> 
-										<a class="post-content" href="#">${board.content}</a> <br /> <span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 
-										<c:if test="${board.type == 'question'}">질문</c:if>
-										<c:if test="${board.type == 'writing'}">글</c:if>
-										<c:if test="${board.type == 'link'}">링크</c:if>
-										</span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a> 
+										<div class="short-post-content dynamic_dark_font">${board.content}</div>
+										<%-- <a class="post-content" href="#">${board.content}</a> --%>
+
+										<span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
+										</span> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
 									</div>
 									<!--  end of div$post-contents -->
 								</div>
@@ -371,23 +368,17 @@
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
 												<c:if test="${board.type == 'question'}">
-													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
-													   <img class="post-image2" alt=""
-														  src="/teamproject/resources/images/blank_image2.png">
+													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <img class="post-image2" alt="" src="/teamproject/resources/images/blank_image2.png">
 													</a>
 
-													</c:if>
-													<c:if test="${board.type == 'writing'}">
-													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
-													<img class="post-image2" alt=""
-														src="/teamproject/resources/images/writing_image2.png">
+												</c:if>
+												<c:if test="${board.type == 'writing'}">
+													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <img class="post-image2" alt="" src="/teamproject/resources/images/writing_image2.png">
 													</a>
 
-													</c:if>
-													<c:if test="${board.type == 'link'}">
-													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">
-													<img class="post-image2" alt=""
-														src="/teamproject/resources/images/link_image2.png">
+												</c:if>
+												<c:if test="${board.type == 'link'}">
+													<a href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <img class="post-image2" alt="" src="/teamproject/resources/images/link_image2.png">
 													</a>
 												</c:if>
 											</div>
@@ -399,8 +390,7 @@
 												</a>
 												<!-- <button class="btnHPostTag2">언어</button> -->
 
-												<br /> <a class="post-title2" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> 
-												<a href="#" class="post-userId2">${board.writer}</a>
+												<br /> <a class="post-title2" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
 
@@ -465,28 +455,19 @@
 						<div class="position-btn-ques">
 							<form action="board/write-form" method="get">
 
-								<input type="submit" value="질문하기" class="btn-side-question" /> 
-								<input type="hidden" name="category" value="${category}">
-								<input type="hidden" name="type" value="question"/>
-								<input type="hidden" name="queryString" value="/teamproject/">
+								<input type="submit" value="질문하기" class="btn-side-question" /> <input type="hidden" name="category" value="${category}"> <input type="hidden" name="type" value="question" /> <input type="hidden" name="queryString" value="/teamproject/">
 								<!-- <input type="hidden" name="sort" value="${sort}"> -->
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="board/write-form" method="get">
 
-								<input type="submit" value="글 올리기" class="btn-side-question" /> 
-								<input type="hidden" name="category" value="${category}">
-								<input type="hidden" name="type" value="writing"/>
-								<input type="hidden" name="queryString" value="/teamproject/">
+								<input type="submit" value="글 올리기" class="btn-side-question" /> <input type="hidden" name="category" value="${category}"> <input type="hidden" name="type" value="writing" /> <input type="hidden" name="queryString" value="/teamproject/">
 								<!-- <input type="hidden" name="sort" value="${sort}"> -->
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="board/write-form" method="get">
 
-								<input type="submit" value="링크 올리기" class="btn-side-question" /> 
-								<input type="hidden" name="category" value="${category}">
-								<input type="hidden" name="type" value="link"/>
-								<input type="hidden" name="queryString" value="/teamproject/">
+								<input type="submit" value="링크 올리기" class="btn-side-question" /> <input type="hidden" name="category" value="${category}"> <input type="hidden" name="type" value="link" /> <input type="hidden" name="queryString" value="/teamproject/">
 								<!-- <input type="hidden" name="sort" value="${sort}"> -->
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
@@ -548,8 +529,8 @@
 
 
 
-	<script src="<c:url value='/resources/js/main.js'/>"></script>  
-	
+	<script src="<c:url value='/resources/js/main.js'/>"></script>
+
 	<!--아이디, 비밀번호 중복 확인  -->
 	<script>
 		var checkedId = 0;
