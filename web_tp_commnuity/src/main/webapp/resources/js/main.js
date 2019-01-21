@@ -73,7 +73,7 @@ $(document).ready(
 							background : '#fafafa'
 						});
 						$('.grip').css({
-							left : 159 + 'px'
+							left : 159 + 'px' 
 						});
 					}
 				})
