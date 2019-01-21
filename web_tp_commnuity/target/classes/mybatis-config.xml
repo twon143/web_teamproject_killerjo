@@ -57,7 +57,7 @@
 		<property name="reply.type" value="type" />
 
 		<!-- Scrab 테이블 칼럼 -->
-		<property name="tbl_scrab" value="test.scrab" />
+		<property name="tbl_scrab" value="test.Scrab" />
 		<property name="scrab.sno" value="sno" />
 		<property name="scrab.board_num" value="board_num" />
 		<property name="scrab.user_id" value="user_id" />
