@@ -178,7 +178,7 @@
    margin-top: 25px;
    margin-right: 25px;
 }
-.write-reply-content-div  {
+.write-reply-content-div, .write-answer-reply-content-div  {
     text-align: left;
     border-radius: 4px;
     color: #555;
@@ -189,7 +189,7 @@
     
       
 }
-.write-reply-content-div textarea {
+.write-reply-content-div textarea, .write-answer-reply-content-div textarea {
    padding: 6px 12px;
     font-size: 14px;
    padding-left: 15px;
