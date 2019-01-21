@@ -236,7 +236,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search" name="keyword"/>
 						</div>
-							<input type="submit" class="btn btn-default" value="Submit"/>
+							<input type="submit" class="btn btn-default" value="검색"/>
 						
 					</form>
 				</div>
@@ -284,7 +284,7 @@
 									</div>
 									<div class="slogan-buttons">
 										<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=${sort}">
-											<button type="button" class="btn-default btn-lg slogan-btn">
+											<button type="button" class="btn-default btn-wid btn-lg slogan-btn">
 												<i class="fa"> 전체보기</i>
 											</button>
 										</a>
