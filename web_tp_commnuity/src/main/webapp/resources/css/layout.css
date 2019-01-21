@@ -620,8 +620,12 @@ div.short-post-content{
     overflow: hidden;
     max-height: 66px;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     padding: 0 20px 0 10px;
+    
+}
+div.dynamic_dark_font{
+    color: #B7B7B7;
 }
 
 /* .post-content {
@@ -790,9 +794,7 @@ div.short-post-content{
 	top: 1px;
 }
 
-div.dynamic_dark_font{
-	color: #DBDBDB;
-}
+
 
 .post-info-span {
 	margin-left: 10px;
