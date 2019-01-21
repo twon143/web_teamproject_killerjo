@@ -8,5 +8,7 @@ public interface AnswerDao {
 
    List<Answer> readAllAnswer(int board_num);
    
-   int insertAnswer(Answer answer); 
+   int insertAnswer(Answer answer);
+   
+  
 }
