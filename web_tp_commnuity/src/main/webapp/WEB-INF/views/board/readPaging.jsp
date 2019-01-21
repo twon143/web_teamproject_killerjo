@@ -225,6 +225,7 @@
 							<!-- 공유하기 / 보관하기 div -->
 							<a href="#" class="share-post-a">공유하기</a> <a href="#"
 								class="save-post-a">보관하기</a>
+								
 						</div>
 					</div>
 
@@ -323,6 +324,7 @@
 									src="/teamproject/resources/images/icon_answerCount.png">
 								<span class="answer-count-span">답글수</span> <span
 									class="answer-count-span-number">${board.answer_count}</span>
+									
 							</div>
 
 						</div>
@@ -504,28 +506,14 @@
          
       });
 </script>
-<!--  답변 댓글들 불러오기 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
-<script id="answer-reply-template"  type="text/x-handlebars-template">
-	<div class="answer-reply-item">   
-     		<input id="a-rno" value="{{aRno}}" type="hidden" readonly/>
-     		<div class="a-reply-info">
-           		<a id="a-writer"><img alt="" src="/teamproject/resources/images/icon_blankProfile.png">
-           		{{aWriter}}</a>
-          		 <span>{{aWrite_date}}</span>
-    		</div>
-    		<div id="a-content" class="a-reply-body">{{aContent}}</div>
-     		<a class="a-delete-a">삭제</a>
-    		<a class="a-update-a">수정</a>       
-	</div>
-</script>
+
 
 <!-- 답변 불러오기 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 <script id="answer-template" type="text/x-handlebars-template">
 	<div class="answer-div">
 						<input id="ano" value="{{ano}}" type="hidden" readonly/>
-						<div>{{content}}</div>
+						<div id="answer-content-id-scope" class="answer-content-div-scope">{{content}}</div>
 						<div class="answer-interface-div">
 							<span class="span-like">좋아요</span>
 							<button class="btn-copy-answer">답변 주소 복사</button>
@@ -546,7 +534,7 @@
 						</div>
 
 						<!-- 답변의 댓글 목록 불러오는 영역 -->
-						<div class="answer-reply-scope">
+						<div class="answer-reply-scope{{ano}}">
 							
 						</div>
 
@@ -571,6 +559,22 @@
 			</div>
 </script>
 
+<!--  답변 댓글들 불러오기 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+<script id="answer-reply-template"  type="text/x-handlebars-template">
+	<div class="answer-reply-item">   
+     		<input id="a-rno" value="{{aRno}}" type="hidden" readonly/>
+     		<div class="a-reply-info">
+           		<a id="a-writer"><img alt="" src="/teamproject/resources/images/icon_blankProfile.png">
+           		{{aWriter}}</a>
+          		 <span>{{aWrite_date}}</span>
+    		</div>
+    		<div id="a-content" class="a-reply-body">{{aContent}}</div>
+     		<a class="a-delete-a">삭제</a>
+    		<a class="a-update-a">수정</a>       
+	</div>
+</script>
+
 <script>
 	$(document).ready(function() {
 				var board_num = $('#bno').val();
@@ -585,8 +589,6 @@
 													$(data)
 															.each(
 																	function() {
-																		console
-																				.log(this);
 																		var date = new Date(
 																				this.write_date);
 																		var dateString = date
@@ -602,12 +604,12 @@
 																			write_date : dateString
 																		};
 																		var ano = this.ano;
-																		
+																		console.log("ano: " + ano);
 																		var replyItemAnswer = templateAnswer(contentAnswer);
 																		divisionAnswer.append(replyItemAnswer);
 																		// 댓글 영역
 																		
-																		var divisionAnswerReply = $('.answer-reply-scope');
+																		var divisionAnswerReply = $('.answer-reply-scope'+ano);
 																		var sourceAnswerReply = $('#answer-reply-template').html();
 																		var templateAnswerReply = Handlebars.compile(sourceAnswerReply);
 																		
@@ -625,8 +627,8 @@
 																							aContent: this.content,
 																							aWrite_date: dateString
 																					};
-																					console.log("aRno: " + this.rno + "aWriter: " + this.writer +  
-																							"content: " + this.content + "ano: " + ano);
+																					console.log("ano2: " + ano);
+																					console.log("aRno: " + this.rno);
 																					var replyAnswerReplyItem = templateAnswerReply(contentAnswerReply);
 																					
 																					divisionAnswerReply.append(replyAnswerReplyItem);
@@ -649,7 +651,7 @@
 								var bno = $('#bno').val();
 								var type = 'answer';
 								var writer = $('#login').val();
-								console.log("content: " + content + " ano: " + ano + " type: " + writer);
+								
 								$.ajax({
 									type : "POST",
 									url : '/teamproject/answer/insertAnswerReply',
@@ -665,9 +667,8 @@
 										
 									}),
 									success : function(result) {
-										// 함수 호출
+										
 										alert('성공');
-										 
 										
 									}
 								});
