@@ -1,10 +1,13 @@
 package edu.java.teamproject.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.java.teamproject.model.Board;
 import edu.java.teamproject.model.Scrab;
 import edu.java.teamproject.persistence.ScrabDao;
 
@@ -42,6 +45,12 @@ public class ScrabServiceImple implements ScrabService {
          a = scrabDao.insert(scrab);
       }
       return a;
-   }
+   }// end check
+   
+   @Override
+   public List<Board> myScrabList(String user_id) {
+      logger.info("ScrabServiceImple  myScrabList 호출() : " + user_id);    
+      return scrabDao.myScrabList(user_id);
+   }// end myScrabList
 
 }

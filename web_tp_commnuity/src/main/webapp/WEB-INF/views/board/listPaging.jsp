@@ -324,6 +324,7 @@
 									<div class="post-contents">
                                         <!-- Dummy Data 1 -->
                                         <a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <strong>${board.title}</strong>
+                                        <input id="hidden-bno" type="hidden" value="${board.bno}"/>
                                         </a>
                                         <button class="btnReplyCount">답변 대기</button>
                                         <a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
@@ -335,7 +336,8 @@
                                         <%-- <a class="post-content" href="#">${board.content}</a> --%> 
 
                                         <span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
-                                        </span> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
+                                        </span> <a class="post-share" href="#">공유하기</a> 
+                                        <a class="post-save" href="#" onclick="test(${board.bno})">보관하기</a>
                                     </div>
                                     <!--  end of div$post-contents -->
 								</div>
@@ -629,7 +631,7 @@
 	
 	<script>
 	var loginId = $('#login').val();
-	var bno = $(this).prevAll('#hidden-bno').val();	
+	/* var bno = $(this).prevAll('#hidden-bno').val();	 */
 		function test(bno){
 			console.log("스크랩 아이디 체크");
 			console.log("loginId :" + loginId);
