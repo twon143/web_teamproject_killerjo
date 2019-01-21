@@ -548,7 +548,7 @@
 
 
 
-	<script src="<c:url value='/resources/js/main.js'/>"></script> 
+	<script src="<c:url value='/resources/js/main.js'/>"></script>  
 	
 	<!--아이디, 비밀번호 중복 확인  -->
 	<script>
