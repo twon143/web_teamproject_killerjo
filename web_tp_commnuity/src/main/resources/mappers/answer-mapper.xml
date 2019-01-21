@@ -2,21 +2,23 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="edu.java.mappers.AnswerMapper">
 
-   <select id="selectAllAnswerByBoard_num" resultType="Answer">
-   	  SELECT * FROM ${tbl_answer} 
-      WHERE ${answer.board_num} = #{board_num} 
-      ORDER BY ${answer.ano} DESC
-   
-   </select>
-   
-   <insert id="insertAnswer">
-      insert into ${tbl_answer} (${answer.board_num}, ${answer.writer}, ${answer.content})
-      values (#{board_num}, #{writer}, #{content})
-   
-   </insert>
+	<select id="selectAllAnswerByBoard_num" resultType="Answer">
+		SELECT * FROM ${tbl_answer}
+		WHERE ${answer.board_num} = #{board_num}
+		ORDER BY ${answer.ano} DESC
 
+	</select>
+
+	<insert id="insertAnswer">
+		insert into ${tbl_answer} (${answer.board_num}, ${answer.writer},
+		${answer.content})
+		values (#{board_num}, #{writer}, #{content})
+
+	</insert>
+
+	
 
 </mapper>

@@ -389,7 +389,7 @@
                
                $(data).each(function() {
                   // 배열 data에 대한 반복 기능 수행하는 콜백함수
-                  
+                
                   var writers = this.writer;
                   var loginUser = $("#login").val();
                   // 로그인한 아이디와 댓글 작성자 아이디를 비교함(for문안에서 ajax 실행되기전에 조건 검사)
@@ -504,10 +504,24 @@
          
       });
 </script>
+<!--  답변 댓글들 불러오기 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+<script id="answer-reply-template"  type="text/x-handlebars-template">
+	<div class="answer-reply-item">   
+     		<input id="a-rno" value="{{aRno}}" type="hidden" readonly/>
+     		<div class="a-reply-info">
+           		<a id="a-writer"><img alt="" src="/teamproject/resources/images/icon_blankProfile.png">
+           		{{aWriter}}</a>
+          		 <span>{{aWrite_date}}</span>
+    		</div>
+    		<div id="a-content" class="a-reply-body">{{aContent}}</div>
+     		<a class="a-delete-a">삭제</a>
+    		<a class="a-update-a">수정</a>       
+	</div>
+</script>
 
 <!-- 답변 불러오기 -->
-<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 <script id="answer-template" type="text/x-handlebars-template">
 	<div class="answer-div">
 						<input id="ano" value="{{ano}}" type="hidden" readonly/>
@@ -530,8 +544,14 @@
 							<a href="#" class="share-post-a">공유하기</a> <a href="#"
 								class="save-post-a">보관하기</a>
 						</div>
-						<!-- 댓글 목록및 쓰기 div -->
 
+						<!-- 답변의 댓글 목록 불러오는 영역 -->
+						<div class="answer-reply-scope">
+							
+						</div>
+
+						
+						<!-- 댓글 쓰기 영역 -->
 						<div class="detailPost-reply-div">
 
 							<!--  댓글 쓰기 -->
@@ -541,7 +561,7 @@
 								</div>
 
 								<div class="register-reply-div">
-									<input type="hidden" class="reply-type" value="board">
+									<input type="hidden" class="reply-type" value="answer">
 									<button type="button" class="btnRegisterReply">댓글 쓰기</button>
 								</div>
 
@@ -557,7 +577,8 @@
 				var divisionAnswer = $('.scope-load-answer');
 				var source = $('#answer-template').html();
 				var templateAnswer = Handlebars.compile(source);
-
+				
+				
 				function getAllAnswers() {
 							$.getJSON('/teamproject/answer/all/' + board_num, function(data) {
 													divisionAnswer.empty(); // div 영역의 모든 HTML 요소를 제거
@@ -580,15 +601,76 @@
 																			writer : this.writer,
 																			write_date : dateString
 																		};
+																		
 																		var replyItemAnswer = templateAnswer(contentAnswer);
-																		divisionAnswer
-																				.append(replyItemAnswer);
-
+																		divisionAnswer.append(replyItemAnswer);
+																		// 댓글 영역
+																		
+																		var divisionAnswerReply = $('.answer-reply-scope');
+																		var sourceAnswerReply = $('#answer-reply-template').html();
+																		var templateAnswerReply = Handlebars.compile(sourceAnswerReply);
+																		
+																		$.getJSON('/teamproject/answer/readAllAnswerReply/' + this.ano, function(data) {
+																			
+																				$(data).each(function() {
+																					var date = new Date(this.write_date);
+																					var dateString = date.toLocaleDateString()
+																					+ ' ' + date.toLocaleTimeString();
+																					var contentAnswerReply = {
+																							aRno: this.rno,
+																							aWriter: this.writer,
+																							aContent: this.content,
+																							aWrite_date: dateString
+																					};
+																					
+																					var replyAnswerReplyItem = templateAnswerReply(contentAnswerReply);
+																					
+																					divisionAnswerReply.append(replyAnswerReplyItem);
+																				});
+																			});
+																		
+																		
+																			
+																		
 																	}); // end each()
 												});
 							}
 							getAllAnswers();
-
+							
+							// 답변의 댓글쓰기 버튼 눌럿을때
+							divisionAnswer.on('click', '.answer-div .btnRegisterReply', function() {
+								var content = $('.answer-div .write-reply-div .write-reply-content-div .reply-content-textarea').val();
+								var ano = $(this).parents('.answer-div').children('#ano').val();
+								var bno = $('#bno').val();
+								var type = 'answer';
+								var writer = $('#login').val();
+								$.ajax({
+									type : "POST",
+									url : '/teamproject/answer/insertAnswerReply',
+									headers : {
+										'Content-type' : 'application/json',
+										'X-HTTP-Method-Override' : 'post'
+									},
+									data : JSON.stringify({
+										'content' : content,
+										'parent_num' : ano,
+										'writer' : writer,
+										'type' : type
+										
+									}),
+									success : function(result) {
+										// 함수 호출
+										alert('성공');
+										 
+										
+									}
+								});
+								
+								
+								
+								
+							});
+							
 							$('.btn-write-answer').click(function() {
 								// CkEditor에잇는 모든 HTML 요소를 읽어옴
 								var con = CKEDITOR.instances.editor.getData();
@@ -621,6 +703,7 @@
 								});
 
 							})
+							
 						});
 	</script>
 

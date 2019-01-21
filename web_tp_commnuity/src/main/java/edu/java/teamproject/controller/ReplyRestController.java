@@ -29,8 +29,8 @@ public class ReplyRestController {
    @RequestMapping(value = "all/{bno}", method=RequestMethod.GET)
    public ResponseEntity<List<Reply>> readAllReplyByBno(@PathVariable(name="bno") int bno) {
          logger.info("readReplies(bno={}) 호출", bno);
-         logger.info("22");
-         List<Reply> list = replyService.select(bno);
+         String type = "board";
+         List<Reply> list = replyService.select(bno, type);
          logger.info("값" + list.toString());
          ResponseEntity<List<Reply>> entity = new ResponseEntity<List<Reply>>(list, HttpStatus.OK);
          

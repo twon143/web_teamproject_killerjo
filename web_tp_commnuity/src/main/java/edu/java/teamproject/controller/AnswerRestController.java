@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.java.teamproject.model.Answer;
+import edu.java.teamproject.model.Reply;
 import edu.java.teamproject.service.AnswerServiceDao;
+import edu.java.teamproject.service.ReplyService;
 
 @RestController
 @RequestMapping(value = "answer")
@@ -24,6 +26,7 @@ public class AnswerRestController {
 
    private final Logger logger = LoggerFactory.getLogger(AnswerRestController.class);
    @Autowired private AnswerServiceDao answerServiceDao;
+   @Autowired private ReplyService replyService;
    
    // 답변 리스트 불러오기
    @RequestMapping(value = "all/{board_num}" , method=RequestMethod.GET)
@@ -59,5 +62,27 @@ public class AnswerRestController {
       
       return entity;
    }
-
+   @RequestMapping(value = "insertAnswerReply", method = RequestMethod.POST)
+   public ResponseEntity<Integer> insertAnswerReply(@RequestBody Reply reply) {
+	   logger.info("insertAnswerReply({}) 호출", reply);
+	   ResponseEntity<Integer> entity = null;
+	   int result = replyService.insertAnswerReply(reply);
+	   if(result == 1) {
+		   entity = new ResponseEntity<Integer>(result, HttpStatus.OK);
+	   }
+	   
+	   else {
+		   entity = new ResponseEntity<Integer>(result, HttpStatus.BAD_REQUEST);
+	   }
+	   return entity;
+   }
+   
+   @RequestMapping(value = "readAllAnswerReply/{ano}", method = RequestMethod.GET)
+   public ResponseEntity<List<Reply>> readAllAnswerReply(@PathVariable(name="ano") int ano) {
+	   String type = "answer";
+	   logger.info("readAllAnswerReply({}) 호출", ano);
+	   List<Reply> list = replyService.readAllAnswerReply(ano, type);
+	   ResponseEntity<List<Reply>> entity = new ResponseEntity<List<Reply>>(list, HttpStatus.OK);
+	   return entity;
+   }
 }

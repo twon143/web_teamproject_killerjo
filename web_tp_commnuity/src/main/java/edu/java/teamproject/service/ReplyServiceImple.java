@@ -29,33 +29,45 @@ public class ReplyServiceImple implements ReplyService {
     	  logger.info("updateReplyCnt: ({}),  호출", reply.getParent_num());
     	  boardDao.updateReplyCnt(reply.getParent_num(), 1);
       }
-      
-      return result;
-   }
 
-   @Override
-   public List<Reply> select(int bno) {
-      logger.info("select(bno={}) 호출", bno);
-      
-      return replyDao.read(bno);
-   }
+		return result;
+	}
 
-   @Override
-   public int update(Reply reply) {
-      // TODO Auto-generated method stub
-      return replyDao.update(reply);
-   }
+	@Override
+	public List<Reply> select(int bno, String type) {
+		logger.info("select(bno={}) 호출", bno);
 
-   @Override
-   public int delete(int rno) {
-	  int bno = replyDao.selectBno(rno); 
-	   
-	  int result = replyDao.delete(rno);
-	  
-	  if(result == 1) {
-		 boardDao.updateReplyCnt(bno, -1);
-	  }
-      return result;
-   }
+		return replyDao.read(bno, type);
+	}
+
+	@Override
+	public int update(Reply reply) {
+		// TODO Auto-generated method stub
+		return replyDao.update(reply);
+	}
+
+	@Override
+	public int delete(int rno) {
+		int bno = replyDao.selectBno(rno);
+
+		int result = replyDao.delete(rno);
+
+		if (result == 1) {
+			boardDao.updateReplyCnt(bno, -1);
+		}
+		return result;
+	}
+
+	@Override
+	public int insertAnswerReply(Reply reply) {
+		logger.info("[Service]insertAnswerReply 호출");
+		return replyDao.insertAnswerReply(reply);
+	}
+
+	@Override
+	public List<Reply> readAllAnswerReply(int ano, String type) {
+		logger.info("readAllAnswerReply({})", ano);
+		return replyDao.readAllAnswerReply(ano, type);
+	}
 
 }

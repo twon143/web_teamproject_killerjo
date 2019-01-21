@@ -121,12 +121,12 @@
    text-align: right;
 }
 
-.reply-info span {
+.reply-info span, .a-reply-info span {
    font-size: small;
    color: #ccc;
 }
 
-.reply-info a {
+.reply-info a, .a-reply-info a {
    color: #333;
    text-decoration: none;
    font-size: 14px;
@@ -135,12 +135,12 @@
     line-height: 1.1;
 }
 
-.reply-info span {
+.reply-info span, .a-reply-info span {
    margin-left: 5px;
 }
 
-.reply-item #content {
-   padding-left: 5px;
+.reply-item #content, .answer-reply-item #a-content {
+  	padding-left: 5px;
     font-size: 14px;
     font-weight: 600;
     color: #333;
@@ -148,22 +148,29 @@
     line-height: 1.42857143;
     min-height: 30px;
 }
-.btn-div {
-   padding-right: 30px;
-   text-align: right;
-}
-.delete-a, .update-a {
-   
-   color: #5d7385;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 700;
-    -webkit-text-stroke-width: .02em;
-   font-family: 'Noto Sans KR',sans-serif;
-   font-size: x-small;
+
+.answer-reply-scope {
+	margin-top: 50px;
+	margin-left: 15%;
 }
 
-.delete-a {
+.btn-div {
+	padding-right: 30px;
+	text-align: right;
+}
+
+.delete-a, .update-a, .a-delete-a, .a-update-a  {
+	color: #5d7385;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 700;
+	-webkit-text-stroke-width: .02em;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: x-small;
+}
+
+
+.delete-a, .a-delete-a {
    margin-left: 85%;
 }
 
