@@ -324,11 +324,12 @@
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
 										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"><strong>${board.title}</strong></a>
+										<input type="hidden" id="hidden-bno" value="${board.bno}">
 										<button class="btnReplyCount">답변 대기</button>
 										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular" target="blank">
 											<button class="btnPostTag">${board.category}</button>
-										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
-
+										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> 
+										<a class="post-save" id="scrabBtn" href="#" onclick="test(${board.bno})">보관하기</a>
 									</div>
 									<!--  end of div$post-contents -->
 								</div>
@@ -618,6 +619,63 @@
 	<!-- E:wrapper -->
 
 	<script src="<c:url value='/resources/js/listPaging.js'/>"></script>
+	<input type="hidden" id="login" value="${login.id}" />
+	
+	<script>
+	var loginId = $('#login').val();
+	var bno = $(this).prevAll('#hidden-bno').val();	
+		function test(bno){
+			console.log("스크랩 아이디 체크");
+			console.log("loginId :" + loginId);
+			console.log("bno : " + bno);
+			
+			if(loginId){
+				$.ajax({
+					type: 'post',
+					url : '/teamproject/scrab/checkScrab/',
+					headers: {
+						'Content-type': 'application/json',
+						'X-HTTP-Method-Override': 'post'
+					},
+					data : JSON.stringify({
+						board_num :  bno,
+						user_id: $('#login').val(),
+					}),
+					contentType : 'application/x-www-form-urlencoded',
+					success : function(res){
+						console.log(res);
+						alert("보관함에 추가했습니다");
+					// end success
+					},
+					error : function(error){
+						console.log("error : " + error);
+						var result = confirm("이미 보관함에 있습니다 삭제하시겠습니까?");
+						console.log(result);
+						if(result == true){
+							$.ajax({
+								type : 'post',
+								url : '/teamproject/scrab/deleteScrab/',
+								headers : {
+									'Content-type' : 'application/json',
+									'X-HTTP-Method-Override' : 'post'
+								},
+								data : JSON.stringify({
+									board_num :  bno,
+									user_id: $('#login').val(),
+								}),
+								contentType : 'application/x-www-form-urlencoded',
+								success : function(res){
+									console.log("스크랩 삭제 결과 : " + res);
+								}// end success
+							})// end ajax
+						}// end error if
+					}// end error	
+				})// end ajax
+			}else{
+				alert("로그인해주세요");		
+			}// end else if 	
+		}// end function(test)
+	</script>
 
 
 	<!-- <script type="text/javascript">
