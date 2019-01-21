@@ -556,8 +556,8 @@
 
 							<!--  댓글 쓰기 -->
 							<div class="write-reply-div">
-								<div class="write-reply-content-div">
-									<textarea class="reply-content-textarea" rows="2" cols=""></textarea>
+								<div class="write-answer-reply-content-div">
+									<textarea class="reply-content-textarea-answer" rows="2" cols=""></textarea>
 								</div>
 
 								<div class="register-reply-div">
@@ -601,6 +601,7 @@
 																			writer : this.writer,
 																			write_date : dateString
 																		};
+																		var ano = this.ano;
 																		
 																		var replyItemAnswer = templateAnswer(contentAnswer);
 																		divisionAnswer.append(replyItemAnswer);
@@ -610,9 +611,11 @@
 																		var sourceAnswerReply = $('#answer-reply-template').html();
 																		var templateAnswerReply = Handlebars.compile(sourceAnswerReply);
 																		
-																		$.getJSON('/teamproject/answer/readAllAnswerReply/' + this.ano, function(data) {
-																			
+																		$.getJSON('/teamproject/answer/readAllAnswerReply/' + ano, function(data) {
+																				divisionAnswerReply.empty();
 																				$(data).each(function() {
+																					
+																					
 																					var date = new Date(this.write_date);
 																					var dateString = date.toLocaleDateString()
 																					+ ' ' + date.toLocaleTimeString();
@@ -622,7 +625,8 @@
 																							aContent: this.content,
 																							aWrite_date: dateString
 																					};
-																					
+																					console.log("aRno: " + this.rno + "aWriter: " + this.writer +  
+																							"content: " + this.content + "ano: " + ano);
 																					var replyAnswerReplyItem = templateAnswerReply(contentAnswerReply);
 																					
 																					divisionAnswerReply.append(replyAnswerReplyItem);
@@ -639,11 +643,13 @@
 							
 							// 답변의 댓글쓰기 버튼 눌럿을때
 							divisionAnswer.on('click', '.answer-div .btnRegisterReply', function() {
-								var content = $('.answer-div .write-reply-div .write-reply-content-div .reply-content-textarea').val();
+								var content = $(this).parents('.write-reply-div').children('.write-answer-reply-content-div').children('.reply-content-textarea-answer').val();
+							
 								var ano = $(this).parents('.answer-div').children('#ano').val();
 								var bno = $('#bno').val();
 								var type = 'answer';
 								var writer = $('#login').val();
+								console.log("content: " + content + " ano: " + ano + " type: " + writer);
 								$.ajax({
 									type : "POST",
 									url : '/teamproject/answer/insertAnswerReply',
