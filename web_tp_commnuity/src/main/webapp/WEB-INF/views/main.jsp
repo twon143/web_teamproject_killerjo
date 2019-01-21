@@ -143,7 +143,7 @@
 								<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
 							</div>
 							<div class="img-profile-div">
-								<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+									<img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
 							</div>
 
 							<form>

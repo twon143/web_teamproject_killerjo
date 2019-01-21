@@ -77,6 +77,7 @@
 		<property name="boardhistory.ip" value="ip"/>
 		<property name="boardhistory.bno" value="bno"/>
 		<property name="boardhistory.access_time" value="access_time"/>
+	
 	</properties>
 
 	<typeAliases>
