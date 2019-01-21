@@ -332,7 +332,7 @@
 									</div>
 
 
-									<div class="post-contents">
+									<div class="post-contents"> 
 										<!-- Dummy Data 1 -->
 										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"><strong>${board.title}</strong></a>
 										<button class="btnReplyCount">답변 대기</button>
