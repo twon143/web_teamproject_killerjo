@@ -343,7 +343,7 @@
 										<!-- <button class="btnPostTag2">언어</button> -->
 
 										<div class="short-post-content dynamic_dark_font">${board.content}</div>
-										<%-- <a class="post-content" href="#">${board.content}</a> --%>
+										<%-- <a class="post-content" href="#">${board.content}</a> --%> 
 
 										<span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
 										</span> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
