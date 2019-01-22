@@ -27,6 +27,7 @@
    type="text/css" />   
 <link href="<c:url value='/resources/css/detailPost.css' />" rel="stylesheet" type="text/css" />
 <script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 </head>
 <body>
 	<!--  
@@ -84,7 +85,7 @@
 						</div>
 					</div>
 					<div class="col-sm-6">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close" >
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<div class="modal-header">
@@ -417,11 +418,11 @@
 	<!-- E: wrapper -->
 
 
-
-<input type="hidden" id="login" value="${login.id}" />
+<input type="hidden" id="login" value="${login.id}"/>
+<input type="text" id="url-text" style="opacity: 0"/>
 <input type="hidden" id="current-href"  />
 <script>
-	if($('#login').val() == '') {
+	if($('#login').val() == '' || $('#login').val() == null) {
 	$('.reply-content-textarea').attr("readonly", "readonly");
 	$('.reply-content-textarea').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
 	$('.reply-content-textarea').css("background-color", "#eee");
@@ -661,7 +662,8 @@
 				var divisionAnswer = $('.scope-load-answer');
 				var source = $('#answer-template').html();
 				var templateAnswer = Handlebars.compile(source);
-				
+				var loginId = $('#login').val();
+				console.log("loginId: " + loginId);
 				
 				
 				function getAllAnswers() {
@@ -688,7 +690,13 @@
 								
 																		var replyItemAnswer = templateAnswer(contentAnswer);
 																		divisionAnswer.append(replyItemAnswer);
-																		console.log(contentAnswer.content)
+																		if($('#login').val() == '' || $('#login').val() == null) {
+																						
+																						$('.reply-content-textarea-answer').attr("readonly", "readonly");
+																						$('.reply-content-textarea-answer').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
+																						$('.reply-content-textarea-answer').css("background-color", "#eee");
+																						$('.btnRegisterReply').attr("disabled", "disabled");
+																					}
 																		
 																		
 																		var divisionAnswerReply = $('.answer-reply-scope'+ano);
@@ -713,12 +721,8 @@
 																					var replyAnswerReplyItem = templateAnswerReply(contentAnswerReply);
 																					
 																					divisionAnswerReply.append(replyAnswerReplyItem);
-																					if($('#login').val() == '') {
-																						$('.reply-content-textarea-answer').attr("readonly", "readonly");
-																						$('.reply-content-textarea-answer').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
-																						$('.reply-content-textarea-answer').css("background-color", "#eee");
-																						$('.btnRegisterReply').attr("disabled", "disabled");
-																					}
+																					
+																					
 																					
 																				
 																				});
@@ -734,12 +738,13 @@
 							
 							
 							divisionAnswer.on('click', '.btn-copy-answer', function() {
-								var href = window.location.href;
-								$('#current-href').val(href);
-								$('#current-href').select();
+								var url = window.location.href;
+								$('#url-text').val(url);
+								$('#url-text').select();
 								document.execCommand('copy');
-								alert('URL이 복사되었습니다!' + href);
+								alert('답변주소가 복사되었습니다 Ctrl+V를 통해 붙여넣기를 하세요!');
 								
+							
 							});
 							// 답변의 댓글쓰기 버튼 눌럿을때
 							divisionAnswer.on('click', '.answer-div .btnRegisterReply', function() {
