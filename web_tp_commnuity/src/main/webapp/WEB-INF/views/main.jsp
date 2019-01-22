@@ -403,7 +403,8 @@
 												</a>
 												<!-- <button class="btnHPostTag2">언어</button> -->
 
-												<br /> <a class="post-title2" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
+												<br /> <a class="post-title2" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> 
+												 <a class="post-save3" onclick="test(${board.bno})">보관하기</a><a class="post-userId3" href="user/profile-others?writer=${board.writer}">${board.writer}</a>
 											</div>
 										</div>
 
