@@ -358,8 +358,11 @@
           		 <span>{{write_date}}</span>
     		</div>
     		<div id="content" class="reply-body">{{content}}</div>
-     		<a class="delete-a">삭제</a>
-    		<a class="update-a">수정</a>       
+			<div class="div-btnGroup{{rno}}">
+				<a class="delete-a">삭제</a>
+    			<a class="update-a">수정</a>  
+			</div>
+     		     
 </div>
 </script>
 
@@ -377,7 +380,7 @@
          // 2) 템플릿을 컴파일
          var template = Handlebars.compile(source);
          
-         var status = true;
+    
          
          function getAllReplies() {
             // $.getJSON(url, callback):
@@ -394,13 +397,7 @@
                 
                   var writers = this.writer;
                   var loginUser = $("#login").val();
-                  // 로그인한 아이디와 댓글 작성자 아이디를 비교함(for문안에서 ajax 실행되기전에 조건 검사)
-                  if(writers != loginUser) {
-                     status = false;
-                  }
-                  else {
-                     status = true;
-                  }
+                
                   
                
                
@@ -420,17 +417,17 @@
                   var replyItem = template(content_item);
                   // 생성된 HTML 코드를 append
                   division.append(replyItem);
-                 
+                  var rno = this.rno;
                   if(writers != loginUser) {
-                	  console.log("일치않ㅇ므")
-                      $('.delete-a').hide();
-                      $('.update-a').hide();
+                	
+                      $('.div-btnGroup' + rno +' ' + '.delete-a').hide();
+                      $('.div-btnGroup' + rno +' ' + '.update-a').hide();
                    }
                   
                   if(writers == loginUser) {
-                	  console.log("일치함")
-                	  $('.delete-a').show();
-                      $('.update-a').show();
+                	 
+                	  $('.div-btnGroup' + rno +' ' + '.delete-a').show();
+                	  $('.div-btnGroup' + rno +' ' + '.update-a').show();
                   }
                   
 
@@ -477,7 +474,7 @@
          
          // 댓글 삭제하는 부분
          division.on('click', '.reply-item .delete-a', function() {
-            var rno =  $(this).prevAll('#rno').val();
+            var rno =  $(this).parents('.reply-item').children('#rno').val();
             var bno = $('#bno').val(); 
             console.log(bno);
             var result = confirm(rno + '번 댓글을 정말 삭제하시겠습니까?');
@@ -627,8 +624,7 @@
 																							aContent: this.content,
 																							aWrite_date: dateString
 																					};
-																					console.log("ano2: " + ano);
-																					console.log("aRno: " + this.rno);
+																				
 																					var replyAnswerReplyItem = templateAnswerReply(contentAnswerReply);
 																					
 																					divisionAnswerReply.append(replyAnswerReplyItem);
