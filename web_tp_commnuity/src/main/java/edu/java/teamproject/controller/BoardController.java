@@ -218,7 +218,7 @@ public class BoardController {
 	   if(sort != null) {
 		   model.addAttribute("sort", sort);
 	   }
-		
+
 	   model.addAttribute("board", boardService.readByBno(bno));
 	   
 	   /*if(sort != null) {
