@@ -218,7 +218,8 @@
 					<!-- 상세카테고리들 끝 -->
 					<form class="navbar-form navbar-left search-btn-nav" action="searchPaging" method="get" style="margin-left: 186px;">
 
-                        <input type="hidden" name="type" value="all"> <input type="hidden" name="sort" value="popular">
+                        <input type="hidden" name="type" value="all"> 
+                        <input type="hidden" name="sort" value="popular">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" name="keyword">
                         </div>
