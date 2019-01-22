@@ -284,7 +284,7 @@
 										</div>
 
 										<div class="profile-image-edit text-center">
-											<a class="btn btn-default btn-xs" href="/settings/profile" role='button'>프로필 편집</a>
+											<a class="btn btn-default btn-xs" href="profile-edit" role='button'>프로필 편집</a>
 										</div>
 									</div>
 								</div>
