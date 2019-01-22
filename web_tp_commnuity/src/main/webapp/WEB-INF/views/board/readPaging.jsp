@@ -240,10 +240,7 @@
 						<div class="detailPost-body-div">
 							<!-- TODO: 글쓰기 기능 구현시 할 기능 CKEdior로 DB에 저장된 HTML 코드를 가져와서 적용해야함! -->
 							<!-- 현제는 테스트용으로 Dummy Data로함 -->
-							<p>${board.content}${board.content}${board.content}${board.content}${board.content}
-								${board.content}${board.content}${board.content}${board.content}${board.content}
-								${board.content}${board.content}${board.content}${board.content}${board.content}
-								${board.content}${board.content}${board.content}${board.content}${board.content}</p>
+							<pre>${board.content}</pre>	
 						</div>
 
 
@@ -265,7 +262,7 @@
 
 								<div class="register-reply-div">
 									<input type="hidden" class="reply-type" value="board">
-									<button type="button" class="btnRegisterReply">댓글 쓰기</button>
+									<button type="button" class="btnRegisterReply" >댓글 쓰기</button>
 								</div>
 
 							</div>
@@ -297,7 +294,7 @@
 						<div class="write-answer-btn-div">
 							<button class="btn-write-answer">답변 올리기</button>
 						</div>
-
+						
 
 
 					</div>
@@ -347,7 +344,18 @@
 
 
 <input type="hidden" id="login" value="${login.id}" />
-
+<input type="hidden" id="current-href"  />
+<script>
+	if($('#login').val() == '') {
+	$('.reply-content-textarea').attr("readonly", "readonly");
+	$('.reply-content-textarea').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
+	$('.reply-content-textarea').css("background-color", "#eee");
+	$('.btnRegisterReply').attr("disabled", "disabled");
+	$('.write-answer-textarea').attr("readonly", "readonly");
+	$('.write-answer-textarea').attr("placeholder", "로그인을 하셔야만 답변을 달수있습니다");
+	$('.write-answer-textarea').css("background-color", "#eee");
+	}
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 <script id="reply-template" type="text/x-handlebars-template">
 <div class="reply-item">   
@@ -510,10 +518,10 @@
 <script id="answer-template" type="text/x-handlebars-template">
 	<div class="answer-div">
 						<input id="ano" value="{{ano}}" type="hidden" readonly/>
-						<div id="answer-content-id-scope" class="answer-content-div-scope">{{content}}</div>
+						<div id="answer-content-id-scope" class="answer-content-div-scope{{ano}}">{{{content}}}</div>
 						<div class="answer-interface-div">
 							<span class="span-like">좋아요</span>
-							<button class="btn-copy-answer">답변 주소 복사</button>
+							<button class="btn-copy-answer" >답변 주소 복사</button>
 						</div>
 
 						<!-- 게시글 정보 div -->
@@ -580,6 +588,7 @@
 				var templateAnswer = Handlebars.compile(source);
 				
 				
+				
 				function getAllAnswers() {
 							$.getJSON('/teamproject/answer/all/' + board_num, function(data) {
 													divisionAnswer.empty(); // div 영역의 모든 HTML 요소를 제거
@@ -593,7 +602,7 @@
 																				+ ' '
 																				+ date
 																						.toLocaleTimeString();
-
+																		
 																		var contentAnswer = {
 																			ano : this.ano,
 																			content : this.content,
@@ -601,10 +610,11 @@
 																			write_date : dateString
 																		};
 																		var ano = this.ano;
-																		console.log("ano: " + ano);
+								
 																		var replyItemAnswer = templateAnswer(contentAnswer);
 																		divisionAnswer.append(replyItemAnswer);
-																		// 댓글 영역
+																		console.log(contentAnswer.content)
+																		
 																		
 																		var divisionAnswerReply = $('.answer-reply-scope'+ano);
 																		var sourceAnswerReply = $('#answer-reply-template').html();
@@ -628,6 +638,14 @@
 																					var replyAnswerReplyItem = templateAnswerReply(contentAnswerReply);
 																					
 																					divisionAnswerReply.append(replyAnswerReplyItem);
+																					if($('#login').val() == '') {
+																						$('.reply-content-textarea-answer').attr("readonly", "readonly");
+																						$('.reply-content-textarea-answer').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
+																						$('.reply-content-textarea-answer').css("background-color", "#eee");
+																						$('.btnRegisterReply').attr("disabled", "disabled");
+																					}
+																					
+																				
 																				});
 																			});
 																		
@@ -639,6 +657,15 @@
 							}
 							getAllAnswers();
 							
+							
+							divisionAnswer.on('click', '.btn-copy-answer', function() {
+								var href = window.location.href;
+								$('#current-href').val(href);
+								$('#current-href').select();
+								document.execCommand('copy');
+								alert('URL이 복사되었습니다!' + href);
+								
+							});
 							// 답변의 댓글쓰기 버튼 눌럿을때
 							divisionAnswer.on('click', '.answer-div .btnRegisterReply', function() {
 								var content = $(this).parents('.write-reply-div').children('.write-answer-reply-content-div').children('.reply-content-textarea-answer').val();
