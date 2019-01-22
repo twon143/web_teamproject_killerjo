@@ -102,7 +102,7 @@ public class BoardController {
    
    // 글 상세보기 페이지 이동
    @RequestMapping(value = "readPaging", method = RequestMethod.GET)
-   public String readPaging(@RequestParam("bno") int bno, 
+   public String readPaging(@ModelAttribute("bno") int bno, 
 		   Criteria criteria, Model model,
 		   @ModelAttribute("category") String category,
 		   @ModelAttribute("type") String type,
