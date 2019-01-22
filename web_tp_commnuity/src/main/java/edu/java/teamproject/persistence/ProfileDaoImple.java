@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sun.media.jfxmedia.logging.Logger;
+
 import edu.java.teamproject.model.Board;
 import edu.java.teamproject.model.User;
 
@@ -30,6 +32,12 @@ public class ProfileDaoImple implements ProfileDao{
 	public User getUserInfo(String id) {
 		
 		return session.selectOne(PROFILE_MAPPER + ".selectById", id);
+	}
+
+	@Override
+	public int updateUserInfo(User user) {
+		System.out.println("User: " + user.toString());
+		return session.update(PROFILE_MAPPER + ".updateUserProfile", user); 
 	}
 
 

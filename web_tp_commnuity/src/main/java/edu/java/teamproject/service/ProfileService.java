@@ -9,5 +9,6 @@ public interface ProfileService {
 
 	List<Board> readByWriter(String writer);
 	User getUserInfo(String id);
+	int updateUserInfo(User user);
 	
 }

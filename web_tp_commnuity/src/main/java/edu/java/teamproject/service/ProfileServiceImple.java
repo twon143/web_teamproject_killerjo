@@ -30,4 +30,11 @@ public class ProfileServiceImple implements ProfileService {
 	}
 
 
+	@Override
+	public int updateUserInfo(User user) {
+		
+		return profileDao.updateUserInfo(user);
+	}
+
+
 }

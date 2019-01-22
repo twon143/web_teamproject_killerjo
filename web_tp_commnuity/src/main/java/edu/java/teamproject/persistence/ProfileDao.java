@@ -9,5 +9,6 @@ public interface ProfileDao {
 
 	List<Board> readByWriter(String writer);
 	User getUserInfo(String user);
+	int updateUserInfo(User user);
 	
 }
