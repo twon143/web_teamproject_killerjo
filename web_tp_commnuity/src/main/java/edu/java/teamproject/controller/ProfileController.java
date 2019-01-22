@@ -65,7 +65,7 @@ public class ProfileController {
 		
 		User user = profileService.getUserInfo(writer);
 		
-		model.addAttribute("User", user);
+		model.addAttribute("user", user);
 		model.addAttribute("boardList", list);
 	}
 
