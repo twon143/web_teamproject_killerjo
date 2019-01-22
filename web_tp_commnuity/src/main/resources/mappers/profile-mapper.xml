@@ -10,5 +10,21 @@
 		select * from ${tbl_board}
 		where ${board.writer} = #{writer}
 	</select>
+	
+	<!-- Id로 유저 정보 가져오기 -->
+	<select id="selectById" resultType="User">
+		select * from ${tbl_user}
+		where ${user.id} = #{id}
+	</select>
+	
+	<!-- UserProfile 수정 -->
+	<update id="updateUserProfile">
+		update ${tbl_user}
+		set ${user.profile_image} = #{profile_image},
+			${user.nickname} = #{nickname},
+			${user.introduce} = #{introduce},
+			${user.background_image} = #{background_image}
+		WHERE ${user.id} = #{id}
+	</update>	
 
 </mapper>
