@@ -283,11 +283,8 @@
 										<div class="profile-image" style="margin-bottom: 5px">
 											<img class="img-circle profile-img media-object" src="https://devsnote.com/assets/data/profile/158_c3cd1942766092d6ce86bd34b38cd703.jpg?u=1547530456" style="border: 5px solid #fff" onerror='this.src="https://devsnote.com/assets/images/default_profile.jpg"' />
 										</div>
-										<!--  
-										<div class="profile-image-edit text-center">
-											<a class="btn btn-default btn-xs" href="profile-edit" role='button'>프로필 편집</a>
-										</div>
-										-->
+									
+										
 									</div>
 								</div>
 								<div class="media-body"></div>
@@ -306,7 +303,7 @@
 						</div>
 
 						<p class="text-muted hide-at-mobile">
-							<fmt:formatDate value="${login_user.join_date}"
+							<fmt:formatDate value="${user.join_date}"
 								pattern="yyyy년 MM월" var="regDate"/>
 							<i class="fa fa-calendar"></i> ${regDate}
 						</p>
@@ -329,57 +326,65 @@
 						<div class="sub-nav-div">
 							<ul class="nav nav-pills sub-nav instant-ul">
 								<!-- <li class="sub-title hide-at-mobile"></li> -->
-								<li class="active focus-profile-tag"><a href="#">올린 포스트</a></li>
+								<li class="active focus-profile-tag"><a href="profile-others?writer=${user.id}">올린 포스트</a></li>
 								<li class="focus-profile-tag"><a href="#">받은 질문</a></li>
 								<li class="focus-profile-tag"><a href="#">올린 답변</a></li>
 								<li class="vline-li"><a>|</a></li>
-								<li class="focus-profile-tag"><a href="#">보관한 포스트</a></li>
+								<!-- 
+								<li class="focus-profile-tag"><a href="scrab?">보관한 포스트</a></li>
 								<li class="focus-profile-tag"><a href="#">관심 소책자</a></li>
+								 -->
 							</ul>
 
 						</div>
-						<div class="empty-block" style="font-size: 14px;">목록이 없습니다.</div>
+						
+						<c:if test="${boardList == null}">
+							<div class="empty-block" style="font-size: 14px;">목록이 없습니다.</div>
+						</c:if>
 
-
-
-						<!-- 격자 보기 -->
-						<div class="content-center2">
-
-							<c:forEach var="i" begin="0" end="16" step="4">
-								<div class="sub-post-list2">
-
-									<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
-										<div class="sub-sub-post-list2">
-											<div class="post-image-div2">
-												<c:if test="${board.type == 'question'}">
-													<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/blank_image2.png">
-													</a>
-												</c:if>
-												<c:if test="${board.type == 'writing'}">
-													<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/writing_image2.png">
-													</a>
-												</c:if>
-												<c:if test="${board.type == 'link'}">
-													<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/link_image2.png">
-													</a>
-												</c:if>
+						<c:if test="${boardList != null}">
+						
+						
+							<!-- 격자 보기 -->
+							<div class="content-center3">
+	
+								<c:forEach var="i" begin="0" end="16" step="4">
+									<div class="sub-post-list3">
+	
+										<c:forEach var="board" items="${boardList}" begin="${i}" end="${i+3}">
+											<div class="sub-sub-post-list3">
+												<div class="post-image-div2">
+													<c:if test="${board.type == 'question'}">
+														<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/blank_image2.png">
+														</a>
+													</c:if>
+													<c:if test="${board.type == 'writing'}">
+														<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/writing_image2.png">
+														</a>
+													</c:if>
+													<c:if test="${board.type == 'link'}">
+														<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/link_image2.png">
+														</a>
+													</c:if>
+												</div>
+	
+												<div class="post-contents2">
+													<button class="btnHPostTag3">답변 대기</button>
+													<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
+														<button class="btnPostTag">${board.category}</button>
+													</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging?bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
+												</div>
 											</div>
+	
+										</c:forEach>
+	
+									</div>
+								</c:forEach>
+	
+							</div>
+							<!-- 격자 보기 -->
+						</c:if>
 
-											<div class="post-contents2">
-												<button class="btnHPostTag3">답변 대기</button>
-												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
-													<button class="btnPostTag">${board.category}</button>
-												</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging?bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
-											</div>
-										</div>
-
-									</c:forEach>
-
-								</div>
-							</c:forEach>
-
-						</div>
-						<!-- 격자 보기 -->
 					</div>
 
 					<script>

@@ -3,6 +3,8 @@ package edu.java.teamproject.controller;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ import edu.java.teamproject.service.ScrabService;
 @RequestMapping(value = "user")
 public class ProfileController {
 
+	private final Logger logger = LoggerFactory.getLogger(ProfileController.class);
+	
 	@Autowired ProfileService profileService;
 	@Autowired UserDao userDao;
 	@Autowired ScrabService scrabService;
@@ -61,9 +65,13 @@ public class ProfileController {
 	@RequestMapping(value = "profile-others", method = RequestMethod.GET)
 	public void OutersProfileView(Model model, String writer) {
 		
+		logger.info("writer : {}", writer);
+		
 		List<Board> list = profileService.readByWriter(writer);
 		
 		User user = profileService.getUserInfo(writer);
+		
+		logger.info(user.toString());
 		
 		model.addAttribute("user", user);
 		model.addAttribute("boardList", list);
