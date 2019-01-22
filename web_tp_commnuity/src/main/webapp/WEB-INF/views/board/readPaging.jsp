@@ -310,7 +310,7 @@
 
 						<div>
 							<!-- 공유하기 / 보관하기 div -->
-							<a href="#" class="share-post-a">공유하기</a> <a href="#"
+							<a href="#" class="share-post-a">공유하기</a> <a onclick="test(${board.bno})"
 								class="save-post-a">보관하기</a>
 								
 						</div>
@@ -415,7 +415,7 @@
 						<!-- 돌아가기 그런 인터페이스 div -->
 						<div class="interface-div">
 							<button class="backTo-listPaging">게시글로 돌아가기</button>
-							<button class="saving-post">게시글 보관하기</button>
+							<button class="saving-post" onclick="test(${board.bno})">게시글 보관하기</button>
 							<button class="share-post-FaceBook">페이스북에 공유하기</button>
 						</div>
 					</div>
@@ -826,6 +826,70 @@
 							})
 							
 						});
+	</script>
+	<input type="hidden" id="login" value="${login.id}" />
+
+	<script>
+
+	var loginId = $('#login').val();
+	/* var bno = $(this).prevAll('#hidden-bno').val();	 */
+		function test(bno){
+			console.log("스크랩 아이디 체크");
+			console.log("loginId :" + loginId);
+			console.log("bno : " + bno);
+
+			if (loginId) {
+				$
+						.ajax({
+							type : 'post',
+							url : '/teamproject/scrab/checkScrab/',
+							headers : {
+								'Content-type' : 'application/json',
+								'X-HTTP-Method-Override' : 'post'
+							},
+							data : JSON.stringify({
+								board_num : bno,
+								user_id : $('#login').val(),
+							}),
+							contentType : 'application/x-www-form-urlencoded',
+							success : function(res) {
+								console.log(res);
+								alert("보관함에 추가했습니다");
+								// end success
+							},
+							error : function(error) {
+								console.log("error : " + error);
+								var result = confirm("이미 보관함에 있습니다 삭제하시겠습니까?");
+								console.log(result);
+								if (result == true) {
+									$
+											.ajax({
+												type : 'post',
+												url : '/teamproject/scrab/deleteScrab/',
+												headers : {
+													'Content-type' : 'application/json',
+													'X-HTTP-Method-Override' : 'post'
+												},
+												data : JSON
+														.stringify({
+															board_num : bno,
+															user_id : $(
+																	'#login')
+																	.val(),
+														}),
+												contentType : 'application/x-www-form-urlencoded',
+												success : function(res) {
+													console.log("스크랩 삭제 결과 : "
+															+ res);
+												}// end success
+											})// end ajax
+								}// end error if
+							}// end error	
+						})// end ajax
+			} else {
+				alert("로그인해주세요");
+			}// end else if 	
+		}// end function(test)
 	</script>
 
 </body>

@@ -337,7 +337,7 @@
 
 
 										<span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
-										</span> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#" onclick="test(${board.bno})">보관하기</a>
+										</span> <a class="post-share" href="#">공유하기</a> <a class="post-save" onclick="test(${board.bno})">보관하기</a>
 									</div>
 									<!--  end of div$post-contents -->
 
