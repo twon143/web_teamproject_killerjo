@@ -203,7 +203,7 @@
 
 			<div class="sub-nav-div instant-ul">
 				<ul class="nav nav-pills sub-nav">
-					<li class="active"><a href="#">프로필 편집</a></li>
+					<li class="active"><a  href="#">프로필 편집</a></li>
 					<!--  
 					<li><a href="#">알림 내역</a></li>
 					<li><a href="#">설정</a></li>
@@ -220,6 +220,7 @@
 			<form class="profile-form form-horizontal" role="form"
 				style="margin-top: 10px;">
 				<div class="form-group">
+				<input type="hidden" id="id" value="${user.id}">
 					<label for="" class="col-lg-2 col-md-2 col-sm-2 control-label">프로필
 						이미지</label>
 					<div class="col-lg-10 col-md-10 col-sm-10">
@@ -344,8 +345,10 @@
 				<div class="form-group">
 					<div
 						class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-md-10 col-sm-offset-2 col-sm-10">
-						<button type="button" class="profile-edit-btn btn btn-primary" id=""
+						<div class="bb" style="width: 54px;">
+						<button type="button" class="profile-edit-btn btn btn-primary" id="save-profile-id"
 							data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'></i> 저장하는 중..">저장</button>
+						</div>	
 					</div>
 				</div>
 
@@ -461,28 +464,43 @@
 	</div>
 	<!-- E:wrapper -->
 
+<input type="hidden" id="nickname-info" value="${user.nickname}"/>
+<input type="hidden" id="getUserId" value= "${user.id}"/>
 <script>
-$(document).ready(function(){
-	$('#user-profile-edit-btn').click(function(){
-		var nickname = $('#nickname').val();
-		
-		$ajax({
-			type: 'post',
-			url: '/ex02/profile-edit',
+$(document).ready(function() {
+	// 프로필 수정 버튼을 눌럿을떄 PUT방식으로 업데이트 내역을 보내는 AJAX 
+	$('.bb').click(function() {
+		var changed_nickname = $('#nickname').val();
+		var changed_introduce = $('#summary').val();
+		var loginId = $('#getUserId').val();
+		$.ajax({
+			type: 'put',
+			url: '/teamproject/profile-edit',
 			headers: {
 				'Content-Type' : 'application/json',
-				'X-HTTP-Method-Override' : 'post'
+				'X-HTTP-Method-Override' : 'put'
 			},
+			
 			data: JSON.stringify({
-				'nickname': nickname,
+				'id': loginId,
+				'nickname': changed_nickname,
+				'introduce': changed_introduce
 			}),
-			success: function(result) {
-				alert('프로필 수정 결과' + result);
-				getAllReplies();
+			
+			success: function(data) {
+				if(data == 1) {
+					alert('프로필 정보 변경 성공')
+					// 프로필 정보페이지로 이동
+				}
 			}
+			
 		});
 	});
+	$('#save-profile-id').click(function() {
+		
+	});
 });
+	
 </script>
 	
 
