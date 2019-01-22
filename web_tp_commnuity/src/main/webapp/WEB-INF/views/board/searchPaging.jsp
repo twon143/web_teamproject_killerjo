@@ -128,28 +128,27 @@
 
 
 				<c:if test="${not empty login}">
-                    <div class="logined-form">
-                        <div class="right-float-div">
-                            <div class="img-notify-div">
-                                <img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
-                            </div>
-                            <div class="img-profile-div">
-                                <a href="user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
-                                </a>
-                            </div>
+					<div class="logined-form">
+						<div class="right-float-div">
+							<div class="img-notify-div">
+								<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
+							</div>
+							<div class="img-profile-div">
+								<a href="user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+								</a>
+							</div>
 
-                            <form>
-                                <input type="button" class="btn-settig btn btn-info" value="설정" />
-                            </form>
-                            <form action="../user/logout" method="post">
-                                <input type="submit" class="btn-logout" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
+							<form>
+								<input type="button" class="btn-settig btn btn-info" value="설정" />
+							</form>
+							<form action="../user/logout " method="post">
+								<input type="submit" class="btn-logout btn btn-info" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
 
-                            </form>
+							</form>
 
-                        </div>
-                    </div>
-                </c:if>
-
+						</div>
+					</div>
+				</c:if>
 			</nav>
 		</div>
 
@@ -217,16 +216,15 @@
 							</ul></li>
 					</ul>
 					<!-- 상세카테고리들 끝 -->
-					<form class="navbar-form navbar-left search-btn-nav" action="searchPaging" method="get">
+					<form class="navbar-form navbar-left search-btn-nav" action="searchPaging" method="get" style="margin-left: 186px;">
 
+                        <input type="hidden" name="type" value="all"> <input type="hidden" name="sort" value="popular">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" name="keyword">
+                        </div>
+                        <input type="submit" class="btn btn-default" value="검색"/>
 
-						<input type="hidden" name="type" value="all"> <input type="hidden" name="sort" value="popular">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search" name="keyword">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-
-					</form>
+                    </form>
 				</div>
 			</nav>
 
@@ -295,8 +293,7 @@
 
 							<!-- header 부분 제목에대한 <p><a> -->
 							<div class="contnt-header-title-link title-bg">
-								<a href="/">
-								<strong>검색</strong>
+								<a href="/"> <strong>검색</strong>
 								</a>
 							</div>
 
@@ -317,9 +314,9 @@
 
 								<li class="sub-category-li up-list cursor-pointer"><a href="/teamproject/board/searchPaging?type=${type}&sort=newest&keyword=${keyword}">최신순</a></li>
 
-								<li class="sub-category-li-widthView cursor-pointer"><img  id="viewToWidth" onclick="" alt="" src="/teamproject/resources/images/check-list-icon.png"></li>
+								<li class="sub-category-li-widthView cursor-pointer"><img id="viewToWidth" onclick="" alt="" src="/teamproject/resources/images/check-list-icon.png"></li>
 
-								<li class="sub-category-li-heightView cursor-pointer"><img  id="viewToHeight" onclick="" alt="" src="/teamproject/resources/images/four-squares-list.png"></li>
+								<li class="sub-category-li-heightView cursor-pointer"><img id="viewToHeight" onclick="" alt="" src="/teamproject/resources/images/four-squares-list.png"></li>
 							</ul>
 
 
