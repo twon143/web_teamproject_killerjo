@@ -265,7 +265,8 @@
 						<div class="content-header">
 							<!-- header 부분 제목에대한 <p><a> -->
 							<p class="contnt-header-title-link">
-								<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=popular"> <strong>${category}</strong>
+								<a href="/teamproject/board/listPaging?category=${category}&type=all&sort=popular"> 
+								<strong>${category}</strong>
 								</a>
 							<div class="nav"></div>
 
@@ -331,16 +332,14 @@
                                         </a>
                                         <!-- <button class="btnPostTag2">언어</button> -->
 
-
 										<div class="short-post-content dynamic_dark_font">${board.content}</div>
 										<%-- <a class="post-content" href="#">${board.content}</a> --%>
 
 
-                                        <span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
-                                        </span> <a class="post-share" href="#">공유하기</a> 
-                                        <a class="post-save" href="#" onclick="test(${board.bno})">보관하기</a>
-                                    </div>
-                                    <!--  end of div$post-contents -->
+										<span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
+										</span> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#" onclick="test(${board.bno})">보관하기</a>
+									</div>
+									<!--  end of div$post-contents -->
 
 								</div>
 								<!-- end of div$sub-post-list -->
@@ -569,7 +568,7 @@
 							</div>
 
 						</div>
-
+						<!-- post게시판:E -->
 
 
 
@@ -626,7 +625,6 @@
 	</footer>
 
 	<!-- E:Footer -->
-	<!-- E:wrapper -->
 
 	<script src="<c:url value='/resources/js/listPaging.js'/>"></script>
 	<input type="hidden" id="login" value="${login.id}" />

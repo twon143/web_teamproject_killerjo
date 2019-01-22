@@ -487,6 +487,24 @@ div.mid-contents-wrap {
 	border: 1px solid transparent;
 	border-radius: 4px;
 }
+.cursor-pointer {
+    cursor: pointer;
+}
+
+li.best-list>a:focus, li.up-list>a:focus {
+    border-bottom: 2px solid red;
+    color: red;
+}
+
+li.sub-category-li-widthView {
+    left: 255px;
+    top: 2px;
+}
+
+li.sub-category-li-heightView {
+    top: 4px;
+    left: 265px;
+}
 
 .btn-lg {
 	padding: 10px 16px;
