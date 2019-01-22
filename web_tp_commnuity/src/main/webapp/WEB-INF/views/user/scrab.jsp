@@ -372,7 +372,9 @@
 													<button class="btnHPostTag3">답변 대기</button>
 													<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
 														<button class="btnPostTag">${board.category}</button>
-													</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging?bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
+													</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging?bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br /> 
+													 <a class="post-save3" onclick="test(${board.bno})">보관함에서 빼기</a><a class="post-userId3">${board.writer}</a>
+													
 												</div>
 											</div>
 	
@@ -550,6 +552,33 @@
 
 
 	<script src="/teamproject/resources/js/main.js"></script>
+	<input type="hidden" id="login" value="${login.id}" />
+	<script>
+	var loginId = $('#login').val();
+	function test(bno){
+		var result = confirm("삭제하시겠습니까?");
+		console.log(result);
+		if(result == true){
+			$.ajax({
+				type : 'post',
+				url : '/teamproject/scrab/deleteScrab/',
+				headers : {
+					'Content-type' : 'application/json',
+					'X-HTTP-Method-Override' : 'post'
+				},
+				data : JSON
+				.stringify({
+					board_num : bno,
+					user_id : $('#login').val(),
+				}),
+				contentType : 'application/x-www-form-urlencoded',
+				success : function(res){
+					console.log("스크랩 삭제완료 : " + res);
+				}
+			})
+		}
+	}
+	</script>
 
 
 

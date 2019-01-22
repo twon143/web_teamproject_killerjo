@@ -1544,3 +1544,18 @@ div.dynamic_dark_font{
 .a2 {
 	color: #ac6f6f
 }
+
+.post-userId3 {
+	float:right;
+	text-align: right;
+	font-weight: bold;
+	font-size: 12px;
+	color: #828282;
+}
+
+.post-save3 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #787878;
+	padding-bottom: 6px;
+}
