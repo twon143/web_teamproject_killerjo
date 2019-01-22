@@ -1,11 +1,14 @@
 package edu.java.teamproject.persistence;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.java.teamproject.model.Board;
 import edu.java.teamproject.model.Scrab;
 import edu.java.teamproject.service.ScrabServiceImple;
 
@@ -33,12 +36,19 @@ public class ScrabDaoImple implements ScrabDao {
       logger.info("deleteScrab() 호출" );
       return session.delete(SCRAB_MAPPER + ".deleteScrab", scrab);
    }
-   
+   //  스크랩 중복검사 후 insert
    @Override
    public int check(Scrab scrab) {
       logger.info("checkScrabDao () 호출" + scrab);
       return session.selectOne(SCRAB_MAPPER + ".checkScrab", scrab);
-      
+   }
+   
+   // 프로필 페이지에서 내가 스크랩 한 것 모두 보여주기
+   // 로그인 아이디를 이용해 board list로 받아옴
+  @Override
+   public List<Board> myScrabList(String user_id) {
+     logger.info("myScrabListDao () 호출 : " + user_id);
+      return session.selectList(SCRAB_MAPPER + ".myScrabList", user_id);
    }
 
 }

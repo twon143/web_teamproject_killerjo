@@ -82,6 +82,9 @@ li.up-list {
 	position: relative;
 	left: 238px;
 }
+img#viewToHeight, img#viewToWidth{
+	cursor: point;
+}
 
 li.sub-category-li-widthView {
 	left: 255px;

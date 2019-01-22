@@ -35,9 +35,13 @@
 	</beans:bean>
 
 	<!-- 서버의 파일 저장 경로 설정 -->
+	<!-- <beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg
+			value="C:\\Study\\lab-spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\web_tp_community\\resources\\upload" />
+	</beans:bean> -->
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg
-			value="C:\Study\lab-spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\web_tp_community\resources\upload" />
+			value="C:\\study\\lab-spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\web_tp_commnuity\\upload" />
 	</beans:bean>
 	
 	

@@ -50,11 +50,11 @@ public class DaoTest {
 	}
 	private void testReplyList() {
 		// TODO Auto-generated method stub
-		List<Reply> replyList = replyService.select(200);
-		
-		for(Reply r : replyList) {
-			logger.info("read() 결과 {}", r);
-		}
+//		List<Reply> replyList = replyService.select(200);
+//		
+//		for(Reply r : replyList) {
+//			logger.info("read() 결과 {}", r);
+//		}
 	}
 
 	private void selectAllTest() {

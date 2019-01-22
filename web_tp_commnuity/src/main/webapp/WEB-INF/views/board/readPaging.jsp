@@ -38,6 +38,80 @@
    <div id="replies">
    </div> 
       <!-- 댓글 리스트를 넣어줄 영역 -->
+      
+    <!-- 로그인 모달창 -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<!--  -->
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="modal-header">
+							<h4>회원가입</h4>
+						</div>
+						<div class="modal-body">
+							<form action="../user/register" method="post">
+								<div class="form-group">
+									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="5~15자의 영문, 숫자로만">
+								</div>
+								<div class="form-group">
+									<label for="signup_user_password">비밀번호</label><br> <input type="password" id="signup_user_password" name="password" placeholder="비밀번호 입력">
+								</div>
+								<div class="form-group">
+									<label for="signup_user_password_confirm">비밀번호 확인</label><br> <input type="password" id="signup_user_password_confirm" name="password_confirm" placeholder="비밀번호를 다시 입력">
+								</div>
+								<div class="form-group">
+									<label for="signup_user_nickname">닉네임</label><br> <input type="text" id="signup_user_nickname" name="nickname" placeholder="2자 이상">
+								</div>
+								<div class="form-group">
+									<label for="signup_user_email">이메일</label><br> <input type="email" id="signup_user_email" name="email" placeholder="이메일">
+								</div>
+								<p class="help-block">
+									입력하신 이메일로 인증 메일이 발송됩니다.
+									<!-- 인증 메일을 확인하시면 비밀번호 찾기 등에 사용됩니다. -->
+								</p>
+								<div class="checkbox">
+									<label> <input type="checkbox" name="agree" value="Y"> <a href="/terms" target="_blank">이용약관</a> 에 동의합니다.
+									</label>
+								</div>
+								<!-- <button type="button" id="signup-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
+                           </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
+
+								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${bno}&category=${category}&type=${type}&sort=${sort}">
+
+							</form>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<div class="modal-header">
+							<h4>로그인</h4>
+						</div>
+						<div class="modal-body">
+							<form action="../user/login-post" method="post">
+								<div class="form-group">
+									<label for="user_id">아이디</label><br> <input type="text" id="user_id" name="id" placeholder="아이디">
+								</div>
+								<div class="form-group">
+									<label for="user_password">비밀번호</label><br> <input type="password" id="password" name="password" placeholder="비밀번호">
+								</div>
+								<!-- <button type="button" id="login-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
+                           </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
+
+								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${bno}&category=${category}&type=${type}&sort=${sort}">
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- 로그인 모달창 끝 -->
 
 	<!-- S:wrapper -->
 	<div id="wrapper">
@@ -87,11 +161,11 @@
 
 
 
-							<form action="user/logout" method="post">
+							<form action="../user/logout" method="post">
 
 								<input type="submit" class="btn-logout btn btn-info"
 									value="로그아웃" />
-
+								<input type="hidden" name="queryString" value="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${bno}&category=${category}&type=${type}&sort=${sort}">
 								<!-- <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/"/> -->
 							</form>
 
@@ -110,7 +184,7 @@
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand"
-							href="/teamproject/board/listPaging?category=all&type=all">전체</a>
+							href="/teamproject/board/listPaging?category=all&type=all&sort=popular">전체</a>
 					</div>
 					<!-- 상세 카테고리들 -->
 					<ul class="nav navbar-nav">
@@ -118,51 +192,49 @@
 							data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
+									href="/teamproject/board/listPaging?category=php&type=all&sort=popular">PHP</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
+									href="/teamproject/board/listPaging?category=javascript&type=all&sort=popular">Javascript</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
+									href="/teamproject/board/listPaging?category=java&type=all&sort=popular">Java</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
+									href="/teamproject/board/listPaging?category=spring&type=all&sort=popular">Spring</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
+									href="/teamproject/board/listPaging?category=nodejs&type=all&sort=popular">Node.js</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
+									href="/teamproject/board/listPaging?category=swift&type=all&sort=popular">Swift</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
-								<li><a href="#">CSS</a></li>
-								<li><a href="#">Python</a></li>
-								<li><a href="#">JSP</a></li>
-								<li><a href="#">jQuery</a></li>
-								<li><a href="#">C#</a></li>
-								<li><a href="#">React Native</a></li>
+									href="/teamproject/board/listPaging?category=kotlin&type=all&sort=popular">Kotlin</a></li>
+								<li><a href="/teamproject/board/listPaging?category=css&type=all&sort=popular">CSS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=python&type=all&sort=popular">Python</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jsp&type=all&sort=popular">JSP</a></li>
+								<li><a href="/teamproject/board/listPaging?category=jquery&type=all&sort=popular">jQuery</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">리눅스</a></li>
-								<li><a href="#">서버관리</a></li>
-								<li><a href="#">CDN</a></li>
-								<li><a href="#">AWS</a></li>
-								<li><a href="#">API</a></li>
+								<li><a href="/teamproject/board/listPaging?category=linux&type=all&sort=popular">리눅스</a></li>
+								<li><a href="/teamproject/board/listPaging?category=server_management&type=all&sort=popular">서버관리</a></li>
+								<li><a href="/teamproject/board/listPaging?category=cdn&type=all&sort=popular">CDN</a></li>
+								<li><a href="/teamproject/board/listPaging?category=aws&type=all&sort=popular">AWS</a></li>
+								<li><a href="/teamproject/board/listPaging?category=api&type=all&sort=popular">API</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">SQL</a></li>
-								<li><a href="#">MySQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=sql&type=all&sort=popular">SQL</a></li>
+								<li><a href="/teamproject/board/listPaging?category=mysql&type=all&sort=popular">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">GIT</a></li>
+								<li><a href="/teamproject/board/listPaging?category=git&type=all&sort=popular">GIT</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">머신러닝</a></li>
-								<li><a href="#">블록체인</a></li>
+								<li><a href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=popular">머신러닝</a></li>
+								<li><a href="/teamproject/board/listPaging?category=blockchain&type=all&sort=popular">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
@@ -182,11 +254,14 @@
 							</ul></li>
 					</ul>
 					<!-- 상세카테고리들 끝 -->
-					<form class="navbar-form navbar-left" action="/action_page.php">
+					<form class="navbar-form navbar-left" action="searchPaging" method="get">
+					
+						<input type="hidden" name="type" value="all">
+						<input type="hidden" name="sort" value="popular">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" placeholder="Search" name="keyword">
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
+						<input type="submit" class="btn btn-default" value="검색"/>
 					</form>
 				</div>
 			</nav>

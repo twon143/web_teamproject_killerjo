@@ -51,13 +51,18 @@
             </div>
          </div>
 
-         <div class="mainLogo-submit-div">
-            <input type="submit" value="검색" class="btnSubmit" />
-         </div>
-
-         <div class="mainLogo-searchBox-div">
-            <input type="text" placeholder=검색... class="searchBox" />
-         </div>
+		<form action="searchPaging" method="get">
+		
+			<input type="hidden" name="type" value="all">
+			<input type="hidden" name="sort" value="popular">
+	        <div class="mainLogo-submit-div">
+	           <input type="submit" value="검색" class="btnSubmit" />
+	        </div>
+	
+	        <div class="mainLogo-searchBox-div">
+	           <input type="text" placeholder=검색... class="searchBox" name="keyword"/>
+	        </div>
+		</form>
 
 
 
