@@ -141,10 +141,8 @@
                             <form>
                                 <input type="button" class="btn-settig btn btn-info" value="설정" />
                             </form>
-
-                            <form action="user/logout" method="post">
-
-                                <input type="submit" class="btn-logout btn btn-info" value="로그아웃" />
+                            <form action="../user/logout" method="post">
+                                <input type="submit" class="btn-logout" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
 
                             </form>
 
@@ -297,7 +295,7 @@
 
 							<!-- header 부분 제목에대한 <p><a> -->
 							<div class="contnt-header-title-link title-bg">
-								<a href="#">
+								<a href="/">
 								<strong>검색</strong>
 								</a>
 							</div>

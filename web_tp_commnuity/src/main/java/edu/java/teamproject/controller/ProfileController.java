@@ -1,8 +1,6 @@
 package edu.java.teamproject.controller;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,26 +11,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.java.teamproject.model.Board;
 import edu.java.teamproject.model.User;
+import edu.java.teamproject.persistence.UserDao;
 import edu.java.teamproject.service.ProfileService;
+
 
 @Controller
 @RequestMapping(value = "user")
 public class ProfileController {
 
 	@Autowired ProfileService profileService;
+	@Autowired UserDao userDao;
 
 	@RequestMapping(value = "profile", method = RequestMethod.GET)
-	public void myPostView (String id, Model model, HttpSession session) {
+	public void myPostView (Model model, HttpSession session) {
 		User user = (User)session.getAttribute("login");
 		String loginId = user.getId();
-		if(loginId == null || loginId == "") {
-			// 할일
-		}
-		else {
+		
+		User login_user = userDao.loginCheck(user);
 		List<Board> list = profileService.readByWriter(loginId);
+
+		model.addAttribute("login_user", login_user);
 		model.addAttribute("boardList", list);
-		}
+		
 	}
 
-	
+	@RequestMapping(value = "profile-edit", method = RequestMethod.GET)
+	public void myProfileEdit (HttpSession session, Model model) {
+		User user = (User)session.getAttribute("login");
+		String loginId = user.getId();
+		
+		User user1 = profileService.getUserInfo(loginId);
+		model.addAttribute("user", user1);
+	}
 }

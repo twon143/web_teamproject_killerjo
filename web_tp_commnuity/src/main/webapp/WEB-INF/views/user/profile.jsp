@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@
 						</div>
 						<div class="modal-body">
 							<!--회원가입 폼 -->
-							<form action="user/register" method="post" onsubmit="return submitCheck();">
+							<form action="register" method="post" onsubmit="return submitCheck();">
 								<div class="form-group">
 									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="6~12자의 영문, 숫자로만">
 								</div>
@@ -76,7 +77,7 @@
 
 								<!-- <button type="button" id="signup-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
-								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
+								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/user/profile">
 
 							</form>
 							<!-- 회원가입 폼 -->
@@ -90,7 +91,7 @@
 							<h4>로그인</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/login-post" method="post">
+							<form action="login-post" method="post">
 								<div class="form-group">
 									<label for="user_id">아이디</label><br> <input type="text" id="user_id" name="id" placeholder="아이디">
 								</div>
@@ -100,7 +101,7 @@
 								<!-- <button type="button" id="login-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
 
-								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
+								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/user/profile">
 							</form>
 						</div>
 					</div>
@@ -146,7 +147,7 @@
 								<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
 							</div>
 							<div class="img-profile-div">
-								<a href="user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+								<a href="profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
 								</a>
 							</div>
 
@@ -156,10 +157,10 @@
 
 
 
-							<form action="user/logout" method="post">
+							<form action="logout" method="post">
 
 								<input type="submit" class="btn-logout btn btn-info" value="로그아웃" />
-
+								<input type="hidden" name="queryString" value="/teamproject/">
 							</form>
 
 						</div>
@@ -233,7 +234,7 @@
 							</ul></li>
 					</ul>
 					<!-- 상세카테고리들 끝 -->
-					<form class="navbar-form navbar-left search-btn-nav" action="board/searchPaging" method="get">
+					<form class="navbar-form navbar-left search-btn-nav" action="../board/searchPaging" method="get">
 
 						<input type="hidden" name="type" value="all"> <input type="hidden" name="sort" value="popular">
 						<div class="form-group">
@@ -284,7 +285,7 @@
 										</div>
 
 										<div class="profile-image-edit text-center">
-											<a class="btn btn-default btn-xs" href="/settings/profile" role='button'>프로필 편집</a>
+											<a class="btn btn-default btn-xs" href="profile-edit" role='button'>프로필 편집</a>
 										</div>
 									</div>
 								</div>
@@ -300,11 +301,13 @@
 					<div class="user-profile-info col-md-3">
 						<!-- <h4 class="user-profile-heading">111</h4> -->
 						<div class="ques-btn">
-							<a class="btn btn-primary" href="/post?type=ask&to_user_no=158"><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${login.id}님에게 질문하기</a>
+							<a class="btn btn-primary" href="/post?type=ask&to_user_no=158"><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${login_user.nickname}님에게 질문하기</a>
 						</div>
 
 						<p class="text-muted hide-at-mobile">
-							<i class="fa fa-calendar"></i> 가입일 : 2018년 12월
+							<fmt:formatDate value="${login_user.join_date}"
+								pattern="yyyy년 MM월" var="regDate"/>
+							<i class="fa fa-calendar"></i> ${regDate}
 						</p>
 						<div class="user-profile-sns">
 							<script>
@@ -348,15 +351,15 @@
 										<div class="sub-sub-post-list2">
 											<div class="post-image-div2">
 												<c:if test="${board.type == 'question'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}"> <img alt="" src="/teamproject/resources/images/blank_image2.png">
+													<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/blank_image2.png">
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'writing'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}"> <img alt="" src="/teamproject/resources/images/writing_image2.png">
+													<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/writing_image2.png">
 													</a>
 												</c:if>
 												<c:if test="${board.type == 'link'}">
-													<a href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}"> <img alt="" src="/teamproject/resources/images/link_image2.png">
+													<a href="/teamproject/board/readPaging?bno=${board.bno}&category=${board.category}&type=${board.type}"> <img alt="" src="/teamproject/resources/images/link_image2.png">
 													</a>
 												</c:if>
 											</div>
@@ -365,7 +368,7 @@
 												<button class="btnHPostTag3">답변 대기</button>
 												<a href="/teamproject/board/listPaging?type=all&category=${board.category}" target="blank">
 													<button class="btnPostTag">${board.category}</button>
-												</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
+												</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging?bno=${board.bno}&category=${category}&type=${type}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
 											</div>
 										</div>
 

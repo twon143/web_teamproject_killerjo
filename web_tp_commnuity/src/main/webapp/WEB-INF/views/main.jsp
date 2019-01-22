@@ -73,7 +73,7 @@
 
 								<!-- <button type="button" id="signup-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
-								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
+								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/">
 
 							</form>
 							<!-- 회원가입 폼 -->
@@ -97,7 +97,7 @@
 								<!-- <button type="button" id="login-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
 
-								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/">
+								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/">
 							</form>
 						</div>
 					</div>
@@ -157,7 +157,7 @@
 							<form action="user/logout" method="post">
 
 								<input type="submit" class="btn-logout btn btn-info" value="로그아웃" />
-
+								<input type="hidden" name="queryString" value="/teamproject/">
 							</form>
 
 						</div>
@@ -419,7 +419,7 @@
 							<div class="login-form-right-div">
 
 								<form action="user/login-post" method="post">
-									<input type="text" name="id" placeholder="아이디" class="login-input-id" required="required" /> <input type="password" name="password" placeholder="비밀번호" class="login-input-pw" required="required" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
+									<input type="text" name="id" placeholder="아이디" class="login-input-id" required="required" /> <input type="password" name="password" placeholder="비밀번호" class="login-input-pw" required="required" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="/teamproject/" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" /> <input type="button" value="구글 로그인" class="btn-side-google-login" />
 
@@ -444,6 +444,7 @@
 									<!-- <button id="btn-logout">로그아웃</button> -->
 									<form action="user/logout" method="post">
 										<input type="submit" value="로그아웃">
+										<input type="hidden" name="queryString" value="/teamproject/">
 									</form>
 								</div>
 							</div>

@@ -63,7 +63,7 @@
 		<if test="!'all'.equals(type)">
 			AND ${board.type} = #{type}
 		</if>
-		ORDER BY ${board.bno} DESC, 
+		ORDER BY  
 		<if test="'popular'.equals(sort)">
 			${board.view_count} DESC
 		</if>

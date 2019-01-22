@@ -102,11 +102,11 @@ public class BoardController {
    
    // 글 상세보기 페이지 이동
    @RequestMapping(value = "readPaging", method = RequestMethod.GET)
-   public String readPaging(@RequestParam("bno") int bno, 
+   public String readPaging(@ModelAttribute("bno") int bno, 
 		   Criteria criteria, Model model,
 		   @ModelAttribute("category") String category,
 		   @ModelAttribute("type") String type,
-		   @ModelAttribute("sort") String sort,
+		   String sort,
 		   HttpServletRequest request, HttpServletResponse response) {
 	   // 아이피 정보를 얻어옴
 	   HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
@@ -215,6 +215,10 @@ public class BoardController {
 		   
 	   
 	   }*/
+	   if(sort != null) {
+		   model.addAttribute("sort", sort);
+	   }
+
 	   model.addAttribute("board", boardService.readByBno(bno));
 	   
 	   /*if(sort != null) {

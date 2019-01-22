@@ -37,7 +37,7 @@
 							<h4>회원가입</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/register" method="post">
+							<form action="../user/register" method="post">
 								<div class="form-group">
 									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="5~15자의 영문, 숫자로만">
 								</div>
@@ -64,7 +64,7 @@
 								<!-- <button type="button" id="signup-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
 
-								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
+								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 
 							</form>
 						</div>
@@ -87,7 +87,7 @@
 								<!-- <button type="button" id="login-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
 
-								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
+								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
 							</form>
 						</div>
 					</div>
@@ -140,10 +140,8 @@
 							<form>
 								<input type="button" class="btn-settig btn btn-info" value="설정" />
 							</form>
-
-							<form action="user/logout" method="post">
-
-								<input type="submit" class="btn-logout btn btn-info" value="로그아웃" />
+							<form action="../user/logout" method="post">
+								<input type="submit" class="btn-logout" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
 
 							</form>
 
@@ -224,7 +222,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search" name="keyword">
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
+						<input type="submit" class="btn btn-default" value="검색"/>
 
 					</form>
 				</div>
@@ -417,7 +415,7 @@
 						<c:if test="${empty login}">
 							<div class="login-form-right-div">
 								<form action="../user/login-post" method="post">
-									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="text" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
+									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="text" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="
 								아이디/비밀번호 찾기" class="btn-side-findIdAndPw" /> <input type="button" value="구글 로그인" class="btn-side-google-login" />
@@ -441,7 +439,7 @@
 								<br />
 								<div>
 									<form action="../user/logout" method="post">
-										<input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" /> <input type="submit" value="로그아웃" />
+										<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" /> <input type="submit" value="로그아웃" />
 
 									</form>
 								</div>

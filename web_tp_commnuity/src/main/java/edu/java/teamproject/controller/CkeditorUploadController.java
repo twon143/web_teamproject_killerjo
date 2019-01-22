@@ -29,7 +29,6 @@ public class CkeditorUploadController {
     private static final Logger logger = LoggerFactory.getLogger(CkeditorUploadController.class);
  
     //파일 디렉토리 사용시
-    // @Qualifier("uploadPath")
     @Autowired
     private String uploadPath;
      
@@ -144,7 +143,7 @@ public class CkeditorUploadController {
         // 보안상 , jpg, jpeg, png, gif, 만 업로드 되도록 수정 
         if(UploadSecurity.check(upload)){
          
-            uploadFile=UploadFileUtils.ckuploadFile(UploadPath.path(request), upload.getOriginalFilename(), upload.getBytes());     
+            uploadFile=UploadFileUtils.ckuploadFile(uploadPath, upload.getOriginalFilename(), upload.getBytes());     
             logger.info(" uploadFile  -   {}" ,uploadFile);
               
             //3.URL 상에서 볼수 있는 이미지 경로
@@ -182,13 +181,13 @@ public class CkeditorUploadController {
      
     @ResponseBody
     @RequestMapping("/displayFile")
-    public ResponseEntity<byte[]> displayFile(String fileName, HttpServletRequest request) throws Exception{
+    public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
         UploadFileDisplay display=UploadFileDisplay.getInstance();
 //        logger.info("fileName = {}, uploadPath = {}", fileName, uploadPath);
-        logger.info("fileName = {}, uploadPath = {}", fileName, UploadPath.path(request));
+        logger.info("fileName = {}, uploadPath = {}", fileName, uploadPath);
          
 //        return display.disPlay(fileName, uploadPath);
-        return display.disPlay(fileName, UploadPath.path(request));
+        return display.disPlay(fileName, uploadPath);
     }
      
      

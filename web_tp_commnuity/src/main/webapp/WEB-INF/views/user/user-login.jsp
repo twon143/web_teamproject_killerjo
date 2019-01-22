@@ -49,13 +49,18 @@
 				</div>
 			</div>
 
-			<div class="mainLogo-submit-div">
-				<input type="submit" value="검색" class="btnSubmit" />
-			</div>
-
-			<div class="mainLogo-searchBox-div">
-				<input type="text" placeholder=검색... class="searchBox" />
-			</div>
+			<form action="../board/searchPaging" method="get">
+		
+				<input type="hidden" name="type" value="all">
+				<input type="hidden" name="sort" value="popular">
+	        	<div class="mainLogo-submit-div">
+	           		<input type="submit" value="검색" class="btnSubmit" />
+	        	</div>
+	
+	        	<div class="mainLogo-searchBox-div">
+	           		<input type="text" placeholder=검색... class="searchBox" name="keyword"/>
+	        	</div>
+			</form>
 
 
 
@@ -67,7 +72,7 @@
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand"
-							href="/teamproject/board/listPaging?category=all&type=all">전체</a>
+							href="/teamproject/board/listPaging?category=all&type=all&sort=popular">전체</a>
 					</div>
 					<!-- 상세 카테고리들 -->
 					<ul class="nav navbar-nav">
@@ -75,64 +80,64 @@
 							data-toggle="dropdown" href="#">언어 및 도구<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="/teamproject/board/listPaging?category=php&type=all">PHP</a></li>
+									href="/teamproject/board/listPaging?category=php&type=all&sort=popular">PHP</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=javascript&type=all">Javascript</a></li>
+									href="/teamproject/board/listPaging?category=javascript&type=all&sort=popular">Javascript</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=java&type=all">Java</a></li>
+									href="/teamproject/board/listPaging?category=java&type=all&sort=popular">Java</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=spring&type=all">Spring</a></li>
+									href="/teamproject/board/listPaging?category=spring&type=all&sort=popular">Spring</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=nodejs&type=all">Node.js</a></li>
+									href="/teamproject/board/listPaging?category=nodejs&type=all&sort=popular">Node.js</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=swift&type=all">Swift</a></li>
+									href="/teamproject/board/listPaging?category=swift&type=all&sort=popular">Swift</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=kotlin&type=all">Kotlin</a></li>
+									href="/teamproject/board/listPaging?category=kotlin&type=all&sort=popular">Kotlin</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=css&type=all">CSS</a></li>
+									href="/teamproject/board/listPaging?category=css&type=all&sort=popular">CSS</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=python&type=all">Python</a></li>
+									href="/teamproject/board/listPaging?category=python&type=all&sort=popular">Python</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=jsp&type=all">JSP</a></li>
+									href="/teamproject/board/listPaging?category=jsp&type=all&sort=popular">JSP</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=jquery&type=all">jQuery</a></li>
+									href="/teamproject/board/listPaging?category=jquery&type=all&sort=popular">jQuery</a></li>
 								<!-- <li><a href="/teamproject/board/listPaging?category=c#&type=all">C#</a></li> -->
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">네트워크와 서버<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="/teamproject/board/listPaging?category=linux&type=all">리눅스</a></li>
+									href="/teamproject/board/listPaging?category=linux&type=all&sort=popular">리눅스</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=server_management&type=all">서버관리</a></li>
+									href="/teamproject/board/listPaging?category=server_management&type=all&sort=popular">서버관리</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=cdn&type=all">CDN</a></li>
+									href="/teamproject/board/listPaging?category=cdn&type=all&sort=popular">CDN</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=aws&type=all">AWS</a></li>
+									href="/teamproject/board/listPaging?category=aws&type=all&sort=popular">AWS</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=api&type=all">API</a></li>
+									href="/teamproject/board/listPaging?category=api&type=all&sort=popular">API</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">데이터베이스<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="/teamproject/board/listPaging?category=sql&type=all">SQL</a></li>
+									href="/teamproject/board/listPaging?category=sql&type=all&sort=popular">SQL</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=mysql&type=all">MySQL</a></li>
+									href="/teamproject/board/listPaging?category=mysql&type=all&sort=popular">MySQL</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">프로젝트 관리<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="/teamproject/board/listPaging?category=git&type=all">GIT</a></li>
+									href="/teamproject/board/listPaging?category=git&type=all&sort=popular">GIT</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">빅데이터<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="/teamproject/board/listPaging?category=machine_learning&type=all">머신러닝</a></li>
+									href="/teamproject/board/listPaging?category=machine_learning&type=all&sort=popular">머신러닝</a></li>
 								<li><a
-									href="/teamproject/board/listPaging?category=blockchain&type=all">블록체인</a></li>
+									href="/teamproject/board/listPaging?category=blockchain&type=all&sort=popular">블록체인</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">톡톡<span class="caret"></span></a>
