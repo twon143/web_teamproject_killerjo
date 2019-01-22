@@ -13,6 +13,7 @@ import edu.java.teamproject.model.Board;
 import edu.java.teamproject.model.User;
 import edu.java.teamproject.persistence.UserDao;
 import edu.java.teamproject.service.ProfileService;
+import edu.java.teamproject.service.ScrabService;
 
 
 @Controller
@@ -21,6 +22,7 @@ public class ProfileController {
 
 	@Autowired ProfileService profileService;
 	@Autowired UserDao userDao;
+	@Autowired ScrabService scrabService;
 
 	@RequestMapping(value = "profile", method = RequestMethod.GET)
 	public void myPostView (Model model, HttpSession session) {
@@ -33,6 +35,18 @@ public class ProfileController {
 		model.addAttribute("login_user", login_user);
 		model.addAttribute("boardList", list);
 		
+	}
+	
+	@RequestMapping(value = "scrab", method = RequestMethod.GET)
+	public void myScrabView(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("login");
+		String loginId = user.getId();
+		
+		User login_user = userDao.loginCheck(user);
+		List<Board> list = scrabService.myScrabList(loginId);
+
+		model.addAttribute("login_user", login_user);
+		model.addAttribute("boardList", list);
 	}
 
 	@RequestMapping(value = "profile-edit", method = RequestMethod.GET)

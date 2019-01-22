@@ -133,7 +133,7 @@
 								<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
 							</div>
 							<div class="img-profile-div">
-								<a href="user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+								<a href="../user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
 								</a>
 							</div>
 
@@ -141,7 +141,7 @@
 								<input type="button" class="btn-settig btn btn-info" value="설정" />
 							</form>
 							<form action="../user/logout" method="post">
-								<input type="submit" class="btn-logout" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
+								<input type="submit" class="btn-logout btn btn-info" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
 
 							</form>
 
@@ -320,7 +320,12 @@
                                         <a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <strong>${board.title}</strong>
                                         <input id="hidden-bno" type="hidden" value="${board.bno}"/>
                                         </a>
-                                        <button class="btnReplyCount">답변 대기</button>
+                                        <c:if test="${board.answer_count == 0}">
+											<button class="btnReplyCount">답변 대기</button>
+										</c:if>
+										<c:if test="${board.answer_count > 0}">
+											<button class="btnReply">답변 ${board.answer_count}</button>
+										</c:if>
                                         <a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
                                             <button class="btnPostTag">${board.category}</button>
                                         </a>
@@ -369,7 +374,12 @@
 											</div>
 
 											<div class="post-contents2">
-												<button class="btnHPostTag3">답변 대기</button>
+												<c:if test="${board.answer_count == 0}">
+													<button class="btnHPostTag3">답변 대기</button>
+												</c:if>
+												<c:if test="${board.answer_count > 0}">
+													<button class="btnHPostTag4">답변 ${board.answer_count}</button>
+												</c:if>
 												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular" target="blank">
 													<button class="btnPostTag">${board.category}</button>
 												</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
@@ -416,7 +426,7 @@
 						<c:if test="${empty login}">
 							<div class="login-form-right-div">
 								<form action="../user/login-post" method="post">
-									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="text" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
+									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="password" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="
 								아이디/비밀번호 찾기" class="btn-side-findIdAndPw" /> <input type="button" value="구글 로그인" class="btn-side-google-login" />

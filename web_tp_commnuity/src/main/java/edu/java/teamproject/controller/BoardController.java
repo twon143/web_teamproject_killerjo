@@ -1,5 +1,7 @@
 package edu.java.teamproject.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 
 import javax.servlet.http.Cookie;
@@ -59,9 +61,12 @@ public class BoardController {
    }
    
    @RequestMapping(value="write-form", method = RequestMethod.GET)
-   public void postRegister(@ModelAttribute("type") String type, @ModelAttribute("queryString") String queryString, @ModelAttribute("category") String category) {
+   public void postRegister(@ModelAttribute("category") String category, @ModelAttribute("type") String type, String queryString, Model model) throws UnsupportedEncodingException {
       logger.info("postRegister(type : {}, queryString : {}, category : {}) 호출", type, queryString, category);
      
+      if(queryString != null) {
+    	  model.addAttribute("queryString", URLEncoder.encode(queryString, "utf-8"));
+      }
    }
    
    /* !!!테스트용!!! */

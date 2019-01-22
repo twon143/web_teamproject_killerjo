@@ -328,11 +328,11 @@
 						<div class="sub-nav-div">
 							<ul class="nav nav-pills sub-nav instant-ul">
 								<!-- <li class="sub-title hide-at-mobile"></li> -->
-								<li class="active focus-profile-tag"><a href="profile">올린 포스트</a></li>
+								<li class="focus-profile-tag"><a href="profile">올린 포스트</a></li>
 								<li class="focus-profile-tag"><a href="#">받은 질문</a></li>
 								<li class="focus-profile-tag"><a href="#">올린 답변</a></li>
 								<li class="vline-li"><a>|</a></li>
-								<li class="focus-profile-tag"><a href="scrab">보관한 포스트</a></li>
+								<li class="active focus-profile-tag"><a href="scrab">보관한 포스트</a></li>
 								<li class="focus-profile-tag"><a href="#">관심 소책자</a></li>
 							</ul>
 

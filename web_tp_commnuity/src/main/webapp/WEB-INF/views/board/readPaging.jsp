@@ -285,15 +285,26 @@
 							</a>	
 							<a href="#" class="title-sub-a"><span class="title-sub-span2">댓글 ${board.reply_count}</span>
 							</a>
-							<a href="#" class="category-a">(Java/Question)</a>
+							<a href="#" class="category-a">(${board.category}/${board.type})</a>
 						</div>
 
 						<!-- 게시글 정보 div -->
 						<div class="detailPost-postInfo-div">
 							<a><img class="no-profle-img" alt=""
 								src="/teamproject/resources/images/icon_blankProfile.png">${board.writer}</a>
-							<span>님께서 ${board.write_date}일에 <strong
-								class="post-category-strong">${board.category} </strong>에 올린 답변
+							<fmt:formatDate value="${board.write_date}"
+								pattern="yyyy년 MM월 dd일" var="regDate"/>
+							<span>님께서 ${regDate}에 <strong
+								class="post-category-strong">${board.category} </strong>에 올린 
+								<c:if test="${board.type == 'question'}">
+									질문
+								</c:if>
+								<c:if test="${board.type == 'writing'}">
+									글
+								</c:if>
+								<c:if test="${board.type == 'link'}">
+									링크
+								</c:if>
 							</span>
 						</div>
 

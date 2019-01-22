@@ -336,7 +336,12 @@
 										<!-- Dummy Data 1 -->
 										<a class="post-title" href="/teamproject/board/readPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}"> <strong>${board.title}</strong>
 										</a>
-										<button class="btnReplyCount">답변 대기</button>
+										<c:if test="${board.answer_count == 0}">
+											<button class="btnReplyCount">답변 대기</button>
+										</c:if>
+										<c:if test="${board.answer_count > 0}">
+											<button class="btnReply">답변 ${board.answer_count}</button>
+										</c:if>
 										<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 											<button class="btnPostTag">${board.category}</button>
 										</a>
@@ -386,7 +391,12 @@
 											</div>
 
 											<div class="post-contents2">
-												<button class="btnHPostTag3">답변 대기</button>
+												<c:if test="${board.answer_count == 0}">
+													<button class="btnHPostTag3">답변 대기</button>
+												</c:if>
+												<c:if test="${board.answer_count > 0}">
+													<button class="btnHPostTag4">답변 ${board.answer_count}</button>
+												</c:if>
 												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}" target="blank">
 													<button class="btnHPostTag">${board.category}</button>
 												</a>

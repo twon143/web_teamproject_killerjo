@@ -44,7 +44,10 @@
 			value="C:\\study\\lab-spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\web_tp_commnuity\\upload" />
 	</beans:bean>
 	
-	
+	<!-- <beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg
+			value="/var/lib/tomcat8/webapps/teamproject/upload" />
+	</beans:bean> -->
 
 	<context:component-scan
 		base-package="edu.java.teamproject" />

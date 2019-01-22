@@ -1,5 +1,7 @@
 package edu.java.teamproject;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.java.teamproject.model.Board;
 import edu.java.teamproject.service.BoardService;
 import edu.java.teamproject.util.Criteria;
 
@@ -35,6 +38,11 @@ public class HomeController {
 		logger.info("session 값 확인 : {}", session.getAttribute("login"));
 		
 //		criteria.setPerPageNum(12);
+		/*List<Board> popularQuesionList = boardService.listCriteria(criteria, "all", "question", "popular");
+		Iterator<Board> iterator = popularQuesionList.iterator();
+		while (iterator.hasNext()) {
+			
+		}*/
 		
 		model.addAttribute("popularQuestionList", boardService.listCriteria(criteria, "all", "question", "popular"));
 		model.addAttribute("popularWritingList", boardService.listCriteria(criteria, "all", "writing", "popular"));

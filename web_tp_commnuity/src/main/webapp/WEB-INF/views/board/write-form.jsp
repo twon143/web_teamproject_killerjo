@@ -178,15 +178,13 @@
 	            <c:if test="${type == 'writing'}">
 	               <li class="clicked-li">
 	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writePost.png">
-	               <a class="menu-link" href="write-form?category=${category}&type=writing&queryString=${queryString}">글 올리기
-	               </a>
+	               <a class="menu-link" href="write-form?category=${category}&type=writing&queryString=${queryString}">글 올리기</a>
 	               </li>
 	            </c:if>
 	            <c:if test="${type != 'writing'}">
 	               <li>
 	               <img class="type-image" alt="" src="/teamproject/resources/images/icon_writePost.png">
-	               <a class="menu-link" href="write-form?category=${category}&type=writing&queryString=${queryString}">글 올리기
-	               </a>
+	               <a class="menu-link" href="write-form?category=${category}&type=writing&queryString=${queryString}">글 올리기</a>
 	               </li>
 	            </c:if>
 	            

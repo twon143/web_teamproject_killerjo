@@ -109,7 +109,7 @@
 			AND ${board.title} LIKE lower(#{searchKeyword}) 
 			AND ${board.content} LIKE lower(#{searchKeyword}) 
 		</if>
-		ORDER BY ${board.bno} DESC, 
+		ORDER BY 
 		<if test="'popular'.equals(sort)">
 			${board.view_count} DESC
 		</if>

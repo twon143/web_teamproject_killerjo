@@ -357,7 +357,12 @@
 									<div class="post-contents">
 										<!-- Dummy Data 1 -->
 										<a class="post-title" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}&keyword=${keyword}"><strong>${board.title}</strong></a>
-										<button class="btnReplyCount">답변 대기</button>
+										<c:if test="${board.answer_count == 0}">
+											<button class="btnReplyCount">답변 대기</button>
+										</c:if>
+										<c:if test="${board.answer_count > 0}">
+											<button class="btnReply">답변 ${board.answer_count}</button>
+										</c:if>
 										<a href="/teamproject/board/listPagingcategory=${board.category}&type=all&sort=popular" target="blank">
 											<button class="btnPostTag">${board.category}</button>
 										</a> <br /> <br /> <a class="post-content">${board.content}</a><br /> <span class="post-info-span"><a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if> </span> <br /> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#">보관하기</a>
@@ -396,7 +401,12 @@
 											</div>
 
 											<div class="post-contents2">
-												<button class="btnHPostTag3">답변 대기</button>
+												<c:if test="${board.answer_count == 0}">
+													<button class="btnHPostTag3">답변 대기</button>
+												</c:if>
+												<c:if test="${board.answer_count > 0}">
+													<button class="btnHPostTag4">답변 ${board.answer_count}</button>
+												</c:if>
 												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular" target="blank">
 													<button class="btnPostTag">${board.category}</button>
 												</a> <br /> <a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}&keyword=${keyword}">${board.title}</a> <br /> <br /> <a href="#" class="post-userId2">${board.writer}</a>
@@ -444,7 +454,7 @@
 						<c:if test="${empty login}">
 							<div class="login-form-right-div">
 								<form action="../user/login-post" method="post">
-									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="text" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&type=${type}&sort=${sort}&keyword=${keyword}" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
+									<input type="text" name="id" placeholder="아이디" class="login-input-id" /> <input type="password" name="password" placeholder="비밀번호" class="login-input-pw" /> <input type="checkbox" id="autoLogin" name="use_cookie" /> <input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&type=${type}&sort=${sort}&keyword=${keyword}" /> <label for="autoLogin">로그인 유지</label> <input type="submit" value="로그인" class="btn-side-login" />
 								</form>
 								<input type="button" value="아이디/비밀번호 찾기" class="btn-side-findIdAndPw" /> <input type="button" value="구글 로그인" class="btn-side-google-login" />
 
