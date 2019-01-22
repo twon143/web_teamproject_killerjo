@@ -220,6 +220,10 @@ public class BoardController {
 		   
 	   
 	   }*/
+		if(criteria != null ) {
+			model.addAttribute("criteria", criteria);
+		}
+		
 	   if(sort != null) {
 		   model.addAttribute("sort", sort);
 	   }

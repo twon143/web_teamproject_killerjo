@@ -414,7 +414,9 @@
 						</div>
 						<!-- 돌아가기 그런 인터페이스 div -->
 						<div class="interface-div">
-							<button class="backTo-listPaging">게시글로 돌아가기</button>
+							<a href="/teamproject/board/listPaging?page=${criteria.page}&perPageNum=${criteria.perPageNum}&category=${category}&type=${type}&sort=${sort}">
+								<button class="backTo-listPaging">게시글로 돌아가기</button>
+							</a>
 							<button class="saving-post" onclick="test(${board.bno})">게시글 보관하기</button>
 							<button class="share-post-FaceBook">페이스북에 공유하기</button>
 						</div>
