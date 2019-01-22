@@ -57,4 +57,16 @@ public class ProfileController {
 		User user1 = profileService.getUserInfo(loginId);
 		model.addAttribute("user", user1);
 	}
+	
+	@RequestMapping(value = "profile-others", method = RequestMethod.GET)
+	public void OutersProfileView(Model model, String writer) {
+		
+		List<Board> list = profileService.readByWriter(writer);
+		
+		User user = profileService.getUserInfo(writer);
+		
+		model.addAttribute("User", user);
+		model.addAttribute("boardList", list);
+	}
+
 }
