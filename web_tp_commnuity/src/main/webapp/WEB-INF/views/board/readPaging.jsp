@@ -662,6 +662,8 @@
 			</div>
 </script>
 
+<!--  -->
+
 <!--  답변 댓글들 불러오기 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 <script id="answer-reply-template"  type="text/x-handlebars-template">
