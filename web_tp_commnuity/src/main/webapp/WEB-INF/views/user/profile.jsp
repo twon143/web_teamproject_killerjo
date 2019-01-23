@@ -301,7 +301,7 @@
 					<div class="user-profile-info col-md-3">
 						<!-- <h4 class="user-profile-heading">111</h4> -->
 						<div class="ques-btn">
-							<a class="btn btn-primary" href="/post?type=ask&to_user_no=158"><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${login_user.nickname}님에게 질문하기</a>
+							<a class="btn btn-primary" href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i> ${login_user.nickname}님에게 질문하기</a>
 						</div>
 
 						<p class="text-muted hide-at-mobile">
