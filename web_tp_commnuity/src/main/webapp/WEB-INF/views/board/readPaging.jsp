@@ -718,6 +718,7 @@
 																						$('.reply-content-textarea-answer').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
 																						$('.reply-content-textarea-answer').css("background-color", "#eee");
 																						$('.btnRegisterReply').attr("disabled", "disabled");
+																						$('.btn-write-answer').attr("disabled", "disabled");
 																					}
 																		
 																		
