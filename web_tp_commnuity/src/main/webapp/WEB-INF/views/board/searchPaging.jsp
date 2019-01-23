@@ -64,7 +64,7 @@
 								<!-- <button type="button" id="signup-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">가입하기</button> -->
 
-								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&type=${type}&sort=${sort}&keyword=${keyword}">
+								<input type="submit" id="signup-btn" value="회원가입" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&type=${type}&sort=${sort}&keyword=${keyword}">
 
 
 							</form>
@@ -78,7 +78,7 @@
 							<h4>로그인</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/login-post" method="post">
+							<form action="../user/login-post" method="post">
 								<div class="form-group">
 									<label for="user_id">아이디</label><br> <input type="text" id="user_id" name="id" placeholder="아이디">
 								</div>
@@ -88,7 +88,7 @@
 								<!-- <button type="button" id="login-btn" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin fa-lg'>
                            </i> 가입하는 중.. 잠시만 기다려주세요.">로그인</button> -->
 
-								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="https://localhost:8443/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&type=${type}&sort=${sort}&keyword=${keyword}">
+								<input type="submit" id="login-btn" value="로그인" class="btn btn-primary btn-lg"> <input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&type=${type}&sort=${sort}&keyword=${keyword}">
 							</form>
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 								<img class="img-notify" alt="" src="/teamproject/resources/images/icon_notify.png">
 							</div>
 							<div class="img-profile-div">
-								<a href="user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
+								<a href="../user/profile"> <img class="img-profile" alt="" src="/teamproject/resources/images/icon_profile.png">
 								</a>
 							</div>
 
@@ -142,7 +142,7 @@
 								<input type="button" class="btn-settig btn btn-info" value="설정" />
 							</form>
 							<form action="../user/logout " method="post">
-								<input type="submit" class="btn-logout btn btn-info" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}" />
+								<input type="submit" class="btn-logout btn btn-info" value="로그아웃"> <input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}&keyword=${keyword}" />
 
 							</form>
 
@@ -364,7 +364,7 @@
 										<%-- <a class="post-content" href="#">${board.content}</a> --%>
 
 
-										<span class="post-info-span"> <a class="post-info-span-userId" href="#">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
+										<span class="post-info-span"> <a class="post-info-span-userId" href="../user/profile-others?writer=${board.writer}">${board.writer}</a>님 께서 <a class="post-info-span-postName" href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=${sort}">${board.category}</a>에 올린 <c:if test="${board.type == 'question'}">질문</c:if> <c:if test="${board.type == 'writing'}">글</c:if> <c:if test="${board.type == 'link'}">링크</c:if>
 										</span> <a class="post-share" href="#">공유하기</a> <a class="post-save" href="#" onclick="test(${board.bno})">보관하기</a>
 									</div>
 									<!--  end of div$post-contents -->
@@ -408,7 +408,7 @@
 												</c:if>
 												<a href="/teamproject/board/listPaging?category=${board.category}&type=all&sort=popular" target="blank">
 													<button class="btnPostTag">${board.category}</button>
-												</a> <a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}&keyword=${keyword}">${board.title}</a> <a href="#" class="post-userId2">${board.writer}</a>
+												</a> <a class="post-title2" href="/teamproject/board/readPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&bno=${board.bno}&category=${board.category}&type=${board.type}&sort=${sort}&keyword=${keyword}">${board.title}</a> <a href="../user/profile-others?writer=${board.writer}" class="post-userId2">${board.writer}</a>
 
 											</div>
 										</div>

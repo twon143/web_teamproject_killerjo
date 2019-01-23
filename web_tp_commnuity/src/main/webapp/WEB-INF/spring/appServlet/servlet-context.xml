@@ -41,16 +41,16 @@
 	</beans:bean> -->
 	
 	<!-- 로컬 서버 이미지 저장소 -->
-	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg
-			value="C:\\study\\lab-spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\web_tp_commnuity\\upload" />
-	</beans:bean>
-	
-	<!-- AWS 서버 이미지 저장소 -->	
 	<!-- <beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg
-			value="/var/lib/tomcat8/webapps/teamproject/upload" />
+			value="C:\\study\\lab-spring\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\web_tp_commnuity\\upload" />
 	</beans:bean> -->
+	
+	<!-- AWS 서버 이미지 저장소 -->	
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg
+			value="/var/lib/tomcat8/webapps/teamproject/upload"/>
+	</beans:bean>
 	
 	<context:component-scan
 		base-package="edu.java.teamproject" />

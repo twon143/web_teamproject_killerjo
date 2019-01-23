@@ -152,8 +152,10 @@
 									src="/teamproject/resources/images/icon_notify.png">
 							</div>
 							<div class="img-profile-div">
-								<img class="img-profile" alt=""
-									src="/teamproject/resources/images/icon_profile.png">
+								<a href="../user/profile">
+									<img class="img-profile" alt=""
+										src="/teamproject/resources/images/icon_profile.png">
+								</a>
 							</div>
 
 							<form>
@@ -290,7 +292,7 @@
 
 						<!-- 게시글 정보 div -->
 						<div class="detailPost-postInfo-div">
-							<a><img class="no-profle-img" alt=""
+							<a href="../user/profile-others?writer=${board.writer}"><img class="no-profle-img" alt=""
 								src="/teamproject/resources/images/icon_blankProfile.png">${board.writer}</a>
 							<fmt:formatDate value="${board.write_date}"
 								pattern="yyyy년 MM월 dd일" var="regDate"/>
@@ -682,6 +684,9 @@
 
 <script>
 	$(document).ready(function() {
+				if($('#login').val() == '' || $('#login').val() == null) {
+					$('.btn-write-answer').attr("disabled", "disabled");
+				}
 				var board_num = $('#bno').val();
 				var divisionAnswer = $('.scope-load-answer');
 				var source = $('#answer-template').html();
@@ -720,7 +725,7 @@
 																						$('.reply-content-textarea-answer').attr("placeholder", "로그인을 하셔야만 댓글을 달수있습니다");
 																						$('.reply-content-textarea-answer').css("background-color", "#eee");
 																						$('.btnRegisterReply').attr("disabled", "disabled");
-																						$('.btn-write-answer').attr("disabled", "disabled");
+																						
 																					}
 																		
 																		
