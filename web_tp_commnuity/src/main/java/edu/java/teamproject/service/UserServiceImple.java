@@ -48,7 +48,7 @@ public class UserServiceImple implements UserService {
 				MailHandler sendMail = new MailHandler(mailSender);
 				sendMail.setSubject("[이메일 인증]");
 				sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
-		                .append("<a href='https://localhost:8443/teamproject/user/emailConfirm?key=")
+		                .append("<a href='https://192.168.11.34:8443/teamproject/user/emailConfirm?key=")
 		                .append(key + "&user_id=")
 		                .append(user.getId() + "&queryString=")
 		                .append(URLEncoder.encode(targetUrl, "utf-8"))

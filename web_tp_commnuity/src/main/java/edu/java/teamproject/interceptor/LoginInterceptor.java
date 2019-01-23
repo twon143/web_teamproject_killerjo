@@ -106,7 +106,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			response.sendRedirect(target);
 		} else if(result != null && result.getVerify() == 0) { // 회원정보는 있지만 메일인증이 되지 않은 경우
 			logger.info("메일인증이 안된 회원 >> 메일인증을 하라고 알림");
-			response.sendRedirect("/teamproject/user/notifyEmailConfirm?url=" + URLEncoder.encode(target, "utf-8"));
+			response.sendRedirect("/teamproject/user/notifyEmailConfirm?queryString=" + URLEncoder.encode(target, "utf-8"));
 			
 		} else { // 로그인 실패
 			logger.info("로그인 실패");

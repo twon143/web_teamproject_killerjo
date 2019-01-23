@@ -268,7 +268,8 @@ div.right-float-div {
 	height: 65px;
 	background-color: ivory;
 	border: 1px solid #bebebe;
-	float: left;
+	/* float: left; */
+	display: block;
 }
 
 

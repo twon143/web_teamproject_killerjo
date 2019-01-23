@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>킬러헌터</title>
+<title>짭스노트 :: 개발자들의 메인 페이지</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -122,7 +122,7 @@
 
 					<div class="mainLogo-font-div">
 						<div class="mainLogo-font-div-div">
-							<a href="/teamproject/" class="logo-font">킬러조</a>
+							<a href="/teamproject/" class="logo-font">짭스노트</a>
 						</div>
 
 					</div>

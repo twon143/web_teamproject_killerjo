@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>킬러헌터</title>
+<title>짭스노트 :: 개발자들의 메인 페이지</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -37,7 +37,7 @@
 							<h4>회원가입</h4>
 						</div>
 						<div class="modal-body">
-							<form action="user/register" method="post">
+							<form action="../user/register" method="post">
 								<div class="form-group">
 									<label for="signup_user_id">아이디</label><br> <input type="text" id="signup_user_id" name="id" placeholder="5~15자의 영문, 숫자로만">
 								</div>
@@ -113,7 +113,7 @@
 
 					<div class="mainLogo-font-div">
 						<div class="mainLogo-font-div-div">
-							<a href="/teamproject/" class="logo-font">킬러조</a>
+							<a href="/teamproject/" class="logo-font">짭스노트</a>
 						</div>
 
 					</div>
