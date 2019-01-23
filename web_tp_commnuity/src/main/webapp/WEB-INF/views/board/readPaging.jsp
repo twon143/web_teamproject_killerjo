@@ -26,7 +26,7 @@
 <link href="<c:url value='/resources/css/reset.css' />" rel="stylesheet"
    type="text/css" />   
 <link href="<c:url value='/resources/css/detailPost.css' />" rel="stylesheet" type="text/css" />
-<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>   
+<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 </head>
 <body>
@@ -373,9 +373,9 @@
 							<textarea id="editor" class="write-answer-textarea" rows="2"
 								cols=""></textarea>
 							<!-- CK Editor -->
-							<script>
+							<!-- <script>
 								CKEDITOR.replace('editor');
-							</script>
+							</script> -->
 						</div>
 
 						<div class="write-answer-btn-div">
@@ -467,6 +467,15 @@
    
    	
       $(function() {
+    	  
+    	// ckeditor setting
+		var ckeditor_config = {
+			filebrowserUploadUrl: '../ckeditorupload3', // 파일 업로드를 처리 할 경로 설정.
+		};
+
+		CKEDITOR.replace('editor', ckeditor_config);
+    	  
+    	  
          // 현재 보고 있는 게시글의 글번호
          var bno = $('#bno').val();
          // 댓글 전체 리스트를 출력할 영역

@@ -293,42 +293,40 @@
          				<select id="select-list" class="select-list">
          					<option>카테고리 선택</option>
          					<optgroup label="언어 및 도구">
-         						<option value="php" >PHP</option>
-         						<option value="javascript">Javascript</option>
-         						<option value="java">Java</option>
-         						<option value="spring">Spring</option>
-         						<option value="nodeJs">node.js</option>
-         						<option value="kotlin">Kotlin</option>
-         						<option value="css">CSS</option>
-         						<option value="python">Python</option>
-         						<option value="jsp">JSP</option>
-         						<option value="jQuery">jQuery</option>
-         						<option value="C#">C#</option>
-         						<option value="reactnative">React Native</option>
+		         				<option value="php">PHP</option>
+	         					<option value="javascript">Javascript</option>
+	         					<option value="java">Java</option>
+	         					<option value="spring">Spring</option>
+	         					<option value="nodejs">node.js</option>
+	         					<option value="swift">Swift</option>
+	         					<option value="kotlin">Kotlin</option>
+	         					<option value="css">CSS</option>
+	         					<option value="python">Python</option>
+	         					<option value="jsp">JSP</option>
+	         					<option value="jquery">jQuery</option>
          					</optgroup>
          					
          					<optgroup label="네트워크와 서버">
-         						<option value="linux">리눅스</option>
-         						<option value="server">서버 관리</option>
-         						<option value="cdn">CDN</option>
-         						<option value="aws">AWS</option>
-         						<option value="api">API</option>
+	         					<option value="linux">리눅스</option>
+	         					<option value="server_management">서버 관리</option>
+	         					<option value="cdn">CDN</option>
+	         					<option value="aws">AWS</option>
+	         					<option value="api">API</option>
          					</optgroup>
          					
          					<optgroup label="데이터베이스">
-         						<option value="sql">SQL</option>
-         						<option value="mysql">MySQL</option>
+	         					<option value="sql">SQL</option>
+	         					<option value="mysql">MySQL</option>
          					</optgroup>
          					<optgroup label="프로젝트 관리">
-         						<option value="git">GIT</option>
+	         					<option value="git">GIT</option>
          					</optgroup>
          					<optgroup label="빅데이터">
-         						<option value="machine">머신러닝</option>
-         						<option value="blockchain">블록체인</option>
+	         					<option value="machine_learning">머신러닝</option>
+	         					<option value="blockchain">블록체인</option>
          					</optgroup>
          					<optgroup label="톡톡">
          						<option value="humor">유머</option>
-         						<option value="php">못해먹겟다ㅅㅂ</option>
          					</optgroup>
          					
          				</select>
@@ -341,6 +339,8 @@
          				
          				</div>
          			</div>
+         			
+         			<input type="hidden" id="get_category" value="${category}">
          			
          			<div class="select-category-div add-category-div">
          				<label class="lbl-select-category">태그</label>
@@ -378,10 +378,41 @@
 
 			CKEDITOR.replace('editor1', ckeditor_config);
 
-			var whetherVisited = false;
+			/* var whetherVisited = false;
 			if (whetherVisited == false) {
 				$('.tag').hide();
 				$('.tag1').hide();
+			} */
+			
+			var get_category = $('#get_category').val();
+			
+			console.log(get_category);
+			
+			/* $('#select-list option[value=get_category]').attr('selected', 'selected'); */
+			
+			$('#select-list').val(get_category);
+			$('#select-result').attr("value", $('#select-list').val());
+			$('.tag').attr("value", get_category);
+			if (get_category == "java" || get_category =="php" || get_category =="javascript" 
+				|| get_category == "spring" || get_category == "nodejs" || get_category == "kotlin"
+				|| get_category == "css" || get_category == "python" || get_category == "jsp"
+				|| get_category == "jquery" || get_category == "swift") {
+				$('.tag1').attr("value", "언어");
+			}
+			
+			else if (get_category == "linux" || get_category == "sever_management" || get_category == "cdn" || get_category == "aws"
+					|| get_category == "api") {
+				$('.tag1').attr("value", "네트워크/서버");
+			}
+			
+			else if (get_category == "sql" || get_category == "mysql") {
+				$('.tag1').attr("value", "데이터베이스");
+			}
+			else if (get_category == "git") {
+				$('.tag1').attr("value", "프로젝트 관리");
+			}
+			else if (get_category == "machine_learning" || get_category == "blockchain") {
+				$('.tag1').attr("value", "빅데이터");
 			}
 
 			$("#select-list").on("change", function() {
@@ -400,13 +431,13 @@
 					console.log(selectValue);
 					$('.tag').attr("value", selectValue);
 					if (selectValue == "java" || selectValue =="php" || selectValue =="javascript" 
-						|| selectValue == "spring" || selectValue == "nodeJs" || selectValue == "kotlin"
+						|| selectValue == "spring" || selectValue == "nodejs" || selectValue == "kotlin"
 						|| selectValue == "css" || selectValue == "python" || selectValue == "jsp"
-						|| selectValue == "jQuery" || selectValue == "C#" || selectValue == "reactnativ") {
+						|| selectValue == "jquery" || selectValue == "swift") {
 						$('.tag1').attr("value", "언어");
 					}
 					
-					else if (selectValue == "linux" || selectValue == "sever" || selectValue == "cdn" || selectValue == "aws"
+					else if (selectValue == "linux" || selectValue == "sever_management" || selectValue == "cdn" || selectValue == "aws"
 							|| selectValue == "api") {
 						$('.tag1').attr("value", "네트워크/서버");
 					}
@@ -417,7 +448,7 @@
 					else if (selectValue == "git") {
 						$('.tag1').attr("value", "프로젝트 관리");
 					}
-					else if (selectValue == "machine" || selectValue == "blockchain") {
+					else if (selectValue == "machine_learning" || selectValue == "blockchain") {
 						$('.tag1').attr("value", "빅데이터");
 					}
 						

@@ -491,7 +491,7 @@
                                 <input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
                                 <input type="hidden" name="category" value="${category}"> --%>
 								<%-- <input type="hidden" name="type" value="${type}"> --%>
-								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
+								<input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}&keyword=${keyword}">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="write-form" method="get">
@@ -500,7 +500,7 @@
                                     <input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
                                     <input type="hidden" name="category" value="${category}"> --%>
 								<%-- <input type="hidden" name="type" value="${type}"> --%>
-								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
+								<input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}&keyword=${keyword}">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 							<form action="write-form" method="get">
@@ -509,7 +509,7 @@
                                     <input type="hidden" name="perPageNum" value="${pageMaker.criteria.perPageNum}">
                                     <input type="hidden" name="category" value="${category}"> --%>
 								<%-- <input type="hidden" name="type" value="${type}"> --%>
-								<input type="hidden" name="queryString" value="/teamproject/board/listPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}">
+								<input type="hidden" name="queryString" value="/teamproject/board/searchPaging${pageMaker.makeQuery(pageMaker.criteria.page)}&category=${category}&type=${type}&sort=${sort}&keyword=${keyword}">
 								<!--   <input type="hidden" name="queryString" value="type=question" /> -->
 							</form>
 						</div>
