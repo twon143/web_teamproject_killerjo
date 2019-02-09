@@ -34,8 +34,6 @@ public class HomeController {
 		
 		logger.info("session 값 확인 : {}", session.getAttribute("login"));
 		
-		System.out.println();
-		
 //		criteria.setPerPageNum(12);
 		
 		model.addAttribute("popularQuestionList", boardService.listCriteria(criteria, "all", "question", "popular"));
